@@ -1,4 +1,4 @@
-# Dynatrace Snippet Repository
+# Dynatrace Snippets
 
 This repository contains scripts and samples for Dynatrace.
 
