@@ -47,7 +47,6 @@ def create_app(test_config=None):
         app.wsgi_app, app.name,
         virtual_host=app.config.get('SERVER_NAME'),
         context_root=app.config.get('APPLICATION_ROOT'))
-    app.before_request(dynatrace.start_web_request)
 
     @app.route('/hello')
     def hello():
@@ -61,6 +60,7 @@ def create_app(test_config=None):
     from flaskr import auth, blog
     app.register_blueprint(auth.bp)
     app.register_blueprint(blog.bp)
+    app.before_request(dynatrace.start_web_request)
 
     # make url_for('index') == url_for('blog.index')
     # in another app, you might define a separate main index here with

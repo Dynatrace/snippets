@@ -14,6 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Disclaimer
+# The contained code is considered educational and NOT SUPPORTED by Dynatrace. 
+# Please use at your own risk. You can contact the author via Github issues.
+#
+
 ''' Dynatrace OneAgent Python SDK utilities
 '''
 
