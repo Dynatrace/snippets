@@ -1,7 +1,7 @@
 Monitoring Flask application with Dynatrace
 ======
 
-The basic blog app built in the Flask `tutorial <http://flask.pocoo.org/docs/tutorial/>`_ instrumented with `OneAgent SDK for Python <https://github.com/Dynatrace/OneAgent-SDK-for-Python>`_ for full stack monitoring in Dynatrace. The blog post `From monitoring to software intelligence for Flask applications <https://www.dynatrace.com/news/blog/monitoring-flask-applications>`_ describes this sample.
+The basic blog app built in the Flask `tutorial <http://flask.pocoo.org/docs/tutorial/>`_ instrumented with `OneAgent SDK for Python <https://github.com/Dynatrace/OneAgent-SDK-for-Python>`_ for full stack monitoring in Dynatrace. The blog post `From monitoring to software intelligence for Flask applications <https://www.dynatrace.com/news/blog/from-monitoring-to-software-intelligence-for-flask-applications/>`_ describes this sample.
 
 Disclaimer
 -------
