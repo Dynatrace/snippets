@@ -12,7 +12,7 @@ What is Digital Business Analytics?</br>
 TBD…</br>
 </br>
 How do I deploy the dashboards?</br>
-1.	Download a zip from GitHub (URL TDB)
+1.	Download a zip from this repo
 2.	Unzip into any directory
 3.	Create a cfg file with a 3-digit prefix (i.e. 313.cfg)
 4.	Example: </br>
