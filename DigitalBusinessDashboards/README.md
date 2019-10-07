@@ -67,7 +67,7 @@ How do I change the time filters in the Comparison Dashboards?</br>
 a.	Token
 b.	3-digit prefix you used in DeployTenant/DeployApplication/DeployFunnel
 c.	Compare hours (i.e. 12)
-This will update the Compare Dashboards for the Tenant/App/Funnel with a time filter of X in the upper half and X*2 in the bottom half of the Compare Dashboards. My example will filter the top tiles for last 12 hours and the bottom tiles with the previous 12 hours.
+This will update the Compare Dashboards for the Tenant/App/Funnel with a time filter of X in the upper half and X*2 in the bottom half of the Compare Dashboards. My example will filter the top tiles for last 12 hours and the bottom tiles with the previous 12 hours.</br>
 </br>
 How do I change the application name in the Comparison Dashboards so the top half shows one app and the bottom half shows a different app (i.e. A/B testing)?</br>
 </br>
