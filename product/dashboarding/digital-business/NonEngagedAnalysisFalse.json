@@ -1,0 +1,141 @@
+﻿{
+  "metadata": {
+    "configurationVersions": [
+      2
+    ],
+    "clusterVersion": "1.175.0.20190731-173405"
+  },
+  "id": "7f063e1f-e142-44f1-81a0-523f7e5da313",
+  "dashboardMetadata": {
+    "name": "\uD83D\uDE34 Nonengaged Analysis",
+    "shared": true,
+    "owner": "MyEmail",
+    "sharingDetails": {
+      "linkShared": true,
+      "published": true
+    },
+    "dashboardFilter": {
+      "timeframe": "l_2_HOURS",
+      "managementZone": null
+    }
+  },
+  "tiles": [
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 494,
+        "width": 266,
+        "height": 152
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\uD83C\uDFC1",
+      "query": "select count(usersessionid) as \"Conversions\"  FROM usersession where useraction.application=\"MyApp\" and duration > 180000 and userActionCount < 10 and userid is not null and useraction.name=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1558,
+        "width": 114,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Return](#dashboard;id=6e481cc8-bea9-46ba-b1f8-23ebcc1da313)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 494,
+        "width": 266,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Conversions](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22Users%22%20%20FROM%20usersession%20where%20duration%20%3E%20180000%20and%20userActionCount%20%3C%2010%20and%20userid%20is%20not%20null%20and%20useraction.name%3D%22LastStep%22&visualization=TABLE)"
+    },
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 874,
+        "width": 266,
+        "height": 152
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\uD83D\uDE22",
+      "query": "select count(usersessionid) as \"Abandons\"  FROM usersession where useraction.application=\"MyApp\" and duration > 180000 and userActionCount < 10 and userid is not null and useraction.name=\"Step1\" and useraction.name!=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 874,
+        "width": 266,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Abandons](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22Users%22%20%20FROM%20usersession%20where%20duration%20%3E%20180000%20and%20userActionCount%20%3C%2010%20and%20userid%20is%20not%20null%20and%20useraction.name%3D%22Step1%22%20and%20useraction.name!%3D%22LastStep%22&visualization=TABLE)"
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 0,
+        "width": 1634,
+        "height": 570
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\uD83D\uDE34",
+      "query": "select DISTINCT DATETIME(starttime, \"HH:mm\", \"10m\") as \"Time\",count(usersessionid) as \"Sessions\" from usersession where useraction.application=\"MyApp\" and duration > 180000 and userActionCount < 10 and userid is not null and useraction.name=\"Step1\"",
+      "type": "COLUMN_CHART"
+    },
+    {
+      "name": "Nonengaged Sessions Over Time",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 228,
+        "left": 0,
+        "width": 380,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    }
+  ]
+}

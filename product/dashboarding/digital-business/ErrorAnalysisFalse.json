@@ -1,0 +1,310 @@
+﻿{
+  "metadata": {
+    "configurationVersions": [
+      2
+    ],
+    "clusterVersion": "1.175.0.20190731-173405"
+  },
+  "id": "8a487b1b-c491-41f7-adf2-7460165da313",
+  "dashboardMetadata": {
+    "name": "\uD83D\uDEA8 Error Analysis",
+    "shared": true,
+    "owner": "MyEmail",
+    "sharingDetails": {
+      "linkShared": true,
+      "published": true
+    },
+    "dashboardFilter": {
+      "timeframe": "l_2_HOURS",
+      "managementZone": null
+    }
+  },
+  "tiles": [
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 532,
+        "width": 266,
+        "height": 190
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\ud83d\ude22",
+      "query": "select count(distinct userSessionId) as \"Conversions\"  FROM usersession where useraction.application=\"MyApp\" and\n\ttotalErrorCount > 2 and useraction.name=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 266,
+        "width": 266,
+        "height": 190
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\ud83d\ude12",
+      "query": "select count(distinct userSessionId) as \"Conversions\"  FROM usersession where useraction.application=\"MyApp\" and\n\ttotalErrorCount IN (1,2) and useraction.name=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 266,
+        "height": 190
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\ud83d\ude00",
+      "query": "select count(distinct userSessionId) as \"Conversions\"  FROM usersession where useraction.application=\"MyApp\" and\n\ttotalErrorCount=0 and useraction.name=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1558,
+        "width": 114,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Return](#dashboard;id=6e481cc8-bea9-46ba-b1f8-23ebcc1da313)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 266,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [No Erros (0)](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22User%22%20FROM%20usersession%20where%0A%09totalErrorCount%3D0%20and%20useraction.name%3D%22LastStep%22%20%0A&visualization=TABLE)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 266,
+        "width": 266,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Low Errors (1-2)](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22User%22,%20totalErrorCount%20as%20%22Errors%22%20%20FROM%20usersession%20where%0A%09totalErrorCount%20IN%20(1,2)%20and%20useraction.name%3D%22LastStep%22%20order%20by%20totalErrorCount%20DESC%0A&visualization=TABLE)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 532,
+        "width": 190,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [High Errors (3+)](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22User%22,%20totalErrorCount%20as%20%22Errors%22%20%20FROM%20usersession%20where%0A%09useraction.name%3D%22Step1%22%20and%20totalErrorCount%20%3E%202%20and%20useraction.name%3D%22LastStep%22%20&visualization=TABLE)"
+    },
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 836,
+        "width": 266,
+        "height": 190
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\ud83d\ude00",
+      "query": "select count(distinct userSessionId) as \"Abandons\"  FROM usersession where useraction.application=\"MyApp\" and\n\ttotalErrorCount=0 and useraction.name=\"Step1\" and useraction.name!=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1102,
+        "width": 266,
+        "height": 190
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\ud83d\ude12",
+      "query": "select count(distinct userSessionId) as \"Abandons\"  FROM usersession where useraction.application=\"MyApp\" and\n\ttotalErrorCount IN (1,2) and useraction.name=\"Step1\" and useraction.name!=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1368,
+        "width": 266,
+        "height": 190
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\ud83d\ude22",
+      "query": "select count(distinct userSessionId) as \"Abandons\"  FROM usersession where useraction.application=\"MyApp\" and\n\ttotalErrorCount > 2 and useraction.name=\"Step1\" and useraction.name!=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 836,
+        "width": 266,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [No Errors (0)](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22User%22%20FROM%20usersession%20where%0A%09useraction.name%3D%22Step1%22%20and%20totalErrorCount%3D0%20and%20useraction.name!%3D%22LastStep%22&visualization=TABLE)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1102,
+        "width": 266,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Low Errors (1-2)](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22User%22,%20totalErrorCount%20as%20%22Errors%22%20%20FROM%20usersession%20where%0A%09useraction.name%3D%22Step1%22%20and%20totalErrorCount%20IN%20(1,2)%20and%20useraction.name!%3D%22LastStep%22%20order%20by%20totalErrorCount%20DESC&visualization=TABLE)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1368,
+        "width": 190,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [High Errors (3+)](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22User%22,%20totalErrorCount%20as%20%22Errors%22%20%20FROM%20usersession%20where%0A%09useraction.name%3D%22Step1%22%20and%20totalErrorCount%20%3E%202%20and%20useraction.name!%3D%22LastStep%22%20order%20by%20totalErrorCount%20DESC%0A&visualization=TABLE)"
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 304,
+        "left": 0,
+        "width": 798,
+        "height": 532
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\ud83d\ude12",
+      "query": "select DISTINCT DATETIME(starttime, \"HH:mm\", \"10m\") as \"Time\", sum(usersession.totalErrorCount) as \"Errors\" FROM usersession",
+      "type": "COLUMN_CHART"
+    },
+    {
+      "name": "Errors Over Time",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 0,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 304,
+        "left": 836,
+        "width": 798,
+        "height": 532
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\ud83d\ude12",
+      "query": "select distinct name, sum(usersession.totalErrorCount) as \"Errors\" from useraction where useraction.application=\"MyApp\" and errorcount>0 order by usersession.totalErrorCount",
+      "type": "COLUMN_CHART"
+    },
+    {
+      "name": "Top User Actions",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 836,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    }
+  ]
+}
