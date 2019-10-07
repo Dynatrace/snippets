@@ -1,0 +1,209 @@
+﻿{
+	"metadata": {
+		"configurationVersions": [
+			2
+		],
+		"clusterVersion": "1.175.0.20190729-125021"
+	},
+	"id": "7f063e1f-e142-44f1-81a0-523f7e5da313",
+	"dashboardMetadata": {
+		"name": "\ud83d\ude34 Nonengaged Analysis",
+		"shared": true,
+		"owner": "MyEmail",
+		"sharingDetails": {
+			"linkShared": true,
+			"published": true
+		},
+		"dashboardFilter": {
+			"timeframe": "l_2_HOURS",
+			"managementZone": null
+		}
+	},
+	"tiles": [
+		{
+			"name": "DTAQL",
+			"tileType": "DTAQL",
+			"configured": true,
+			"bounds": {
+				"top": 38,
+				"left": 874,
+				"width": 266,
+				"height": 152
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"customName": "\uD83C\uDFC1",
+			"query": "select count(usersessionid) as \"Conversions\"  FROM usersession where useraction.application=\"MyApp\" and duration > 180000 and userActionCount < 10 and userid is not null and useraction.name=\"LastStep\"",
+			"type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+		},
+		{
+			"name": "Markdown",
+			"tileType": "MARKDOWN",
+			"configured": true,
+			"bounds": {
+				"top": 0,
+				"left": 1558,
+				"width": 114,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"markdown": "## [Return](#dashboard;id=6e481cc8-bea9-46ba-b1f8-23ebcc1da313)"
+		},
+		{
+			"name": "Markdown",
+			"tileType": "MARKDOWN",
+			"configured": true,
+			"bounds": {
+				"top": 0,
+				"left": 874,
+				"width": 266,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"markdown": "## [Conversions](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22Users%22%20%20FROM%20usersession%20where%20duration%20%3E%20180000%20and%20userActionCount%20%3C%2010%20and%20userid%20is%20not%20null%20and%20useraction.name%3D%22LastStep%22&visualization=TABLE)"
+		},
+		{
+			"name": "DTAQL",
+			"tileType": "DTAQL",
+			"configured": true,
+			"bounds": {
+				"top": 38,
+				"left": 152,
+				"width": 266,
+				"height": 152
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"customName": "\ud83d\udcb0",
+			"query": "select sum(revenueproperty) as \"Revenue\"  FROM usersession where useraction.application=\"MyApp\" and duration > 180000 and userActionCount < 10 and useraction.name=\"LastStep\"",
+			"type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+		},
+		{
+			"name": "Markdown",
+			"tileType": "MARKDOWN",
+			"configured": true,
+			"bounds": {
+				"top": 0,
+				"left": 152,
+				"width": 266,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"markdown": "## [Revenue](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22User%22,%20revenueproperty%20as%20%22Revenue%22%20%20FROM%20usersession%20where%0A%09stringProperties.incomplete%3D%22Please%20enter%20your%20credit%20card%20number.%22%20and%20useraction.name%3D%22LastStep%22%20and%0A%09revenueproperty%3E0%0A&visualization=TABLE)"
+		},
+		{
+			"name": "DTAQL",
+			"tileType": "DTAQL",
+			"configured": true,
+			"bounds": {
+				"top": 38,
+				"left": 494,
+				"width": 266,
+				"height": 152
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"customName": "\ud83d\udcb0",
+			"query": "select sum(revenueproperty) as \"Lost Revenue\"  FROM usersession where useraction.application=\"MyApp\" and duration > 180000 and userActionCount < 10 and useraction.name!=\"LastStep\"",
+			"type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+		},
+		{
+			"name": "DTAQL",
+			"tileType": "DTAQL",
+			"configured": true,
+			"bounds": {
+				"top": 38,
+				"left": 1216,
+				"width": 266,
+				"height": 152
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"customName": "\u2620",
+			"query": "select count(usersessionid) as \"Abandons\"  FROM usersession where useraction.application=\"MyApp\" and duration > 180000 and userActionCount < 10 and userid is not null and useraction.name!=\"LastStep\"",
+			"type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+		},
+		{
+			"name": "Markdown",
+			"tileType": "MARKDOWN",
+			"configured": true,
+			"bounds": {
+				"top": 0,
+				"left": 494,
+				"width": 266,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"markdown": "## [Lost Revenue](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22User%22,%20revenueproperty%20as%20%22Revenue%22%20%20FROM%20usersession%20where%0A%09stringProperties.incomplete%3D%22Please%20enter%20your%20credit%20card%20number.%22%20and%20useraction.name!%3D%22LastStep%22%20and%0A%09revenueproperty%3E0%0A&visualization=TABLE)"
+		},
+		{
+			"name": "Markdown",
+			"tileType": "MARKDOWN",
+			"configured": true,
+			"bounds": {
+				"top": 0,
+				"left": 1216,
+				"width": 266,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"markdown": "## [Abandons](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22Users%22%20%20FROM%20usersession%20where%20duration%20%3E%20180000%20and%20userActionCount%20%3C%2010%20and%20userid%20is%20not%20null%20and%20useraction.name!%3D%22LastStep%22&visualization=TABLE)"
+		},
+		{
+			"name": "User Sessions Query",
+			"tileType": "DTAQL",
+			"configured": true,
+			"bounds": {
+				"top": 266,
+				"left": 0,
+				"width": 1634,
+				"height": 342
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"customName": "\ud83d\ude34",
+			"query": "select DISTINCT DATETIME(starttime, \"HH:mm\", \"10m\") as \"Time\",count(usersessionid) as \"Sessions\" from usersession where useraction.application=\"MyApp\" and duration > 180000 and userActionCount < 10 and userid is not null ",
+			"type": "COLUMN_CHART"
+		},
+		{
+			"name": "Nonengaged Sessions Over Time",
+			"tileType": "HEADER",
+			"configured": true,
+			"bounds": {
+				"top": 228,
+				"left": 0,
+				"width": 380,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			}
+		}
+	]
+}
