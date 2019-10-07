@@ -62,18 +62,18 @@ This will create a Funnel Overview Dashboard and link it to the Application Over
 </br>
 How do I change the time filters in the Comparison Dashboards?</br>
 </br>
-1.	Open windows cmd prompt and CD to the directory where the files were unzipped
-2.	Run UpdateTimeCompareDashboards.bat and pass in the following parameters
-a.	Token
-b.	3-digit prefix you used in DeployTenant/DeployApplication/DeployFunnel
-c.	Compare hours (i.e. 12)
+1.	Open windows cmd prompt and CD to the directory where the files were unzipped</br>
+2.	Run UpdateTimeCompareDashboards.bat and pass in the following parameters</br>
+  a.	Token</br>
+  b.	3-digit prefix you used in DeployTenant/DeployApplication/DeployFunnel</br>
+  c.	Compare hours (i.e. 12)</br>
 This will update the Compare Dashboards for the Tenant/App/Funnel with a time filter of X in the upper half and X*2 in the bottom half of the Compare Dashboards. My example will filter the top tiles for last 12 hours and the bottom tiles with the previous 12 hours.</br>
 </br>
 How do I change the application name in the Comparison Dashboards so the top half shows one app and the bottom half shows a different app (i.e. A/B testing)?</br>
 </br>
-1.	Open windows cmd prompt and CD to the directory where the files were unzipped
-2.	Run UpdateAppCompareDashboards.bat and pass in the following parameters
-a.	Token
-b.	3-digit prefix you used in DeployTenant/DeployApplication/DeployFunnel for the primary app (top half of dashboard)
-c.	3-digit prefix you used in DeployTenant/DeployApplication/DeployFunnel for the secondary app (bottom half of dashboard)
+1.	Open windows cmd prompt and CD to the directory where the files were unzipped</br>
+2.	Run UpdateAppCompareDashboards.bat and pass in the following parameters</br>
+  a.	Token</br>
+  b.	3-digit prefix you used in DeployTenant/DeployApplication/DeployFunnel for the primary app (top half of dashboard)</br>
+  c.	3-digit prefix you used in DeployTenant/DeployApplication/DeployFunnel for the secondary app (bottom half of dashboard)</br>
 This will update the Compare Dashboards for the Tenant/App/Funnel with a time filter of X in the upper half and X*2 in the bottom half of the Compare Dashboards. My example will filter the top tiles for last 12 hours and the bottom tiles with the previous 12 hours.
