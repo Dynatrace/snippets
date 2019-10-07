@@ -1,0 +1,310 @@
+﻿{
+  "metadata": {
+    "configurationVersions": [
+      2
+    ],
+    "clusterVersion": "1.175.0.20190731-173405"
+  },
+  "id": "c16cb11a-22be-41ab-a336-412369ada313",
+  "dashboardMetadata": {
+    "name": "\u23f1 Duration Analysis",
+    "shared": true,
+    "owner": "MyEmail",
+    "sharingDetails": {
+      "linkShared": true,
+      "published": true
+    },
+    "dashboardFilter": {
+      "timeframe": "l_2_HOURS",
+      "managementZone": null
+    }
+  },
+  "tiles": [
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 532,
+        "width": 266,
+        "height": 190
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\ud83d\udc22",
+      "query": "select count(distinct userSessionId) as \"Conversions\"  FROM usersession where useraction.application=\"MyApp\" and\n\tduration>180000 and useraction.name=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 266,
+        "width": 266,
+        "height": 190
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\ud83d\udc07",
+      "query": "select count(distinct userSessionId) as \"Conversions\"  FROM usersession where useraction.application=\"MyApp\" and\n\tduration>60000 AND duration<=180000 and useraction.name=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 266,
+        "height": 190
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\ud83d\udc0e",
+      "query": "select count(distinct userSessionId) as \"Conversions\"  FROM usersession where useraction.application=\"MyApp\" and\n\tduration<=60000 and useraction.name=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1558,
+        "width": 114,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Return](#dashboard;id=6e481cc8-bea9-46ba-b1f8-23ebcc1da313)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 266,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Fast Duration (<1m)](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22User%22,%20duration%20as%20%22Duration%22%20FROM%20usersession%20where%0A%09duration%3C%3D60000%20and%20useraction.name%3D%22LastStep%22%20order%20by%20duration%20desc%0A&visualization=TABLE)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 266,
+        "width": 266,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Medium Duration (1-3m)](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22User%22,%20duration%20as%20%22Duration%22%20%20FROM%20usersession%20where%0A%09duration%3E60000%20AND%20duration%3C%3D180000%20and%20useraction.name%3D%22LastStep%22%20order%20by%20duration%20desc&visualization=TABLE)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 532,
+        "width": 190,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Slow Duration (>3m)](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22User%22,%20duration%20as%20%22Duration%22%20%20FROM%20usersession%20where%0A%09duration%3E180000%20and%20useraction.name%3D%22LastStep%22%20order%20by%20duration%20desc&visualization=TABLE)"
+    },
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 798,
+        "width": 266,
+        "height": 190
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\ud83d\udc0e",
+      "query": "select count(distinct userSessionId) as \"Abandons\"  FROM usersession where useraction.application=\"MyApp\" and\n\tduration<=60000 and useraction.name=\"Step1\" and useraction.name!=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1064,
+        "width": 266,
+        "height": 190
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\ud83d\udc07",
+      "query": "select count(distinct userSessionId) as \"Abandons\"  FROM usersession where useraction.application=\"MyApp\" and\n\tduration>60000 AND duration<=180000 and useraction.name=\"Step1\" and useraction.name!=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1330,
+        "width": 266,
+        "height": 190
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\ud83d\udc22",
+      "query": "select count(distinct userSessionId) as \"Abandons\"  FROM usersession where useraction.application=\"MyApp\" and\n\tduration>180000 and useraction.name=\"Step1\" and useraction.name!=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 798,
+        "width": 266,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Fast Duration (<1m)](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22User%22,%20duration%20as%20%22Duration%22%20%20FROM%20usersession%20where%0A%09duration%3C%3D60000%20and%20useraction.name%3D%22Step1%22%20and%20useraction.name!%3D%22LastStep%22%20order%20by%20duration%20desc%0A&visualization=TABLE)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1064,
+        "width": 266,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Medium Duration (1-3m)](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22User%22,%20duration%20as%20%22Duration%22%20%20FROM%20usersession%20where%0A%09duration%3E60000%20AND%20duration%3C%3D180000%20and%20useraction.name%3D%22Step1%22%20and%20useraction.name!%3D%22LastStep%22%20ORDER%20BY%20duration%20desc%0A&visualization=TABLE)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1330,
+        "width": 228,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Slow Duration (>3m)](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22User%22,%20duration%20as%20%22Duration%22%20%20FROM%20usersession%20where%0A%09duration%3E180000%20and%20useraction.name%3D%22Step1%22%20and%20useraction.name!%3D%22LastStep%22%20ORDER%20BY%20duration%20DESC%0A&visualization=TABLE)"
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 304,
+        "left": 0,
+        "width": 798,
+        "height": 532
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\u23f1",
+      "query": "select DISTINCT DATETIME(starttime, \"HH:mm\", \"10m\") as \"Time\", avg(useraction.duration) as \"Duration\" FROM usersession where useraction.application=\"MyApp\" and useraction.name=\"LastStep\" ",
+      "type": "COLUMN_CHART"
+    },
+    {
+      "name": "User Action Duration Over Time",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 0,
+        "width": 380,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 304,
+        "left": 798,
+        "width": 798,
+        "height": 532
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\u23f1",
+      "query": "select distinct name, avg(duration) as \"Duration\" from useraction where useraction.application=\"MyApp\" order by Duration DESC",
+      "type": "COLUMN_CHART"
+    },
+    {
+      "name": "Top Slow Actions",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 798,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    }
+  ]
+}
