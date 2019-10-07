@@ -1,0 +1,275 @@
+﻿{
+  "metadata": {
+    "configurationVersions": [
+      2
+    ],
+    "clusterVersion": "1.175.0.20190731-173405"
+  },
+  "id": "0d81ee7c-f7ba-4626-a087-60b76ecda313",
+  "dashboardMetadata": {
+    "name": "\uD83C\uDFC1 Conversion Analysis",
+    "shared": true,
+    "owner": "MyEmail",
+    "sharingDetails": {
+      "linkShared": true,
+      "published": true
+    },
+    "dashboardFilter": {
+      "timeframe": "l_2_HOURS",
+      "managementZone": null
+    }
+  },
+  "tiles": [
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 190,
+        "width": 190,
+        "height": 266
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\uD83D\uDE0A",
+      "query": "select count(distinct userSessionId) as \"Conversions\" FROM usersession where useraction.application=\"MyApp\" and\n\tuserExperienceScore=\"SATISFIED\" and useraction.name=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 380,
+        "width": 190,
+        "height": 266
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\uD83D\uDE1F",
+      "query": "select count(distinct userSessionId) as \"Conversions\" FROM usersession where useraction.application=\"MyApp\" and\n\tuserExperienceScore=\"TOLERATED\" and useraction.name=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 570,
+        "width": 190,
+        "height": 266
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\uD83D\uDE22",
+      "query": "select count(distinct userSessionId) as \"Conversions\" FROM usersession where useraction.application=\"MyApp\" and\n\tuserExperienceScore=\"FRUSTRATED\" and useraction.name=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1520,
+        "width": 152,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Return](#dashboard;id=65312f05-ca6c-4896-b2b4-1bc8ce3da313)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 190,
+        "width": 152,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Satisfied](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userId%20as%20%22User%22%20FROM%20usersession%20where%0A%09userExperienceScore%3D%22SATISFIED%22%20and%20useraction.name%3D%22LastStep%22%20%0A)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 380,
+        "width": 152,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Tolerated](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userId%20as%20%22User%22%20FROM%20usersession%20where%0A%09userExperienceScore%3D%22TOLERATED%22%20and%20useraction.name%3D%22LastStep%22%20%0A)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 570,
+        "width": 152,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Frustrated](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userId%20as%20%22User%22%20FROM%20usersession%20where%0A%09userExperienceScore%3D%22FRUSTRATED%22%20and%20useraction.name%3D%22LastStep%22%20%0A)"
+    },
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 0,
+        "width": 1596,
+        "height": 494
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\uD83C\uDFC1",
+      "query": "select distinct DATETIME(starttime, \"HH:mm\", \"10m\") as \"Time\", count(userSessionId) as \"Conversions\" FROM usersession where useraction.application=\"MyApp\" and\n\tuseraction.name=\"LastStep\"",
+      "type": "COLUMN_CHART"
+    },
+    {
+      "name": "Conversions Over Time",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 304,
+        "left": 0,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    },
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 836,
+        "width": 380,
+        "height": 266
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\uD83C\uDFC1",
+      "query": "SELECT userExperienceScore, count(userSessionId) FROM usersession where useraction.application=\"MyApp\" and useraction.name=\"LastStep\" group by userExperienceScore order by count(userSessionId) desc",
+      "type": "PIE_CHART"
+    },
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1216,
+        "width": 380,
+        "height": 266
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\uD83C\uDFC1",
+      "query": "SELECT browserFamily, count(userSessionId) FROM usersession where useraction.application=\"MyApp\" and useraction.name=\"LastStep\" group by browserFamily order by count(userSessionId) desc",
+      "type": "PIE_CHART"
+    },
+    {
+      "name": "Conversions by Apdex",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 836,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    },
+    {
+      "name": "Conversions by Browser",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1216,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    },
+    {
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 190,
+        "height": 266
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "\uD83C\uDFC1",
+      "query": "select count(distinct userSessionId) as \"Conversions\" FROM usersession where useraction.application=\"MyApp\" and\n\tuseraction.name=\"LastStep\"",
+      "type": "SINGLE_VALUE", "timeFrameShift": "-2h"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 190,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Conversions](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userId%20as%20%22User%22%20FROM%20usersession%20where%0A%09useraction.name%3D%22LastStep%22%0A)"
+    }
+  ]
+}
