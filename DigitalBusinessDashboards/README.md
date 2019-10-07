@@ -60,3 +60,10 @@ How do I deploy a second funnel to an app?</br>
 4.	For example, DeployFunnel.bat 858585dhdh8 808 734 2</br>
 This will create a Funnel Overview Dashboard and link it to the Application Overview Dashboard. It will also create many Funnel related Dashboards. It will also update the Key Store for the Funnel deployment.
  </br>
+How do I change the time filters in the Comparison Dashboards?
+1.	Open windows cmd prompt and CD to the directory where the files were unzipped
+2.	Run UpdateTimeCompareDashboards.bat and pass in the following parameters
+a.	Token
+b.	3-digit prefix you used in DeployTenant/DeployApplication/DeployFunnel
+c.	Compare hours (i.e. 12)
+This will update the Compare Dashboards for the Tenant/App/Funnel with a time filter of X in the upper half and X*2 in the bottom half of the Compare Dashboards. My example will filter the top tiles for last 12 hours and the bottom tiles with the previous 12 hours.
