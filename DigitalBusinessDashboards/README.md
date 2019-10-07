@@ -5,8 +5,6 @@ Prereqs:
   1. The batch scripts uses Curl and Powershell. 
   2. Add a session property for revenue if it applies for your application (Applications->[Your App]->Edit->Session and User action prop)
   3. Generate a read/write token (Settings->Integration->Dynatrace API->Generate Token)
-  4. Download a zip file for entire repository
-  5. Unzip the file into any directory
   
 What is Digital Business Analytics?</br>
 TBD…</br>
