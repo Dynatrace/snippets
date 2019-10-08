@@ -294,6 +294,7 @@ echo | set /p=.
 curl -X PUT "https://!tenant!/api/config/v1/dashboards/6e481cc8-bea9-46ba-b1f8-23ebdd1da%dashboardkey%" -H "accept: application/json; charset=utf-8" -H "Authorization: Api-Token %1" -H "Content-Type: application/json; charset=utf-8" -d @./Transform\FunnelOverview!revflag!Compare.json
 echo | set /p=.
 if !revenue! NEQ NOREVENUE (curl -X PUT "https://!tenant!/api/config/v1/dashboards/f8c73b94-d5ef-4cbf-bcb8-d866c91da%dashboardkey%" -H "accept: application/json; charset=utf-8" -H "Authorization: Api-Token %1" -H "Content-Type: application/json; charset=utf-8" -d @./Transform\RevenueAnalysis.json
+curl -X PUT "https://!tenant!/api/config/v1/dashboards/b85ba6e4-e575-4cbb-b7b4-7621bbada%dashboardkey%" -H "accept: application/json; charset=utf-8" -H "Authorization: Api-Token %1" -H "Content-Type: application/json; charset=utf-8" -d @./Transform\RevenueCompare.json
 curl -X PUT "https://!tenant!/api/config/v1/dashboards/834e194e-a9bc-406a-9696-40afcc0da%dashboardkey%" -H "accept: application/json; charset=utf-8" -H "Authorization: Api-Token %1" -H "Content-Type: application/json; charset=utf-8" -d @./Transform\RiskRevenueAnalysis.json
 echo | set /p=.
 curl -X PUT "https://!tenant!/api/config/v1/dashboards/361e6756-3227-43bb-9fdd-69305feda%dashboardkey%" -H "accept: application/json; charset=utf-8" -H "Authorization: Api-Token %1" -H "Content-Type: application/json; charset=utf-8" -d @./Transform\LostRevenueAnalysis.json
