@@ -27,7 +27,7 @@
       "bounds": {
         "top": 76,
         "left": 0,
-        "width": 304,
+        "width": 266,
         "height": 228
       },
       "tileFilter": {
@@ -44,8 +44,8 @@
       "configured": true,
       "bounds": {
         "top": 76,
-        "left": 304,
-        "width": 304,
+        "left": 266,
+        "width": 266,
         "height": 228
       },
       "tileFilter": {
@@ -62,8 +62,8 @@
       "configured": true,
       "bounds": {
         "top": 76,
-        "left": 608,
-        "width": 304,
+        "left": 532,
+        "width": 266,
         "height": 228
       },
       "tileFilter": {
@@ -81,7 +81,7 @@
       "bounds": {
         "top": 380,
         "left": 0,
-        "width": 1520,
+        "width": 1596,
         "height": 456
       },
       "tileFilter": {
@@ -99,7 +99,7 @@
       "bounds": {
         "top": 38,
         "left": 0,
-        "width": 304,
+        "width": 266,
         "height": 38
       },
       "tileFilter": {
@@ -114,8 +114,8 @@
       "configured": true,
       "bounds": {
         "top": 38,
-        "left": 304,
-        "width": 304,
+        "left": 266,
+        "width": 266,
         "height": 38
       },
       "tileFilter": {
@@ -130,8 +130,8 @@
       "configured": true,
       "bounds": {
         "top": 38,
-        "left": 608,
-        "width": 304,
+        "left": 532,
+        "width": 266,
         "height": 38
       },
       "tileFilter": {
@@ -162,8 +162,8 @@
       "configured": true,
       "bounds": {
         "top": 76,
-        "left": 912,
-        "width": 304,
+        "left": 1064,
+        "width": 266,
         "height": 228
       },
       "tileFilter": {
@@ -180,8 +180,8 @@
       "configured": true,
       "bounds": {
         "top": 76,
-        "left": 1216,
-        "width": 304,
+        "left": 1330,
+        "width": 266,
         "height": 228
       },
       "tileFilter": {
@@ -198,8 +198,8 @@
       "configured": true,
       "bounds": {
         "top": 38,
-        "left": 912,
-        "width": 304,
+        "left": 1064,
+        "width": 266,
         "height": 38
       },
       "tileFilter": {
@@ -214,8 +214,8 @@
       "configured": true,
       "bounds": {
         "top": 38,
-        "left": 1216,
-        "width": 304,
+        "left": 1330,
+        "width": 266,
         "height": 38
       },
       "tileFilter": {
@@ -270,6 +270,40 @@
         "managementZone": null
       },
       "markdown": "## [Lost Revenue](#dashboard;id=361e6756-3227-43bb-9fdd-69305feda313)"
+    },
+	{
+      "name": "DTAQL",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 76,
+        "left": 798,
+        "width": 266,
+        "height": 228
+      },
+     "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "😊",
+      "query": "select avg(revenueproperty) as \"Average Order Value\" FROM usersession where useraction.application=\"MyApp\" and useraction.name=\"LastStep\"",
+      "type": "SINGLE_VALUE"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 798,
+        "width": 266,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [Average Order Value](https://MyTenant/ui/user-sessions/query?sessionquery=select%20userid%20as%20%22User%22,%20revenueproperty%20as%20%22Revenue%22%20FROM%20usersession%20where%20useraction.name%20%3D%20%22LastStep%22%20and%20revenueproperty%3E0%20order%20by%20revenueproperty%20DESC&visualization=TABLE)"
     }
   ]
 }
