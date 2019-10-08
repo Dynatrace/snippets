@@ -144,6 +144,7 @@ echo Uploading Compare Dashboards...
 REM Upload dashboards
 curl -X PUT "https://!tenant!/api/config/v1/dashboards/56d9f8de-c0d1-4b91-8930-6641a73da%dashboardkey%" -H "accept: application/json; charset=utf-8" -H "Authorization: Api-Token %1" -H "Content-Type: application/json; charset=utf-8" -d @./Transform\AppOverviewCompare.json
 curl -X PUT "https://!tenant!/api/config/v1/dashboards/6e481cc8-bea9-46ba-b1f8-23ebdd1da%dashboardkey%" -H "accept: application/json; charset=utf-8" -H "Authorization: Api-Token %1" -H "Content-Type: application/json; charset=utf-8" -d @./Transform\FunnelOverview!revflag!Compare.json
+if !revenue! NEQ NOREVENUE (curl -X PUT "https://!tenant!/api/config/v1/dashboards/b85ba6e4-e575-4cbb-b7b4-7621bbada%dashboardkey%" -H "accept: application/json; charset=utf-8" -H "Authorization: Api-Token %1" -H "Content-Type: application/json; charset=utf-8" -d @./Transform\RevenueCompare.json)
 echo *********                             *********
 echo ********* Compare Dashboards Deployed *********
 echo *********                             *********

@@ -257,7 +257,7 @@
 				"managementZone": null
 			},
 			"customName": "\ud83d\ude12",
-			"query": "select sum(usersession.totalErrorCount) as \"Errors\" from usersession where useraction.application=\"MyApp\" useraction.name = \"Step1\" and useraction.name = \"Step2\" and and useraction.name=\"Step3\" and useraction.name=\"Step4\"",
+			"query": "select sum(usersession.totalErrorCount) as \"Errors\" from usersession where useraction.application=\"MyApp\" and useraction.name = \"Step1\" and useraction.name = \"Step2\" and useraction.name=\"Step3\" and useraction.name=\"Step4\"",
 			"type": "SINGLE_VALUE", "timeFrameShift": "-2h"
 		},
 		{
