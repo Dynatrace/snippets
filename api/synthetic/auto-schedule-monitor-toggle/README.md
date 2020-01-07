@@ -1,4 +1,4 @@
-# Automated Scheduling of Enable-Disable Monitor Groups Script around Maintenance Windows
+# Automated Scheduling of Monitor Status Toggle Script around Maintenance Windows
 
 The two Python scripts in this directory allow you to automate the creation of scheduled tasks in Windows Task Manager which bulk enable/disable Dynatrace Synthetic Monitors via REST API at times associated with planned maintenance windows.
 
