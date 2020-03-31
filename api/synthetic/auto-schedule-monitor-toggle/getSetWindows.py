@@ -80,7 +80,7 @@ def collectWindows(ENV, TOKEN, HEADERS, DATE):
     # returns on-off times and tags for scripts 
     curDate = DATE
     doMonth = curDate.day
-    doWeek = curDate.strftime('%A')
+    doWeek = curDate.strftime('%A').upper()
     
     windowIds = getWindowIds(ENV, TOKEN, HEADERS)
     windows = []
