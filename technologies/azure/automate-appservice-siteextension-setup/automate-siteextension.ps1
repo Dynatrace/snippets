@@ -30,7 +30,7 @@ $scmUrl = "https://{0}" -f $data.publishUrl
 $credentials = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $data.userName,$data.userPWD)))
 
 # Install Site Extension via KUDU Rest API
-Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $credentials)} -Uri ("{0}/api/extensionfeed/Dynatrace" -f $scmUrl)
+Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $credentials)} -Method 'PUT' -Uri ("{0}/api/siteextensions/Dynatrace" -f $scmUrl)
 
 # Kill Kudu's process, so that the Site Extension gets loaded next time it starts. This returns a 502, but can be ignored.
 Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $credentials)} -Method 'DELETE' -Uri ("{0}/api/processes/0" -f $scmUrl)
@@ -40,11 +40,13 @@ Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $credentials)} -Metho
 $retry = 0
 while ($true) {
     try {
-        Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $credentials)} -Uri ("{0}/dynatrace/api/status" -f $scmUrl)
+        $status = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $credentials)} -Uri ("{0}/dynatrace/api/status" -f $scmUrl)
     } catch {
-        if (++$retry -ge 3) {
+        $_
+    }
+
+    if (++$retry -ge 3) {
             break
-        }
     }
 }
 
