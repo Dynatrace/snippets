@@ -1,0 +1,393 @@
+{
+    "metadata": {
+      "configurationVersions": [
+        3
+      ],
+      "clusterVersion": "1.198.0.20200630-094508"
+    },
+    "dashboardMetadata": {
+      "name": "Azure Maps Accounts",
+      "shared": false,
+      "sharingDetails": {
+        "linkShared": true,
+        "published": false
+      },
+      "dashboardFilter": {
+        "timeframe": "",
+        "managementZone": null
+      }
+    },
+    "tiles": [
+      {
+        "name": "Usage",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+          "top": 0,
+          "left": 0,
+          "width": 304,
+          "height": 38
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        }
+      },
+      {
+        "name": "Availability",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+          "top": 0,
+          "left": 646,
+          "width": 304,
+          "height": 38
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 646,
+          "width": 304,
+          "height": 228
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Availability",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "SINGLE_VALUE",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_maps.accounts.availability",
+                "aggregation": "AVG",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {
+              "CUSTOM_DEVICE-B5B1BB7CB5E0009D¦CUSTOM_DEVICE»CUSTOM_DEVICE-B5B1BB7CB5E0009D»trueext:cloud.azure.microsoft_maps.accounts.availability|AVG|TOTAL|LINE|IOT": {
+                "lastModified": 1593514970756,
+                "customColor": "#008cdb"
+              }
+            }
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 266,
+          "left": 0,
+          "width": 304,
+          "height": 228
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "API categories requests summary",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "PIE",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_maps.accounts.usage",
+                "aggregation": "SUM",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "1",
+                    "name": "API category",
+                    "values": [],
+                    "entityDimension": false
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 266,
+          "left": 304,
+          "width": 304,
+          "height": 228
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Top API names",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_maps.accounts.usage",
+                "aggregation": "SUM",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  },
+                  {
+                    "id": "2",
+                    "name": "API name",
+                    "values": [],
+                    "entityDimension": false
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "MINUTE"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 494,
+          "left": 0,
+          "width": 304,
+          "height": 228
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Result types summary",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "PIE",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_maps.accounts.usage",
+                "aggregation": "SUM",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "3",
+                    "name": "Result type",
+                    "values": [],
+                    "entityDimension": false
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 494,
+          "left": 304,
+          "width": 304,
+          "height": 228
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "API Categories with problems",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_maps.accounts.usage",
+                "aggregation": "SUM",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  },
+                  {
+                    "id": "1",
+                    "name": "API category",
+                    "values": [],
+                    "entityDimension": false
+                  },
+                  {
+                    "id": "4",
+                    "name": "Response code",
+                    "values": [
+                      "400",
+                      "500",
+                      "401",
+                      "403"
+                    ],
+                    "entityDimension": false
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 190,
+          "width": 418,
+          "height": 228
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Total number of requests",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": false,
+            "type": "TIMESERIES",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_maps.accounts.usage",
+                "aggregation": "SUM",
+                "percentile": null,
+                "type": "AREA",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {
+              "CUSTOM_DEVICE-92CCF497A5EEFF19¦CUSTOM_DEVICE»CUSTOM_DEVICE-92CCF497A5EEFF19»trueext:cloud.azure.microsoft_maps.accounts.usage|SUM|TOTAL|AREA|IOT": {
+                "lastModified": 1593514738588,
+                "customColor": "#008cdb"
+              }
+            }
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 0,
+          "width": 190,
+          "height": 228
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Total number of requests",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "SINGLE_VALUE",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_maps.accounts.usage",
+                "aggregation": "SUM",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      }
+    ]
+  }

@@ -5,11 +5,9 @@
         ],
         "clusterVersion": "1.199.0.20200708-191156"
     },
-    "id": "05c6de64-2975-46c7-9b11-4b6760695b71",
     "dashboardMetadata": {
         "name": "Azure PostgreSQL - Hyperscale",
         "shared": false,
-        "owner": "admin",
         "sharingDetails": {
             "linkShared": true,
             "published": false

@@ -5,11 +5,9 @@
         ],
         "clusterVersion": "1.199.0.20200708-191156"
     },
-    "id": "44158272-9ede-430d-b137-87c340040a16",
     "dashboardMetadata": {
         "name": "Azure PostgreSQL",
         "shared": false,
-        "owner": "admin",
         "sharingDetails": {
             "linkShared": true,
             "published": false

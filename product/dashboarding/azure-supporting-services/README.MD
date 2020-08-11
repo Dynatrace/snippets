@@ -86,7 +86,7 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 
 ![HDInsightManagementZone.png](HDInsightManagementZone.png)
 
-![HDInsight.png](HDInsight.png)
+![HdInsight.png](HdInsight.png)
 
 ### [Azure SQL Managed Instance](SqlManagedInstances.json)
 - database clients have to be instrumented with [OneAgent](https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-oneagent/) 
@@ -99,3 +99,53 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 ### [Azure Virtual Network Gateway](VirtualNetworkGateway.json)
 ![VirtualNetworkGateway.png](VirtualNetworkGateway.png)
 
+### [Azure Automation Account](AutomationAccount.json)
+![AutomationAccount.png](AutomationAccount.png)
+
+### [Azure Container Instances](ContainerInstances.json)
+![ContainerInstances.png](ContainerInstances.png)
+
+### [Azure Data Factory V1](DataFactoryV1.json)
+![DataFactoryV1.png](DataFactoryV1.png)
+
+### [Azure Data Factory V2](DataFactoryV2.json)
+![DataFactoryV2.png](DataFactoryV2.png)
+
+### [Azure Data Lake Analytics](DataLakeAnalytics.json)
+![DataLakeAnalytics.png](DataLakeAnalytics.png)
+
+### [Azure Data Lake Storage](DataLakeStorage.json)
+![DataLakeStorage.png](DataLakeStorage.png)
+
+### [Azure Event Grid Domains](EventGridDomains.json)
+![EventGridDomains.png](EventGridDomains.png)
+
+### [Azure Event Grid System Topics](EventGridSystemTopics.json)
+![EventGridSystemTopics.png](EventGridSystemTopics.png)
+
+### [Azure Event Grid Topics](EventGridTopics.json)
+![EventGridTopics.png](EventGridTopics.png)
+
+### [Azure Event Hub Clusters](EventHubClusters.json)
+![EventHubClusters.png](EventHubClusters.png)
+
+### [Azure Logic Workflows](LogicWorkflows.json)
+![LogicWorkflows.png](LogicWorkflows.png)
+
+### [Azure Maps Accounts](MapsAccounts.json)
+![MapsAccounts.png](MapsAccounts.png)
+
+### [Azure Network Azure Firewalls](NetworkAzureFirewalls.json)
+![NetworkAzureFirewalls.png](NetworkAzureFirewalls.png)
+
+### [Azure Network Interface](NetworkInterface.json)
+![NetworkInterface.png](NetworkInterface.png)
+
+### [Azure Private Dns Zones](PrivateDnsZones.json)
+![PrivateDnsZones.png](PrivateDnsZones.png)
+
+### [Azure Public Ip](PublicIp.json)
+![PublicIp.png](PublicIp.png)
+
+### [Azure Search Services](SearchServices.json)
+![SearchServices.png](SearchServices.png)

@@ -7,7 +7,7 @@
     },
     "dashboardMetadata": {
         "name": "Azure Front Door",
-        "shared": true,
+        "shared": false,
         "sharingDetails": {
             "linkShared": true,
             "published": false

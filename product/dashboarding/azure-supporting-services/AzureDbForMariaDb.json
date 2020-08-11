@@ -5,11 +5,9 @@
         ],
         "clusterVersion": "1.199.0.20200708-191156"
     },
-    "id": "77487228-f6db-4d5a-bf4e-acb9eaffc526",
     "dashboardMetadata": {
         "name": "Azure MariaDB",
         "shared": false,
-        "owner": "admin",
         "sharingDetails": {
             "linkShared": true,
             "published": false

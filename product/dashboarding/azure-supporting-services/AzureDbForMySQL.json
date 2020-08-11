@@ -5,11 +5,9 @@
         ],
         "clusterVersion": "1.199.0.20200708-191156"
     },
-    "id": "05864692-1fd7-4af7-8d66-2818555b32b4",
     "dashboardMetadata": {
         "name": "Azure MySQL",
         "shared": false,
-        "owner": "admin",
         "sharingDetails": {
             "linkShared": true,
             "published": false
