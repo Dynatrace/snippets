@@ -4,19 +4,6 @@ This repository contains custom dashboards for Azure Supporting Services.
 
 ## How to use
 
-There are 2 ways to import custom dashboard: via UI and via API.
-
-### Uploading dashboard with UI
-
-Create new custom dashboard as described [here](https://www.dynatrace.com/support/help/how-to-use-dynatrace/dashboards-and-charts/dashboards/create-dashboards/). In Edit mode, go to Advanced settings:
-
-![](DashboardAdvancedSettings.png)
-
-Select `Dashboard JSON` tab and paste definition JSON in there.
-
-
-### Uploading dashboard with API
-
 To use Azure Supporting Services Dashboards, you have to upload them via Dashboards API. First you need to create the API token as described in [Dynatrace API - Authentication](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication/). Uploading the dashboard requires `Write configuration` permission, you have to check it when creating the token.
 
 Example cURL command to upload the dashboard:
