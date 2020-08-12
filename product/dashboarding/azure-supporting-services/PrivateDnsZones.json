@@ -1,0 +1,524 @@
+{
+    "metadata": {
+      "configurationVersions": [
+        3
+      ],
+      "clusterVersion": "1.198.0.20200625-125013"
+    },
+    "dashboardMetadata": {
+      "name": "Azure Private DNS Zone",
+      "shared": false,
+      "sharingDetails": {
+        "linkShared": true,
+        "published": false
+      },
+      "dashboardFilter": {
+        "timeframe": "",
+        "managementZone": null
+      }
+    },
+    "tiles": [
+      {
+        "name": "Usage",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+          "top": 0,
+          "left": 0,
+          "width": 304,
+          "height": 38
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 608,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Dns query volume per running dns instance",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_network.privatednszones.queryvolume",
+                "aggregation": "SUM",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "MINUTE"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 0,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Dns records per instance",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "PIE",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_network.privatednszones.recordsetcount",
+                "aggregation": "MAX",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {
+              "CUSTOM_DEVICE-ADB971842903A9A6¦CUSTOM_DEVICE»CUSTOM_DEVICE-ADB971842903A9A6»trueext:cloud.azure.microsoft_network.privatednszones.queryvolume|AVG|TOTAL|AREA|IOT": {
+                "lastModified": 1593169900048,
+                "customColor": "#a972cc"
+              },
+              "CUSTOM_DEVICE-CF6ADAEB2B38D61A¦CUSTOM_DEVICE»CUSTOM_DEVICE-CF6ADAEB2B38D61A»trueext:cloud.azure.microsoft_network.privatednszones.recordsetcount|MAX|TOTAL|LINE|IOT": {
+                "lastModified": 1593170465043,
+                "customColor": "#008cdb"
+              },
+              "CUSTOM_DEVICE-ADB971842903A9A6¦CUSTOM_DEVICE»CUSTOM_DEVICE-ADB971842903A9A6»trueext:cloud.azure.microsoft_network.privatednszones.recordsetcount|MAX|TOTAL|LINE|IOT": {
+                "lastModified": 1593170459676,
+                "customColor": "#7c38a1"
+              }
+            },
+            "leftAxisCustomUnit": "Count"
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 342,
+          "left": 0,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Virtual network link count per  instance",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "PIE",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_network.privatednszones.virtualnetworklinkcount",
+                "aggregation": "MAX",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {
+              "CUSTOM_DEVICE-CF6ADAEB2B38D61A¦CUSTOM_DEVICE»CUSTOM_DEVICE-CF6ADAEB2B38D61A»trueext:cloud.azure.microsoft_network.privatednszones.virtualnetworklinkcount|MAX|TOTAL|LINE|IOT": {
+                "lastModified": 1593170970750,
+                "customColor": "#f5d30f"
+              },
+              "CUSTOM_DEVICE-ADB971842903A9A6¦CUSTOM_DEVICE»CUSTOM_DEVICE-ADB971842903A9A6»trueext:cloud.azure.microsoft_network.privatednszones.virtualnetworklinkcount|MAX|TOTAL|LINE|IOT": {
+                "lastModified": 1593170969211,
+                "customColor": "#4fd5e0"
+              }
+            }
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Performance",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+          "top": 0,
+          "left": 608,
+          "width": 304,
+          "height": 38
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 342,
+          "left": 608,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Aggregated Query volume",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TIMESERIES",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_network.privatednszones.queryvolume",
+                "aggregation": "MAX",
+                "percentile": null,
+                "type": "BAR",
+                "entityType": "IOT",
+                "dimensions": [],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {
+              "nullext:cloud.azure.microsoft_network.privatednszones.queryvolume|MAX|TOTAL|BAR|IOT": {
+                "lastModified": 1593172273837,
+                "customColor": "#f5d30f"
+              }
+            }
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 646,
+          "left": 0,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Number of registered network zones per instance",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "PIE",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_network.privatednszones.virtualnetworkwithregistrationlinkcount",
+                "aggregation": "MAX",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {
+              "CUSTOM_DEVICE-ADB971842903A9A6¦CUSTOM_DEVICE»CUSTOM_DEVICE-ADB971842903A9A6»trueext:cloud.azure.microsoft_network.privatednszones.virtualnetworkwithregistrationlinkcount|MAX|TOTAL|LINE|IOT": {
+                "lastModified": 1593172533819,
+                "customColor": "#c9a000"
+              },
+              "CUSTOM_DEVICE-CF6ADAEB2B38D61A¦CUSTOM_DEVICE»CUSTOM_DEVICE-CF6ADAEB2B38D61A»trueext:cloud.azure.microsoft_network.privatednszones.virtualnetworkwithregistrationlinkcount|MAX|TOTAL|LINE|IOT": {
+                "lastModified": 1593172535604,
+                "customColor": "#a972cc"
+              }
+            }
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 304,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Record  capacity per instance",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_network.privatednszones.recordsetcapacityutilization",
+                "aggregation": "MAX",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 646,
+          "left": 304,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Virtual network registration per instance",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_network.privatednszones.virtualnetworkwithregistrationcapacityutilization",
+                "aggregation": "MAX",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Utilization",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+          "top": 0,
+          "left": 304,
+          "width": 304,
+          "height": 38
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 342,
+          "left": 304,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Virtual network link capacity per instance",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_network.privatednszones.virtualnetworklinkcapacityutilization",
+                "aggregation": "MAX",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 646,
+          "left": 608,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Set dns record trend per instance",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TIMESERIES",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_network.privatednszones.recordsetcount",
+                "aggregation": "MAX",
+                "percentile": null,
+                "type": "BAR",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {
+              "CUSTOM_DEVICE-CF6ADAEB2B38D61A¦CUSTOM_DEVICE»CUSTOM_DEVICE-CF6ADAEB2B38D61A»trueext:cloud.azure.microsoft_network.privatednszones.recordsetcount|MAX|TOTAL|BAR|IOT": {
+                "lastModified": 1593174706835,
+                "customColor": "#ffd0ab"
+              },
+              "CUSTOM_DEVICE-894D13DF692D4FD1¦CUSTOM_DEVICE»CUSTOM_DEVICE-894D13DF692D4FD1»trueext:cloud.azure.microsoft_network.privatednszones.recordsetcount|MAX|TOTAL|BAR|IOT": {
+                "lastModified": 1593174703909,
+                "customColor": "#b4e5f9"
+              },
+              "CUSTOM_DEVICE-ADB971842903A9A6¦CUSTOM_DEVICE»CUSTOM_DEVICE-ADB971842903A9A6»trueext:cloud.azure.microsoft_network.privatednszones.recordsetcount|MAX|TOTAL|BAR|IOT": {
+                "lastModified": 1593174700670,
+                "customColor": "#debbf3"
+              }
+            }
+          },
+          "filtersPerEntityType": {}
+        }
+      }
+    ]
+  }

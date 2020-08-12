@@ -5,11 +5,9 @@
         ],
         "clusterVersion": "1.199.0.20200708-191156"
     },
-    "id": "dc6f1c12-9a8d-4526-9c73-97742f4e92f4",
     "dashboardMetadata": {
         "name": "HDInsight",
         "shared": false,
-        "owner": "admin",
         "sharingDetails": {
             "linkShared": true,
             "published": false
