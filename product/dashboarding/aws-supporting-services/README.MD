@@ -26,9 +26,6 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 
 ## Dashboards
 
-### [AWS Container Instances](ContainerInstances.json)
-![ContainerInstances.png](ContainerInstances.png)
-
 ### [Amazon Elastic Kubernetes Service](AmazonElasticKubernetesService.json)
 ![AmazonElasticKubernetesService.png](AmazonElasticKubernetesService.png)
 
