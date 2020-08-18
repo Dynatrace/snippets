@@ -46,3 +46,56 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 
 ### [AWS VPN](AWSVPN.json)
 ![AWSVPN.png](AWSVPN.png)
+
+### [Amazon Connect](AmazonConnect.json)
+
+### [Amazon EC2 Auto Scaling](AmazonEC2AutoScaling.json)
+![AmazonEC2AutoScaling.png](AmazonEC2AutoScaling.png)
+
+### [AmazonFSx](AmazonFSx.json)
+![AmazonFSx.png](AmazonFSx.png)
+
+### [Amazon Transfer](AmazonTransfer.json)
+![AmazonTransfer.png](AmazonTransfer.png)
+
+### [Amazon WAF](AmazonWAF.json)
+![AmazonWAF.png](AmazonWAF.png)
+
+### [AWS App Sync](AWSAppSync.json)
+![AWSAppSync.png](AWSAppSync.png)
+
+### [AWS Cloud HSM](AWSCloudHSM.json)
+![AWSCloudHSM.png](AWSCloudHSM.png)
+
+### [AWS Dax](AWSDax.json)
+![AWSDax.png](AWSDax.png)
+
+### [AWS DMS](AWSDMS.json)
+![AWSDMS.png](AWSDMS.png)
+
+### [AWS Elastic Inference](AWSElasticInference.json)
+![AWSElasticInference.png](AWSElasticInference.png)
+
+### [AWS Media Connect](AWSMediaConnect.json)
+![AWSMediaConnect.png](AWSMediaConnect.png)
+
+### [AWS Media Tailor](AWSMediaTailor.json)
+![AWSMediaTailor.png](AWSMediaTailor.png)
+
+### [AWS Neptune](AWSNeptune.json)
+![AWSNeptune.png](AWSNeptune.png)
+
+### [AWS Rekognition](AWSRekognition.json)
+![AWSRekognition.png](AWSRekognition.png)
+
+### [AWS Step Functions](AWSStepFunctions.json)
+![AWSStepFunctions.png](AWSStepFunctions.png)
+
+### [AWS Storage Gateway](AWSStorageGateway.json)
+![AWSStorageGateway.png](AWSStorageGateway.png)
+
+### [AWS Work Mail](AWSWorkMail.json)
+![AWSWorkMail.png](AWSWorkMail.png)
+
+### [AWS Work Spaces](AWSWorkSpaces.json)
+![AWSWorkSpaces.png](AWSWorkSpaces.png)

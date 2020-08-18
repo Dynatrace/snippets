@@ -1,0 +1,1031 @@
+{
+  "metadata": {},
+  "dashboardMetadata": {
+    "name": "AWS Step Functions",
+    "shared": false,
+    "sharingDetails": {
+      "linkShared": true,
+      "published": false
+    },
+    "dashboardFilter": {
+      "timeframe": "",
+      "managementZone": null
+    }
+  },
+  "tiles": [
+    {
+      "name": "Usage",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 456,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Executions Started (by ARN)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.executionsStartedSumByRegionStateMachineArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "StateMachineArn",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 456,
+        "width": 418,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Activities Scheduled (by ARN)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.activitiesScheduledSumByRegionActivityArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "ActivityArn",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 0,
+        "width": 456,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Lambda Functions Scheduled (by ARN)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.lambdaFunctionsScheduledSumByRegionLambdaFunctionArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "LambdaFunctionArn",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 456,
+        "width": 418,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Service Integrations Scheduled (by ARN)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.serviceIntegrationsScheduledSumByRegionServiceIntegrationResourceArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "ServiceIntegrationResourceArn",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Performance",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 874,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 874,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Execution Time (ARN)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.executionTimeByRegionStateMachineArn",
+              "aggregation": "AVG",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "StateMachineArn",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1178,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Executions Succeeded (by ARN)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "PIE",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.executionsSucceededSumByRegionStateMachineArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "StateMachineArn",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Failures",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1482,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 874,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Lambda Function Run Time (by ARN)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.lambdaFunctionRunTimeByRegionLambdaFunctionArn",
+              "aggregation": "AVG",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "LambdaFunctionArn",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 1178,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Lambda Functions Succeeded (by ARN)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.lambdaFunctionsSucceededSumByRegionLambdaFunctionArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "LambdaFunctionArn",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 950,
+        "left": 1178,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Service Integrations Succeeded (by ARN)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.serviceIntegrationsSucceededSumByRegionServiceIntegrationResourceArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "ServiceIntegrationResourceArn",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 950,
+        "left": 874,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Service Integration Run Time (by ARN)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.serviceIntegrationRunTimeByRegionServiceIntegrationResourceArn",
+              "aggregation": "AVG",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "ServiceIntegrationResourceArn",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1482,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Execution Errors",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.executionsAbortedSumByRegionStateMachineArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": false,
+              "aggregationRate": "TOTAL"
+            },
+            {
+              "metric": "ext:cloud.aws.states.executionsFailedSumByRegionStateMachineArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": false,
+              "aggregationRate": "TOTAL"
+            },
+            {
+              "metric": "ext:cloud.aws.states.executionsTimedOutSumByRegionStateMachineArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": false,
+              "aggregationRate": "TOTAL"
+            },
+            {
+              "metric": "ext:cloud.aws.states.executionThrottledSumByRegionStateMachineArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 1482,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Activities Errors",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.activitiesFailedSumByRegionActivityArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": false,
+              "aggregationRate": "TOTAL"
+            },
+            {
+              "metric": "ext:cloud.aws.states.activitiesHeartbeatTimedOutSumByRegionActivityArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": false,
+              "aggregationRate": "TOTAL"
+            },
+            {
+              "metric": "ext:cloud.aws.states.activitiesTimedOutSumByRegionActivityArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1786,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Lambda Functions Errors",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.lambdaFunctionsFailedSumByRegionLambdaFunctionArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": false,
+              "aggregationRate": "TOTAL"
+            },
+            {
+              "metric": "ext:cloud.aws.states.lambdaFunctionsTimedOutSumByRegionLambdaFunctionArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 1786,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Service Integrations Errors",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.serviceIntegrationsFailedSumByRegionServiceIntegrationResourceArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": false,
+              "aggregationRate": "TOTAL"
+            },
+            {
+              "metric": "ext:cloud.aws.states.serviceIntegrationsTimedOutSumByRegionServiceIntegrationResourceArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 1178,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Activities Succeeded (by ARN)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.activitiesSucceededSumByRegionActivityArn",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "ActivityArn",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 874,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Activity Run Time (by ARN)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.activityRunTimeByRegionActivityArn",
+              "aggregation": "AVG",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "ActivityArn",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 0,
+        "width": 456,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Consumed Capacity (by ServiceMetric)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.consumedCapacitySumByRegionServiceMetric",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "ServiceMetric",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 456,
+        "width": 418,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Consumed Capacity (by APIName)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.consumedCapacitySumByRegionAPIName",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "APIName",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 1482,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Throttled Events (by ServiceMetric)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.throttledEventsSumByRegionServiceMetric",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "ServiceMetric",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 1786,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Throttled Events (by APIName)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.states.throttledEventsSumByRegionAPIName",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "APIName",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    }
+  ]
+}

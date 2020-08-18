@@ -121,19 +121,7 @@
               }
             ],
             "resultMetadata": {
-              "CUSTOM_DEVICE-ADB971842903A9A6¦CUSTOM_DEVICE»CUSTOM_DEVICE-ADB971842903A9A6»trueext:cloud.azure.microsoft_network.privatednszones.queryvolume|AVG|TOTAL|AREA|IOT": {
-                "lastModified": 1593169900048,
-                "customColor": "#a972cc"
               },
-              "CUSTOM_DEVICE-CF6ADAEB2B38D61A¦CUSTOM_DEVICE»CUSTOM_DEVICE-CF6ADAEB2B38D61A»trueext:cloud.azure.microsoft_network.privatednszones.recordsetcount|MAX|TOTAL|LINE|IOT": {
-                "lastModified": 1593170465043,
-                "customColor": "#008cdb"
-              },
-              "CUSTOM_DEVICE-ADB971842903A9A6¦CUSTOM_DEVICE»CUSTOM_DEVICE-ADB971842903A9A6»trueext:cloud.azure.microsoft_network.privatednszones.recordsetcount|MAX|TOTAL|LINE|IOT": {
-                "lastModified": 1593170459676,
-                "customColor": "#7c38a1"
-              }
-            },
             "leftAxisCustomUnit": "Count"
           },
           "filtersPerEntityType": {}
@@ -181,15 +169,7 @@
               }
             ],
             "resultMetadata": {
-              "CUSTOM_DEVICE-CF6ADAEB2B38D61A¦CUSTOM_DEVICE»CUSTOM_DEVICE-CF6ADAEB2B38D61A»trueext:cloud.azure.microsoft_network.privatednszones.virtualnetworklinkcount|MAX|TOTAL|LINE|IOT": {
-                "lastModified": 1593170970750,
-                "customColor": "#f5d30f"
-              },
-              "CUSTOM_DEVICE-ADB971842903A9A6¦CUSTOM_DEVICE»CUSTOM_DEVICE-ADB971842903A9A6»trueext:cloud.azure.microsoft_network.privatednszones.virtualnetworklinkcount|MAX|TOTAL|LINE|IOT": {
-                "lastModified": 1593170969211,
-                "customColor": "#4fd5e0"
               }
-            }
           },
           "filtersPerEntityType": {}
         }
@@ -244,11 +224,7 @@
               }
             ],
             "resultMetadata": {
-              "nullext:cloud.azure.microsoft_network.privatednszones.queryvolume|MAX|TOTAL|BAR|IOT": {
-                "lastModified": 1593172273837,
-                "customColor": "#f5d30f"
               }
-            }
           },
           "filtersPerEntityType": {}
         }
@@ -295,15 +271,7 @@
               }
             ],
             "resultMetadata": {
-              "CUSTOM_DEVICE-ADB971842903A9A6¦CUSTOM_DEVICE»CUSTOM_DEVICE-ADB971842903A9A6»trueext:cloud.azure.microsoft_network.privatednszones.virtualnetworkwithregistrationlinkcount|MAX|TOTAL|LINE|IOT": {
-                "lastModified": 1593172533819,
-                "customColor": "#c9a000"
-              },
-              "CUSTOM_DEVICE-CF6ADAEB2B38D61A¦CUSTOM_DEVICE»CUSTOM_DEVICE-CF6ADAEB2B38D61A»trueext:cloud.azure.microsoft_network.privatednszones.virtualnetworkwithregistrationlinkcount|MAX|TOTAL|LINE|IOT": {
-                "lastModified": 1593172535604,
-                "customColor": "#a972cc"
               }
-            }
           },
           "filtersPerEntityType": {}
         }
@@ -503,19 +471,7 @@
               }
             ],
             "resultMetadata": {
-              "CUSTOM_DEVICE-CF6ADAEB2B38D61A¦CUSTOM_DEVICE»CUSTOM_DEVICE-CF6ADAEB2B38D61A»trueext:cloud.azure.microsoft_network.privatednszones.recordsetcount|MAX|TOTAL|BAR|IOT": {
-                "lastModified": 1593174706835,
-                "customColor": "#ffd0ab"
-              },
-              "CUSTOM_DEVICE-894D13DF692D4FD1¦CUSTOM_DEVICE»CUSTOM_DEVICE-894D13DF692D4FD1»trueext:cloud.azure.microsoft_network.privatednszones.recordsetcount|MAX|TOTAL|BAR|IOT": {
-                "lastModified": 1593174703909,
-                "customColor": "#b4e5f9"
-              },
-              "CUSTOM_DEVICE-ADB971842903A9A6¦CUSTOM_DEVICE»CUSTOM_DEVICE-ADB971842903A9A6»trueext:cloud.azure.microsoft_network.privatednszones.recordsetcount|MAX|TOTAL|BAR|IOT": {
-                "lastModified": 1593174700670,
-                "customColor": "#debbf3"
               }
-            }
           },
           "filtersPerEntityType": {}
         }

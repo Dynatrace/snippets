@@ -108,11 +108,7 @@
                         }
                     ],
                     "resultMetadata": {
-                        "CUSTOM_DEVICE-D5D6C95280C1263A¦CUSTOM_DEVICE»CUSTOM_DEVICE-D5D6C95280C1263A»trueext:cloud.azure.microsoft_dbformysql.servers.cpu_percent|AVG|TOTAL|AREA|IOT": {
-                            "lastModified": 1591768472670,
-                            "customColor": "#a972cc"
                         }
-                    }
                 },
                 "filtersPerEntityType": {}
             }
@@ -159,11 +155,7 @@
                         }
                     ],
                     "resultMetadata": {
-                        "CUSTOM_DEVICE-D5D6C95280C1263A¦CUSTOM_DEVICE»CUSTOM_DEVICE-D5D6C95280C1263A»trueext:cloud.azure.microsoft_dbformysql.servers.memory_percent|AVG|TOTAL|LINE|IOT": {
-                            "lastModified": 1591768495649,
-                            "customColor": "#a972cc"
                         }
-                    }
                 },
                 "filtersPerEntityType": {}
             }
@@ -210,11 +202,7 @@
                         }
                     ],
                     "resultMetadata": {
-                        "CUSTOM_DEVICE-D5D6C95280C1263A¦CUSTOM_DEVICE»CUSTOM_DEVICE-D5D6C95280C1263A»trueext:cloud.azure.microsoft_dbformysql.servers.active_connections|MAX|TOTAL|LINE|IOT": {
-                            "lastModified": 1591768391394,
-                            "customColor": "#a972cc"
                         }
-                    }
                 },
                 "filtersPerEntityType": {}
             }
@@ -307,11 +295,7 @@
                         }
                     ],
                     "resultMetadata": {
-                        "CUSTOM_DEVICE-D5D6C95280C1263A¦CUSTOM_DEVICE»CUSTOM_DEVICE-D5D6C95280C1263A»trueext:cloud.azure.microsoft_dbformysql.servers.serverlog_storage_percent|AVG|TOTAL|LINE|IOT": {
-                            "lastModified": 1591768433349,
-                            "customColor": "#a972cc"
                         }
-                    }
                 },
                 "filtersPerEntityType": {}
             }
@@ -358,23 +342,7 @@
                         }
                     ],
                     "resultMetadata": {
-                        "CUSTOM_DEVICE-625F3DD71419B4C2¦CUSTOM_DEVICE»CUSTOM_DEVICE-625F3DD71419B4C2»trueext:cloud.azure.microsoft_dbforpostgresql.servers.storage_percent|AVG|TOTAL|AREA|IOT": {
-                            "lastModified": 1591085747430,
-                            "customColor": "#debbf3"
-                        },
-                        "CUSTOM_DEVICE-D5D6C95280C1263A¦CUSTOM_DEVICE»CUSTOM_DEVICE-D5D6C95280C1263A»trueext:cloud.azure.microsoft_dbformysql.servers.storage_percent|AVG|TOTAL|AREA|IOT": {
-                            "lastModified": 1591768417973,
-                            "customColor": "#a972cc"
-                        },
-                        "CUSTOM_DEVICE-E17B017C6CFB4EF9¦CUSTOM_DEVICE»CUSTOM_DEVICE-E17B017C6CFB4EF9»trueext:cloud.azure.microsoft_dbformysql.servers.storage_percent|AVG|TOTAL|AREA|IOT": {
-                            "lastModified": 1591265239975,
-                            "customColor": "#f5d30f"
-                        },
-                        "CUSTOM_DEVICE-8B4078C48F5D3148¦CUSTOM_DEVICE»CUSTOM_DEVICE-8B4078C48F5D3148»trueext:cloud.azure.microsoft_dbforpostgresql.servers.storage_percent|AVG|TOTAL|AREA|IOT": {
-                            "lastModified": 1591085744084,
-                            "customColor": "#4fd5e0"
                         }
-                    }
                 },
                 "filtersPerEntityType": {}
             }
@@ -421,15 +389,7 @@
                         }
                     ],
                     "resultMetadata": {
-                        "CUSTOM_DEVICE-D5D6C95280C1263A¦CUSTOM_DEVICE»CUSTOM_DEVICE-D5D6C95280C1263A»trueext:cloud.azure.microsoft_dbformysql.servers.network_bytes_ingress|AVG|TOTAL|BAR|IOT": {
-                            "lastModified": 1591778546166,
-                            "customColor": "#a972cc"
-                        },
-                        "CUSTOM_DEVICE-E17B017C6CFB4EF9¦CUSTOM_DEVICE»CUSTOM_DEVICE-E17B017C6CFB4EF9»trueext:cloud.azure.microsoft_dbformysql.servers.network_bytes_ingress|AVG|TOTAL|BAR|IOT": {
-                            "lastModified": 1591778544573,
-                            "customColor": "#f5d30f"
                         }
-                    }
                 },
                 "filtersPerEntityType": {}
             }
@@ -476,11 +436,7 @@
                         }
                     ],
                     "resultMetadata": {
-                        "CUSTOM_DEVICE-D5D6C95280C1263A¦CUSTOM_DEVICE»CUSTOM_DEVICE-D5D6C95280C1263A»trueext:cloud.azure.microsoft_dbformysql.servers.network_bytes_egress|AVG|TOTAL|BAR|IOT": {
-                            "lastModified": 1591768444268,
-                            "customColor": "#a972cc"
                         }
-                    }
                 },
                 "filtersPerEntityType": {}
             }
@@ -836,15 +792,7 @@
                         }
                     ],
                     "resultMetadata": {
-                        "CUSTOM_DEVICE-D5D6C95280C1263A¦CUSTOM_DEVICE»CUSTOM_DEVICE-D5D6C95280C1263A»trueext:cloud.azure.microsoft_dbformysql.servers.connections_failed|MAX|TOTAL|LINE|IOT": {
-                            "lastModified": 1591778616986,
-                            "customColor": "#a972cc"
-                        },
-                        "CUSTOM_DEVICE-E17B017C6CFB4EF9¦CUSTOM_DEVICE»CUSTOM_DEVICE-E17B017C6CFB4EF9»trueext:cloud.azure.microsoft_dbformysql.servers.connections_failed|MAX|TOTAL|LINE|IOT": {
-                            "lastModified": 1591778618619,
-                            "customColor": "#f5d30f"
                         }
-                    }
                 },
                 "filtersPerEntityType": {}
             }

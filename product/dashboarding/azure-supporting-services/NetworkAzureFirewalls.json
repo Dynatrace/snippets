@@ -321,11 +321,7 @@
             }
           ],
           "resultMetadata": {
-            "CUSTOM_DEVICE-050392F45537E921¦CUSTOM_DEVICE»CUSTOM_DEVICE-050392F45537E921»trueext:cloud.azure.microsoft_network.azurefirewalls.applicationrulehit|SUM|TOTAL|LINE|IOT": {
-              "lastModified": 1593583777146,
-              "customColor": "#a972cc"
             }
-          }
         },
         "filtersPerEntityType": {}
       }

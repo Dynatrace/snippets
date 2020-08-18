@@ -1,0 +1,363 @@
+{
+    "metadata": {},
+    "dashboardMetadata": {
+        "name": "AWS CloudHSM",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": "",
+            "managementZone": null
+        }
+    },
+    "tiles": [
+        {
+            "name": "Usage",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "Performance",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 608,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "Failures",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 912,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "HSM Keys Occupied (By Cluster)",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.cloudhsm.hsmKeysSessionOccupied",
+                            "aggregation": "MAX",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "0",
+                                    "name": "dt.entity.custom_device",
+                                    "values": [],
+                                    "entityDimension": true
+                                }
+                            ],
+                            "sortAscending": false,
+                            "sortColumn": false,
+                            "aggregationRate": "TOTAL"
+                        },
+                        {
+                            "metric": "ext:cloud.aws.cloudhsm.hsmKeysTokenOccupied",
+                            "aggregation": "MAX",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "0",
+                                    "name": "dt.entity.custom_device",
+                                    "values": [],
+                                    "entityDimension": true
+                                }
+                            ],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "TOTAL"
+                        }
+                    ],
+                    "resultMetadata": {}
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "HSM Usage (By Cluster)",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.cloudhsm.hsmSslCtxsOccupied",
+                            "aggregation": "MAX",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "0",
+                                    "name": "dt.entity.custom_device",
+                                    "values": [],
+                                    "entityDimension": true
+                                }
+                            ],
+                            "sortAscending": false,
+                            "sortColumn": false,
+                            "aggregationRate": "TOTAL"
+                        },
+                        {
+                            "metric": "ext:cloud.aws.cloudhsm.hsmSessionCount",
+                            "aggregation": "MAX",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "0",
+                                    "name": "dt.entity.custom_device",
+                                    "values": [],
+                                    "entityDimension": true
+                                }
+                            ],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "TOTAL"
+                        }
+                    ],
+                    "resultMetadata": {}
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 304,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "HSM Users (By Cluster & HSM)",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.cloudhsm.hsmUsersMaxByHsmId",
+                            "aggregation": "MAX",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "0",
+                                    "name": "dt.entity.custom_device",
+                                    "values": [],
+                                    "entityDimension": true
+                                },
+                                {
+                                    "id": "1",
+                                    "name": "HsmId",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "sortColumn": false,
+                            "aggregationRate": "TOTAL"
+                        },
+                        {
+                            "metric": "ext:cloud.aws.cloudhsm.hsmUsersAvailableByHsmId",
+                            "aggregation": "MIN",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "0",
+                                    "name": "dt.entity.custom_device",
+                                    "values": [],
+                                    "entityDimension": true
+                                },
+                                {
+                                    "id": "1",
+                                    "name": "HsmId",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "TOTAL"
+                        }
+                    ],
+                    "resultMetadata": {}
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 608,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "HSM Temperature (by HsmId)",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.cloudhsm.hsmTemperatureByHsmId",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "1",
+                                    "name": "HsmId",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "TOTAL"
+                        }
+                    ],
+                    "resultMetadata": {}
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 912,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "HSM Unhealthy (by HsmId)",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.cloudhsm.hsmUnhealthyByHsmId",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "BAR",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "1",
+                                    "name": "HsmId",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "TOTAL"
+                        }
+                    ],
+                    "resultMetadata": {
+                        "null¦HsmId»hsm-gsskqegtgct»falseext:cloud.aws.cloudhsm.hsmUnhealthyByHsmId|AVG|TOTAL|BAR|IOT": {
+                            "lastModified": 1594738863412,
+                            "customColor": "#ef651f"
+                        }
+                    }
+                },
+                "filtersPerEntityType": {}
+            }
+        }
+    ]
+}
