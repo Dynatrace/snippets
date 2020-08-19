@@ -1,0 +1,350 @@
+{
+  "metadata": {
+    "configurationVersions": [3],
+    "clusterVersion": "1.199.2.20200717-042752"
+  },
+  "dashboardMetadata": {
+    "name": "AWS WorkSpaces",
+    "shared": false,
+    "sharingDetails": {
+      "linkShared": true,
+      "published": false
+    },
+    "dashboardFilter": {
+      "timeframe": ""
+    }
+  },
+  "tiles": [{
+    "name": "Custom chart",
+    "tileType": "CUSTOM_CHARTING",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 0,
+      "width": 608,
+      "height": 304
+    },
+    "tileFilter": {},
+    "filterConfig": {
+      "type": "MIXED",
+      "customName": "In session latency (by WorkspaceId)",
+      "defaultName": "Custom chart",
+      "chartConfig": {
+        "legendShown": true,
+        "type": "TIMESERIES",
+        "series": [{
+          "metric": "ext:cloud.aws.workspaces.inSessionLatency",
+          "aggregation": "AVG",
+          "type": "LINE",
+          "entityType": "IOT",
+          "dimensions": [{
+            "id": "0",
+            "name": "dt.entity.custom_device",
+            "values": [],
+            "entityDimension": true
+          }],
+          "sortAscending": false,
+          "sortColumn": true,
+          "aggregationRate": "TOTAL"
+        }],
+        "resultMetadata": {}
+      },
+      "filtersPerEntityType": {}
+    }
+  }, {
+    "name": "Custom chart",
+    "tileType": "CUSTOM_CHARTING",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 646,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "filterConfig": {
+      "type": "MIXED",
+      "customName": "Unhealthy Sum (by Region and DirectoryId)",
+      "defaultName": "Custom chart",
+      "chartConfig": {
+        "legendShown": true,
+        "type": "TOP_LIST",
+        "series": [{
+          "metric": "ext:cloud.aws.workspaces.unhealthySumByRegionDirectoryId",
+          "aggregation": "NONE",
+          "type": "LINE",
+          "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+          "dimensions": [{
+            "id": "1",
+            "name": "Region",
+            "values": [],
+            "entityDimension": false
+          }, {
+            "id": "2",
+            "name": "DirectoryId",
+            "values": [],
+            "entityDimension": false
+          }],
+          "sortAscending": false,
+          "sortColumn": true,
+          "aggregationRate": "TOTAL"
+        }],
+        "resultMetadata": {
+          "null¦Region»us-east-1»false¦DirectoryId»d-90677b19eb»falseext:cloud.aws.workspaces.unhealthySumByRegionDirectoryId|NONE|TOTAL|LINE|MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP": {
+            "lastModified": 1594801084459,
+            "customColor": "#ef651f"
+          }
+        }
+      },
+      "filtersPerEntityType": {}
+    }
+  }, {
+    "name": "Custom chart",
+    "tileType": "CUSTOM_CHARTING",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 646,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "filterConfig": {
+      "type": "MIXED",
+      "customName": "Connection failure sum (by Region and DirectoryId)",
+      "defaultName": "Custom chart",
+      "chartConfig": {
+        "legendShown": true,
+        "type": "TOP_LIST",
+        "series": [{
+          "metric": "ext:cloud.aws.workspaces.connectionFailureSumByRegionDirectoryId",
+          "aggregation": "NONE",
+          "type": "LINE",
+          "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+          "dimensions": [{
+            "id": "0",
+            "name": "dt.entity.custom_device_group",
+            "values": [],
+            "entityDimension": true
+          }, {
+            "id": "1",
+            "name": "Region",
+            "values": [],
+            "entityDimension": false
+          }, {
+            "id": "2",
+            "name": "DirectoryId",
+            "values": [],
+            "entityDimension": false
+          }],
+          "sortAscending": false,
+          "sortColumn": true,
+          "aggregationRate": "TOTAL"
+        }],
+        "resultMetadata": {}
+      },
+      "filtersPerEntityType": {}
+    }
+  }, {
+    "name": "Errors",
+    "tileType": "HEADER",
+    "configured": true,
+    "bounds": {
+      "top": 0,
+      "left": 646,
+      "width": 304,
+      "height": 38
+    },
+    "tileFilter": {}
+  }, {
+    "name": "Usage",
+    "tileType": "HEADER",
+    "configured": true,
+    "bounds": {
+      "top": 0,
+      "left": 0,
+      "width": 608,
+      "height": 38
+    },
+    "tileFilter": {}
+  }, {
+    "name": "Header",
+    "tileType": "HEADER",
+    "configured": true,
+    "bounds": {
+      "top": 380,
+      "left": 1786,
+      "width": 304,
+      "height": 38
+    },
+    "tileFilter": {}
+  }, {
+    "name": "Custom chart",
+    "tileType": "CUSTOM_CHARTING",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 0,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "filterConfig": {
+      "type": "MIXED",
+      "customName": "Session launch time",
+      "defaultName": "Custom chart",
+      "chartConfig": {
+        "legendShown": true,
+        "type": "TIMESERIES",
+        "series": [{
+          "metric": "ext:cloud.aws.workspaces.sessionLaunchTime",
+          "aggregation": "AVG",
+          "type": "BAR",
+          "entityType": "IOT",
+          "dimensions": [{
+            "id": "0",
+            "name": "dt.entity.custom_device",
+            "values": [],
+            "entityDimension": true
+          }],
+          "sortAscending": false,
+          "sortColumn": true,
+          "aggregationRate": "TOTAL"
+        }],
+        "resultMetadata": {}
+      },
+      "filtersPerEntityType": {}
+    }
+  }, {
+    "name": "Custom chart",
+    "tileType": "CUSTOM_CHARTING",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 304,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "filterConfig": {
+      "type": "MIXED",
+      "customName": "User connections sum (by Region and DirectoryId)",
+      "defaultName": "Custom chart",
+      "chartConfig": {
+        "legendShown": true,
+        "type": "TOP_LIST",
+        "series": [{
+          "metric": "ext:cloud.aws.workspaces.userConnectedSumByRegionDirectoryId",
+          "aggregation": "NONE",
+          "type": "LINE",
+          "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+          "dimensions": [{
+            "id": "1",
+            "name": "Region",
+            "values": [],
+            "entityDimension": false
+          }, {
+            "id": "2",
+            "name": "DirectoryId",
+            "values": [],
+            "entityDimension": false
+          }],
+          "sortAscending": false,
+          "sortColumn": true,
+          "aggregationRate": "HOUR"
+        }],
+        "resultMetadata": {}
+      },
+      "filtersPerEntityType": {}
+    }
+  }, {
+    "name": "Custom chart",
+    "tileType": "CUSTOM_CHARTING",
+    "configured": true,
+    "bounds": {
+      "top": 646,
+      "left": 0,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "filterConfig": {
+      "type": "MIXED",
+      "customName": "Available sum (by Region and DirectoryId)",
+      "defaultName": "Custom chart",
+      "chartConfig": {
+        "legendShown": true,
+        "type": "TIMESERIES",
+        "series": [{
+          "metric": "ext:cloud.aws.workspaces.availableSumByRegionDirectoryId",
+          "aggregation": "NONE",
+          "type": "BAR",
+          "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+          "dimensions": [{
+            "id": "1",
+            "name": "Region",
+            "values": [],
+            "entityDimension": false
+          }, {
+            "id": "2",
+            "name": "DirectoryId",
+            "values": [],
+            "entityDimension": false
+          }],
+          "sortAscending": false,
+          "sortColumn": true,
+          "aggregationRate": "TOTAL"
+        }],
+        "resultMetadata": {
+          "null¦Region»us-east-1»false¦DirectoryId»d-90677b19eb»falseext:cloud.aws.workspaces.availableSumByRegionDirectoryId|NONE|TOTAL|BAR|MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP": {
+            "lastModified": 1594802728858,
+            "customColor": "#a972cc"
+          }
+        }
+      },
+      "filtersPerEntityType": {}
+    }
+  }, {
+    "name": "Custom chart",
+    "tileType": "CUSTOM_CHARTING",
+    "configured": true,
+    "bounds": {
+      "top": 646,
+      "left": 304,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "filterConfig": {
+      "type": "MIXED",
+      "customName": "Connection attempt sum (by Region and DirectoryId)",
+      "defaultName": "Custom chart",
+      "chartConfig": {
+        "legendShown": true,
+        "type": "TIMESERIES",
+        "series": [{
+          "metric": "ext:cloud.aws.workspaces.connectionAttemptSumByRegionDirectoryId",
+          "aggregation": "NONE",
+          "type": "BAR",
+          "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+          "dimensions": [{
+            "id": "1",
+            "name": "Region",
+            "values": [],
+            "entityDimension": false
+          }, {
+            "id": "2",
+            "name": "DirectoryId",
+            "values": [],
+            "entityDimension": false
+          }],
+          "sortAscending": false,
+          "sortColumn": true,
+          "aggregationRate": "TOTAL"
+        }],
+        "resultMetadata": {}
+      },
+      "filtersPerEntityType": {}
+    }
+  }]
+}

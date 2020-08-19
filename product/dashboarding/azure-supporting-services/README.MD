@@ -136,3 +136,27 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 
 ### [Azure Search Services](SearchServices.json)
 ![SearchServices.png](SearchServices.png)
+
+### [Azure Express Route Circuit](AzureExpressRouteCircuit.json)
+![AzureExpressRouteCircuit.png](AzureExpressRouteCircuit.png)
+
+### [Azure Integration Service Environment](AzureIntegrationServiceEnvironment.json)
+![AzureIntegrationServiceEnvironment.png](AzureIntegrationServiceEnvironment.png)
+
+### [Azure Integration Service Environment Plus LogicApps](AzureIntegrationServiceEnvironmentPlusLogicApps.json)
+![AzureIntegrationServiceEnvironmentPlusLogicApps.png](AzureIntegrationServiceEnvironmentPlusLogicApps.png)
+
+### [Azure Kubernetes Service](AzureKubernetesService.json)
+![AzureKubernetesService.png](AzureKubernetesService.png)
+
+### [Azure Machine Learning](AzureMachineLearning.json)
+![AzureMachineLearning.png](AzureMachineLearning.png)
+
+### [Azure NetApp Capacity Volume](AzureNetAppCapacityVolume.json)
+![AzureNetAppCapacityVolume.png](AzureNetAppCapacityVolume.png)
+
+### [Azure SignalIR](AzureSignalIR.json)
+![AzureSignalIR.png](AzureSignalIR.png)
+
+### [Azure Spring Cloud](AzureSpringCloud.json)
+![AzureSpringCloud.png](AzureSpringCloud.png)

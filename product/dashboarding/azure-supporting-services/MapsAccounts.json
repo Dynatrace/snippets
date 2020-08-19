@@ -83,11 +83,7 @@
               }
             ],
             "resultMetadata": {
-              "CUSTOM_DEVICE-B5B1BB7CB5E0009D¦CUSTOM_DEVICE»CUSTOM_DEVICE-B5B1BB7CB5E0009D»trueext:cloud.azure.microsoft_maps.accounts.availability|AVG|TOTAL|LINE|IOT": {
-                "lastModified": 1593514970756,
-                "customColor": "#008cdb"
               }
-            }
           },
           "filtersPerEntityType": {}
         }
@@ -341,11 +337,7 @@
               }
             ],
             "resultMetadata": {
-              "CUSTOM_DEVICE-92CCF497A5EEFF19¦CUSTOM_DEVICE»CUSTOM_DEVICE-92CCF497A5EEFF19»trueext:cloud.azure.microsoft_maps.accounts.usage|SUM|TOTAL|AREA|IOT": {
-                "lastModified": 1593514738588,
-                "customColor": "#008cdb"
               }
-            }
           },
           "filtersPerEntityType": {}
         }

@@ -292,15 +292,7 @@
                         }
                     ],
                     "resultMetadata": {
-                        "CUSTOM_DEVICE-625F3DD71419B4C2¦CUSTOM_DEVICE»CUSTOM_DEVICE-625F3DD71419B4C2»trueext:cloud.azure.microsoft_dbforpostgresql.servers.storage_percent|AVG|TOTAL|AREA|IOT": {
-                            "lastModified": 1591085747430,
-                            "customColor": "#debbf3"
-                        },
-                        "CUSTOM_DEVICE-8B4078C48F5D3148¦CUSTOM_DEVICE»CUSTOM_DEVICE-8B4078C48F5D3148»trueext:cloud.azure.microsoft_dbforpostgresql.servers.storage_percent|AVG|TOTAL|AREA|IOT": {
-                            "lastModified": 1591085744084,
-                            "customColor": "#4fd5e0"
                         }
-                    }
                 },
                 "filtersPerEntityType": {}
             }
@@ -603,7 +595,6 @@
             "tileFilter": {
                 "timeframe": null,
                 "managementZone": {
-                    "id": "4230808592360616232",
                     "name": "ms-postgres"
                 }
             },

@@ -108,11 +108,7 @@
                         }
                     ],
                     "resultMetadata": {
-                        "CUSTOM_DEVICE-8B4078C48F5D3148¦CUSTOM_DEVICE»CUSTOM_DEVICE-8B4078C48F5D3148»trueext:cloud.azure.microsoft_dbforpostgresql.servers.cpu_percent|AVG|TOTAL|LINE|IOT": {
-                            "lastModified": 1594200031482,
-                            "customColor": "#debbf3"
                         }
-                    }
                 },
                 "filtersPerEntityType": {}
             }
@@ -159,11 +155,7 @@
                         }
                     ],
                     "resultMetadata": {
-                        "CUSTOM_DEVICE-8B4078C48F5D3148¦CUSTOM_DEVICE»CUSTOM_DEVICE-8B4078C48F5D3148»trueext:cloud.azure.microsoft_dbforpostgresql.servers.memory_percent|AVG|TOTAL|LINE|IOT": {
-                            "lastModified": 1594199987813,
-                            "customColor": "#debbf3"
                         }
-                    }
                 },
                 "filtersPerEntityType": {}
             }
@@ -210,15 +202,7 @@
                         }
                     ],
                     "resultMetadata": {
-                        "CUSTOM_DEVICE-8B4078C48F5D3148¦CUSTOM_DEVICE»CUSTOM_DEVICE-8B4078C48F5D3148»trueext:cloud.azure.microsoft_dbforpostgresql.servers.active_connections|MAX|TOTAL|LINE|IOT": {
-                            "lastModified": 1594199951074,
-                            "customColor": "#debbf3"
-                        },
-                        "CUSTOM_DEVICE-625F3DD71419B4C2¦CUSTOM_DEVICE»CUSTOM_DEVICE-625F3DD71419B4C2»trueext:cloud.azure.microsoft_dbforpostgresql.servers.active_connections|MAX|TOTAL|LINE|IOT": {
-                            "lastModified": 1591768988652,
-                            "customColor": "#b4e5f9"
                         }
-                    }
                 },
                 "filtersPerEntityType": {}
             }
@@ -357,11 +341,7 @@
                         }
                     ],
                     "resultMetadata": {
-                        "CUSTOM_DEVICE-8B4078C48F5D3148¦CUSTOM_DEVICE»CUSTOM_DEVICE-8B4078C48F5D3148»trueext:cloud.azure.microsoft_dbforpostgresql.servers.serverlog_storage_percent|AVG|TOTAL|LINE|IOT": {
-                            "lastModified": 1594200101152,
-                            "customColor": "#debbf3"
                         }
-                    }
                 },
                 "filtersPerEntityType": {}
             }
@@ -408,15 +388,7 @@
                         }
                     ],
                     "resultMetadata": {
-                        "CUSTOM_DEVICE-625F3DD71419B4C2¦CUSTOM_DEVICE»CUSTOM_DEVICE-625F3DD71419B4C2»trueext:cloud.azure.microsoft_dbforpostgresql.servers.storage_percent|AVG|TOTAL|AREA|IOT": {
-                            "lastModified": 1591768898466,
-                            "customColor": "#b4e5f9"
-                        },
-                        "CUSTOM_DEVICE-8B4078C48F5D3148¦CUSTOM_DEVICE»CUSTOM_DEVICE-8B4078C48F5D3148»trueext:cloud.azure.microsoft_dbforpostgresql.servers.storage_percent|AVG|TOTAL|AREA|IOT": {
-                            "lastModified": 1594199931369,
-                            "customColor": "#debbf3"
                         }
-                    }
                 },
                 "filtersPerEntityType": {}
             }
