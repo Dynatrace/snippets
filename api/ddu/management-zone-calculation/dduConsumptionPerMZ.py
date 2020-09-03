@@ -39,7 +39,7 @@ response = requests.get(
 response.raise_for_status()
 
 allManagemementZones = json.loads(response.content)["values"]
-print("Amount of different management zones: ", len(allManagemementZones))
+# print("Amount of different management zones: ", len(allManagemementZones))
 
 # If the management zone is specified: Get the index of the occurrence
 if SELECTED_MANAGEMENT_ZONE_NAME != None:
@@ -66,8 +66,8 @@ while nextPage != None:
     nextPage = (json.loads(response.content)).get("nextPageKey", None)
     allEntityTypes.extend(json.loads(response.content)["types"])
 
-print("Amount of different entity types: ", len(allEntityTypes))
-print()
+# print("Amount of different entity types: ", len(allEntityTypes))
+# print()
 
 dduConsumptionObjectOfManagementZone = {}
 # Result JSON Object with Array of dduConsumption for each management zone
@@ -89,6 +89,7 @@ for managementZoneIndex, managementZone in (
         managementZoneIndex = SELECTED_MANAGEMENT_ZONE_INDEX
 
     for entityTypeIndex, entityType in enumerate(allEntityTypes):
+        """
         print(
             "MZId: {:21} MZName: {:20} ET Name: {:5}".format(
                 allManagemementZones[managementZoneIndex]["id"],
@@ -96,6 +97,7 @@ for managementZoneIndex, managementZone in (
                 allEntityTypes[entityTypeIndex]["type"],
             )
         )
+        """
         # Replace the "+" of Timezone to the encoded %2B
         response = requests.get(
             "{}v2/metrics/query?metricSelector={}:splitBy()&entitySelector=mzId({}),type({})&pageSize={}&from={}&to={}".format(
@@ -120,6 +122,7 @@ for managementZoneIndex, managementZone in (
             dduConsumptionOfMZandET = sum(
                 filter(None, dduConsumptionOfMZandETDict[0]["values"])
             )
+            """
             print(
                 "Ddu consumption of manangement zone {} and entityType {}: {}".format(
                     allManagemementZones[managementZoneIndex]["name"],
@@ -127,16 +130,18 @@ for managementZoneIndex, managementZone in (
                     round(dduConsumptionOfMZandET, 3),
                 )
             )
+            """
             dduConsumptionOfManagementZone += dduConsumptionOfMZandET
             dduConsumptionOfMZandET = 0
-
+    """
     print(
         "Ddu consumption of management zone {}: {}".format(
             allManagemementZones[managementZoneIndex]["name"],
             round(dduConsumptionOfManagementZone, 3),
         )
     )
-    print()
+    """
+    # print()
 
     # Populate JSON Object
     dduConsumptionObjectOfManagementZone["MZId"] = allManagemementZones[
