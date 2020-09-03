@@ -2,15 +2,19 @@
 
 With this script you can get an overview of the [Davis Data unit (DDU)](https://www.dynatrace.com/support/help/shortlink/davis-data-units) usage for each management zone.
 
+It is also possible to specify a single management zone of which you want to calculate the DDU consumption.
 
 ## Usage
 ```bash
-python dduConsumptionPerMZ.py FROM_DATE_AND_TIME   TO_DATE_AND_TIME   URL_TO_ENVIRONMENT   API_TOKEN   MAX_REQUESTS_PER_MINUTE
+python dduConsumptionPerMZ.py FROM_DATE_AND_TIME   TO_DATE_AND_TIME   URL_TO_ENVIRONMENT   API_TOKEN   MAX_REQUESTS_PER_MINUTE [SELECTED_MANAGEMENT_ZONE]
 ```
+
+Note: The SELECTED_MANAGEMENT_ZONE is optional. Specify it if you only want the calculate the DDU consumption for a single management zone.
 
 ## Example
 ```bash
-python dduConsumptionPerMZ.py 2020-08-01T12:00:00%2B02:00 2020-08-10T12:00:00%2B02:00 https://mySampleEnv.live.dynatrace.com/api/ rhGjhuu2SmmWsHo4dYZ7G 60
+python dduConsumptionPerMZ.py 2020-08-01T12:00:00+02:00 2020-08-10T12:00:00+02:00 https://mySampleEnv.live.dynatrace.com/api/ abcdefghijklmnop 60
+python dduConsumptionPerMZ.py 2020-08-01T12:00:00+02:00 2020-08-10T12:00:00+02:00 https://mySampleEnv.live.dynatrace.com/api/ abcdefghijklmnop 60 myManagementZone
 ```
 
 ## Output
@@ -27,6 +31,12 @@ python dduConsumptionPerMZ.py 2020-08-01T12:00:00%2B02:00 2020-08-10T12:00:00%2B
 ```
 
 ## Prerequisites
+
+### Install requests module
+
+```
+pip3 install requests
+```
 
 ### API key
 In order to use the Dynatrace API, you need an API key for your Dynatrace tenant. You can generate a key by following these steps:
@@ -51,4 +61,6 @@ In order to use the Dynatrace API, you need an API key for your Dynatrace tenant
 
 **API_TOKEN**: Replace with your own, to create one see [API key](#API-key)
 
-**MAX_REQUESTS_PER_MINUTE**: If you want to limit the amount of requests per minute.
+**MAX_REQUESTS_PER_MINUTE**: Limits the number of requests per minute.
+
+**SELECTED_MANAGEMENT_ZONE**: Optional, limits the management zones to the given zone when specified. Otherwise the DDU consumption for every available management zone gets calculated.
