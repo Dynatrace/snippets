@@ -26,68 +26,11 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 
 ## Dashboards
 
-### [Azure Batch Accounts](AzureBatchAccounts.json)
-![AzureBatchAccounts.png](AzureBatchAccounts.png)
-
-### [Azure DB for MariaDB](AzureDbForMariaDb.json)
-- database clients have to be instrumented with [One Agent](https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-oneagent/) 
-- Management Zone should be set up to match Azure MariaDB databases, example rules:
-
-![AzureDbForMariaDbManagementZone.png](AzureDbForMariaDbManagementZone.png)
-
-![AzureDbForMariaDb.png](AzureDbForMariaDb.png)
-
-### [Azure DB for MySQL](AzureDbForMySQL.json)
-- database clients have to be instrumented with [One Agent](https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-oneagent/) 
-- Management Zone should be set up to match Azure MySQL databases, example rules:
-
-![AzureDbForMySQLManagementZone.png](AzureDbForMySQLManagementZone.png)
-
-![AzureDbForMySQL.png](AzureDbForMySQL.png)
-
-### [Azure DB for PostgreSQL](AzureDbForPostgreSQL.json)
-- database clients have to be instrumented with [One Agent](https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-oneagent/) 
-- Management Zone should be set up to match Azure PostgreSQL databases, example rules
-
-![AzureDbForPostgreSQLManagementZone.png](AzureDbForPostgreSQLManagementZone.png)
-
-![AzureDbForPostgreSQL.png](AzureDbForPostgreSQL.png)
-
-### [Azure DB for PostgreSQL - Hyperscale](AzureDbForPostgreSQLHyperscale.json)
-- database clients have to be instrumented with [One Agent](https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-oneagent/) 
-- Management Zone should be set up to match Azure PostgreSQL Hyperscale databases, example rules
-
-![AzureDbForPostgreSQLManagementZone.png](AzureDbForPostgreSQLManagementZone.png)
-
-![AzureDbForPostgreSQLHyperscale.png](AzureDbForPostgreSQLHyperscale.png)
-
-### [Azure Virtual Machine Classic](AzureVirtualMachineClassic.json)
-![AzureVirtualMachineClassic.png](AzureVirtualMachineClassic.png)
-
-### [Azure Front Door](FrontDoor.json)
-![FrontDoor.png](FrontDoor.png)
-
-### [Azure HDInsight Cluster](HDInsight.json)
-- Cluster has to be instrumented with OneAgent, you can find the instruction [here](https://github.com/safia-habib/Azure/blob/master/HDInsights/Readme.md)
-- Management Zone `hdi-filter` should be set up to match HDI Cluster with hosts, example rules:
-
-![HDInsightManagementZone.png](HDInsightManagementZone.png)
-
-![HdInsight.png](HdInsight.png)
-
-### [Azure SQL Managed Instance](SqlManagedInstances.json)
-- database clients have to be instrumented with [OneAgent](https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-oneagent/) 
-
-![SqlManagedInstances.png](SqlManagedInstances.png)
-
-### [Azure Traffic Manager](TrafficManager.json)
-![TrafficManager.png](TrafficManager.png)
-
-### [Azure Virtual Network Gateway](VirtualNetworkGateway.json)
-![VirtualNetworkGateway.png](VirtualNetworkGateway.png)
-
 ### [Azure Automation Account](AutomationAccount.json)
 ![AutomationAccount.png](AutomationAccount.png)
+
+### [Azure Batch Accounts](BatchAccounts.json)
+![BatchAccounts.png](BatchAccounts.png)
 
 ### [Azure Container Instances](ContainerInstances.json)
 ![ContainerInstances.png](ContainerInstances.png)
@@ -104,6 +47,38 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 ### [Azure Data Lake Storage](DataLakeStorage.json)
 ![DataLakeStorage.png](DataLakeStorage.png)
 
+### [Azure DB for MariaDB](DbForMariaDb.json)
+- database clients have to be instrumented with [One Agent](https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-oneagent/) 
+- Management Zone should be set up to match Azure MariaDB databases, example rules:
+
+![DbForMariaDbManagementZone.png](DbForMariaDbManagementZone.png)
+
+![DbForMariaDb.png](DbForMariaDb.png)
+
+### [Azure DB for MySQL](DbForMySQL.json)
+- database clients have to be instrumented with [One Agent](https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-oneagent/) 
+- Management Zone should be set up to match Azure MySQL databases, example rules:
+
+![DbForMySQLManagementZone.png](DbForMySQLManagementZone.png)
+
+![DbForMySQL.png](DbForMySQL.png)
+
+### [Azure DB for PostgreSQL](DbForPostgreSQL.json)
+- database clients have to be instrumented with [One Agent](https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-oneagent/) 
+- Management Zone should be set up to match Azure PostgreSQL databases, example rules
+
+![DbForPostgreSQLManagementZone.png](DbForPostgreSQLManagementZone.png)
+
+![DbForPostgreSQL.png](DbForPostgreSQL.png)
+
+### [Azure DB for PostgreSQL - Hyperscale](DbForPostgreSQLHyperscale.json)
+- database clients have to be instrumented with [One Agent](https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-oneagent/) 
+- Management Zone should be set up to match Azure PostgreSQL Hyperscale databases, example rules
+
+![DbForPostgreSQLManagementZone.png](DbForPostgreSQLManagementZone.png)
+
+![DbForPostgreSQLHyperscale.png](DbForPostgreSQLHyperscale.png)
+
 ### [Azure Event Grid Domains](EventGridDomains.json)
 ![EventGridDomains.png](EventGridDomains.png)
 
@@ -116,14 +91,43 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 ### [Azure Event Hub Clusters](EventHubClusters.json)
 ![EventHubClusters.png](EventHubClusters.png)
 
+### [Azure Express Route Circuit](ExpressRouteCircuit.json)
+![ExpressRouteCircuit.png](ExpressRouteCircuit.png)
+
+### [Azure Firewall](Firewall.json)
+![Firewall.png](Firewall.png)
+
+### [Azure Front Door](FrontDoor.json)
+![FrontDoor.png](FrontDoor.png)
+
+### [Azure HDInsight Cluster](HDInsight.json)
+- Cluster has to be instrumented with OneAgent, you can find the instruction [here](https://github.com/safia-habib/Azure/blob/master/HDInsights/Readme.md)
+- Management Zone `hdi-filter` should be set up to match HDI Cluster with hosts, example rules:
+
+![HDInsightManagementZone.png](HDInsightManagementZone.png)
+
+![HDInsight.png](HDInsight.png)
+
+### [Azure Integration Service Environment](IntegrationServiceEnvironment.json)
+![IntegrationServiceEnvironment.png](IntegrationServiceEnvironment.png)
+
+### [Azure Integration Service Environment Plus LogicApps](IntegrationServiceEnvironmentPlusLogicApps.json)
+![IntegrationServiceEnvironmentPlusLogicApps.png](IntegrationServiceEnvironmentPlusLogicApps.png)
+
+### [Azure Kubernetes Service](KubernetesService.json)
+![KubernetesService.png](KubernetesService.png)
+
 ### [Azure Logic Workflows](LogicWorkflows.json)
 ![LogicWorkflows.png](LogicWorkflows.png)
+
+### [Azure Machine Learning](MachineLearning.json)
+![MachineLearning.png](MachineLearning.png)
 
 ### [Azure Maps Accounts](MapsAccounts.json)
 ![MapsAccounts.png](MapsAccounts.png)
 
-### [Azure Network Azure Firewalls](NetworkAzureFirewalls.json)
-![NetworkAzureFirewalls.png](NetworkAzureFirewalls.png)
+### [Azure NetApp Capacity Volume](NetAppCapacityVolume.json)
+![NetAppCapacityVolume.png](NetAppCapacityVolume.png)
 
 ### [Azure Network Interface](NetworkInterface.json)
 ![NetworkInterface.png](NetworkInterface.png)
@@ -137,26 +141,22 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 ### [Azure Search Services](SearchServices.json)
 ![SearchServices.png](SearchServices.png)
 
-### [Azure Express Route Circuit](AzureExpressRouteCircuit.json)
-![AzureExpressRouteCircuit.png](AzureExpressRouteCircuit.png)
+### [Azure SignalR](SignalR.json)
+![SignalR.png](SignalR.png)
 
-### [Azure Integration Service Environment](AzureIntegrationServiceEnvironment.json)
-![AzureIntegrationServiceEnvironment.png](AzureIntegrationServiceEnvironment.png)
+### [Azure Spring Cloud](SpringCloud.json)
+![SpringCloud.png](SpringCloud.png)
 
-### [Azure Integration Service Environment Plus LogicApps](AzureIntegrationServiceEnvironmentPlusLogicApps.json)
-![AzureIntegrationServiceEnvironmentPlusLogicApps.png](AzureIntegrationServiceEnvironmentPlusLogicApps.png)
+### [Azure SQL Managed Instance](SqlManagedInstances.json)
+- database clients have to be instrumented with [OneAgent](https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-oneagent/) 
 
-### [Azure Kubernetes Service](AzureKubernetesService.json)
-![AzureKubernetesService.png](AzureKubernetesService.png)
+![SqlManagedInstances.png](SqlManagedInstances.png)
 
-### [Azure Machine Learning](AzureMachineLearning.json)
-![AzureMachineLearning.png](AzureMachineLearning.png)
+### [Azure Traffic Manager](TrafficManager.json)
+![TrafficManager.png](TrafficManager.png)
 
-### [Azure NetApp Capacity Volume](AzureNetAppCapacityVolume.json)
-![AzureNetAppCapacityVolume.png](AzureNetAppCapacityVolume.png)
+### [Azure Virtual Machine Classic](VirtualMachineClassic.json)
+![VirtualMachineClassic.png](VirtualMachineClassic.png)
 
-### [Azure SignalIR](AzureSignalIR.json)
-![AzureSignalIR.png](AzureSignalIR.png)
-
-### [Azure Spring Cloud](AzureSpringCloud.json)
-![AzureSpringCloud.png](AzureSpringCloud.png)
+### [Azure Virtual Network Gateway](VirtualNetworkGateway.json)
+![VirtualNetworkGateway.png](VirtualNetworkGateway.png)
