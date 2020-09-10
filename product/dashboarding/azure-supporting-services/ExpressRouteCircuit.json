@@ -1,0 +1,600 @@
+{
+    "metadata": {
+        "configurationVersions": [3],
+        "clusterVersion": "1.197.115.20200714-141320"
+    },
+    "dashboardMetadata": {
+        "name": "Azure ExpressRoute Circuit",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        }
+    },
+    "tiles": [{
+        "name": "Usage",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 0,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Bits in per second",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_network.expressroutecircuits.bitsinpersecond",
+                    "aggregation": "AVG",
+                    "type": "AREA",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Bits out per second",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_network.expressroutecircuits.bitsoutpersecond",
+                    "aggregation": "AVG",
+                    "type": "AREA",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1292,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Arp availability",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_network.expressroutecircuits.arpavailability",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }, {
+                        "id": "2",
+                        "name": "Peer",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 646,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "ARP availability",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_network.expressroutecircuits.arpavailability",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 646,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "BGP availability",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_network.expressroutecircuits.bgpavailability",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 1292,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "BGP availability",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_network.expressroutecircuits.bgpavailability",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }, {
+                        "id": "2",
+                        "name": "Peer",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 2052,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Dropped in bits per second",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_network.expressroutecircuits.qosdropbitsinpersecond",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 2052,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Dropped out bits per second",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_network.expressroutecircuits.qosdropbitsoutpersecond",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Bits in per second",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_network.expressroutecircuits.bitsinpersecond",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Bits out per second",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_network.expressroutecircuits.bitsoutpersecond",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 950,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Arp availability",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_network.expressroutecircuits.arpavailability",
+                    "aggregation": "AVG",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 950,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "BGP availability",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_network.expressroutecircuits.bgpavailability",
+                    "aggregation": "AVG",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1596,
+            "width": 418,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Arp availability",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_network.expressroutecircuits.arpavailability",
+                    "aggregation": "AVG",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }, {
+                        "id": "2",
+                        "name": "Peer",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 1596,
+            "width": 418,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "BGP availability",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_network.expressroutecircuits.bgpavailability",
+                    "aggregation": "AVG",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }, {
+                        "id": "2",
+                        "name": "Peer",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Availability",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 646,
+            "width": 456,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "QoS",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 2052,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Availability by peer",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 1292,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }]
+}

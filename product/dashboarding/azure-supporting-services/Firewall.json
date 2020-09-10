@@ -1,0 +1,598 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      3
+    ],
+    "clusterVersion": "1.198.0.20200630-201300"
+  },
+  "dashboardMetadata": {
+    "name": "Azure Firewall",
+    "shared": false,
+    "sharingDetails": {
+      "linkShared": true,
+      "published": false
+    },
+    "dashboardFilter": {
+      "timeframe": "",
+      "managementZone": null
+    }
+  },
+  "tiles": [
+    {
+      "name": "Health",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    },
+    {
+      "name": "Usage",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 342,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    },
+    {
+      "name": "Rules",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 684,
+        "width": 608,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Firewall health state by status",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "PIE",
+          "series": [
+            {
+              "metric": "ext:cloud.azure.microsoft_network.azurefirewalls.firewallhealth",
+              "aggregation": "AVG",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                },
+                {
+                  "id": "1",
+                  "name": "Status",
+                  "values": [],
+                  "entityDimension": false
+                },
+                {
+                  "id": "2",
+                  "name": "Reason",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "null¦Status»*»falseext:cloud.azure.microsoft_network.azurefirewalls.firewallhealth|AVG|TOTAL|LINE|IOT": {
+              "lastModified": 1593454367403,
+              "customColor": "#00a1b2"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Firewall health state by instance",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "ext:cloud.azure.microsoft_network.azurefirewalls.firewallhealth",
+              "aggregation": "AVG",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 342,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Data processed",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.azure.microsoft_network.azurefirewalls.dataprocessed",
+              "aggregation": "SUM",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "SECOND"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 988,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Application rules hit count by status",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "ext:cloud.azure.microsoft_network.azurefirewalls.applicationrulehit",
+              "aggregation": "AVG",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                },
+                {
+                  "id": "1",
+                  "name": "Status",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "null¦Status»Deny»false¦Reason»NoMatch»false¦Protocol»Http»falseext:cloud.azure.microsoft_network.azurefirewalls.applicationrulehit|AVG|TOTAL|LINE|IOT": {
+              "lastModified": 1593454654482,
+              "customColor": "#ef651f"
+            },
+            "null¦Status»*»false¦Reason»*»false¦Protocol»*»falseext:cloud.azure.microsoft_network.azurefirewalls.applicationrulehit|AVG|TOTAL|LINE|IOT": {
+              "lastModified": 1593454641129,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 988,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Total application rules hit count",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "PIE",
+          "series": [
+            {
+              "metric": "ext:cloud.azure.microsoft_network.azurefirewalls.applicationrulehit",
+              "aggregation": "SUM",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 684,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Total network rules hit count",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "PIE",
+          "series": [
+            {
+              "metric": "ext:cloud.azure.microsoft_network.azurefirewalls.networkrulehit",
+              "aggregation": "SUM",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 988,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Application rules hit count by reason",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "ext:cloud.azure.microsoft_network.azurefirewalls.applicationrulehit",
+              "aggregation": "AVG",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                },
+                {
+                  "id": "2",
+                  "name": "Reason",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "null¦Reason»NoMatch»falseext:cloud.azure.microsoft_network.azurefirewalls.applicationrulehit|AVG|TOTAL|LINE|IOT": {
+              "lastModified": 1593533129231,
+              "customColor": "#ef651f"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 950,
+        "left": 988,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Application rules hit count by protocol",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "ext:cloud.azure.microsoft_network.azurefirewalls.applicationrulehit",
+              "aggregation": "AVG",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                },
+                {
+                  "id": "3",
+                  "name": "Protocol",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 684,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Network rules hit count by status",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "ext:cloud.azure.microsoft_network.azurefirewalls.networkrulehit",
+              "aggregation": "AVG",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                },
+                {
+                  "id": "1",
+                  "name": "Status",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 684,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Network rules hit count by reason",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "ext:cloud.azure.microsoft_network.azurefirewalls.networkrulehit",
+              "aggregation": "AVG",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                },
+                {
+                  "id": "2",
+                  "name": "Reason",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "null¦Reason»CustomerRule»falseext:cloud.azure.microsoft_network.azurefirewalls.networkrulehit|AVG|TOTAL|LINE|IOT": {
+              "lastModified": 1593533116799,
+              "customColor": "#c9a000"
+            },
+            "null¦Reason»NoMatch»falseext:cloud.azure.microsoft_network.azurefirewalls.networkrulehit|AVG|TOTAL|LINE|IOT": {
+              "lastModified": 1593533113401,
+              "customColor": "#ef651f"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    }
+  ]
+}
