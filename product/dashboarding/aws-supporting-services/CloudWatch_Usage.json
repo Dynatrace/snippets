@@ -1,8 +1,7 @@
 {
-  "metadata": {
-  },
+  "metadata": {},
   "dashboardMetadata": {
-    "name": "Amazon WAFV2",
+    "name": "AWS API Usage",
     "sharingDetails": {
       "linkShared": true,
       "published": false
@@ -15,8 +14,8 @@
       "configured": true,
       "bounds": {
         "top": 38,
-        "left": 0,
-        "width": 304,
+        "left": 494,
+        "width": 494,
         "height": 304
       },
       "tileFilter": {
@@ -25,22 +24,40 @@
       },
       "filterConfig": {
         "type": "MIXED",
-        "customName": "BlockedRequests Sum (by Region and Rule)",
+        "customName": "ResourceCount Average (by Class and Resource and Type)",
         "defaultName": "Custom chart",
         "chartConfig": {
           "legendShown": true,
           "type": "TIMESERIES",
           "series": [
             {
-              "metric": "ext:cloud.aws.wafv2.blockedRequestsSumByRegionRule",
-              "aggregation": "NONE",
+              "metric": "ext:cloud.aws.usage.resourceCountAverageByClassResourceType",
+              "aggregation": "AVG",
               "percentile": null,
-              "type": "LINE",
+              "type": "BAR",
               "entityType": "IOT",
-              "dimensions": [],
+              "dimensions": [
+                {
+                  "id": "1",
+                  "name": "Class",
+                  "values": [],
+                  "entityDimension": false
+                },
+                {
+                  "id": "2",
+                  "name": "Resource",
+                  "values": [],
+                  "entityDimension": false
+                },
+                {
+                  "id": "3",
+                  "name": "Type",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
               "sortAscending": false,
-              "sortColumn": true,
-              "aggregationRate": "TOTAL"
+              "sortColumn": true
             }
           ],
           "resultMetadata": {}
@@ -54,8 +71,8 @@
       "configured": true,
       "bounds": {
         "top": 342,
-        "left": 342,
-        "width": 304,
+        "left": 0,
+        "width": 494,
         "height": 304
       },
       "tileFilter": {
@@ -64,19 +81,26 @@
       },
       "filterConfig": {
         "type": "MIXED",
-        "customName": "AllowedRequests Sum (by Region and Rule)",
+        "customName": "CallCount Sum (by Class and Resource and Type)",
         "defaultName": "Custom chart",
         "chartConfig": {
           "legendShown": true,
           "type": "TIMESERIES",
           "series": [
             {
-              "metric": "ext:cloud.aws.wafv2.allowedRequestsSumByRegionRule",
+              "metric": "ext:cloud.aws.usage.callCountSumByClassResourceType",
               "aggregation": "NONE",
               "percentile": null,
-              "type": "LINE",
+              "type": "BAR",
               "entityType": "IOT",
-              "dimensions": [],
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "Resource",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
               "sortAscending": false,
               "sortColumn": true,
               "aggregationRate": "TOTAL"
@@ -88,28 +112,13 @@
       }
     },
     {
-      "name": "Security",
-      "tileType": "HEADER",
-      "configured": true,
-      "bounds": {
-        "top": 0,
-        "left": 0,
-        "width": 304,
-        "height": 38
-      },
-      "tileFilter": {
-        "timeframe": null,
-        "managementZone": null
-      }
-    },
-    {
       "name": "Custom chart",
       "tileType": "CUSTOM_CHARTING",
       "configured": true,
       "bounds": {
         "top": 38,
-        "left": 342,
-        "width": 304,
+        "left": 0,
+        "width": 494,
         "height": 304
       },
       "tileFilter": {
@@ -118,19 +127,26 @@
       },
       "filterConfig": {
         "type": "MIXED",
-        "customName": "CountedRequests Sum (by Region and Rule)",
+        "customName": "CallCount Sum (by Class and Resource and Type)",
         "defaultName": "Custom chart",
         "chartConfig": {
           "legendShown": true,
-          "type": "TIMESERIES",
+          "type": "TOP_LIST",
           "series": [
             {
-              "metric": "ext:cloud.aws.wafv2.countedRequestsSumByRegionRule",
+              "metric": "ext:cloud.aws.usage.callCountSumByClassResourceType",
               "aggregation": "NONE",
               "percentile": null,
-              "type": "LINE",
+              "type": "BAR",
               "entityType": "IOT",
-              "dimensions": [],
+              "dimensions": [
+                {
+                  "id": "2",
+                  "name": "Resource",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
               "sortAscending": false,
               "sortColumn": true,
               "aggregationRate": "TOTAL"
@@ -147,8 +163,8 @@
       "configured": true,
       "bounds": {
         "top": 0,
-        "left": 342,
-        "width": 304,
+        "left": 0,
+        "width": 190,
         "height": 38
       },
       "tileFilter": {

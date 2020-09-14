@@ -1,0 +1,239 @@
+{
+    "metadata": {},
+    "dashboardMetadata": {
+        "name": "AWS Chatbot",
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        }
+	},
+    "tiles": [{
+        "name": "Usage",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 0,
+            "width": 456,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 0,
+            "width": 456,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Events Processed by Instance",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "PIE",
+                "series": [{
+                    "metric": "ext:cloud.aws.chatbot.eventsProcessedSum",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 0,
+            "width": 456,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Events Processed",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.aws.chatbot.eventsProcessedSum",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {
+                    "nullext:cloud.aws.chatbot.eventsProcessedSum|NONE|TOTAL|LINE|IOT": {
+                        "lastModified": 1594887253502,
+                        "customColor": "#4fd5e0"
+                    }
+                }
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Performace",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 494,
+            "width": 456,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 494,
+            "width": 456,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Events Throttled",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.aws.chatbot.eventsThrottledSumByRegion",
+                    "aggregation": "NONE",
+                    "type": "BAR",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "1",
+                        "name": "Region",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {
+                    "null¦Region»us-east-1»falseext:cloud.aws.chatbot.eventsThrottledSumByRegion|NONE|TOTAL|BAR|MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP": {
+                        "lastModified": 1594887595367,
+                        "customColor": "#7c38a1"
+                    }
+                }
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Failures",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 988,
+            "width": 456,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 988,
+            "width": 456,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Message Delivery Failures",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.aws.chatbot.messageDeliveryFailureSum",
+                    "aggregation": "NONE",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {
+                    "nullext:cloud.aws.chatbot.messageDeliveryFailureSum|NONE|TOTAL|BAR|IOT": {
+                        "lastModified": 1594887612640,
+                        "customColor": "#ef651f"
+                    }
+                }
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 494,
+            "width": 456,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Events Throttled by Region",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "PIE",
+                "series": [{
+                    "metric": "ext:cloud.aws.chatbot.eventsThrottledSumByRegion",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "1",
+                        "name": "Region",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {
+                    "null¦Region»us-east-1»falseext:cloud.aws.chatbot.eventsThrottledSumByRegion|NONE|TOTAL|LINE|MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP": {
+                        "lastModified": 1594887595367,
+                        "customColor": "#7c38a1"
+                    }
+                }
+            },
+            "filtersPerEntityType": {}
+        }
+    }]
+}

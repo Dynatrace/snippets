@@ -1,0 +1,285 @@
+{
+    "dashboardMetadata": {
+      "name": "AWS Systems Manager - Run Command",
+      "sharingDetails": {
+        "linkShared": true,
+        "published": false
+      },
+      "dashboardFilter": {
+        "timeframe": "",
+        "managementZone": null
+      }
+    },
+    "tiles": [
+      {
+        "name": "Usage",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+          "top": 0,
+          "left": 0,
+          "width": 1140,
+          "height": 38
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 342,
+          "left": 380,
+          "width": 760,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Commands failed (by region)",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TIMESERIES",
+            "series": [
+              {
+                "metric": "ext:cloud.aws.ssm-runcommand.commandsFailedSumByRegion",
+                "aggregation": "NONE",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                "dimensions": [
+                  {
+                    "id": "1",
+                    "name": "Region",
+                    "values": [],
+                    "entityDimension": false
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 646,
+          "left": 380,
+          "width": 760,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Commands timed out (by region)",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TIMESERIES",
+            "series": [
+              {
+                "metric": "ext:cloud.aws.ssm-runcommand.commandsDeliveryTimedOutSumByRegion",
+                "aggregation": "NONE",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                "dimensions": [
+                  {
+                    "id": "1",
+                    "name": "Region",
+                    "values": [],
+                    "entityDimension": false
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 0,
+          "width": 380,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Commands succeeded",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "SINGLE_VALUE",
+            "series": [
+              {
+                "metric": "ext:cloud.aws.ssm-runcommand.commandsSucceededSumByRegion",
+                "aggregation": "NONE",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                "dimensions": [],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 380,
+          "width": 760,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Commands succeeded (by region)",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TIMESERIES",
+            "series": [
+              {
+                "metric": "ext:cloud.aws.ssm-runcommand.commandsSucceededSumByRegion",
+                "aggregation": "NONE",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                "dimensions": [
+                  {
+                    "id": "1",
+                    "name": "Region",
+                    "values": [],
+                    "entityDimension": false
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 342,
+          "left": 0,
+          "width": 380,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Commands Failed",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "SINGLE_VALUE",
+            "series": [
+              {
+                "metric": "ext:cloud.aws.ssm-runcommand.commandsFailedSumByRegion",
+                "aggregation": "NONE",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                "dimensions": [],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 646,
+          "left": 0,
+          "width": 380,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Commands timed out",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "SINGLE_VALUE",
+            "series": [
+              {
+                "metric": "ext:cloud.aws.ssm-runcommand.commandsDeliveryTimedOutSumByRegion",
+                "aggregation": "NONE",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                "dimensions": [],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      }
+    ]
+  }

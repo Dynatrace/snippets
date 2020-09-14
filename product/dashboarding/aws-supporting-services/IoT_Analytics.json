@@ -1,0 +1,481 @@
+{
+    "dashboardMetadata": {
+        "name": "AWS IoT Analytics",
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        }
+    },
+    "tiles": [{
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 950,
+            "width": 304,
+            "height": 266
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Activity Execution Errors by Pipeline",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.aws.iotanalytics.activityExecutionErrorSumByPipelineActivityNamePipelineActivityTypePipelineName",
+                    "aggregation": "NONE",
+                    "type": "BAR",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "4",
+                        "name": "PipelineName",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 608,
+            "left": 950,
+            "width": 304,
+            "height": 266
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Action Executions Throttled",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.aws.iotanalytics.actionExecutionThrottledSumByActionTypeDatasetName",
+                    "aggregation": "NONE",
+                    "type": "BAR",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "3",
+                        "name": "DatasetName",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 0,
+            "width": 304,
+            "height": 266
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Total Incoming Messages",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "PIE",
+                "series": [{
+                    "metric": "ext:cloud.aws.iotanalytics.incomingMessagesSumByChannelName",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "2",
+                        "name": "ChannelName",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Usage",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 0,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Failures",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 646,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 646,
+            "width": 304,
+            "height": 266
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Total Pipeline Execution Errors",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "PIE",
+                "series": [{
+                    "metric": "ext:cloud.aws.iotanalytics.activityExecutionErrorSumByPipelineActivityNamePipelineActivityTypePipelineName",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "4",
+                        "name": "PipelineName",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 0,
+            "width": 608,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Incoming Messages",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.aws.iotanalytics.incomingMessagesSumByChannelName",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "2",
+                        "name": "ChannelName",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 304,
+            "width": 304,
+            "height": 266
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Top Incoming Messages",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.aws.iotanalytics.incomingMessagesSumByChannelName",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "2",
+                        "name": "ChannelName",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "MINUTE"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 608,
+            "left": 304,
+            "width": 304,
+            "height": 266
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Concurrent Pipeline Executions",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.aws.iotanalytics.pipelineConcurrentExecutionCountSumByPipelineName",
+                    "aggregation": "NONE",
+                    "type": "BAR",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "2",
+                        "name": "PipelineName",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 608,
+            "left": 0,
+            "width": 304,
+            "height": 266
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Total Concurrent Pipeline Executions",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "PIE",
+                "series": [{
+                    "metric": "ext:cloud.aws.iotanalytics.pipelineConcurrentExecutionCountSumByPipelineName",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "2",
+                        "name": "PipelineName",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 874,
+            "left": 304,
+            "width": 304,
+            "height": 266
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Dataset Action Executions",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.aws.iotanalytics.actionExecutionSumByActionTypeDatasetName",
+                    "aggregation": "NONE",
+                    "type": "BAR",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "3",
+                        "name": "DatasetName",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 646,
+            "width": 608,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Top Activity Execution Errors",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.aws.iotanalytics.activityExecutionErrorSumByPipelineActivityNamePipelineActivityTypePipelineName",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "3",
+                        "name": "PipelineActivityType",
+                        "values": [],
+                        "entityDimension": false
+                    }, {
+                        "id": "4",
+                        "name": "PipelineName",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 874,
+            "left": 0,
+            "width": 304,
+            "height": 266
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Total Dataset Action Executions",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "PIE",
+                "series": [{
+                    "metric": "ext:cloud.aws.iotanalytics.actionExecutionSumByActionTypeDatasetName",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "3",
+                        "name": "DatasetName",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 608,
+            "left": 646,
+            "width": 304,
+            "height": 266
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Total Action Executions Throttled",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.aws.iotanalytics.actionExecutionThrottledSumByActionTypeDatasetName",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "3",
+                        "name": "DatasetName",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }]
+}
