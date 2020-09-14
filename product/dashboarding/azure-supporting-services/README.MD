@@ -59,6 +59,9 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 ### [Azure CDN WAF Policy](CdnWafPolicy.json)
 ![CdnWafPolicy.png](CdnWafPolicy.png)
 
+### [Azure Cognitive Services](CognitiveServices.json)
+![CognitiveServices.png](CognitiveServices.png)
+
 ### [Azure Connection Monitors](ConnectionMonitors.json)
 ![ConnectionMonitors.png](ConnectionMonitors.png)
 
@@ -182,7 +185,7 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 ### [Azure Maps Accounts](MapsAccounts.json)
 ![MapsAccounts.png](MapsAccounts.png)
 
-### [Azure Media Services](MediaServices.json)
+### [Azure Media Services (and Media Service Streaming Endpoint)](MediaServices.json)
 ![MediaServices.png](MediaServices.png)
 
 ### [Azure Mesh Applications](MeshApplications.json)
@@ -242,7 +245,7 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 ### [Azure Stream Analytics Jobs](StreamAnalyticsJobs.json)
 ![StreamAnalyticsJobs.png](StreamAnalyticsJobs.png)
 
-### [Azure Synapse Workspace](SynapseWorkspace.json)
+### [Azure Synapse Workspace (and Apache Spark Pool and SQL Pool)](SynapseWorkspace.json)
 ![SynapseWorkspace.png](SynapseWorkspace.png)
 
 ### [Azure Time Series Insights Environment](TimeSeriesInsightsEnvironment.json)
