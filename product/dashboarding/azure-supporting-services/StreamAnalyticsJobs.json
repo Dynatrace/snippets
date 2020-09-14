@@ -1,0 +1,267 @@
+{
+    "metadata": {},
+    "dashboardMetadata": {
+        "name": "Azure Stream Analytics",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        }
+    },
+    "tiles": [{
+        "name": "Usage",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 0,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Input/Output Events",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_streamanalytics.streamingjobs.inputevents",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": false,
+                    "aggregationRate": "TOTAL"
+                }, {
+                    "metric": "ext:cloud.azure.microsoft_streamanalytics.streamingjobs.outputevents",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 684,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Resource utilization",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_streamanalytics.streamingjobs.resourceutilization",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 342,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Errors",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_streamanalytics.streamingjobs.errors",
+                    "aggregation": "COUNT",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }, {
+                    "metric": "ext:cloud.azure.microsoft_streamanalytics.streamingjobs.deserializationerror",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": false,
+                    "aggregationRate": "TOTAL"
+                }, {
+                    "metric": "ext:cloud.azure.microsoft_streamanalytics.streamingjobs.conversionerrors",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": false,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Failed requests",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 342,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Performance",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 684,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 684,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Latency",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "SINGLE_VALUE",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_streamanalytics.streamingjobs.outputwatermarkdelayseconds",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 342,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Problematic Events",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_streamanalytics.streamingjobs.earlyinputevents",
+                    "aggregation": "AVG",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": false,
+                    "aggregationRate": "TOTAL"
+                }, {
+                    "metric": "ext:cloud.azure.microsoft_streamanalytics.streamingjobs.lateinputevents",
+                    "aggregation": "AVG",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": false,
+                    "aggregationRate": "TOTAL"
+                }, {
+                    "metric": "ext:cloud.azure.microsoft_streamanalytics.streamingjobs.droppedoradjustedevents",
+                    "aggregation": "AVG",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": false,
+                    "aggregationRate": "TOTAL"
+                }, {
+                    "metric": "ext:cloud.azure.microsoft_streamanalytics.streamingjobs.inputeventssourcesbacklogged",
+                    "aggregation": "AVG",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {
+                    "nullext:cloud.azure.microsoft_streamanalytics.streamingjobs.droppedoradjustedevents|AVG|TOTAL|BAR|IOT": {
+                        "lastModified": 1593770314674,
+                        "customColor": "#00a1b2"
+                    }
+                }
+            },
+            "filtersPerEntityType": {}
+        }
+    }]
+}

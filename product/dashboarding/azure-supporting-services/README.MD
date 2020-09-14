@@ -26,14 +26,53 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 
 ## Dashboards
 
+### [Azure App Configuration](AppConfiguration.json)
+![AppConfiguration.png](AppConfiguration.png)
+
+### [Azure App Service Deployment Slots](AppServiceDeploymentSlots.json)
+![AppServiceDeploymentSlots.png](AppServiceDeploymentSlots.png)
+
+### [Azure App Service Environment](AppServiceEnvironment.json)
+![AppServiceEnvironment.png](AppServiceEnvironment.png)
+
+### [Azure App Service Plan](AppServicePlan.json)
+![AppServicePlan.png](AppServicePlan.png)
+
+### [Azure Application Insights](ApplicationInsights.json)
+![ApplicationInsights1.png](ApplicationInsights1.png)
+
+
+![ApplicationInsights2.png](ApplicationInsights2.png)
+
+
+![ApplicationInsights3.png](ApplicationInsights3.png)
+
 ### [Azure Automation Account](AutomationAccount.json)
 ![AutomationAccount.png](AutomationAccount.png)
 
 ### [Azure Batch Accounts](BatchAccounts.json)
 ![BatchAccounts.png](BatchAccounts.png)
 
+### [Azure Blockchain](Blockchain.json)
+![Blockchain.png](Blockchain.png)
+
+### [Azure CDN WAF Policy](CdnWafPolicy.json)
+![CdnWafPolicy.png](CdnWafPolicy.png)
+
+### [Azure Connection Monitors](ConnectionMonitors.json)
+![ConnectionMonitors.png](ConnectionMonitors.png)
+
+### [Azure Connection Monitors Preview](ConnectionMonitorsPreview.json)
+![ConnectionMonitorsPreview.png](ConnectionMonitorsPreview.png)
+
 ### [Azure Container Instances](ContainerInstances.json)
 ![ContainerInstances.png](ContainerInstances.png)
+
+### [Azure Container Registries](ContainerRegistries.json)
+![ContainerRegistries.png](ContainerRegistries.png)
+
+### [Azure Data Explorer Clusters](DataExplorerClusters.json)
+![DataExplorerClusters.png](DataExplorerClusters.png)
 
 ### [Azure Data Factory V1](DataFactoryV1.json)
 ![DataFactoryV1.png](DataFactoryV1.png)
@@ -46,6 +85,9 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 
 ### [Azure Data Lake Storage](DataLakeStorage.json)
 ![DataLakeStorage.png](DataLakeStorage.png)
+
+### [Azure Data Share](DataShare.json)
+![DataShare.png](DataShare.png)
 
 ### [Azure DB for MariaDB](DbForMariaDb.json)
 - database clients have to be instrumented with [One Agent](https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-oneagent/) 
@@ -78,6 +120,12 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 ![DbForPostgreSQLManagementZone.png](DbForPostgreSQLManagementZone.png)
 
 ![DbForPostgreSQLHyperscale.png](DbForPostgreSQLHyperscale.png)
+
+### [Azure Device Provisioning Services](DeviceProvisioningServices.json)
+![DeviceProvisioningServices.png](DeviceProvisioningServices.png)
+
+### [Azure DNS Zones](DnsZones.json)
+![DnsZones.png](DnsZones.png)
 
 ### [Azure Event Grid Domains](EventGridDomains.json)
 ![EventGridDomains.png](EventGridDomains.png)
@@ -114,17 +162,31 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 ### [Azure Integration Service Environment Plus LogicApps](IntegrationServiceEnvironmentPlusLogicApps.json)
 ![IntegrationServiceEnvironmentPlusLogicApps.png](IntegrationServiceEnvironmentPlusLogicApps.png)
 
+### [Azure IoT Central Applications](IotCentralApplications.json)
+![IotCentralApplications.png](IotCentralApplications.png)
+
+### [Azure Key Vault](KeyVault.json)
+![KeyVault.png](KeyVault.png)
+
 ### [Azure Kubernetes Service](KubernetesService.json)
 ![KubernetesService.png](KubernetesService.png)
 
-### [Azure Logic Workflows](LogicWorkflows.json)
-![LogicWorkflows.png](LogicWorkflows.png)
+### [Azure Logic Apps](LogicApps.json)
+![LogicApps.png](LogicApps.png)
 
 ### [Azure Machine Learning](MachineLearning.json)
-![MachineLearning.png](MachineLearning.png)
+![MachineLearning1.png](MachineLearning1.png)
+
+![MachineLearning2.png](MachineLearning2.png)
 
 ### [Azure Maps Accounts](MapsAccounts.json)
 ![MapsAccounts.png](MapsAccounts.png)
+
+### [Azure Media Services](MediaServices.json)
+![MediaServices.png](MediaServices.png)
+
+### [Azure Mesh Applications](MeshApplications.json)
+![MeshApplications.png](MeshApplications.png)
 
 ### [Azure NetApp Capacity Volume](NetAppCapacityVolume.json)
 ![NetAppCapacityVolume.png](NetAppCapacityVolume.png)
@@ -132,11 +194,20 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 ### [Azure Network Interface](NetworkInterface.json)
 ![NetworkInterface.png](NetworkInterface.png)
 
-### [Azure Private Dns Zones](PrivateDnsZones.json)
+### [Azure Notification Hubs](NotificationHubs.json)
+![NotificationHubs.png](NotificationHubs.png)
+
+### [Azure PowerBI](PowerBi.json)
+![PowerBi.png](PowerBi.png)
+
+### [Azure Private DNS Zones](PrivateDnsZones.json)
 ![PrivateDnsZones.png](PrivateDnsZones.png)
 
-### [Azure Public Ip](PublicIp.json)
+### [Azure Public IP](PublicIp.json)
 ![PublicIp.png](PublicIp.png)
+
+### [Azure Relay](Relay.json)
+![Relay.png](Relay.png)
 
 ### [Azure Search Services](SearchServices.json)
 ![SearchServices.png](SearchServices.png)
@@ -151,6 +222,34 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 - database clients have to be instrumented with [OneAgent](https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-oneagent/) 
 
 ![SqlManagedInstances.png](SqlManagedInstances.png)
+
+### [Azure Storage Account Classic](StorageAccountClassic.json)
+![StorageAccountClassic.png](StorageAccountClassic.png)
+
+### [Azure Storage Account Classic (Blob)](StorageAccountClassicBlob.json)
+![StorageAccountClassicBlob.png](StorageAccountClassicBlob.png)
+
+### [Azure Storage Account Classic (File)](StorageAccountClassicFile.json)
+
+### [Azure Storage Account Classic (Queue)](StorageAccountClassicQueue.json)
+
+### [Azure Storage Account Classic (Table)](StorageAccountClassicTable.json)
+![StorageAccountClassicTable.png](StorageAccountClassicTable.png)
+
+### [Azure Storage Sync Services](StorageSyncServices.json)
+![StorageSyncServices.png](StorageSyncServices.png)
+
+### [Azure Stream Analytics Jobs](StreamAnalyticsJobs.json)
+![StreamAnalyticsJobs.png](StreamAnalyticsJobs.png)
+
+### [Azure Synapse Workspace](SynapseWorkspace.json)
+![SynapseWorkspace.png](SynapseWorkspace.png)
+
+### [Azure Time Series Insights Environment](TimeSeriesInsightsEnvironment.json)
+![TimeSeriesInsightsEnvironment.png](TimeSeriesInsightsEnvironment.png)
+
+### [Azure Time Series Insights Event Sources](TimeSeriesInsightsEventSources.json)
+![TimeSeriesInsightsEventSources.png](TimeSeriesInsightsEventSources.png)
 
 ### [Azure Traffic Manager](TrafficManager.json)
 ![TrafficManager.png](TrafficManager.png)

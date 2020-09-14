@@ -1,0 +1,414 @@
+{
+    "metadata": {},
+    "dashboardMetadata": {
+      "name": "Azure Key Vault",
+      "shared": false,
+      "sharingDetails": {
+        "linkShared": true,
+        "published": false
+      },
+      "dashboardFilter": {
+        "timeframe": "-2h",
+        "managementZone": null
+      }
+    },
+    "tiles": [
+      {
+        "name": "Availability & usage",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+          "top": 0,
+          "left": 0,
+          "width": 608,
+          "height": 38
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        }
+      },
+      {
+        "name": "Performance",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+          "top": 0,
+          "left": 684,
+          "width": 608,
+          "height": 38
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 0,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Vault availability",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_keyvault.vaults.availability",
+                "aggregation": "AVG",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 684,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Overall service API latency",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_keyvault.vaults.serviceapilatency",
+                "aggregation": "AVG",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 342,
+          "left": 0,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Overall vault saturation",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_keyvault.vaults.saturationshoebox",
+                "aggregation": "AVG",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 342,
+          "left": 684,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Total service API hits",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_keyvault.vaults.serviceapihit",
+                "aggregation": "NONE",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 342,
+          "left": 988,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Service API results",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_keyvault.vaults.serviceapiresult",
+                "aggregation": "AVG",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 988,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Service API latency",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_keyvault.vaults.serviceapilatency",
+                "aggregation": "AVG",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  },
+                  {
+                    "id": "3",
+                    "name": "Status code",
+                    "values": [],
+                    "entityDimension": false
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 342,
+          "left": 304,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": "-7d to now",
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Overall vault saturation over last 7 days",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TIMESERIES",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_keyvault.vaults.saturationshoebox",
+                "aggregation": "AVG",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [
+                  {
+                    "id": "0",
+                    "name": "dt.entity.custom_device",
+                    "values": [],
+                    "entityDimension": true
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 304,
+          "width": 304,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": "-7d to now",
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Vault availability over last 7 days",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TIMESERIES",
+            "series": [
+              {
+                "metric": "ext:cloud.azure.microsoft_keyvault.vaults.availability",
+                "aggregation": "AVG",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "IOT",
+                "dimensions": [],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      }
+    ]
+  }

@@ -1,0 +1,319 @@
+{
+  "metadata": {},
+  "dashboardMetadata": {
+    "name": "Azure Container Registries",
+    "shared": false,
+    "sharingDetails": {
+      "linkShared": true,
+      "published": false
+    },
+    "dashboardFilter": {
+      "timeframe": "",
+      "managementZone": null
+    },
+    "tags": [
+      "ACR",
+      "Azure",
+      "Container",
+      "Registry"
+    ]
+  },
+  "tiles": [
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 76,
+        "left": 0,
+        "width": 380,
+        "height": 380
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Push count for registries per minute",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "ext:cloud.azure.microsoft_containerregistry.registries.totalpushcount",
+              "aggregation": "SUM",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "MINUTE"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 456,
+        "left": 0,
+        "width": 380,
+        "height": 380
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Pull count for registires per minute",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "ext:cloud.azure.microsoft_containerregistry.registries.totalpullcount",
+              "aggregation": "SUM",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "MINUTE"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 456,
+        "left": 380,
+        "width": 760,
+        "height": 380
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Total push count vs successful push count",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.azure.microsoft_containerregistry.registries.totalpushcount",
+              "aggregation": "SUM",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": false,
+              "aggregationRate": "TOTAL"
+            },
+            {
+              "metric": "ext:cloud.azure.microsoft_containerregistry.registries.successfulpushcount",
+              "aggregation": "SUM",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 76,
+        "left": 380,
+        "width": 760,
+        "height": 380
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Total pull count vs successfull pull count",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.azure.microsoft_containerregistry.registries.totalpullcount",
+              "aggregation": "SUM",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": false,
+              "aggregationRate": "TOTAL"
+            },
+            {
+              "metric": "ext:cloud.azure.microsoft_containerregistry.registries.successfulpullcount",
+              "aggregation": "SUM",
+              "percentile": null,
+              "type": "BAR",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 76,
+        "left": 1178,
+        "width": 380,
+        "height": 380
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Average run duration",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "ext:cloud.azure.microsoft_containerregistry.registries.runduration",
+              "aggregation": "AVG",
+              "percentile": null,
+              "type": "LINE",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Usage",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 1140,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    },
+    {
+      "name": "Performance",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1178,
+        "width": 380,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    }
+  ]
+}
