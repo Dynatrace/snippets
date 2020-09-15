@@ -1,0 +1,189 @@
+{
+  "metadata": {},
+  "dashboardMetadata": {
+    "name": "Azure CDN WAF Policy",
+    "shared": false,
+    "sharingDetails": {
+      "linkShared": true,
+      "published": false
+    },
+    "dashboardFilter": {
+      "timeframe": ""
+    }
+  },
+  "tiles": [{
+    "name": "Custom chart",
+    "tileType": "CUSTOM_CHARTING",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 532,
+      "width": 760,
+      "height": 304
+    },
+    "tileFilter": {},
+    "filterConfig": {
+      "type": "MIXED",
+      "customName": "Web application firewall request count",
+      "defaultName": "Custom chart",
+      "chartConfig": {
+        "legendShown": true,
+        "type": "TIMESERIES",
+        "series": [{
+          "metric": "ext:cloud.azure.microsoft_cdn.cdnwebapplicationfirewallpolicies.webapplicationfirewallrequestcount",
+          "aggregation": "COUNT",
+          "type": "BAR",
+          "entityType": "IOT",
+          "dimensions": [{
+            "id": "0",
+            "name": "dt.entity.custom_device",
+            "values": [],
+            "entityDimension": true
+          }],
+          "sortAscending": false,
+          "sortColumn": true,
+          "aggregationRate": "TOTAL"
+        }],
+        "resultMetadata": {}
+      },
+      "filtersPerEntityType": {}
+    }
+  }, {
+    "name": "Custom chart",
+    "tileType": "CUSTOM_CHARTING",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 0,
+      "width": 532,
+      "height": 304
+    },
+    "tileFilter": {},
+    "filterConfig": {
+      "type": "MIXED",
+      "customName": "Web application firewall requests total count by action",
+      "defaultName": "Custom chart",
+      "chartConfig": {
+        "legendShown": true,
+        "type": "PIE",
+        "series": [{
+          "metric": "ext:cloud.azure.microsoft_cdn.cdnwebapplicationfirewallpolicies.webapplicationfirewallrequestcount",
+          "aggregation": "SUM",
+          "type": "LINE",
+          "entityType": "IOT",
+          "dimensions": [{
+            "id": "0",
+            "name": "dt.entity.custom_device",
+            "values": [],
+            "entityDimension": true
+          }, {
+            "id": "3",
+            "name": "Action",
+            "values": [],
+            "entityDimension": false
+          }],
+          "sortAscending": false,
+          "sortColumn": true,
+          "aggregationRate": "TOTAL"
+        }],
+        "resultMetadata": {}
+      },
+      "filtersPerEntityType": {}
+    }
+  }, {
+    "name": "Web application firewall request count",
+    "tileType": "HEADER",
+    "configured": true,
+    "bounds": {
+      "top": 0,
+      "left": 0,
+      "width": 1140,
+      "height": 38
+    },
+    "tileFilter": {}
+  }, {
+    "name": "Custom chart",
+    "tileType": "CUSTOM_CHARTING",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 0,
+      "width": 532,
+      "height": 304
+    },
+    "tileFilter": {},
+    "filterConfig": {
+      "type": "MIXED",
+      "customName": "Web application firewall request count by rule",
+      "defaultName": "Custom chart",
+      "chartConfig": {
+        "legendShown": true,
+        "type": "PIE",
+        "series": [{
+          "metric": "ext:cloud.azure.microsoft_cdn.cdnwebapplicationfirewallpolicies.webapplicationfirewallrequestcount",
+          "aggregation": "SUM",
+          "type": "LINE",
+          "entityType": "IOT",
+          "dimensions": [{
+            "id": "0",
+            "name": "dt.entity.custom_device",
+            "values": [],
+            "entityDimension": true
+          }, {
+            "id": "2",
+            "name": "Rule name",
+            "values": [],
+            "entityDimension": false
+          }],
+          "sortAscending": false,
+          "sortColumn": true,
+          "aggregationRate": "TOTAL"
+        }],
+        "resultMetadata": {}
+      },
+      "filtersPerEntityType": {}
+    }
+  }, {
+    "name": "Custom chart",
+    "tileType": "CUSTOM_CHARTING",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 532,
+      "width": 760,
+      "height": 304
+    },
+    "tileFilter": {},
+    "filterConfig": {
+      "type": "MIXED",
+      "customName": "Web application firewall request count",
+      "defaultName": "Custom chart",
+      "chartConfig": {
+        "legendShown": true,
+        "type": "TIMESERIES",
+        "series": [{
+          "metric": "ext:cloud.azure.microsoft_cdn.cdnwebapplicationfirewallpolicies.webapplicationfirewallrequestcount",
+          "aggregation": "COUNT",
+          "type": "BAR",
+          "entityType": "IOT",
+          "dimensions": [{
+            "id": "0",
+            "name": "dt.entity.custom_device",
+            "values": [],
+            "entityDimension": true
+          }, {
+            "id": "3",
+            "name": "Action",
+            "values": [],
+            "entityDimension": false
+          }],
+          "sortAscending": false,
+          "sortColumn": true,
+          "aggregationRate": "TOTAL"
+        }],
+        "resultMetadata": {}
+      },
+      "filtersPerEntityType": {}
+    }
+  }]
+}

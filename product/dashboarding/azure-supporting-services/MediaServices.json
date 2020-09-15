@@ -1,0 +1,535 @@
+{
+    "metadata": {},
+    "dashboardMetadata": {
+        "name": "Azure Media Services",
+        "shared": true,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": true
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        }
+    },
+    "tiles": [{
+        "name": "Usage",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 38,
+            "width": 1178,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Performance",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1254,
+            "width": 380,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 114,
+            "left": 38,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {
+            "timeframe": "-72h to now"
+        },
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Asset count per media account",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "SINGLE_VALUE",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_media.mediaservices.assetcount",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 418,
+            "left": 38,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {
+            "timeframe": "-72h to now"
+        },
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Content key policy count per media account",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "SINGLE_VALUE",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_media.mediaservices.contentkeypolicycount",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 722,
+            "left": 38,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {
+            "timeframe": "-72h to now"
+        },
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Streaming policy count per media account",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "SINGLE_VALUE",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_media.mediaservices.streamingpolicycount",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 114,
+            "left": 418,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {
+            "timeframe": "-72h to now"
+        },
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Asset quota usage per media account",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "SINGLE_VALUE",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_media.mediaservices.assetquotausedpercentage",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 418,
+            "left": 418,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {
+            "timeframe": "-72h to now"
+        },
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Content key policy quota usage per media account",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "SINGLE_VALUE",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_media.mediaservices.contentkeypolicyquotausedpercentage",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 722,
+            "left": 418,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {
+            "timeframe": "-72h to now"
+        },
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Streaming policy quota usage per media account",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "SINGLE_VALUE",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_media.mediaservices.streamingpolicyquotausedpercentage",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 114,
+            "left": 836,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {
+            "timeframe": "-72h to now"
+        },
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Requests by output format",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_media.mediaservices.streamingendpoints.requests",
+                    "aggregation": "SUM",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }, {
+                        "id": "1",
+                        "name": "Output format",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 114,
+            "left": 1254,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {
+            "timeframe": "-72h to now"
+        },
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Success E2E latency by ouput format",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_media.mediaservices.streamingendpoints.successe2elatency",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }, {
+                        "id": "1",
+                        "name": "Output format",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {},
+                "leftAxisCustomUnit": "Second"
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 418,
+            "left": 836,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {
+            "timeframe": "-72h to now"
+        },
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Requests by HTTP status code",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_media.mediaservices.streamingendpoints.requests",
+                    "aggregation": "SUM",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }, {
+                        "id": "2",
+                        "name": "HTTP status code",
+                        "values": [],
+                        "entityDimension": false
+                    }, {
+                        "id": "3",
+                        "name": "Error code",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {},
+                "leftAxisCustomUnit": "Kilo"
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 76,
+            "left": 38,
+            "width": 760,
+            "height": 38
+        },
+        "tileFilter": {
+            "timeframe": "Last 2 hours"
+        },
+        "markdown": "##### Azure Media Service Accounts"
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 76,
+            "left": 836,
+            "width": 380,
+            "height": 38
+        },
+        "tileFilter": {
+            "timeframe": "Last 2 hours"
+        },
+        "markdown": "##### Streaming Endpoints"
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 722,
+            "left": 836,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {
+            "timeframe": "-72h to now"
+        },
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Egress by output format",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_media.mediaservices.streamingendpoints.egress",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }, {
+                        "id": "1",
+                        "name": "Output format",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 76,
+            "left": 1254,
+            "width": 380,
+            "height": 38
+        },
+        "tileFilter": {
+            "timeframe": "Last 2 hours"
+        },
+        "markdown": "##### Streaming Endpoints"
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 418,
+            "left": 1254,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {
+            "timeframe": "-72h to now"
+        },
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Success end to end latency",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_media.mediaservices.streamingendpoints.successe2elatency",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }]
+}

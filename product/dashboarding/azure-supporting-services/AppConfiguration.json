@@ -1,0 +1,352 @@
+{
+    "metadata": {},
+    "dashboardMetadata": {
+        "name": "Azure App Configuration",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        }
+    },
+    "tiles": [{
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 0,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Total incoming request count",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_appconfiguration.configurationstores.httpincomingrequestcount",
+                    "aggregation": "COUNT",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Usage",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 0,
+            "width": 380,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 836,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Throttled requests",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_appconfiguration.configurationstores.throttledhttprequestcount",
+                    "aggregation": "SUM",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 418,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Request duration",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_appconfiguration.configurationstores.httpincomingrequestduration",
+                    "aggregation": "AVG",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Failed Requests",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 836,
+            "width": 380,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 0,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Incoming request count by status",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_appconfiguration.configurationstores.httpincomingrequestcount",
+                    "aggregation": "COUNT",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "1",
+                        "name": "HTTP status code",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {
+                    "null¦HTTP status code»304»falseext:cloud.azure.microsoft_appconfiguration.configurationstores.httpincomingrequestcount|COUNT|TOTAL|BAR|IOT": {
+                        "lastModified": 1593679227085,
+                        "customColor": "#f5d30f"
+                    },
+                    "null¦HTTP status code»404»falseext:cloud.azure.microsoft_appconfiguration.configurationstores.httpincomingrequestcount|COUNT|TOTAL|BAR|IOT": {
+                        "lastModified": 1596206886223,
+                        "customColor": "#ef651f"
+                    },
+                    "null¦HTTP status code»429»falseext:cloud.azure.microsoft_appconfiguration.configurationstores.httpincomingrequestcount|COUNT|TOTAL|BAR|IOT": {
+                        "lastModified": 1593679228936,
+                        "customColor": "#ef651f"
+                    },
+                    "null¦HTTP status code»200»falseext:cloud.azure.microsoft_appconfiguration.configurationstores.httpincomingrequestcount|COUNT|TOTAL|BAR|IOT": {
+                        "lastModified": 1593679248345,
+                        "customColor": "#10ee10"
+                    }
+                }
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Performance",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 418,
+            "width": 380,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 418,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Request duration by status",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_appconfiguration.configurationstores.httpincomingrequestduration",
+                    "aggregation": "AVG",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "1",
+                        "name": "HTTP status code",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {
+                    "null¦HTTP status code»200»falseext:cloud.azure.microsoft_appconfiguration.configurationstores.httpincomingrequestduration|AVG|TOTAL|BAR|IOT": {
+                        "lastModified": 1596206907694,
+                        "customColor": "#10ee10"
+                    },
+                    "null¦HTTP status code»404»falseext:cloud.azure.microsoft_appconfiguration.configurationstores.httpincomingrequestduration|AVG|TOTAL|BAR|IOT": {
+                        "lastModified": 1596206742644,
+                        "customColor": "#ef651f"
+                    }
+                }
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 646,
+            "left": 418,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Average request duration",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "PIE",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_appconfiguration.configurationstores.httpincomingrequestduration",
+                    "aggregation": "AVG",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "1",
+                        "name": "HTTP status code",
+                        "values": [],
+                        "entityDimension": false
+                    }, {
+                        "id": "2",
+                        "name": "Authentication scheme",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {
+                    "null¦HTTP status code»200»falseext:cloud.azure.microsoft_appconfiguration.configurationstores.httpincomingrequestduration|AVG|TOTAL|BAR|IOT": {
+                        "lastModified": 1596206907694,
+                        "customColor": "#10ee10"
+                    },
+                    "null¦HTTP status code»404»falseext:cloud.azure.microsoft_appconfiguration.configurationstores.httpincomingrequestduration|AVG|TOTAL|BAR|IOT": {
+                        "lastModified": 1596206742644,
+                        "customColor": "#ef651f"
+                    }
+                }
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 646,
+            "left": 0,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Incoming request count (Sum)",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "PIE",
+                "series": [{
+                    "metric": "ext:cloud.azure.microsoft_appconfiguration.configurationstores.httpincomingrequestcount",
+                    "aggregation": "SUM",
+                    "type": "BAR",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }, {
+                        "id": "1",
+                        "name": "HTTP status code",
+                        "values": [],
+                        "entityDimension": false
+                    }, {
+                        "id": "2",
+                        "name": "Authentication scheme",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }]
+}

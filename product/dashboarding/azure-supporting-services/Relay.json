@@ -1,0 +1,235 @@
+{
+    "metadata": {},
+    "dashboardMetadata": {
+        "name": "Azure Relay",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": "",
+            "managementZone": null
+        }
+    },
+    "tiles": [
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Throughput",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.azure.microsoft_relay.namespaces.bytestransferred",
+                            "aggregation": "SUM",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "1",
+                                    "name": "Entity name",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "MINUTE"
+                        }
+                    ],
+                    "resultMetadata": {}
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 304,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Errors",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "PIE",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.azure.microsoft_relay.namespaces.listenerconnectionsclienterror",
+                            "aggregation": "SUM",
+                            "percentile": null,
+                            "type": "BAR",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "1",
+                                    "name": "Entity name",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "sortColumn": false,
+                            "aggregationRate": "HOUR"
+                        },
+                        {
+                            "metric": "ext:cloud.azure.microsoft_relay.namespaces.listenerconnectionsservererror",
+                            "aggregation": "SUM",
+                            "percentile": null,
+                            "type": "BAR",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "1",
+                                    "name": "Entity name",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "sortColumn": false,
+                            "aggregationRate": "HOUR"
+                        },
+                        {
+                            "metric": "ext:cloud.azure.microsoft_relay.namespaces.senderconnectionsclienterror",
+                            "aggregation": "SUM",
+                            "percentile": null,
+                            "type": "BAR",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "1",
+                                    "name": "Entity name",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "sortColumn": false,
+                            "aggregationRate": "HOUR"
+                        },
+                        {
+                            "metric": "ext:cloud.azure.microsoft_relay.namespaces.senderconnectionsservererror",
+                            "aggregation": "SUM",
+                            "percentile": null,
+                            "type": "BAR",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "1",
+                                    "name": "Entity name",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "HOUR"
+                        }
+                    ],
+                    "resultMetadata": {}
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 608,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Active",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.azure.microsoft_relay.namespaces.activeconnections",
+                            "aggregation": "SUM",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "1",
+                                    "name": "Entity name",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "MINUTE"
+                        },
+                        {
+                            "metric": "ext:cloud.azure.microsoft_relay.namespaces.activelisteners",
+                            "aggregation": "SUM",
+                            "percentile": null,
+                            "type": "BAR",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "MINUTE"
+                        }
+                    ],
+                    "resultMetadata": {}
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Usage",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 152,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        }
+    ]
+}
