@@ -26,76 +26,179 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 
 ## Dashboards
 
-### [Amazon Elastic Kubernetes Service](AmazonElasticKubernetesService.json)
-![AmazonElasticKubernetesService.png](AmazonElasticKubernetesService.png)
+### [AWS AppStream](AppStream.json)
+![AppStream.png](AppStream.png)
 
-### [Amazon Elastic Transcoder](AmazonElasticTranscoder.json)
-![AmazonElasticTranscoder.png](AmazonElasticTranscoder.png)
+### [AWS AppSync](AppSync.json)
+![AppSync.png](AppSync.png)
 
-### [Amazon EventBridge](AmazonEventBridge.json)
-![AmazonEventBridge.png](AmazonEventBridge.png)
+### [Amazon Athena](Athena.json)
+![Athena.png](Athena.png)
 
-### [Amazon Polly](AmazonPolly.json)
-![AmazonPolly.png](AmazonPolly.png)
+### [AWS Chatbot](Chatbot.json)
+![Chatbot.png](Chatbot.png)
 
-### [Amazon QLDB](AmazonQLDB.json)
-![AmazonQLDB.png](AmazonQLDB.png)
+### [AWS CloudHSM](CloudHSM.json)
+![CloudHSM.png](CloudHSM.png)
 
-### [AWS RoboMaker](AWSRoboMaker.json)
-![AWSRoboMaker.png](AWSRoboMaker.png)
+### [AWS CloudSearch](CloudSearch.json)
+![CloudSearch.png](CloudSearch.png)
 
-### [AWS VPN](AWSVPN.json)
-![AWSVPN.png](AWSVPN.png)
+### [Amazon CloudWatch Logs](CloudWatchLogs.json)
+![CloudWatchLogs.png](CloudWatchLogs.png)
 
-### [Amazon Connect](AmazonConnect.json)
+### [AWS API Usage](CloudWatch_Usage.json)
+![CloudWatch_Usage.png](CloudWatch_Usage.png)
 
-### [Amazon EC2 Auto Scaling](AmazonEC2AutoScaling.json)
-![AmazonEC2AutoScaling.png](AmazonEC2AutoScaling.png)
+### [AWS CodeBuild](CodeBuild.json)
+![CodeBuild.png](CodeBuild.png)
 
-### [AmazonFSx](AmazonFSx.json)
-![AmazonFSx.png](AmazonFSx.png)
+### [Amazon Connect](Connect.json)
+![Connect.png](Connect.png)
 
-### [Amazon Transfer](AmazonTransfer.json)
-![AmazonTransfer.png](AmazonTransfer.png)
+### [AWS DataSync](DataSync.json)
+![DataSync.png](DataSync.png)
 
-### [Amazon WAF](AmazonWAF.json)
-![AmazonWAF.png](AmazonWAF.png)
+### [AWS DynamoDB Accelerator (DAX)](Dax.json)
+![Dax.png](Dax.png)
 
-### [AWS App Sync](AWSAppSync.json)
-![AWSAppSync.png](AWSAppSync.png)
+### [AWS DMS](DMS.json)
+![DMS.png](DMS.png)
 
-### [AWS Cloud HSM](AWSCloudHSM.json)
-![AWSCloudHSM.png](AWSCloudHSM.png)
+### [Amazon DocumentDB](DocDB.json)
+![DocDB.png](DocDB.png)
 
-### [AWS Dax](AWSDax.json)
-![AWSDax.png](AWSDax.png)
+### [AWS Direct Connect](DX.json)
+![DX.png](DX.png)
 
-### [AWS DMS](AWSDMS.json)
-![AWSDMS.png](AWSDMS.png)
+### [Amazon EC2 Auto Scaling](EC2AutoScaling.json)
+![EC2AutoScaling.png](EC2AutoScaling.png)
 
-### [AWS Elastic Inference](AWSElasticInference.json)
-![AWSElasticInference.png](AWSElasticInference.png)
+### [Amazon EC2 API](EC2_API.json)
+![EC2_API.png](EC2_API.png)
 
-### [AWS Media Connect](AWSMediaConnect.json)
-![AWSMediaConnect.png](AWSMediaConnect.png)
+### [AWS ECS ContainerInsights](ECS_ContainerInsights.json)
+![ECS_ContainerInsights.png](ECS_ContainerInsights.png)
 
-### [AWS Media Tailor](AWSMediaTailor.json)
-![AWSMediaTailor.png](AWSMediaTailor.png)
+### [AWS Elastic Beanstalk](ElasticBeanstalk.json)
+![ElasticBeanstalk.png](ElasticBeanstalk.png)
 
-### [AWS Neptune](AWSNeptune.json)
-![AWSNeptune.png](AWSNeptune.png)
+### [AWS Elastic Inference](ElasticInference.json)
+![ElasticInference.png](ElasticInference.png)
 
-### [AWS Rekognition](AWSRekognition.json)
-![AWSRekognition.png](AWSRekognition.png)
+### [Amazon Elastic Kubernetes Service (EKS)](ElasticKubernetesService.json)
+![ElasticKubernetesService.png](ElasticKubernetesService.png)
 
-### [AWS Step Functions](AWSStepFunctions.json)
-![AWSStepFunctions.png](AWSStepFunctions.png)
+### [Amazon Elastic Transcoder](ElasticTranscoder.json)
+![ElasticTranscoder.png](ElasticTranscoder.png)
 
-### [AWS Storage Gateway](AWSStorageGateway.json)
-![AWSStorageGateway.png](AWSStorageGateway.png)
+### [Amazon EventBridge](EventBridge.json)
+![EventBridge.png](EventBridge.png)
 
-### [AWS Work Mail](AWSWorkMail.json)
-![AWSWorkMail.png](AWSWorkMail.png)
+### [Amazon FSx](FSx.json)
+![FSx.png](FSx.png)
 
-### [AWS Work Spaces](AWSWorkSpaces.json)
-![AWSWorkSpaces.png](AWSWorkSpaces.png)
+### [Amazon Gamelift](GameLift.json)
+![GameLift.png](GameLift.png)
+
+### [Amazon Inspector](Inspector.json)
+![Inspector.png](Inspector.png)
+
+### [AWS IoT Analytics](IoT_Analytics.json)
+![IoT_Analytics.png](IoT_Analytics.png)
+
+### [AWS IoT Things Graph](IoT_ThingsGraph.json)
+![IoT_ThingsGraph.png](IoT_ThingsGraph.png)
+
+### [Amazon Keyspaces](Keyspaces_Cassandra.json)
+![Keyspaces_Cassandra.png](Keyspaces_Cassandra.png)
+
+### [Amazon Lex](Lex.json)
+![Lex.png](Lex.png)
+
+### [AWS Elemental MediaConnect](MediaConnect.json)
+![MediaConnect.png](MediaConnect.png)
+
+### [AWS MediaConvert](MediaConvert.json)
+![MediaConvert.png](MediaConvert.png)
+
+### [Amazon MediaPackage Live](MediaPackage_Live.json)
+![MediaPackage_Live.png](MediaPackage_Live.png)
+
+### [AWS CloudSearch](MediaTailor.json)
+![MediaTailor.png](MediaTailor.png)
+
+### [Amazon MQ](MQ.json)
+![MQ.png](MQ.png)
+
+### [Amazon MSK (Kafka)](MSK_Kafka.json)
+![MSK_Kafka.png](MSK_Kafka.png)
+
+### [Amazon Neptune](Neptune.json)
+![Neptune.png](Neptune.png)
+
+### [AWS OpsWorks](OpsWorks.json)
+![OpsWorks.png](OpsWorks.png)
+
+### [Amazon Polly](Polly.json)
+![Polly.png](Polly.png)
+
+### [Amazon QLDB](QLDB.json)
+![QLDB.png](QLDB.png)
+
+### [Amazon Rekognition](Rekognition.json)
+![Rekognition.png](Rekognition.png)
+
+### [AWS RoboMaker](RoboMaker.json)
+![RoboMaker.png](RoboMaker.png)
+
+### [Amazon Route 53](Route53.json)
+![Route53.png](Route53.png)
+
+### [AWS Route 53 Resolver](Route53_Resolver.json)
+![Route53_Resolver.png](Route53_Resolver.png)
+
+### [AWS Service Catalog](ServiceCatalog.json)
+![ServiceCatalog.png](ServiceCatalog.png)
+
+### [AWS Systems Manager - Run Command](SSM_RunCommand.json)
+![SSM_RunCommand.png](SSM_RunCommand.png)
+
+### [AWS Step Functions](StepFunctions.json)
+![StepFunctions.png](StepFunctions.png)
+
+### [AWS Storage Gateway](StorageGateway.json)
+![StorageGateway.png](StorageGateway.png)
+
+### [Amazon SWF](SWF.json)
+![SWF.png](SWF.png)
+
+### [Amazon Textract](Textract.json)
+![Textract.png](Textract.png)
+
+### [AWS Transfer Family](Transfer.json)
+![Transfer.png](Transfer.png)
+
+### [Amazon Transit Gateway](TransitGateway.json)
+![TransitGateway.png](TransitGateway.png)
+
+### [Amazon Translate](Translate.json)
+![Translate.png](Translate.png)
+
+### [AWS Trusted Advisor](TrustedAdvisor.json)
+![TrustedAdvisor.png](TrustedAdvisor.png)
+
+### [AWS Site-to-Site VPN](VPN.json)
+![VPN.png](VPN.png)
+
+### [Amazon WAFV2](WAF.json)
+![WAF.png](WAF.png)
+
+### [AWS WAF Classic](WAF_Classic.json)
+![WAF_Classic.png](WAF_Classic.png)
+
+### [Amazon WorkMail](WorkMail.json)
+![WorkMail.png](WorkMail.png)
+
+### [AWS WorkSpaces](WorkSpaces.json)
+![WorkSpaces.png](WorkSpaces.png)

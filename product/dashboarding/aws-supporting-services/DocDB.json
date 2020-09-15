@@ -1,0 +1,619 @@
+{
+    "metadata": {},
+    "dashboardMetadata": {
+        "name": "Amazon DocumentDB",
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        }
+    },
+    "tiles": [
+        {
+            "name": "",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 266,
+                "left": 0,
+                "width": 456,
+                "height": 228
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "IOPS",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.docdb.readIOPS",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": false,
+                            "aggregationRate": "TOTAL"
+                        },
+                        {
+                            "metric": "ext:cloud.aws.docdb.writeIOPS",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "TOTAL"
+                        }
+                    ],
+                    "resultMetadata": {
+                        "nullext:cloud.aws.docdb.writeIOPS|AVG|TOTAL|LINE|IOT": {
+                            "lastModified": 1591186856108,
+                            "customColor": "#a972cc"
+                        },
+                        "nullext:cloud.aws.docdb.readIOPS|AVG|TOTAL|LINE|IOT": {
+                            "lastModified": 1591186854403,
+                            "customColor": "#2ab6f4"
+                        }
+                    }
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Performance",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 912,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 456,
+                "height": 228
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Latency",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.docdb.readLatency",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "TOTAL"
+                        },
+                        {
+                            "metric": "ext:cloud.aws.docdb.writeLatency",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": false,
+                            "aggregationRate": "TOTAL"
+                        }
+                    ],
+                    "resultMetadata": {
+                        "nullext:cloud.aws.docdb.readLatency|AVG|TOTAL|LINE|IOT": {
+                            "lastModified": 1591186752499,
+                            "customColor": "#2ab6f4"
+                        },
+                        "nullext:cloud.aws.docdb.writeLatency|AVG|TOTAL|LINE|IOT": {
+                            "lastModified": 1591186753814,
+                            "customColor": "#a972cc"
+                        }
+                    },
+                    "axisLimits": {
+                        "LEFT_MIN": 0.0,
+                        "LEFT_MAX": 5.0
+                    },
+                    "leftAxisCustomUnit": "MilliSecond"
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 266,
+                "left": 950,
+                "width": 456,
+                "height": 228
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Volume IOPS",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.docdb.volumeReadIOPsAverage",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": false,
+                            "aggregationRate": "TOTAL"
+                        },
+                        {
+                            "metric": "ext:cloud.aws.docdb.volumeWriteIOPsAverage",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "TOTAL"
+                        }
+                    ],
+                    "resultMetadata": {
+                        "nullext:cloud.aws.docdb.volumeWriteIOPsAverage|AVG|TOTAL|LINE|IOT": {
+                            "lastModified": 1591187426256,
+                            "customColor": "#a972cc"
+                        },
+                        "nullext:cloud.aws.docdb.volumeReadIOPsAverage|AVG|TOTAL|LINE|IOT": {
+                            "lastModified": 1591187424867,
+                            "customColor": "#2ab6f4"
+                        }
+                    }
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Billing affecting data",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 950,
+                "width": 456,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 950,
+                "width": 456,
+                "height": 228
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Volume used",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "SINGLE_VALUE",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.docdb.volumeBytesUsed",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "TOTAL"
+                        }
+                    ],
+                    "resultMetadata": {
+                        "nullext:cloud.aws.docdb.volumeBytesUsed|AVG|TOTAL|LINE|IOT": {
+                            "lastModified": 1591187801866,
+                            "customColor": "#4fd5e0"
+                        }
+                    }
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 494,
+                "left": 950,
+                "width": 456,
+                "height": 228
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Backup/Snapshot/Total Storage",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.docdb.backupRetentionPeriodStorageUsed",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "BAR",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": false,
+                            "aggregationRate": "TOTAL"
+                        },
+                        {
+                            "metric": "ext:cloud.aws.docdb.snapshotStorageUsed",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "BAR",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": false,
+                            "aggregationRate": "TOTAL"
+                        },
+                        {
+                            "metric": "ext:cloud.aws.docdb.totalBackupStorageBilled",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "BAR",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "TOTAL"
+                        }
+                    ],
+                    "resultMetadata": {
+                        "nullext:cloud.aws.docdb.totalBackupStorageBilled|AVG|TOTAL|BAR|IOT": {
+                            "lastModified": 1591188187596,
+                            "customColor": "#ffa86c"
+                        },
+                        "nullext:cloud.aws.docdb.snapshotStorageUsed|AVG|TOTAL|BAR|IOT": {
+                            "lastModified": 1591188178732,
+                            "customColor": "#debbf3"
+                        },
+                        "nullext:cloud.aws.docdb.backupRetentionPeriodStorageUsed|AVG|TOTAL|BAR|IOT": {
+                            "lastModified": 1591188176893,
+                            "customColor": "#b4e5f9"
+                        }
+                    }
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 494,
+                "left": 0,
+                "width": 456,
+                "height": 228
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Throughput",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.docdb.readThroughput",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": false,
+                            "aggregationRate": "TOTAL"
+                        },
+                        {
+                            "metric": "ext:cloud.aws.docdb.writeThroughput",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "TOTAL"
+                        }
+                    ],
+                    "resultMetadata": {
+                        "nullext:cloud.aws.docdb.readThroughput|AVG|TOTAL|LINE|IOT": {
+                            "lastModified": 1591189596262,
+                            "customColor": "#2ab6f4"
+                        },
+                        "nullext:cloud.aws.docdb.writeThroughput|AVG|TOTAL|LINE|IOT": {
+                            "lastModified": 1591189597642,
+                            "customColor": "#a972cc"
+                        }
+                    }
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 684,
+                "width": 228,
+                "height": 228
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "CPU",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "SINGLE_VALUE",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.docdb.cpuUtilization",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "TOTAL"
+                        }
+                    ],
+                    "resultMetadata": {
+                        "null¦DBInstanceIdentifier»hackathon-documentdb-cluster»falseext:cloud.aws.docdb.cpuUtilizationByRegionDBInstanceIdentifier|AVG|TOTAL|LINE|MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP": {
+                            "lastModified": 1591251120718,
+                            "customColor": "#aeebf0"
+                        },
+                        "nullext:cloud.aws.docdb.cpuUtilization|AVG|TOTAL|LINE|IOT": {
+                            "lastModified": 1591189681396,
+                            "customColor": "#4fd5e0"
+                        },
+                        "null¦DBInstanceIdentifier»hackathon-documentdb-cluster2»falseext:cloud.aws.docdb.cpuUtilizationByRegionDBInstanceIdentifier|AVG|TOTAL|LINE|MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP": {
+                            "lastModified": 1591251122338,
+                            "customColor": "#4fd5e0"
+                        }
+                    }
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 266,
+                "left": 456,
+                "width": 456,
+                "height": 228
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Database connections",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "SINGLE_VALUE",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.docdb.databaseConnections",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "TOTAL"
+                        }
+                    ],
+                    "resultMetadata": {
+                        "nullext:cloud.aws.docdb.databaseConnections|AVG|TOTAL|LINE|IOT": {
+                            "lastModified": 1591193052811,
+                            "customColor": "#4fd5e0"
+                        }
+                    }
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 494,
+                "left": 456,
+                "width": 456,
+                "height": 228
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Network throughput",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.docdb.networkThroughput",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "AREA",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": false,
+                            "aggregationRate": "TOTAL"
+                        },
+                        {
+                            "metric": "ext:cloud.aws.docdb.networkTransmitThroughput",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "AREA",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": false,
+                            "aggregationRate": "TOTAL"
+                        },
+                        {
+                            "metric": "ext:cloud.aws.docdb.networkReceiveThroughput",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "AREA",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "TOTAL"
+                        }
+                    ],
+                    "resultMetadata": {
+                        "nullext:cloud.aws.docdb.networkTransmitThroughput|AVG|TOTAL|AREA|IOT": {
+                            "lastModified": 1591193540046,
+                            "customColor": "#2ab6f4"
+                        },
+                        "nullext:cloud.aws.docdb.networkReceiveThroughput|AVG|TOTAL|AREA|IOT": {
+                            "lastModified": 1591193565067,
+                            "customColor": "#008cdb"
+                        },
+                        "nullext:cloud.aws.docdb.networkThroughput|AVG|TOTAL|AREA|IOT": {
+                            "lastModified": 1591193502183,
+                            "customColor": "#b4e5f9"
+                        },
+                        "nullext:cloud.aws.docdb.networkReceiveThroughput|AVG|TOTAL|BAR|IOT": {
+                            "lastModified": 1591193346490,
+                            "customColor": "#aeebf0"
+                        }
+                    }
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 456,
+                "width": 228,
+                "height": 228
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Buffer cache hit ratio",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "SINGLE_VALUE",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.docdb.bufferCacheHitRatio",
+                            "aggregation": "AVG",
+                            "percentile": null,
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [],
+                            "sortAscending": false,
+                            "sortColumn": true,
+                            "aggregationRate": "TOTAL"
+                        }
+                    ],
+                    "resultMetadata": {
+                        "nullext:cloud.aws.docdb.bufferCacheHitRatio|AVG|TOTAL|LINE|IOT": {
+                            "lastModified": 1591195660688,
+                            "customColor": "#4fd5e0"
+                        }
+                    }
+                },
+                "filtersPerEntityType": {}
+            }
+        }
+    ]
+}

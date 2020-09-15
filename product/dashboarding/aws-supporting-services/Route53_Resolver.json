@@ -1,0 +1,120 @@
+{
+  "metadata": {},
+  "dashboardMetadata": {
+	"name": "AWS Route 53 Resolver",
+	"sharingDetails": {
+	  "linkShared": true,
+	  "published": false
+	},
+	"dashboardFilter": {
+	  "timeframe": "",
+	  "managementZone": null
+	}
+  },
+  "tiles": [
+	{
+	  "name": "Custom chart",
+	  "tileType": "CUSTOM_CHARTING",
+	  "configured": true,
+	  "bounds": {
+		"top": 38,
+		"left": 0,
+		"width": 988,
+		"height": 304
+	  },
+	  "tileFilter": {
+		"timeframe": null,
+		"managementZone": null
+	  },
+	  "filterConfig": {
+		"type": "MIXED",
+		"customName": "InboundQueryVolume",
+		"defaultName": "Custom chart",
+		"chartConfig": {
+		  "legendShown": true,
+		  "type": "TIMESERIES",
+		  "series": [
+			{
+			  "metric": "ext:cloud.aws.route53resolver.inboundQueryVolumeSum",
+			  "aggregation": "NONE",
+			  "percentile": null,
+			  "type": "BAR",
+			  "entityType": "IOT",
+			  "dimensions": [],
+			  "sortAscending": false,
+			  "sortColumn": true,
+			  "aggregationRate": "TOTAL"
+			}
+		  ],
+		  "resultMetadata": {}
+		},
+		"filtersPerEntityType": {}
+	  }
+	},
+	{
+	  "name": "Custom chart",
+	  "tileType": "CUSTOM_CHARTING",
+	  "configured": true,
+	  "bounds": {
+		"top": 342,
+		"left": 0,
+		"width": 988,
+		"height": 304
+	  },
+	  "tileFilter": {
+		"timeframe": null,
+		"managementZone": null
+	  },
+	  "filterConfig": {
+		"type": "MIXED",
+		"customName": "OutboundQueryVolume",
+		"defaultName": "Custom chart",
+		"chartConfig": {
+		  "legendShown": true,
+		  "type": "TIMESERIES",
+		  "series": [
+			{
+			  "metric": "ext:cloud.aws.route53resolver.outboundQueryVolumeSum",
+			  "aggregation": "NONE",
+			  "percentile": null,
+			  "type": "BAR",
+			  "entityType": "IOT",
+			  "dimensions": [],
+			  "sortAscending": false,
+			  "sortColumn": false,
+			  "aggregationRate": "TOTAL"
+			},
+			{
+			  "metric": "ext:cloud.aws.route53resolver.outboundQueryAggregateVolumeSum",
+			  "aggregation": "NONE",
+			  "percentile": null,
+			  "type": "BAR",
+			  "entityType": "IOT",
+			  "dimensions": [],
+			  "sortAscending": false,
+			  "sortColumn": true,
+			  "aggregationRate": "TOTAL"
+			}
+		  ],
+		  "resultMetadata": {}
+		},
+		"filtersPerEntityType": {}
+	  }
+	},
+	{
+	  "name": "Query volume across all endpoints",
+	  "tileType": "HEADER",
+	  "configured": true,
+	  "bounds": {
+		"top": 0,
+		"left": 0,
+		"width": 988,
+		"height": 38
+	  },
+	  "tileFilter": {
+		"timeframe": null,
+		"managementZone": null
+	  }
+	}
+  ]
+}

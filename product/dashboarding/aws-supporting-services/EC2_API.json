@@ -1,0 +1,457 @@
+{
+    "metadata": {},
+    "dashboardMetadata": {
+      "name": "Amazon EC2 API",
+      "sharingDetails": {
+        "linkShared": true,
+        "published": false
+      }
+    },
+    "tiles": [
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 342,
+          "left": 38,
+          "width": 380,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Successful calls by action and region",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.aws.ec2api.successfulCallsSumByRegionAction",
+                "aggregation": "NONE",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                "dimensions": [
+                  {
+                    "id": "1",
+                    "name": "Region",
+                    "values": [],
+                    "entityDimension": false
+                  },
+                  {
+                    "id": "2",
+                    "name": "Action",
+                    "values": [],
+                    "entityDimension": false
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 1292,
+          "width": 380,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Client errors by region",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TIMESERIES",
+            "series": [
+              {
+                "metric": "ext:cloud.aws.ec2api.serverErrorsSumByRegion",
+                "aggregation": "NONE",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                "dimensions": [
+                  {
+                    "id": "1",
+                    "name": "Region",
+                    "values": [],
+                    "entityDimension": false
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 456,
+          "width": 380,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Server errors by region",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TIMESERIES",
+            "series": [
+              {
+                "metric": "ext:cloud.aws.ec2api.serverErrorsSumByRegion",
+                "aggregation": "NONE",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                "dimensions": [],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 342,
+          "left": 874,
+          "width": 380,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "RequestLimitExceeded by region and action",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.aws.ec2api.requestLimitExceededSumByRegionAction",
+                "aggregation": "NONE",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                "dimensions": [
+                  {
+                    "id": "1",
+                    "name": "Region",
+                    "values": [],
+                    "entityDimension": false
+                  },
+                  {
+                    "id": "2",
+                    "name": "Action",
+                    "values": [],
+                    "entityDimension": false
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Successful calls",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+          "top": 0,
+          "left": 38,
+          "width": 380,
+          "height": 38
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        }
+      },
+      {
+        "name": "Client errors",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+          "top": 0,
+          "left": 1292,
+          "width": 380,
+          "height": 38
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 38,
+          "width": 380,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Successful calls by region",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TIMESERIES",
+            "series": [
+              {
+                "metric": "ext:cloud.aws.ec2api.successfulCallsSumByRegion",
+                "aggregation": "NONE",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                "dimensions": [
+                  {
+                    "id": "1",
+                    "name": "Region",
+                    "values": [],
+                    "entityDimension": false
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 342,
+          "left": 1292,
+          "width": 380,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Client errors by region and action",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.aws.ec2api.clientErrorsSumByRegionAction",
+                "aggregation": "NONE",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                "dimensions": [
+                  {
+                    "id": "1",
+                    "name": "Region",
+                    "values": [],
+                    "entityDimension": false
+                  },
+                  {
+                    "id": "2",
+                    "name": "Action",
+                    "values": [],
+                    "entityDimension": false
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Server errors",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+          "top": 0,
+          "left": 456,
+          "width": 380,
+          "height": 38
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 342,
+          "left": 456,
+          "width": 380,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "Server errors by region and action",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TOP_LIST",
+            "series": [
+              {
+                "metric": "ext:cloud.aws.ec2api.serverErrorsSumByRegionAction",
+                "aggregation": "NONE",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                "dimensions": [
+                  {
+                    "id": "1",
+                    "name": "Region",
+                    "values": [],
+                    "entityDimension": false
+                  },
+                  {
+                    "id": "2",
+                    "name": "Action",
+                    "values": [],
+                    "entityDimension": false
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      },
+      {
+        "name": "Request Limit Exceeded",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+          "top": 0,
+          "left": 874,
+          "width": 380,
+          "height": 38
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        }
+      },
+      {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 874,
+          "width": 380,
+          "height": 304
+        },
+        "tileFilter": {
+          "timeframe": null,
+          "managementZone": null
+        },
+        "filterConfig": {
+          "type": "MIXED",
+          "customName": "RequestLimitExceeded by region",
+          "defaultName": "Custom chart",
+          "chartConfig": {
+            "legendShown": true,
+            "type": "TIMESERIES",
+            "series": [
+              {
+                "metric": "ext:cloud.aws.ec2api.requestLimitExceededSumByRegion",
+                "aggregation": "NONE",
+                "percentile": null,
+                "type": "LINE",
+                "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                "dimensions": [
+                  {
+                    "id": "1",
+                    "name": "Region",
+                    "values": [],
+                    "entityDimension": false
+                  }
+                ],
+                "sortAscending": false,
+                "sortColumn": true,
+                "aggregationRate": "TOTAL"
+              }
+            ],
+            "resultMetadata": {}
+          },
+          "filtersPerEntityType": {}
+        }
+      }
+    ]
+  }

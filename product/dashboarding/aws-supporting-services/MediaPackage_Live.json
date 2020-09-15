@@ -1,9 +1,15 @@
 {
-  "metadata": {
-    "configurationVersions": [
-      3
-    ],
-    "clusterVersion": "1.198.0.20200702-214021"
+  "metadata": {},
+  "dashboardMetadata": {
+    "name": "Amazon MediaPackage Live",
+    "sharingDetails": {
+      "linkShared": true,
+      "published": false
+    },
+    "dashboardFilter": {
+      "timeframe": "",
+      "managementZone": null
+    }
   },
   "tiles": [
     {
@@ -11,6 +17,139 @@
       "tileType": "CUSTOM_CHARTING",
       "configured": true,
       "bounds": {
+        "top": 342,
+        "left": 380,
+        "width": 380,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Ingress Bytes (by Ingest Endpoint)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.mediapackagelive.ingressBytesSumByIngestEndpoint",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "AREA",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "1",
+                  "name": "IngestEndpoint",
+                  "values": [],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Egress",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 798,
+        "width": 380,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    },
+    {
+      "name": "Ingress",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 760,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 380,
+        "width": 380,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Ingress Bytes per hour ",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "ext:cloud.aws.mediapackage.live.ingressBytesSum",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "AREA",
+              "entityType": "IOT",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": false,
+              "aggregationRate": "HOUR"
+            },
+            {
+              "metric": "ext:cloud.aws.mediapackagelive.ingressBytesSum",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "AREA",
+              "entityType": "IOT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.custom_device",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "HOUR"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
         "top": 38,
         "left": 0,
         "width": 380,
@@ -22,26 +161,19 @@
       },
       "filterConfig": {
         "type": "MIXED",
-        "customName": "Avail.FilledDuration Average",
+        "customName": "Ingress Bytes Sum",
         "defaultName": "Custom chart",
         "chartConfig": {
           "legendShown": true,
-          "type": "TIMESERIES",
+          "type": "SINGLE_VALUE",
           "series": [
             {
-              "metric": "ext:cloud.aws.mediatailor.availFilledDurationAverage",
-              "aggregation": "AVG",
+              "metric": "ext:cloud.aws.mediapackagelive.ingressBytesSum",
+              "aggregation": "NONE",
               "percentile": null,
               "type": "LINE",
               "entityType": "IOT",
-              "dimensions": [
-                {
-                  "id": "0",
-                  "name": "dt.entity.custom_device",
-                  "values": [],
-                  "entityDimension": true
-                }
-              ],
+              "dimensions": [],
               "sortAscending": false,
               "sortColumn": true,
               "aggregationRate": "TOTAL"
@@ -68,26 +200,19 @@
       },
       "filterConfig": {
         "type": "MIXED",
-        "customName": "Avail.FillRate Average",
+        "customName": "Ingress Response Time Average",
         "defaultName": "Custom chart",
         "chartConfig": {
           "legendShown": true,
           "type": "TIMESERIES",
           "series": [
             {
-              "metric": "ext:cloud.aws.mediatailor.availFillRateAverage",
+              "metric": "ext:cloud.aws.mediapackagelive.ingressResponseTimeAvg",
               "aggregation": "AVG",
               "percentile": null,
               "type": "LINE",
               "entityType": "IOT",
-              "dimensions": [
-                {
-                  "id": "0",
-                  "name": "dt.entity.custom_device",
-                  "values": [],
-                  "entityDimension": true
-                }
-              ],
+              "dimensions": [],
               "sortAscending": false,
               "sortColumn": true,
               "aggregationRate": "TOTAL"
@@ -104,7 +229,7 @@
       "configured": true,
       "bounds": {
         "top": 38,
-        "left": 456,
+        "left": 1178,
         "width": 380,
         "height": 304
       },
@@ -114,17 +239,28 @@
       },
       "filterConfig": {
         "type": "MIXED",
-        "customName": "AdDecisionServer.Errors",
+        "customName": "Egress Bytes per hour",
         "defaultName": "Custom chart",
         "chartConfig": {
           "legendShown": true,
-          "type": "TOP_LIST",
+          "type": "TIMESERIES",
           "series": [
             {
-              "metric": "ext:cloud.aws.mediatailor.adDecisionServerErrorsSum",
+              "metric": "ext:cloud.aws.mediapackage.egressBytesSum",
               "aggregation": "NONE",
               "percentile": null,
-              "type": "LINE",
+              "type": "AREA",
+              "entityType": "IOT",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "HOUR"
+            },
+            {
+              "metric": "ext:cloud.aws.mediapackagelive.egressBytesSum",
+              "aggregation": "NONE",
+              "percentile": null,
+              "type": "AREA",
               "entityType": "IOT",
               "dimensions": [
                 {
@@ -135,84 +271,8 @@
                 }
               ],
               "sortAscending": false,
-              "sortColumn": true,
-              "aggregationRate": "MINUTE"
-            }
-          ],
-          "resultMetadata": {}
-        },
-        "filtersPerEntityType": {}
-      }
-    },
-    {
-      "name": "Usage",
-      "tileType": "HEADER",
-      "configured": true,
-      "bounds": {
-        "top": 0,
-        "left": 0,
-        "width": 380,
-        "height": 38
-      },
-      "tileFilter": {
-        "timeframe": null,
-        "managementZone": null
-      }
-    },
-    {
-      "name": "Errors",
-      "tileType": "HEADER",
-      "configured": true,
-      "bounds": {
-        "top": 0,
-        "left": 456,
-        "width": 380,
-        "height": 38
-      },
-      "tileFilter": {
-        "timeframe": null,
-        "managementZone": null
-      }
-    },
-    {
-      "name": "Custom chart",
-      "tileType": "CUSTOM_CHARTING",
-      "configured": true,
-      "bounds": {
-        "top": 342,
-        "left": 456,
-        "width": 380,
-        "height": 304
-      },
-      "tileFilter": {
-        "timeframe": null,
-        "managementZone": null
-      },
-      "filterConfig": {
-        "type": "MIXED",
-        "customName": "AdDecisionServer.Timeouts",
-        "defaultName": "Custom chart",
-        "chartConfig": {
-          "legendShown": true,
-          "type": "TOP_LIST",
-          "series": [
-            {
-              "metric": "ext:cloud.aws.mediatailor.adDecisionServerTimeoutsSum",
-              "aggregation": "NONE",
-              "percentile": null,
-              "type": "LINE",
-              "entityType": "IOT",
-              "dimensions": [
-                {
-                  "id": "0",
-                  "name": "dt.entity.custom_device",
-                  "values": [],
-                  "entityDimension": true
-                }
-              ],
-              "sortAscending": false,
-              "sortColumn": true,
-              "aggregationRate": "MINUTE"
+              "sortColumn": false,
+              "aggregationRate": "HOUR"
             }
           ],
           "resultMetadata": {}
@@ -225,8 +285,8 @@
       "tileType": "CUSTOM_CHARTING",
       "configured": true,
       "bounds": {
-        "top": 646,
-        "left": 456,
+        "top": 38,
+        "left": 798,
         "width": 380,
         "height": 304
       },
@@ -236,75 +296,22 @@
       },
       "filterConfig": {
         "type": "MIXED",
-        "customName": "Origin.Errors",
+        "customName": "Egress Bytes Sum",
         "defaultName": "Custom chart",
         "chartConfig": {
           "legendShown": true,
-          "type": "TOP_LIST",
+          "type": "SINGLE_VALUE",
           "series": [
             {
-              "metric": "ext:cloud.aws.mediatailor.originErrorsSum",
+              "metric": "ext:cloud.aws.mediapackagelive.egressBytesSum",
               "aggregation": "NONE",
               "percentile": null,
               "type": "LINE",
               "entityType": "IOT",
-              "dimensions": [
-                {
-                  "id": "0",
-                  "name": "dt.entity.custom_device",
-                  "values": [],
-                  "entityDimension": true
-                }
-              ],
+              "dimensions": [],
               "sortAscending": false,
               "sortColumn": true,
-              "aggregationRate": "MINUTE"
-            }
-          ],
-          "resultMetadata": {}
-        },
-        "filtersPerEntityType": {}
-      }
-    },
-    {
-      "name": "Custom chart",
-      "tileType": "CUSTOM_CHARTING",
-      "configured": true,
-      "bounds": {
-        "top": 950,
-        "left": 456,
-        "width": 380,
-        "height": 304
-      },
-      "tileFilter": {
-        "timeframe": null,
-        "managementZone": null
-      },
-      "filterConfig": {
-        "type": "MIXED",
-        "customName": "Origin.Timeouts",
-        "defaultName": "Custom chart",
-        "chartConfig": {
-          "legendShown": true,
-          "type": "TOP_LIST",
-          "series": [
-            {
-              "metric": "ext:cloud.aws.mediatailor.originTimeoutsSum",
-              "aggregation": "NONE",
-              "percentile": null,
-              "type": "LINE",
-              "entityType": "IOT",
-              "dimensions": [
-                {
-                  "id": "0",
-                  "name": "dt.entity.custom_device",
-                  "values": [],
-                  "entityDimension": true
-                }
-              ],
-              "sortAscending": false,
-              "sortColumn": true,
-              "aggregationRate": "MINUTE"
+              "aggregationRate": "TOTAL"
             }
           ],
           "resultMetadata": {}
@@ -318,7 +325,7 @@
       "configured": true,
       "bounds": {
         "top": 342,
-        "left": 836,
+        "left": 798,
         "width": 380,
         "height": 304
       },
@@ -328,29 +335,22 @@
       },
       "filterConfig": {
         "type": "MIXED",
-        "customName": "AdDecisionServer.Timeouts",
+        "customName": "Egress Response Time (by Origin Endpoint)",
         "defaultName": "Custom chart",
         "chartConfig": {
           "legendShown": true,
           "type": "TIMESERIES",
           "series": [
             {
-              "metric": "ext:cloud.aws.mediatailor.adDecisionServerTimeoutsSum",
-              "aggregation": "NONE",
+              "metric": "ext:cloud.aws.mediapackagelive.egressResponseTimeByOriginEndpoint",
+              "aggregation": "AVG",
               "percentile": null,
               "type": "LINE",
               "entityType": "IOT",
-              "dimensions": [
-                {
-                  "id": "0",
-                  "name": "dt.entity.custom_device",
-                  "values": [],
-                  "entityDimension": true
-                }
-              ],
+              "dimensions": [],
               "sortAscending": false,
               "sortColumn": true,
-              "aggregationRate": "MINUTE"
+              "aggregationRate": "TOTAL"
             }
           ],
           "resultMetadata": {}
@@ -363,8 +363,8 @@
       "tileType": "CUSTOM_CHARTING",
       "configured": true,
       "bounds": {
-        "top": 950,
-        "left": 836,
+        "top": 342,
+        "left": 1178,
         "width": 380,
         "height": 304
       },
@@ -374,24 +374,24 @@
       },
       "filterConfig": {
         "type": "MIXED",
-        "customName": "Origin.Timeouts",
+        "customName": "Egress Request Count Sum (by Status Code Range)",
         "defaultName": "Custom chart",
         "chartConfig": {
           "legendShown": true,
           "type": "TIMESERIES",
           "series": [
             {
-              "metric": "ext:cloud.aws.mediatailor.originTimeoutsSum",
+              "metric": "ext:cloud.aws.mediapackagelive.egressRequestCountSumByStatusCodeRange",
               "aggregation": "NONE",
               "percentile": null,
-              "type": "LINE",
+              "type": "BAR",
               "entityType": "IOT",
               "dimensions": [
                 {
-                  "id": "0",
-                  "name": "dt.entity.custom_device",
+                  "id": "1",
+                  "name": "StatusCodeRange",
                   "values": [],
-                  "entityDimension": true
+                  "entityDimension": false
                 }
               ],
               "sortAscending": false,
@@ -410,9 +410,9 @@
       "configured": true,
       "bounds": {
         "top": 646,
-        "left": 836,
-        "width": 380,
-        "height": 304
+        "left": 0,
+        "width": 760,
+        "height": 342
       },
       "tileFilter": {
         "timeframe": null,
@@ -420,70 +420,24 @@
       },
       "filterConfig": {
         "type": "MIXED",
-        "customName": "Origin.Errors",
+        "customName": "ActiveInput (by Region and IngestEndpoint and OriginEndpoint)",
         "defaultName": "Custom chart",
         "chartConfig": {
           "legendShown": true,
-          "type": "TIMESERIES",
+          "type": "PIE",
           "series": [
             {
-              "metric": "ext:cloud.aws.mediatailor.originErrorsSum",
-              "aggregation": "NONE",
+              "metric": "ext:cloud.aws.mediapackagelive.activeInputByRegionIngestEndpointOriginEndpoint",
+              "aggregation": "AVG",
               "percentile": null,
-              "type": "LINE",
-              "entityType": "IOT",
+              "type": "AREA",
+              "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
               "dimensions": [
                 {
-                  "id": "0",
-                  "name": "dt.entity.custom_device",
+                  "id": "2",
+                  "name": "IngestEndpoint",
                   "values": [],
-                  "entityDimension": true
-                }
-              ],
-              "sortAscending": false,
-              "sortColumn": true,
-              "aggregationRate": "TOTAL"
-            }
-          ],
-          "resultMetadata": {}
-        },
-        "filtersPerEntityType": {}
-      }
-    },
-    {
-      "name": "Custom chart",
-      "tileType": "CUSTOM_CHARTING",
-      "configured": true,
-      "bounds": {
-        "top": 38,
-        "left": 836,
-        "width": 380,
-        "height": 304
-      },
-      "tileFilter": {
-        "timeframe": null,
-        "managementZone": null
-      },
-      "filterConfig": {
-        "type": "MIXED",
-        "customName": "AdDecisionServer.Errors",
-        "defaultName": "Custom chart",
-        "chartConfig": {
-          "legendShown": true,
-          "type": "TIMESERIES",
-          "series": [
-            {
-              "metric": "ext:cloud.aws.mediatailor.adDecisionServerErrorsSum",
-              "aggregation": "NONE",
-              "percentile": null,
-              "type": "LINE",
-              "entityType": "IOT",
-              "dimensions": [
-                {
-                  "id": "0",
-                  "name": "dt.entity.custom_device",
-                  "values": [],
-                  "entityDimension": true
+                  "entityDimension": false
                 }
               ],
               "sortAscending": false,
