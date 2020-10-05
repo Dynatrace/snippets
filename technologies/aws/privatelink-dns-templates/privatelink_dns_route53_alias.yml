@@ -1,0 +1,55 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Private DNS configuration for connecting to Dynatrace SaaS via AWS PrivateLink
+
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+    - Parameters:
+      - TenantId
+      - VpcId
+      - VpcEndpointDns
+      - VpcEndpointHostedZoneId
+    ParameterLabels:
+      TenantId: 
+        default: 'Dynatrace tenant id'
+      VpcId: 
+        default: 'VPC id'
+      VpcEndpointDns:
+        default: 'Vpc Endpoint DNS'
+      VpcEndpointHostedZoneId: 
+        default: 'Hosted Zone Id of Vpc Endpoint DNS'
+        
+Parameters:
+  TenantId:
+    Type: String
+    Description: Your Dynatrace tenant (8 characters)
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+    Description: VPC ID of your VPC where PrivateLink was created (must be the same region as Dynatrace tenant)
+  VpcEndpointDns:
+    Type: String
+    Description: Main VPC Endpoint DNS - e.g. vpce-0123456789abcdef-xyzxyz.*.vpce.dynatrace.com (This is specific to your VPC Endpoint, do not use VPC Service Name here)
+  VpcEndpointHostedZoneId:
+    Type: String
+    Description: Hosted zone id of VPC Endpoint DNS. 
+    
+Resources:
+  TenantHostedZone:
+    Type: AWS::Route53::HostedZone
+    Properties:
+      HostedZoneConfig:
+        Comment: Private HostedZone (split-horizon DNS) for Dynatrace OneAgent PrivateLink connectivity
+      Name: !Join [ "", [ !Ref TenantId, ".live.dynatrace.com." ] ]
+      VPCs:
+      - VPCId: !Ref VpcId
+        VPCRegion: !Ref AWS::Region
+  TenantAlias:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref TenantHostedZone
+      Name: !Join [ "", [ !Ref TenantId, ".live.dynatrace.com." ] ]
+      Type: A
+      AliasTarget: 
+        DNSName: !Ref VpcEndpointDns
+        HostedZoneId: !Ref VpcEndpointHostedZoneId
+      Comment: Tenant domain override
