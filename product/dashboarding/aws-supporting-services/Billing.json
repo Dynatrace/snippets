@@ -1,0 +1,442 @@
+{
+    "dashboardMetadata": {
+        "name": "AWS Billing",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        },
+        "owner": "Dynatrace"
+    },
+    "tiles": [
+        {
+            "name": "Estimated charges",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 1140,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 0,
+                "width": 380,
+                "height": 608
+            },
+            "tileFilter": {},
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Estimated charges per service",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TOP_LIST",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.billing.estimatedChargesByCurrency",
+                            "aggregation": "MAX",
+                            "type": "LINE",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "0",
+                                    "name": "dt.entity.custom_device",
+                                    "values": [],
+                                    "entityDimension": true
+                                },
+                                {
+                                    "id": "1",
+                                    "name": "Currency",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "aggregationRate": "TOTAL",
+                            "sortColumn": true
+                        }
+                    ],
+                    "resultMetadata": {}
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Estimated charges for all services",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "SINGLE_VALUE",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.billing.estimatedChargesByRegionCurrency",
+                            "aggregation": "MAX",
+                            "type": "LINE",
+                            "entityType": "MONITORED_ENTITY\u00cb\u017aCUSTOM_DEVICE_GROUP",
+                            "dimensions": [
+                                {
+                                    "id": "2",
+                                    "name": "Currency",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "aggregationRate": "TOTAL",
+                            "sortColumn": true
+                        }
+                    ],
+                    "resultMetadata": {}
+                },
+                "filtersPerEntityType": {}
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 760,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Estimated charges for EC2",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.billing.estimatedChargesByCurrency",
+                            "aggregation": "MAX",
+                            "type": "BAR",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "0",
+                                    "name": "dt.entity.custom_device",
+                                    "values": [],
+                                    "entityDimension": true
+                                },
+                                {
+                                    "id": "1",
+                                    "name": "Currency",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "aggregationRate": "TOTAL",
+                            "sortColumn": true
+                        }
+                    ],
+                    "resultMetadata": {}
+                },
+                "filtersPerEntityType": {
+                    "IOT": {
+                        "SPECIFIC_ENTITIES": [
+                            "CUSTOM_DEVICE-941EBB5DFAA4841F"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 380,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Estimated charges for RDS",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.billing.estimatedChargesByCurrency",
+                            "aggregation": "MAX",
+                            "type": "BAR",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "0",
+                                    "name": "dt.entity.custom_device",
+                                    "values": [],
+                                    "entityDimension": true
+                                },
+                                {
+                                    "id": "1",
+                                    "name": "Currency",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "aggregationRate": "TOTAL",
+                            "sortColumn": true
+                        }
+                    ],
+                    "resultMetadata": {}
+                },
+                "filtersPerEntityType": {
+                    "IOT": {
+                        "SPECIFIC_ENTITIES": [
+                            "CUSTOM_DEVICE-0213339379206B84"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 380,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Estimated charges for CloudWatch",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.billing.estimatedChargesByCurrency",
+                            "aggregation": "MAX",
+                            "type": "BAR",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "0",
+                                    "name": "dt.entity.custom_device",
+                                    "values": [],
+                                    "entityDimension": true
+                                },
+                                {
+                                    "id": "1",
+                                    "name": "Currency",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "aggregationRate": "TOTAL",
+                            "sortColumn": true
+                        }
+                    ],
+                    "resultMetadata": {}
+                },
+                "filtersPerEntityType": {
+                    "IOT": {
+                        "SPECIFIC_ENTITIES": [
+                            "CUSTOM_DEVICE-13BE031C519A6856"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 760,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Estimated charges for DynamoDB",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.billing.estimatedChargesByCurrency",
+                            "aggregation": "MAX",
+                            "type": "BAR",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "0",
+                                    "name": "dt.entity.custom_device",
+                                    "values": [],
+                                    "entityDimension": true
+                                },
+                                {
+                                    "id": "1",
+                                    "name": "Currency",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "aggregationRate": "TOTAL",
+                            "sortColumn": true
+                        }
+                    ],
+                    "resultMetadata": {}
+                },
+                "filtersPerEntityType": {
+                    "IOT": {
+                        "SPECIFIC_ENTITIES": [
+                            "CUSTOM_DEVICE-4CD13C00B6F07324"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 646,
+                "left": 760,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Estimated charges for ELB",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.billing.estimatedChargesByCurrency",
+                            "aggregation": "MAX",
+                            "type": "BAR",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "0",
+                                    "name": "dt.entity.custom_device",
+                                    "values": [],
+                                    "entityDimension": true
+                                },
+                                {
+                                    "id": "1",
+                                    "name": "Currency",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "aggregationRate": "TOTAL",
+                            "sortColumn": true
+                        }
+                    ],
+                    "resultMetadata": {}
+                },
+                "filtersPerEntityType": {
+                    "IOT": {
+                        "SPECIFIC_ENTITIES": [
+                            "CUSTOM_DEVICE-ED03EBA89BDF8EE0"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "Custom chart",
+            "tileType": "CUSTOM_CHARTING",
+            "configured": true,
+            "bounds": {
+                "top": 646,
+                "left": 380,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "filterConfig": {
+                "type": "MIXED",
+                "customName": "Estimated charges for VPC",
+                "defaultName": "Custom chart",
+                "chartConfig": {
+                    "legendShown": true,
+                    "type": "TIMESERIES",
+                    "series": [
+                        {
+                            "metric": "ext:cloud.aws.billing.estimatedChargesByCurrency",
+                            "aggregation": "MAX",
+                            "type": "BAR",
+                            "entityType": "IOT",
+                            "dimensions": [
+                                {
+                                    "id": "0",
+                                    "name": "dt.entity.custom_device",
+                                    "values": [],
+                                    "entityDimension": true
+                                },
+                                {
+                                    "id": "1",
+                                    "name": "Currency",
+                                    "values": [],
+                                    "entityDimension": false
+                                }
+                            ],
+                            "sortAscending": false,
+                            "aggregationRate": "TOTAL",
+                            "sortColumn": true
+                        }
+                    ],
+                    "resultMetadata": {}
+                },
+                "filtersPerEntityType": {
+                    "IOT": {
+                        "SPECIFIC_ENTITIES": [
+                            "CUSTOM_DEVICE-8A2023C70BB99A1B"
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+}
