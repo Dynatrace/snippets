@@ -1,15 +1,8 @@
 {
-    "metadata": {
-        "configurationVersions": [
-            3
-        ],
-        "clusterVersion": "1.204.9999.90000101-000000"
-    },
-    "id": "91875298-af17-4349-9db3-95440684cd5f",
+    "metadata": {},
     "dashboardMetadata": {
         "name": "Azure Function App Deployment Slot",
         "shared": false,
-        "owner": "Dynatrace",
         "sharingDetails": {
             "linkShared": true,
             "published": false

@@ -8,8 +8,7 @@
         },
         "dashboardFilter": {
             "timeframe": ""
-        },
-        "owner": "Dynatrace"
+        }
     },
     "tiles": [
         {
@@ -158,13 +157,6 @@
                         }
                     ],
                     "resultMetadata": {}
-                },
-                "filtersPerEntityType": {
-                    "IOT": {
-                        "SPECIFIC_ENTITIES": [
-                            "CUSTOM_DEVICE-941EBB5DFAA4841F"
-                        ]
-                    }
                 }
             }
         },
@@ -212,13 +204,6 @@
                         }
                     ],
                     "resultMetadata": {}
-                },
-                "filtersPerEntityType": {
-                    "IOT": {
-                        "SPECIFIC_ENTITIES": [
-                            "CUSTOM_DEVICE-0213339379206B84"
-                        ]
-                    }
                 }
             }
         },
@@ -266,13 +251,6 @@
                         }
                     ],
                     "resultMetadata": {}
-                },
-                "filtersPerEntityType": {
-                    "IOT": {
-                        "SPECIFIC_ENTITIES": [
-                            "CUSTOM_DEVICE-13BE031C519A6856"
-                        ]
-                    }
                 }
             }
         },
@@ -320,13 +298,6 @@
                         }
                     ],
                     "resultMetadata": {}
-                },
-                "filtersPerEntityType": {
-                    "IOT": {
-                        "SPECIFIC_ENTITIES": [
-                            "CUSTOM_DEVICE-4CD13C00B6F07324"
-                        ]
-                    }
                 }
             }
         },
@@ -374,13 +345,6 @@
                         }
                     ],
                     "resultMetadata": {}
-                },
-                "filtersPerEntityType": {
-                    "IOT": {
-                        "SPECIFIC_ENTITIES": [
-                            "CUSTOM_DEVICE-ED03EBA89BDF8EE0"
-                        ]
-                    }
                 }
             }
         },
@@ -428,13 +392,6 @@
                         }
                     ],
                     "resultMetadata": {}
-                },
-                "filtersPerEntityType": {
-                    "IOT": {
-                        "SPECIFIC_ENTITIES": [
-                            "CUSTOM_DEVICE-8A2023C70BB99A1B"
-                        ]
-                    }
                 }
             }
         }

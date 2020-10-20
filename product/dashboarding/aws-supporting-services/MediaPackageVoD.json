@@ -1,7 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "Amazon MediaPackage Video on Demand",
-        "owner": "Dynatrace"
+        "name": "Amazon MediaPackage Video on Demand"
     },
     "tiles": [
         {

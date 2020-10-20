@@ -29,10 +29,10 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 ### [Azure App Configuration](AppConfiguration.json)
 ![AppConfiguration.png](AppConfiguration.png)
 
-### [Azure App Service Deployment Slots](AppServiceDeploymentSlots.json)
+### [Azure App Service Web App Deployment Slots](AppServiceDeploymentSlots.json)
 ![AppServiceDeploymentSlots.png](AppServiceDeploymentSlots.png)
 
-### [App Service Function Deployment Slots.json](AppServiceFunctionDeploymentSlots.json)
+### [Azure App Service Function App Deployment Slots.json](AppServiceFunctionDeploymentSlots.json)
 ![AppServiceFunctionDeploymentSlots.png](AppServiceFunctionDeploymentSlots.png)
 
 ### [Azure App Service Environment](AppServiceEnvironment.json)
