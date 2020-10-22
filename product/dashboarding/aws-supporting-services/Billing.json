@@ -1,0 +1,104 @@
+{
+  "dashboardMetadata": {
+    "name": "AWS Billing",
+    "shared": false,
+    "sharingDetails": {
+      "linkShared": true,
+      "published": false
+    },
+    "dashboardFilter": {
+      "timeframe": ""
+    }
+  },
+  "tiles": [{
+    "name": "Estimated charges",
+    "tileType": "HEADER",
+    "configured": true,
+    "bounds": {
+      "top": 0,
+      "left": 0,
+      "width": 418,
+      "height": 38
+    },
+    "tileFilter": {}
+  }, {
+    "name": "Custom chart",
+    "tileType": "CUSTOM_CHARTING",
+    "configured": true,
+    "bounds": {
+      "top": 304,
+      "left": 0,
+      "width": 418,
+      "height": 494
+    },
+    "tileFilter": {},
+    "filterConfig": {
+      "type": "MIXED",
+      "customName": "Estimated charges per service",
+      "defaultName": "Custom chart",
+      "chartConfig": {
+        "legendShown": true,
+        "type": "TOP_LIST",
+        "series": [{
+          "metric": "ext:cloud.aws.billing.estimatedChargesByCurrency",
+          "aggregation": "MAX",
+          "type": "LINE",
+          "entityType": "IOT",
+          "dimensions": [{
+            "id": "0",
+            "name": "dt.entity.custom_device",
+            "values": [],
+            "entityDimension": true
+          }, {
+            "id": "1",
+            "name": "Currency",
+            "values": [],
+            "entityDimension": false
+          }],
+          "sortAscending": false,
+          "sortColumn": true,
+          "aggregationRate": "TOTAL"
+        }],
+        "resultMetadata": {}
+      },
+      "filtersPerEntityType": {}
+    }
+  }, {
+    "name": "Custom chart",
+    "tileType": "CUSTOM_CHARTING",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 0,
+      "width": 418,
+      "height": 266
+    },
+    "tileFilter": {},
+    "filterConfig": {
+      "type": "MIXED",
+      "customName": "Estimated charges for all services",
+      "defaultName": "Custom chart",
+      "chartConfig": {
+        "legendShown": true,
+        "type": "SINGLE_VALUE",
+        "series": [{
+          "metric": "ext:cloud.aws.billing.estimatedChargesByRegionCurrency",
+          "aggregation": "MAX",
+          "type": "LINE",
+          "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+          "dimensions": [{
+            "id": "2",
+            "name": "Currency",
+            "values": [],
+            "entityDimension": false
+          }],
+          "sortAscending": false,
+          "sortColumn": true,
+          "aggregationRate": "TOTAL"
+        }],
+        "resultMetadata": {}
+      },
+      "filtersPerEntityType": {}
+    }
+  }]
+}

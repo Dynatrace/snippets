@@ -35,6 +35,9 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 ### [Amazon Athena](Athena.json)
 ![Athena.png](Athena.png)
 
+### [AWS Billing](Billing.json)
+![Billing.png](Billing.png)
+
 ### [AWS Chatbot](Chatbot.json)
 ![Chatbot.png](Chatbot.png)
 
@@ -124,6 +127,9 @@ See [Dashboard timeframe and management zone](https://www.dynatrace.com/support/
 
 ### [Amazon MediaPackage Live](MediaPackage_Live.json)
 ![MediaPackage_Live.png](MediaPackage_Live.png)
+
+### [Amazon MediaPackage Video on Demand](MediaPackageVoD.json)
+![MediaPackageVoD.png](MediaPackageVoD.png)
 
 ### [AWS CloudSearch](MediaTailor.json)
 ![MediaTailor.png](MediaTailor.png)
