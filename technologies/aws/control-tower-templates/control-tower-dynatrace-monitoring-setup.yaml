@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: "2010-09-09"
 
-Description: Template to setup automate adding Dynatrace AWS monitoring for accounts newly created with AWS Control Tower
+Description: "Template to setup automate adding Dynatrace AWS monitoring for accounts newly created with AWS Control Tower"
 
 
 Parameters:
@@ -27,6 +27,7 @@ Resources:
       Description: "Secret that contains Dynatrace API URL and token"
       Name: !FindInMap ["Constants", "SecretManager", "SecretName"]
       SecretString: !Sub '{"dynatrace_url":"${DynatraceUrl}", "dynatrace_api_key":"${DynatraceApiKey}"}'
+      KmsKeyId: !GetAtt DynaTraceControlTowerKMSKey.Arn
 
   DynatraceSecretResourcePolicy:
     Type: AWS::SecretsManager::ResourcePolicy
@@ -39,7 +40,58 @@ Resources:
             Principal:
               AWS: !GetAtt LambdaRoleToCaptureEvents.Arn
             Action: 'secretsmanager:GetSecretValue'
-            "Resource": "*"
+            "Resource": !Ref DynatraceSecret
+
+  DynaTraceControlTowerKMSKey:
+    Type: AWS::KMS::Key
+    Properties:
+      Description: "This is KMS Key Id used to encrypt/decrypt the Secret"
+      EnableKeyRotation: true
+      KeyPolicy:
+        Version: '2012-10-17'
+        Id: key-default-1
+        Statement:
+          - Sid: Allow administration of the key
+            Effect: Allow
+            Principal:
+              AWS: !Sub arn:aws:iam::${AWS::AccountId}:root
+            Action:
+              - kms:Create*
+              - kms:Describe*
+              - kms:Enable*
+              - kms:List*
+              - kms:Put*
+              - kms:Update*
+              - kms:Revoke*
+              - kms:Disable*
+              - kms:Get*
+              - kms:Delete*
+              - kms:ScheduleKeyDeletion
+              - kms:CancelKeyDeletion
+            Resource: '*'
+          - Sid: Allow use of the key
+            Effect: Allow
+            Principal:
+              AWS: !Sub ${AWS::AccountId}
+            Action:
+              - kms:Encrypt
+              - kms:Decrypt
+              - kms:ReEncrypt
+              - kms:GenerateDataKey
+              - kms:CreateGrant
+              - kms:DescribeKey
+            Resource: '*'
+            Condition:
+              StringEquals:
+                kms:ViaService: !Sub secretsmanager.${AWS::Region}.amazonaws.com
+                kms:CallerAccount: !Sub ${AWS::AccountId}
+
+  DynaTraceControlTowerKMSAlias:
+    Type: AWS::KMS::Alias
+    Properties:
+      AliasName: !Sub "alias/DynaTrace-Control-Tower-${AWS::StackName}"
+      TargetKeyId:
+        Ref: DynaTraceControlTowerKMSKey
 
   CaptureControlTowerLifeCycleEvents:
     DependsOn:
@@ -51,14 +103,12 @@ Resources:
         detail:
           eventName:
             - CreateManagedAccount
-            - UpdateManagedAccount
           eventSource:
             - controltower.amazonaws.com
         detail-type:
           - AWS Service Event via CloudTrail
         source:
           - aws.controltower
-      Name: CaptureControlTowerLifeCycleEvents
       State: ENABLED
       Targets:
         - Arn: !GetAtt "TriggerCustomizationsOnLifeCycleEvent.Arn"
@@ -75,7 +125,6 @@ Resources:
   LambdaRoleToCaptureEvents:
     Type: AWS::IAM::Role
     Properties:
-      RoleName: LambdaRoleToCaptureEvents
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
@@ -98,7 +147,10 @@ Resources:
                 Action:
                   - 'secretsmanager:GetSecretValue'
                 Resource: !Ref DynatraceSecret
-
+              - Effect: Allow
+                Action:
+                  - kms:Decrypt
+                Resource: !GetAtt DynaTraceControlTowerKMSKey.Arn
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
 
@@ -209,7 +261,7 @@ Resources:
           DYNATRACE_API_SECRET: !FindInMap ["Constants", "SecretManager", "SecretName"]
 
 
-  ############### StackSet for AWS policy ##########################
+  ############### StackSet for AWS monitoring policy ##########################
   DynatraceMonitoringRoleStackSet:
     Type: AWS::CloudFormation::StackSet
     Properties:
@@ -389,4 +441,3 @@ Resources:
           AccountId:
             Description: Your Amazon account ID
             Value: !Ref AWS::AccountId
-
