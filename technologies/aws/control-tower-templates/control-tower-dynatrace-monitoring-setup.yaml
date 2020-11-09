@@ -1,0 +1,443 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: "Template to setup automate adding Dynatrace AWS monitoring for accounts newly created with AWS Control Tower"
+
+
+Parameters:
+  DynatraceUrl:
+    Description: URL to Dynatrace tenant endpoint
+    Type: String
+    AllowedPattern: '^https:\/\/[a-z0-9]{8}\.(dev|live|sprint)\.(dynatrace|dynatracelabs).com[/]?$'
+  DynatraceApiKey:
+    Description: 'Dynatrace API key: Settings > Integration > Dynatrace API'
+    Type: String
+    NoEcho: True
+
+
+Mappings:
+  Constants:
+    SecretManager:
+      SecretName: "/dynatrace/configuration_api_aws_monitoring"
+
+
+Resources:
+  DynatraceSecret:
+    Type: AWS::SecretsManager::Secret
+    Properties:
+      Description: "Secret that contains Dynatrace API URL and token"
+      Name: !FindInMap ["Constants", "SecretManager", "SecretName"]
+      SecretString: !Sub '{"dynatrace_url":"${DynatraceUrl}", "dynatrace_api_key":"${DynatraceApiKey}"}'
+      KmsKeyId: !GetAtt DynaTraceControlTowerKMSKey.Arn
+
+  DynatraceSecretResourcePolicy:
+    Type: AWS::SecretsManager::ResourcePolicy
+    Properties:
+      SecretId: !Ref DynatraceSecret
+      ResourcePolicy:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !GetAtt LambdaRoleToCaptureEvents.Arn
+            Action: 'secretsmanager:GetSecretValue'
+            "Resource": !Ref DynatraceSecret
+
+  DynaTraceControlTowerKMSKey:
+    Type: AWS::KMS::Key
+    Properties:
+      Description: "This is KMS Key Id used to encrypt/decrypt the Secret"
+      EnableKeyRotation: true
+      KeyPolicy:
+        Version: '2012-10-17'
+        Id: key-default-1
+        Statement:
+          - Sid: Allow administration of the key
+            Effect: Allow
+            Principal:
+              AWS: !Sub arn:aws:iam::${AWS::AccountId}:root
+            Action:
+              - kms:Create*
+              - kms:Describe*
+              - kms:Enable*
+              - kms:List*
+              - kms:Put*
+              - kms:Update*
+              - kms:Revoke*
+              - kms:Disable*
+              - kms:Get*
+              - kms:Delete*
+              - kms:ScheduleKeyDeletion
+              - kms:CancelKeyDeletion
+            Resource: '*'
+          - Sid: Allow use of the key
+            Effect: Allow
+            Principal:
+              AWS: !Sub ${AWS::AccountId}
+            Action:
+              - kms:Encrypt
+              - kms:Decrypt
+              - kms:ReEncrypt
+              - kms:GenerateDataKey
+              - kms:CreateGrant
+              - kms:DescribeKey
+            Resource: '*'
+            Condition:
+              StringEquals:
+                kms:ViaService: !Sub secretsmanager.${AWS::Region}.amazonaws.com
+                kms:CallerAccount: !Sub ${AWS::AccountId}
+
+  DynaTraceControlTowerKMSAlias:
+    Type: AWS::KMS::Alias
+    Properties:
+      AliasName: !Sub "alias/DynaTrace-Control-Tower-${AWS::StackName}"
+      TargetKeyId:
+        Ref: DynaTraceControlTowerKMSKey
+
+  CaptureControlTowerLifeCycleEvents:
+    DependsOn:
+      - TriggerCustomizationsOnLifeCycleEvent
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Capture Control Tower LifeCycle Events and Trigger an Action
+      EventPattern:
+        detail:
+          eventName:
+            - CreateManagedAccount
+          eventSource:
+            - controltower.amazonaws.com
+        detail-type:
+          - AWS Service Event via CloudTrail
+        source:
+          - aws.controltower
+      State: ENABLED
+      Targets:
+        - Arn: !GetAtt "TriggerCustomizationsOnLifeCycleEvent.Arn"
+          Id: IDCaptureControlTowerLifeCycleEvents
+
+  PermissionForEventsToInvokeLambda:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !GetAtt "TriggerCustomizationsOnLifeCycleEvent.Arn"
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt "CaptureControlTowerLifeCycleEvents.Arn"
+
+  LambdaRoleToCaptureEvents:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+            Condition: {}
+      Path: /
+      Policies:
+        - PolicyName: inline-policy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - 'cloudformation:CreateStackInstances'
+                Resource: !Join [':',['arn:aws:cloudformation', !Ref 'AWS::Region', !Ref 'AWS::AccountId', 'stackset/DynatraceMonitoringRoleStackset:*']]
+              - Effect: Allow
+                Action:
+                  - 'secretsmanager:GetSecretValue'
+                Resource: !Ref DynatraceSecret
+              - Effect: Allow
+                Action:
+                  - kms:Decrypt
+                Resource: !GetAtt DynaTraceControlTowerKMSKey.Arn
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+  TriggerCustomizationsOnLifeCycleEvent:
+    DependsOn:
+      - LambdaRoleToCaptureEvents
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        ZipFile: |
+          import json
+          import boto3
+          import logging
+          import os
+          import urllib.request
+
+          LOGGER = logging.getLogger()
+          LOGGER.setLevel(logging.INFO)
+          session = boto3.session.Session()
+          sm_client = session.client('secretsmanager')
+          cfn_client = session.client('cloudformation')
+
+          def lambda_handler(event, context):
+            LOGGER.info('Control Tower Event Captured :{}'.format(event))
+            event_details = event['detail']
+            eventName = event_details['eventName']
+            srvevent_details = event_details['serviceEventDetails']
+            if eventName == 'CreateManagedAccount':
+              new_acc_info = srvevent_details['createManagedAccountStatus']
+              cmdStatus = new_acc_info['state']
+              if cmdStatus == 'SUCCEEDED':
+                try:
+                  dt_api_config = get_dynatrace_api_config()
+                  region_name = event_details['awsRegion']
+                  acc_id = new_acc_info['account']['accountId']
+                  acc_name = new_acc_info['account']['accountName']
+                  dynatrace_url = dt_api_config['dynatrace_url']
+                  if dynatrace_url.endswith('/'):
+                    dynatrace_url = dynatrace_url[:-1]
+                  dynatrace_api_key = dt_api_config['dynatrace_api_key']
+                  external_id = get_dynatrace_external_id(dynatrace_url, dynatrace_api_key)
+                  create_monitoring_role(acc_id, region_name, external_id)
+                  create_dynatrace_monitoring(dynatrace_url, dynatrace_api_key, acc_id, acc_name, external_id)
+                  LOGGER.info(f'Configured Dynatrace monitoring of account {acc_id}')
+                  return True
+                except Exception as e:
+                  LOGGER.error(e)
+                  return False
+              else:
+                LOGGER.info(f'Unsucessful Event Recieved. SKIPPING :{event}')
+                return False
+
+          def get_dynatrace_api_config():
+            secret_id = os.environ.get('DYNATRACE_API_SECRET')
+            get_secret_value_response = sm_client.get_secret_value(SecretId=secret_id)
+            resp_str = get_secret_value_response['SecretString']
+            return json.loads(resp_str)
+
+          def get_dynatrace_external_id(dynatrace_api_url, dynatrace_api_token):
+            url = dynatrace_api_url + '/api/config/v1/aws/iamExternalId'
+            headers = {
+              'Authorization': 'Api-Token ' + dynatrace_api_token,
+              'Content-Type': 'application/json; charset=utf-8'
+            }
+            req = urllib.request.Request(url, headers=headers)
+            response = urllib.request.urlopen(req)
+            resp_str = response.read()
+            response = json.loads(resp_str)
+            return response['token']
+
+          def create_monitoring_role(account, region, external_id):
+            cfn_client.create_stack_instances(StackSetName='DynatraceMonitoringRoleStackset', Accounts=[account], Regions=[region],
+                                              ParameterOverrides=[{'ParameterKey': 'ExternalID', 'ParameterValue': external_id}])
+
+          def create_dynatrace_monitoring(dynatrace_api_url, dynatrace_api_token, account_id, account_name, external_id):
+            url = dynatrace_api_url + '/api/config/v1/aws/credentials'
+            headers = {
+              'Authorization': 'Api-Token ' + dynatrace_api_token,
+              'Content-Type': 'application/json; charset=utf-8'
+            }
+            configRequest = {
+              "label": f"{account_name or 'Account'} {account_id}",
+              "partitionType": "AWS_DEFAULT",
+              "authenticationData": {
+                "type": "ROLE",
+                "roleBasedAuthentication": {
+                  "iamRole": "Dynatrace_monitoring_role",
+                  "accountId": account_id
+                }
+              },
+              "taggedOnly": False
+            }
+            jsonData = json.dumps(configRequest)
+            jsonDataBytes = jsonData.encode('utf-8')
+            req = urllib.request.Request(url, headers=headers, method="POST", data=jsonDataBytes)
+            req.add_header('Content-Length', len(jsonDataBytes))
+            response = urllib.request.urlopen(req)
+            resp_str = response.read()
+            LOGGER.info(f'Dynatrace API add monitoring response: {resp_str}')
+
+      Handler: index.lambda_handler
+      MemorySize: 128
+      Role: !GetAtt "LambdaRoleToCaptureEvents.Arn"
+      Runtime: python3.7
+      Timeout: 60
+      Environment:
+        Variables:
+          DYNATRACE_API_SECRET: !FindInMap ["Constants", "SecretManager", "SecretName"]
+
+
+  ############### StackSet for AWS monitoring policy ##########################
+  DynatraceMonitoringRoleStackSet:
+    Type: AWS::CloudFormation::StackSet
+    Properties:
+      Description: StackSet for creating IAM roles for Dynatrace monitoring
+      StackSetName: DynatraceMonitoringRoleStackset
+      Parameters:
+        - ParameterKey: ExternalID
+          ParameterValue: placeholder
+        - ParameterKey: RoleName
+          ParameterValue: Dynatrace_monitoring_role
+      PermissionModel: SELF_MANAGED
+      AdministrationRoleARN: !Join [':', ['arn:aws:iam:', !Ref 'AWS::AccountId', 'role/service-role/AWSControlTowerStackSetRole']]
+      ExecutionRoleName: "AWSControlTowerExecution"
+      Capabilities:
+        - CAPABILITY_NAMED_IAM
+      TemplateBody: |
+        AWSTemplateFormatVersion: "2010-09-09"
+        Description: Role-based access for SaaS deployments without Environment ActiveGate
+
+        Parameters:
+          ExternalID:
+            Description: "The External ID: Settings > Cloud and virtualization > AWS"
+            Type: String
+          RoleName:
+            Description: "IAM role that Dynatrace should use to get monitoring data"
+            Type: String
+            Default: Dynatrace_monitoring_role
+
+        Resources:
+          DynatraceMonitoringPolicy:
+            Type: AWS::IAM::ManagedPolicy
+            Properties:
+              ManagedPolicyName: Dynatrace_monitoring_policy
+              Description: Dynatrace Monitoring Policy
+              PolicyDocument: {
+                "Version": "2012-10-17",
+                "Statement": [
+                  {
+                    "Sid": "DynatraceMonitoringPolicy",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ec2:DescribeInstances",
+                        "support:DescribeTrustedAdvisorCheckResult",
+                        "athena:ListWorkGroups",
+                        "elasticbeanstalk:DescribeEnvironmentResources",
+                        "appsync:ListGraphqlApis",
+                        "kinesis:ListStreams",
+                        "elasticbeanstalk:DescribeEnvironments",
+                        "ec2:DescribeVolumes",
+                        "support:DescribeTrustedAdvisorCheckSummaries",
+                        "kinesisanalytics:ListApplications",
+                        "codebuild:ListProjects",
+                        "datasync:ListTasks",
+                        "mediaconnect:ListFlows",
+                        "cloudformation:ListStackResources",
+                        "mediatailor:ListPlaybackConfigurations",
+                        "support:SearchForCases",
+                        "lambda:ListFunctions",
+                        "support:DescribeCases",
+                        "chatbot:DescribeSlackChannels",
+                        "transfer:ListServers",
+                        "cloudwatch:GetMetricStatistics",
+                        "support:DescribeAttachment",
+                        "chatbot:DescribeSlackWorkspaces",
+                        "workmail:ListOrganizations",
+                        "firehose:ListDeliveryStreams",
+                        "eks:ListClusters",
+                        "ec2:DescribeSubnets",
+                        "swf:ListDomains",
+                        "support:DescribeTrustedAdvisorCheckRefreshStatuses",
+                        "tag:GetResources",
+                        "dynamodb:ListTables",
+                        "qldb:ListLedgers",
+                        "sns:ListTopics",
+                        "dynamodb:ListTagsOfResource",
+                        "dax:DescribeClusters",
+                        "support:DescribeTrustedAdvisorChecks",
+                        "cloudwatch:ListMetrics",
+                        "cloudhsm:DescribeClusters",
+                        "storagegateway:ListGateways",
+                        "ec2:DescribeAvailabilityZones",
+                        "lambda:ListTags",
+                        "rds:DescribeDBInstances",
+                        "support:DescribeSeverityLevels",
+                        "cloudsearch:DescribeDomains",
+                        "rds:DescribeEvents",
+                        "dms:DescribeReplicationInstances",
+                        "route53:ListHostedZones",
+                        "events:ListEventBuses",
+                        "chatbot:DescribeChimeWebhookConfigurations",
+                        "ec2:DescribeSecurityGroups",
+                        "es:ListDomainNames",
+                        "rds:ListTagsForResource",
+                        "s3:ListAllMyBuckets",
+                        "ec2:DescribeVpcs",
+                        "opsworks:DescribeStacks",
+                        "kinesisvideo:ListStreams",
+                        "chatbot:DescribeSlackChannelConfigurations",
+                        "chatbot:GetSlackOauthParameters",
+                        "elastictranscoder:ListPipelines",
+                        "elasticloadbalancing:DescribeLoadBalancers",
+                        "autoscaling:DescribeAutoScalingGroups",
+                        "support:DescribeSupportLevel",
+                        "support:DescribeCaseAttributes",
+                        "elasticloadbalancing:DescribeInstanceHealth",
+                        "apigateway:GET",
+                        "workspaces:DescribeWorkspaces",
+                        "support:DescribeServices",
+                        "support:DescribeCommunications",
+                        "support:DescribeIssueTypes",
+                        "elasticloadbalancing:DescribeRules",
+                        "elasticache:DescribeCacheClusters",
+                        "fsx:DescribeFileSystems",
+                        "kafka:ListClusters",
+                        "cloudwatch:GetMetricData",
+                        "route53resolver:ListResolverEndpoints",
+                        "tag:GetTagKeys",
+                        "ec2:DescribeNetworkInterfaces",
+                        "elasticloadbalancing:DescribeListeners",
+                        "elasticmapreduce:ListClusters",
+                        "appstream:DescribeFleets",
+                        "elasticfilesystem:DescribeFileSystems",
+                        "ecs:ListClusters",
+                        "sqs:ListQueues",
+                        "logs:DescribeLogGroups",
+                        "elasticloadbalancing:DescribeTags",
+                        "mediaconvert:DescribeEndpoints",
+                        "ec2:DescribeNatGateways",
+                        "robomaker:ListSimulationJobs",
+                        "ec2:DescribeSpotFleetRequests",
+                        "mediapackage:ListChannels",
+                        "cloudfront:ListDistributions",
+                        "elasticloadbalancing:DescribeTargetHealth",
+                        "redshift:DescribeClusters",
+                        "mediapackage-vod:ListPackagingGroups",
+                        "mediapackage-vod:ListPackagingConfigurations",
+                        "sts:GetCallerIdentity",
+                        "rds:DescribeDBClusters",
+                        "directconnect:DescribeConnections"
+                    ],
+                    "Resource": "*"
+                  }
+                ]
+              }
+
+          DynatraceMonitoringRole:
+            Type: AWS::IAM::Role
+            Properties:
+              RoleName: !Ref RoleName
+              Description: Dynatrace Monitoring Role
+              AssumeRolePolicyDocument: {
+                  "Version": "2012-10-17",
+                  "Statement": [
+                    {
+                      "Effect": "Allow",
+                      "Principal": {
+                        "AWS": "509560245411"
+                      },
+                      "Action": ["sts:AssumeRole"],
+                      "Condition": {
+                        "StringEquals": {
+                          "sts:ExternalId": {
+                            "Ref": "ExternalID"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ManagedPolicyArns:
+                - !Ref DynatraceMonitoringPolicy
+
+        Outputs:
+          RoleName:
+            Description: IAM role that Dynatrace should use to get monitoring data
+            Value: !Ref RoleName
+          AccountId:
+            Description: Your Amazon account ID
+            Value: !Ref AWS::AccountId
