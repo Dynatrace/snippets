@@ -1,8 +1,8 @@
-##Enrich PurePath with OpenTelemetry instrumentation
+## Enrich PurePath with OpenTelemetry instrumentation
 This repository has the sample app used within [this blog post](https://www.dynatrace.com/news/blog/unlock-end-to-end-observability-insights-with-dynatrace-purepath-4-seamless-integration-of-opentracing-for-java/) to show how to unlock end-to-end observability insights with Dynatrace PurePath 4 seamless integration of OpenTracing for Java.  
 ***
 
-###Disclaimer
+### Disclaimer
 The contained code is considered educational and NOT SUPPORTED by Dynatrace. Please use at your own risk. You can contact the author via Github issues.
 ***
 
