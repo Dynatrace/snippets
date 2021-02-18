@@ -11,7 +11,7 @@ Metadata:
       - VpcEndpointHostedZoneId
     ParameterLabels:
       TenantId: 
-        default: 'Dynatrace tenant id'
+        default: 'Dynatrace Environment ID'
       VpcId: 
         default: 'VPC id'
       VpcEndpointDns:
@@ -22,10 +22,10 @@ Metadata:
 Parameters:
   TenantId:
     Type: String
-    Description: Your Dynatrace tenant (8 characters)
+    Description: Your Dynatrace Environment ID (8 characters)
   VpcId:
     Type: AWS::EC2::VPC::Id
-    Description: VPC ID of your VPC where PrivateLink was created (must be the same region as Dynatrace tenant)
+    Description: VPC ID of your VPC where PrivateLink was created (must be the same region as your Dynatrace Environment)
   VpcEndpointDns:
     Type: String
     Description: Main VPC Endpoint DNS - e.g. vpce-0123456789abcdef-xyzxyz.*.vpce.dynatrace.com (This is specific to your VPC Endpoint, do not use VPC Service Name here)
