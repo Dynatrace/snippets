@@ -99,8 +99,8 @@ if not (domain.startswith("https://") and domain.endswith("/")):
     logging.error("Domain error, must start with https:// and end with /")
     sys.exit(1)
 
-if len(apiToken) != 21:
-    logging.error("API token error, length should be 21")
+if len(apiToken) != 21 and not apiToken.startswith("dt0c01"):
+    logging.error("API token error, length should be 21 (old format) or start with dt0c01 (new format)")
     sys.exit(1)
 
 
