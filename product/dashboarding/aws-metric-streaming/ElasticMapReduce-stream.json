@@ -1,0 +1,1478 @@
+{
+  "dashboardMetadata": {
+    "name": "Amazon Elastic Map Reduce - Metric Streams",
+    "shared": false,
+    "sharingDetails": {
+      "linkShared": false,
+      "published": false
+    },
+    "dashboardFilter": {
+      "timeframe": ""
+    }
+  },
+  "tiles": [{
+    "name": "Usage",
+    "tileType": "HEADER",
+    "configured": true,
+    "bounds": {
+      "top": 0,
+      "left": 1292,
+      "width": 304,
+      "height": 38
+    },
+    "tileFilter": {}
+  }, {
+    "name": "Failures",
+    "tileType": "HEADER",
+    "configured": true,
+    "bounds": {
+      "top": 0,
+      "left": 2242,
+      "width": 304,
+      "height": 38
+    },
+    "tileFilter": {}
+  }, {
+    "name": "Cluster",
+    "tileType": "HEADER",
+    "configured": true,
+    "bounds": {
+      "top": 0,
+      "left": 0,
+      "width": 304,
+      "height": 38
+    },
+    "tileFilter": {}
+  }, {
+    "name": "vCPUs",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 646,
+      "left": 608,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.totalVCPURequestedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "MAX",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id", "jobname", "jobrunid"]
+    }, {
+      "id": "C",
+      "metric": "cloud.aws.elasticmapreduce.totalVCPURunningByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "MAX",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id", "jobname", "jobrunid"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Number of containers",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 0,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.containerAllocatedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.containerReservedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "C",
+      "metric": "cloud.aws.elasticmapreduce.containerPendingByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "D",
+      "metric": "cloud.aws.elasticmapreduce.containerPendingRatioByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "C:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Submitted applications",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 1900,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.appsCompletedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "D",
+      "metric": "cloud.aws.elasticmapreduce.appsPendingByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "E",
+      "metric": "cloud.aws.elasticmapreduce.appsRunningByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "F",
+      "metric": "cloud.aws.elasticmapreduce.appsSubmittedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "C:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "MR nodes",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 608,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.mrTotalNodesByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.mrActiveNodesByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "C",
+      "metric": "cloud.aws.elasticmapreduce.mrDecommissionedNodesByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "D",
+      "metric": "cloud.aws.elasticmapreduce.mrRebootedNodesByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "HDFS",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 646,
+      "left": 1596,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.hdfsUtilizationByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "TOP_LIST",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Blocks issues",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 2242,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.missingBlocksByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.corruptBlocksByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Blocks",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 1900,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.pendingDeletionBlocksByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.underReplicatedBlocksByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "C",
+      "metric": "cloud.aws.elasticmapreduce.dfsPendingReplicationBlocksByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Hbase backup failed",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 646,
+      "left": 2242,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.hbaseBackupFailedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.backupFailedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Last backup",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 646,
+      "left": 1900,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.mostRecentBackupDurationByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.timeSinceLastSuccessfulBackupByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Cluster memory",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 1292,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.memoryTotalMBByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.memoryReservedMBByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "C",
+      "metric": "cloud.aws.elasticmapreduce.memoryAvailableMBByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "D",
+      "metric": "cloud.aws.elasticmapreduce.memoryAllocatedMBByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "C:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Units",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 646,
+      "left": 0,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.totalUnitsRequestedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id", "jobname", "jobrunid"]
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.totalUnitsRunningByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id", "jobname", "jobrunid"]
+    }],
+    "visualConfig": {
+      "type": "TOP_LIST",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Nodes",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 646,
+      "left": 304,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.totalNodesRequestedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.totalNodesRunningByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Core nodes",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 950,
+      "left": 304,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.coreNodesRequestedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.coreNodesRunningByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "C",
+      "metric": "cloud.aws.elasticmapreduce.coreNodesPendingByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Task nodes",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 1254,
+      "left": 304,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.taskNodesRequestedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.taskNodesRunningByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "C",
+      "metric": "cloud.aws.elasticmapreduce.taskNodesPendingByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "C:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Core units",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 950,
+      "left": 0,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.coreUnitsRequestedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.coreUnitsRunningByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Task units",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 1254,
+      "left": 0,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.taskUnitsRequestedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.taskUnitsRunningByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Task vCPUs",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 1254,
+      "left": 608,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.taskVCPURequestedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.taskVCPURunningByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Core vCPUs",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 950,
+      "left": 608,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.coreVCPURequestedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.coreVCPURunningByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Idle clusters",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 608,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.isIdleByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["jobflowid", "aws.account.id", "aws.region"]
+    }],
+    "visualConfig": {
+      "type": "TOP_LIST",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Hadoop 1",
+    "tileType": "HEADER",
+    "configured": true,
+    "bounds": {
+      "top": 0,
+      "left": 950,
+      "width": 304,
+      "height": 38
+    },
+    "tileFilter": {}
+  }, {
+    "name": "Map/Reduce tasks",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 950,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.mapTasksRunningByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.mapTasksRemainingByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "C",
+      "metric": "cloud.aws.elasticmapreduce.reduceTasksRunningByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "D",
+      "metric": "cloud.aws.elasticmapreduce.reduceTasksRemainingByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "E:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Map/Reduce slots",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 646,
+      "left": 950,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.mapSlotsOpenByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.reduceSlotsOpenByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "C",
+      "metric": "cloud.aws.elasticmapreduce.remainingMapTasksPerSlotByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "E:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Container pending ratio",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 304,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "D",
+      "metric": "cloud.aws.elasticmapreduce.containerPendingRatioByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["jobflowid"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "D:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Concurrent data transfers",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 0,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.totalLoadByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["jobflowid"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Live data nodes",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 304,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "C",
+      "metric": "cloud.aws.elasticmapreduce.liveDataNodesByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["jobflowid"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Memory available %",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 1292,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer",
+    "queries": [{
+      "id": "E",
+      "metric": "cloud.aws.elasticmapreduce.yarnMemoryAvailablePercentageByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["jobflowid"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "E:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Capacity remaining",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 1596,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.capacityRemainingGBByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["jobflowid"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "HDFS bytes read",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 646,
+      "left": 1292,
+      "width": 304,
+      "height": 152
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.hdfsBytesReadByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["jobflowid"]
+    }],
+    "visualConfig": {
+      "type": "TOP_LIST",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "HDFS bytes written",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 798,
+      "left": 1292,
+      "width": 304,
+      "height": 152
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.hdfsBytesWrittenByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["jobflowid"]
+    }],
+    "visualConfig": {
+      "type": "TOP_LIST",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Unsuccessful applications",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 2242,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.appsFailedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "C",
+      "metric": "cloud.aws.elasticmapreduce.appsKilledByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "C:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Unsuccessful jobs",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 2546,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.jobsFailedByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "MR nodes - issues",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 2546,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.mrLostNodesByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "C",
+      "metric": "cloud.aws.elasticmapreduce.mrUnhealthyNodesByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "C:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Jobs running",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 950,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer",
+    "queries": [{
+      "id": "E",
+      "metric": "cloud.aws.elasticmapreduce.jobsRunningByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["jobflowid"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "E:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "S3 bytes read",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 1596,
+      "width": 304,
+      "height": 152
+    },
+    "tileFilter": {},
+    "customName": "Explorer",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.s3BytesReadByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["jobflowid"]
+    }],
+    "visualConfig": {
+      "type": "TOP_LIST",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "S3 bytes written",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 494,
+      "left": 1596,
+      "width": 304,
+      "height": 152
+    },
+    "tileFilter": {},
+    "customName": "Explorer",
+    "queries": [{
+      "id": "B",
+      "metric": "cloud.aws.elasticmapreduce.s3BytesWrittenByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["jobflowid"]
+    }],
+    "visualConfig": {
+      "type": "TOP_LIST",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Live tasks trackers",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 950,
+      "left": 950,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.elasticmapreduce.liveTaskTrackersByAccountIdJobFlowIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["jobflowid"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "E:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }]
+}

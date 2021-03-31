@@ -1,0 +1,1091 @@
+{
+    "dashboardMetadata": {
+        "name": "AWS Kinesis Firehose - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [{
+        "name": "SSE Errors",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1938,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.kmsKeyAccessDeniedByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": []
+        }, {
+            "id": "B",
+            "metric": "cloud.aws.firehose.kmsKeyDisabledByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": []
+        }, {
+            "id": "C",
+            "metric": "cloud.aws.firehose.kmsKeyInvalidStateByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": []
+        }, {
+            "id": "D",
+            "metric": "cloud.aws.firehose.kmsKeyNotFoundByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": []
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "COLUMN"
+                }
+            }, {
+                "matcher": "B:",
+                "properties": {
+                    "seriesType": "COLUMN"
+                }
+            }, {
+                "matcher": "C:",
+                "properties": {
+                    "seriesType": "COLUMN"
+                }
+            }, {
+                "matcher": "D:",
+                "properties": {
+                    "seriesType": "COLUMN"
+                }
+            }]
+        }
+    }, {
+        "name": "Execution Duration",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1292,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.executeProcessingDurationByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Execution Success Fraction",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1596,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.executeProcessingSuccessByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Failures",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 1938,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Data Transformation",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 1292,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Succeed Processing Bytes",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 1596,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.succeedProcessingBytesByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Succeed Processing Records",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 1292,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.succeedProcessingRecordsByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Records Read From Kinesis Stream",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.dataReadFromKinesisStreamRecordsByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Bytes Read From Kinesis Stream",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.dataReadFromKinesisStreamBytesByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Records Read From Kinesis Stream",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.dataReadFromKinesisStreamRecordsByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": []
+        }],
+        "visualConfig": {
+            "type": "SINGLE_VALUE",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Bytes Read From Kinesis Stream",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.dataReadFromKinesisStreamBytesByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": []
+        }],
+        "visualConfig": {
+            "type": "SINGLE_VALUE",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Data Ingestion Through Kinesis Data Streams",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 0,
+            "width": 608,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Incoming Bytes",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 646,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.incomingBytesByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Incoming Bytes",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 950,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.incomingBytesByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "SINGLE_VALUE",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Incoming Put Requests",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 646,
+            "left": 646,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.incomingPutRequestsByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Data Ingestion Through Direct PUT ",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 646,
+            "width": 608,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Incoming Records",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 950,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.incomingRecordsByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "SINGLE_VALUE",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Incoming Records",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 646,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.incomingRecordsByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Millis Behind Latest Record",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 646,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.kinesisMillisBehindLatestByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Throttled Records",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 646,
+            "left": 950,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.throttledRecordsByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "COLUMN"
+                }
+            }]
+        }
+    }, {
+        "name": "Delivered Bytes",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1368,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.deliveryToHttpEndpointBytesByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Data Freshness",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1672,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.deliveryToHttpEndpointDataFreshnessByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Processed Bytes Including Retries",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1368,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.deliveryToHttpEndpointProcessedBytesByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Successful Requests",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1672,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.deliveryToHttpEndpointSuccessByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Delivered Records",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1064,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.deliveryToHttpEndpointRecordsByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Processed Records Including Retries",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1064,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.deliveryToHttpEndpointProcessedRecordsByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Delivery to HTTP",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 1026,
+            "left": 0,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Bytes Delivered",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1368,
+            "left": 646,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.deliveryToS3BytesByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Records Delivered",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1064,
+            "left": 646,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.deliveryToS3RecordsByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Sucessful Delivery Fraction",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1672,
+            "left": 646,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.deliveryToS3SuccessByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Delivery to S3",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 1026,
+            "left": 646,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Bytes Delivered",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1368,
+            "left": 988,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.deliveryToRedshiftBytesByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Records Delivered",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1064,
+            "left": 988,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.deliveryToRedshiftRecordsByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Successful Delivery Fraction",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1672,
+            "left": 988,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.deliveryToRedshiftSuccessByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Delivery To Redshift",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 1026,
+            "left": 988,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Records Delivered",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1064,
+            "left": 1330,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.deliveryToElasticsearchRecordsByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Bytes Delivered",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1368,
+            "left": 1330,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.deliveryToElasticsearchBytesByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Successful Delivery Fraction",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1672,
+            "left": 1330,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.firehose.deliveryToElasticsearchSuccessByAccountIdDeliveryStreamNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "deliverystreamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Delivery to Elasticsearch",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 1026,
+            "left": 1330,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }]
+}

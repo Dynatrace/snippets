@@ -1,0 +1,675 @@
+{
+    "dashboardMetadata": {
+        "name": "AWS AppSync - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": "",
+            "managementZone": null
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [
+        {
+            "name": "Performance",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "Usage",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 304,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "Failures",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 912,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "Latency Avg vs Max (By API)",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Latency Avg vs Max (By API)",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.appsync.latencyByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "graphqlapiid"
+                    ],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.appsync.latencyByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "MAX",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "graphqlapiid"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Avg Connection Duration (By API)",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Avg Connection Duration (By API)",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.appsync.connectionDurationByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "graphqlapiid"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ActiveConnections Sum",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 304,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "ActiveConnections Sum",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.appsync.activeConnectionsByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ActiveSubscriptions Sum",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 608,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "ActiveSubscriptions Sum",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.appsync.activeSubscriptionsByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Connect & Disconnect Successes",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 304,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Connect & Disconnect Successes",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.appsync.connectSuccessByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.appsync.disconnectSuccessByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Subscribe & Unsubscribe Successes",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 608,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Subscribe & Unsubscribe Successes",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.appsync.subscribeSuccessByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.appsync.unsubscribeSuccessByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PublishDataMessageSize (By API)",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 646,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "PublishDataMessageSize (By API)",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.appsync.publishDataMessageSizeByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "graphqlapiid"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PublishDataMessageSuccess Sum",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 646,
+                "left": 304,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "PublishDataMessageSuccess Sum",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.appsync.publishDataMessageSuccessByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Connect & Disconnect Errors",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 912,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Connect & Disconnect Errors",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.appsync.connectClientErrorByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.appsync.connectServerErrorByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                },
+                {
+                    "id": "C",
+                    "metric": "cloud.aws.appsync.disconnectClientErrorByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                },
+                {
+                    "id": "D",
+                    "metric": "cloud.aws.appsync.disconnectServerErrorByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "C:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "D:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Subscribe & Unsubscribe Errors",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 1216,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Subscribe & Unsubscribe Errors",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.appsync.subscribeClientErrorByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.appsync.subscribeServerErrorByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                },
+                {
+                    "id": "C",
+                    "metric": "cloud.aws.appsync.unsubscribeClientErrorByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                },
+                {
+                    "id": "D",
+                    "metric": "cloud.aws.appsync.unsubscribeServerErrorByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "C:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "D:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Publish Data Message Errors",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 912,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Publish Data Message Errors",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.appsync.publishDataMessageClientErrorByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.appsync.publishDataMessageServerErrorByAccountIdGraphQLAPIIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

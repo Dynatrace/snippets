@@ -1,0 +1,637 @@
+{
+    "dashboardMetadata": {
+        "name": "Amazon CloudWatch Logs - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [
+        {
+            "name": "Incoming log events",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 76,
+                "left": 0,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Incoming log events",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.logs.incomingLogEventsByAccountIdLogGroupNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "loggroupname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Incoming bytes",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 76,
+                "left": 798,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Incoming bytes",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.logs.incomingBytesByAccountIdLogGroupNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "loggroupname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Delivery errors",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 76,
+                "left": 1976,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Delivery errors",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.logs.deliveryErrorsByAccountIdDestinationTypeFilterNameLogGroupNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "loggroupname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Incoming log events",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 0,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Incoming log events",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.logs.incomingLogEventsByAccountIdLogGroupNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "loggroupname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Events count",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 760,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Events volume",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 798,
+                "width": 760,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Errors",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 1596,
+                "width": 760,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Incoming log events per region",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 684,
+                "left": 0,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Incoming log events per region",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.logs.incomingLogEventsByAccountIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "aws.region"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "PIE_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Forwarded log events",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 76,
+                "left": 380,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Forwarded log events",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.logs.forwardedLogEventsByAccountIdDestinationTypeFilterNameLogGroupNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "loggroupname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Forwarded log events",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 380,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Forwarded log events",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.logs.forwardedLogEventsByAccountIdDestinationTypeFilterNameLogGroupNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "destinationtype",
+                        "filtername",
+                        "loggroupname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Forwarded bytes",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 76,
+                "left": 1178,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Forwarded bytes",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.logs.forwardedBytesByAccountIdDestinationTypeFilterNameLogGroupNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "loggroupname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Incoming bytes per region",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 684,
+                "left": 798,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Incoming bytes per region",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.logs.incomingBytesByAccountIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "aws.region"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "PIE_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Delivery throttling",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 76,
+                "left": 1596,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Delivery throttling",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.logs.deliveryThrottlingByAccountIdDestinationTypeFilterNameLogGroupNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "loggroupname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Delivery errors",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 1976,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Delivery errors",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.logs.deliveryErrorsByAccountIdDestinationTypeFilterNameLogGroupNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "destinationtype",
+                        "filtername",
+                        "loggroupname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Delivery throttling",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 1596,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Delivery throttling",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.logs.deliveryThrottlingByAccountIdDestinationTypeFilterNameLogGroupNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "destinationtype",
+                        "filtername",
+                        "loggroupname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Incoming bytes",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 798,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Incoming bytes",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.logs.incomingBytesByAccountIdLogGroupNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "loggroupname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Forwarded bytes",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 1178,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Forwarded bytes",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.logs.forwardedBytesByAccountIdDestinationTypeFilterNameLogGroupNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "destinationtype",
+                        "filtername",
+                        "loggroupname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

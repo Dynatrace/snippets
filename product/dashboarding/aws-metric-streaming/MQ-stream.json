@@ -1,0 +1,534 @@
+{
+    "dashboardMetadata": {
+        "name": "Amazon MQ - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": "",
+            "managementZone": null
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [
+        {
+            "name": "Messages count",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Messages count",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.amazonmq.totalMessageCountByAccountIdBrokerRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Usage",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "Performance",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 646,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "CPU utilization",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 646,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "CPU utilization",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.amazonmq.cpuUtilizationByAccountIdBrokerRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "CPU utilization",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 950,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "CPU utilization",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.amazonmq.cpuUtilizationByAccountIdBrokerRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Producers count",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Producers count",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.amazonmq.totalProducerCountByAccountIdBrokerRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Consumers count",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 304,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Consumers count",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.amazonmq.totalConsumerCountByAccountIdBrokerRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Messages count",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 304,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Messages count",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.amazonmq.totalMessageCountByAccountIdBrokerRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Heap usage",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 646,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Heap usage",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.amazonmq.heapUsageByAccountIdBrokerRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "CPU credit balance",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 646,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "CPU credit balance",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.amazonmq.cpuCreditBalanceByAccountIdBrokerRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "AREA"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Current connections",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 950,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Current connections",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.amazonmq.currentConnectionsCountByAccountIdBrokerRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Incoming traffic",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 646,
+                "left": 646,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Incoming traffic",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.amazonmq.networkInByAccountIdBrokerRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Outgoing traffic",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 646,
+                "left": 950,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Outgoing traffic",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.amazonmq.networkOutByAccountIdBrokerRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

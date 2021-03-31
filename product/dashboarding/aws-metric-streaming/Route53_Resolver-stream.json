@@ -1,0 +1,133 @@
+{
+    "dashboardMetadata": {
+        "name": "AWS Route 53 Resolver - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": "",
+            "managementZone": null
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [
+        {
+            "name": "InboundQueryVolume",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 988,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "InboundQueryVolume",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.route53resolver.inboundQueryVolumeByAccountIdEndpointIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "OutboundQueryVolume",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 0,
+                "width": 988,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "OutboundQueryVolume",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.route53resolver.outboundQueryVolumeByAccountIdEndpointIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.route53resolver.outboundQueryAggregateVolumeByAccountIdEndpointIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Query volume across all endpoints",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 988,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        }
+    ]
+}

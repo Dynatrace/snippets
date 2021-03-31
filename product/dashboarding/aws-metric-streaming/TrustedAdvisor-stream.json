@@ -1,0 +1,591 @@
+{
+    "dashboardMetadata": {
+        "name": "AWS Trusted Advisor - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [
+        {
+            "name": "Service limits",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 760,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Service limit usage for all services",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Service limit usage for all services",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.trustedadvisor.serviceLimitUsageByAccountIdRegionServiceLimitServiceName",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "servicelimit"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Category",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 798,
+                "width": 760,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Yellow checks",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 798,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Yellow checks",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.trustedadvisor.yellowChecksByAccountIdCategoryRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "category"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Checks",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 798,
+                "width": 760,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Yellow resources",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 418,
+                "left": 798,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Yellow resources",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.trustedadvisor.yellowResourcesByAccountIdCheckNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "checkname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Service limit usage per service",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 380,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Service limit usage per service",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.trustedadvisor.serviceLimitUsageByAccountIdRegionServiceLimitServiceName",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "servicename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Service limit usage for EC2",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 0,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Service limit usage for EC2",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.trustedadvisor.serviceLimitUsageByAccountIdRegionServiceLimitServiceName",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "servicename"
+                    ],
+                    "filterBy": {
+                        "filterOperator": "AND",
+                        "nestedFilters": [
+                            {
+                                "filter": "servicename",
+                                "filterType": "DIMENSION",
+                                "filterOperator": "OR",
+                                "nestedFilters": [],
+                                "criteria": [
+                                    {
+                                        "evaluator": "EQ",
+                                        "value": "EC2"
+                                    }
+                                ]
+                            }
+                        ],
+                        "criteria": []
+                    }
+                }
+            ],
+            "visualConfig": {
+                "type": "SINGLE_VALUE",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Service limit usage for EBS",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 646,
+                "left": 380,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Service limit usage for EBS",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.trustedadvisor.serviceLimitUsageByAccountIdRegionServiceLimitServiceName",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "servicename"
+                    ],
+                    "filterBy": {
+                        "filterOperator": "AND",
+                        "nestedFilters": [
+                            {
+                                "filter": "servicename",
+                                "filterType": "DIMENSION",
+                                "filterOperator": "OR",
+                                "nestedFilters": [],
+                                "criteria": [
+                                    {
+                                        "evaluator": "EQ",
+                                        "value": "EBS"
+                                    }
+                                ]
+                            }
+                        ],
+                        "criteria": []
+                    }
+                }
+            ],
+            "visualConfig": {
+                "type": "SINGLE_VALUE",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Service limit usage for IAM",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 950,
+                "left": 0,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Service limit usage for IAM",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.trustedadvisor.serviceLimitUsageByAccountIdRegionServiceLimitServiceName",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "servicename"
+                    ],
+                    "filterBy": {
+                        "filterOperator": "AND",
+                        "nestedFilters": [
+                            {
+                                "filter": "servicename",
+                                "filterType": "DIMENSION",
+                                "filterOperator": "OR",
+                                "nestedFilters": [],
+                                "criteria": [
+                                    {
+                                        "evaluator": "EQ",
+                                        "value": "IAM"
+                                    }
+                                ]
+                            }
+                        ],
+                        "criteria": []
+                    }
+                }
+            ],
+            "visualConfig": {
+                "type": "SINGLE_VALUE",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Service limit usage for AutoScaling",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 380,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Service limit usage for AutoScaling",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.trustedadvisor.serviceLimitUsageByAccountIdRegionServiceLimitServiceName",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "servicename"
+                    ],
+                    "filterBy": {
+                        "filterOperator": "AND",
+                        "nestedFilters": [
+                            {
+                                "filter": "servicename",
+                                "filterType": "DIMENSION",
+                                "filterOperator": "OR",
+                                "nestedFilters": [],
+                                "criteria": [
+                                    {
+                                        "evaluator": "EQ",
+                                        "value": "AutoScaling"
+                                    }
+                                ]
+                            }
+                        ],
+                        "criteria": []
+                    }
+                }
+            ],
+            "visualConfig": {
+                "type": "SINGLE_VALUE",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Service limit usage for VPC",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 646,
+                "left": 0,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Service limit usage for VPC",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.trustedadvisor.serviceLimitUsageByAccountIdRegionServiceLimitServiceName",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "servicename"
+                    ],
+                    "filterBy": {
+                        "filterOperator": "AND",
+                        "nestedFilters": [
+                            {
+                                "filter": "servicename",
+                                "filterType": "DIMENSION",
+                                "filterOperator": "OR",
+                                "nestedFilters": [],
+                                "criteria": [
+                                    {
+                                        "evaluator": "EQ",
+                                        "value": "VPC"
+                                    }
+                                ]
+                            }
+                        ],
+                        "criteria": []
+                    }
+                }
+            ],
+            "visualConfig": {
+                "type": "SINGLE_VALUE",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Red checks",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 1178,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Red checks",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.trustedadvisor.redChecksByAccountIdCategoryRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "category"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Red resources",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 418,
+                "left": 1178,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Red resources",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.trustedadvisor.redResourcesByAccountIdCheckNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "checkname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,594 @@
+{
+    "dashboardMetadata": {
+        "name": "Amazon Neptune - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [
+        {
+            "name": "Usage",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Performance",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 342,
+                "width": 608,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Requests",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 988,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "CPUUtilization",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 342,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "CPUUtilization",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.neptune.cpuUtilizationByAccountIdDBClusterIdentifierRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "dbclusteridentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ClusterReplicaLag",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 646,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "ClusterReplicaLag",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.neptune.clusterReplicaLagByAccountIdDBClusterIdentifierRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "dbclusteridentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "FreeableMemory",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 342,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "FreeableMemory",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.neptune.freeableMemoryByAccountIdDBClusterIdentifierRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "dbclusteridentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "NetworkThroughput",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 646,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "NetworkThroughput",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.neptune.networkThroughputByAccountIdDBClusterIdentifierRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "dbclusteridentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Requests per Second",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 988,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Requests per Second",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.neptune.gremlinRequestsPerSecByAccountIdDBClusterIdentifierRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "dbclusteridentifier"
+                    ],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.neptune.sparqlRequestsPerSecByAccountIdDBClusterIdentifierRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "dbclusteridentifier"
+                    ],
+                    "filterBy": null
+                },
+                {
+                    "id": "C",
+                    "metric": "cloud.aws.neptune.totalRequestsPerSecByAccountIdDBClusterIdentifierRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "dbclusteridentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "C:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Errors per Second",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 1330,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Errors per Second",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.neptune.totalClientErrorsPerSecByAccountIdDBClusterIdentifierRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "dbclusteridentifier"
+                    ],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.neptune.totalServerErrorsPerSecByAccountIdDBClusterIdentifierRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "dbclusteridentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "AREA"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "AREA"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "MainRequestQueuePendingRequests",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 988,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "MainRequestQueuePendingRequests",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.neptune.mainRequestQueuePendingRequestsByAccountIdDBClusterIdentifierRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "dbclusteridentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "VolumeBytesUsed",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "VolumeBytesUsed",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.neptune.volumeBytesUsedByAccountIdDBClusterIdentifierRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "dbclusteridentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "VolumeBytesLeftTotal",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "VolumeBytesLeftTotal",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.neptune.volumeBytesLeftTotalByAccountIdDBClusterIdentifierRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "dbclusteridentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Volume IOPs",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 646,
+                "left": 342,
+                "width": 608,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Volume IOPs",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.neptune.volumeReadIOPsByAccountIdDBClusterIdentifierRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "dbclusteridentifier"
+                    ],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.neptune.volumeWriteIOPsByAccountIdDBClusterIdentifierRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "dbclusteridentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Errors",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 1330,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Health",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 1672,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "EngineUptime",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 1672,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "EngineUptime",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.neptune.engineUptimeByAccountIdDBClusterIdentifierRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "dbclusteridentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,159 @@
+{
+    "dashboardMetadata": {
+        "name": "AWS Elastic Container Registry - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": "",
+            "managementZone": null
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [
+        {
+            "name": "Usage",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 760,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "Total push count",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 760,
+                "height": 380
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Total push count",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.usage.callCountByAccountIdClassRegionResourceServiceType",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "resource",
+                        "service"
+                    ],
+                    "filterBy": {
+                        "filterOperator": "AND",
+                        "nestedFilters": [
+                            {
+                                "filter": "resource",
+                                "filterType": "DIMENSION",
+                                "filterOperator": "OR",
+                                "nestedFilters": [],
+                                "criteria": [
+                                    {
+                                        "evaluator": "EQ",
+                                        "value": "PutImage"
+                                    }
+                                ]
+                            }
+                        ],
+                        "criteria": []
+                    }
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Total pull count",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 418,
+                "left": 0,
+                "width": 760,
+                "height": 380
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Total pull count",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.usage.callCountByAccountIdClassRegionResourceServiceType",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "resource",
+                        "service"
+                    ],
+                    "filterBy": {
+                        "filterOperator": "AND",
+                        "nestedFilters": [
+                            {
+                                "filter": "resource",
+                                "filterType": "DIMENSION",
+                                "filterOperator": "OR",
+                                "nestedFilters": [],
+                                "criteria": [
+                                    {
+                                        "evaluator": "EQ",
+                                        "value": "BatchGetImage"
+                                    }
+                                ]
+                            }
+                        ],
+                        "criteria": []
+                    }
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

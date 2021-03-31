@@ -1,0 +1,628 @@
+{
+    "dashboardMetadata": {
+        "name": "Amazon Metrics Streaming - Dynatrace Self Monitoring",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        }
+    },
+    "tiles": [{
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 0,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Dynatrace connectivity - invalid client token",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.aws.dt_metrics_streaming.dynatraceConnectivityByRegion_connectivity_status_dynatrace_tenant_url_function_name",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "2",
+                        "name": "connectivity_status",
+                        "values": ["WrongToken", "ExpiredToken"],
+                        "entityDimension": false
+                    }, {
+                        "id": "3",
+                        "name": "dynatrace_tenant_url",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Dynatrace connectivity",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 0,
+            "width": 380,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 0,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Dynatrace connectivity - OK",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.aws.dt_metrics_streaming.dynatraceConnectivityByRegion_connectivity_status_dynatrace_tenant_url_function_name",
+                    "aggregation": "MAX",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "2",
+                        "name": "connectivity_status",
+                        "values": ["Ok"],
+                        "entityDimension": false
+                    }, {
+                        "id": "3",
+                        "name": "dynatrace_tenant_url",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 646,
+            "left": 0,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Dynatrace connectivity - errors",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.aws.dt_metrics_streaming.dynatraceConnectivityByRegion_connectivity_status_dynatrace_tenant_url_function_name",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "2",
+                        "name": "connectivity_status",
+                        "values": ["WrongURL", "Other"],
+                        "entityDimension": false
+                    }, {
+                        "id": "3",
+                        "name": "dynatrace_tenant_url",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "ApiGateway",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 418,
+            "width": 380,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Metrics",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 1634,
+            "width": 760,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 418,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "ApiGateway requests",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "PIE",
+                "series": [{
+                    "metric": "ext:cloud.aws.apiGateway.countSum",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }]
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 418,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "4xx errors",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.aws.apiGateway.4xxErrorSum",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 646,
+            "left": 418,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "5xx errors",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.aws.apiGateway.5xxErrorSum",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "IOT",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.custom_device",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Lambda",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 836,
+            "width": 760,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 836,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Invocations",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "builtin:cloud.aws.lambda.invocations",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "AWS_LAMBDA_FUNCTION",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.aws_lambda_function",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }]
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 646,
+            "left": 836,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Code execution time",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "builtin:cloud.aws.lambda.duration",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "AWS_LAMBDA_FUNCTION",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.aws_lambda_function",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }]
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 836,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Throttled invocations",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "builtin:cloud.aws.lambda.throttlers",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "AWS_LAMBDA_FUNCTION",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.aws_lambda_function",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }]
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 1216,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Failed invocations with HTTP 4xx status code",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "builtin:cloud.aws.lambda.errors",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "AWS_LAMBDA_FUNCTION",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.aws_lambda_function",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1216,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Rate of failed invocations to all invocations",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "builtin:cloud.aws.lambda.errorsRate",
+                    "aggregation": "AVG",
+                    "type": "LINE",
+                    "entityType": "AWS_LAMBDA_FUNCTION",
+                    "dimensions": [{
+                        "id": "0",
+                        "name": "dt.entity.aws_lambda_function",
+                        "values": [],
+                        "entityDimension": true
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1634,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "MINT lines",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [{
+                    "metric": "ext:cloud.aws.dt_metrics_streaming.mintLinesIngestedSumByRegion_dynatrace_tenant_url_function_name",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": false,
+                    "aggregationRate": "TOTAL"
+                }, {
+                    "metric": "ext:cloud.aws.dt_metrics_streaming.mintLinesInvalidSumByRegion_dynatrace_tenant_url_function_name",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }]
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 2014,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "MINT lines invalid by tenant",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.aws.dt_metrics_streaming.mintLinesInvalidSumByRegion_dynatrace_tenant_url_function_name",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "2",
+                        "name": "dynatrace_tenant_url",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }]
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 1634,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Metrics delay",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.aws.dt_metrics_streaming.metricsDelaySumByRegion_delay_minutes_dynatrace_tenant_url_function_name",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "2",
+                        "name": "delay_minutes",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }, {
+        "name": "Custom chart",
+        "tileType": "CUSTOM_CHARTING",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 2014,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "MIXED",
+            "customName": "Metrics delay by region",
+            "defaultName": "Custom chart",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TOP_LIST",
+                "series": [{
+                    "metric": "ext:cloud.aws.dt_metrics_streaming.metricsDelaySumByRegion_delay_minutes_dynatrace_tenant_url_function_name",
+                    "aggregation": "NONE",
+                    "type": "LINE",
+                    "entityType": "MONITORED_ENTITY˟CUSTOM_DEVICE_GROUP",
+                    "dimensions": [{
+                        "id": "1",
+                        "name": "Region",
+                        "values": [],
+                        "entityDimension": false
+                    }, {
+                        "id": "2",
+                        "name": "delay_minutes",
+                        "values": [],
+                        "entityDimension": false
+                    }],
+                    "sortAscending": false,
+                    "sortColumn": true,
+                    "aggregationRate": "TOTAL"
+                }],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {}
+        }
+    }]
+}

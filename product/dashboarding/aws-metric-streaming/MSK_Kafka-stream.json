@@ -1,0 +1,627 @@
+{
+    "dashboardMetadata": {
+        "name": "Amazon MSK (Kafka) - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": "",
+            "managementZone": null
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [
+        {
+            "name": "ActiveControllerCount (By Cluster)",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "ActiveControllerCount (By Cluster)",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.kafka.activeControllerCountByAccountIdClusterNameRegion",
+                    "spaceAggregation": "MAX",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Availability",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "ZooKeeperSessionState Min, Avg, Max (By Cluster)",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 304,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "ZooKeeperSessionState Min, Avg, Max (By Cluster)",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.kafka.zooKeeperSessionStateByAccountIdClusterNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.kafka.zooKeeperSessionStateByAccountIdClusterNameRegion",
+                    "spaceAggregation": "MIN",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                },
+                {
+                    "id": "C",
+                    "metric": "cloud.aws.kafka.zooKeeperSessionStateByAccountIdClusterNameRegion",
+                    "spaceAggregation": "MAX",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    },
+                    {
+                        "matcher": "C:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Global Partition vs Offline Partition Count (By Cluster)",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Global Partition vs Offline Partition Count (By Cluster)",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.kafka.globalPartitionCountByAccountIdClusterNameRegion",
+                    "spaceAggregation": "MAX",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.kafka.offlinePartitionsCountByAccountIdClusterNameRegion",
+                    "spaceAggregation": "MAX",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "GlobalTopicCount (By Cluster)",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 304,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "GlobalTopicCount (By Cluster)",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.kafka.globalTopicCountByAccountIdClusterNameRegion",
+                    "spaceAggregation": "MAX",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Performance",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 912,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "ZooKeeperSessionState (by Broker ID)",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 608,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "ZooKeeperSessionState (by Broker ID)",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.kafka.zooKeeperSessionStateByAccountIdBrokerIDClusterNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker id",
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.kafka.zooKeeperSessionStateByAccountIdBrokerIDClusterNameRegion",
+                    "spaceAggregation": "MIN",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker id",
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                },
+                {
+                    "id": "C",
+                    "metric": "cloud.aws.kafka.zooKeeperSessionStateByAccountIdBrokerIDClusterNameRegion",
+                    "spaceAggregation": "MAX",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker id",
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    },
+                    {
+                        "matcher": "C:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "MemoryFree (by Broker ID)",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 1216,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "MemoryFree (by Broker ID)",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.kafka.memoryFreeByAccountIdBrokerIDClusterNameRegion",
+                    "spaceAggregation": "MIN",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker id",
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ZooKeeperRequestLatency (by Broker ID)",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 912,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "ZooKeeperRequestLatency (by Broker ID)",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.kafka.zooKeeperRequestLatencyMsMeanByAccountIdBrokerIDClusterNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker id",
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "RootDiskUsed (by Broker ID)",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 1520,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "RootDiskUsed (by Broker ID)",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.kafka.rootDiskUsedByAccountIdBrokerIDClusterNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker id",
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "PIE_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Network Packets Sum (by Broker ID)",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 1216,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Network Packets Sum (by Broker ID)",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.kafka.networkTxPacketsByAccountIdBrokerIDClusterNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker id",
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.kafka.networkRxPacketsByAccountIdBrokerIDClusterNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker id",
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "CPU Usage (by Broker ID)",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 1520,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "CPU Usage (by Broker ID)",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.kafka.cpuUserByAccountIdBrokerIDClusterNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker id",
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.kafka.cpuSystemByAccountIdBrokerIDClusterNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "broker id",
+                        "cluster name"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Health",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 1216,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        }
+    ]
+}

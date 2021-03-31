@@ -1,0 +1,256 @@
+{
+    "dashboardMetadata": {
+        "name": "AWS Chatbot - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [
+        {
+            "name": "Usage",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 456,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Events Processed by Instance",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 0,
+                "width": 456,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Events Processed by Instance",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.chatbot.eventsProcessedByAccountIdConfigurationNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "configurationname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "PIE_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Events Processed",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 456,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Events Processed",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.chatbot.eventsProcessedByAccountIdConfigurationNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Performace",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 494,
+                "width": 456,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Events Throttled",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 494,
+                "width": 456,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Events Throttled",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.chatbot.eventsThrottledByAccountIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "aws.region"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Failures",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 988,
+                "width": 456,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Message Delivery Failures",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 988,
+                "width": 456,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Message Delivery Failures",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.chatbot.messageDeliveryFailureByAccountIdConfigurationNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Events Throttled by Region",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 494,
+                "width": 456,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Events Throttled by Region",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.chatbot.eventsThrottledByAccountIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "aws.region"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "PIE_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

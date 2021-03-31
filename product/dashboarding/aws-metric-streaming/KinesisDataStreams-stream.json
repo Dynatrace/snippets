@@ -1,0 +1,484 @@
+{
+    "dashboardMetadata": {
+        "name": "AWS Kinesis Data Streams - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [{
+        "name": "Incoming Bytes",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.kinesis.incomingBytesByAccountIdRegionStreamName",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "streamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Incoming Bytes",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.kinesis.incomingBytesByAccountIdRegionStreamName",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "streamname"]
+        }],
+        "visualConfig": {
+            "type": "SINGLE_VALUE",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Incoming Records",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.kinesis.incomingRecordsByAccountIdRegionStreamName",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": []
+        }],
+        "visualConfig": {
+            "type": "SINGLE_VALUE",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Incoming Records",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.kinesis.incomingRecordsByAccountIdRegionStreamName",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "streamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Get Records Bytes",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 684,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.kinesis.getRecordsBytesByAccountIdRegionStreamName",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "streamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Get Records Bytes",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 988,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.kinesis.getRecordsBytesByAccountIdRegionStreamName",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "streamname"]
+        }],
+        "visualConfig": {
+            "type": "SINGLE_VALUE",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Get Records Count",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 684,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.kinesis.getRecordsRecordsByAccountIdRegionStreamName",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "streamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Get Records Count",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 988,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.kinesis.getRecordsRecordsByAccountIdRegionStreamName",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": []
+        }],
+        "visualConfig": {
+            "type": "SINGLE_VALUE",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Incoming Records",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 0,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Outgoing Records",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 684,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Get Records Latency",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1368,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.kinesis.getRecordsLatencyByAccountIdRegionStreamName",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "streamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Get Records Iterator Age",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 646,
+            "left": 1368,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.kinesis.getRecordsIteratorAgeMillisecondsByAccountIdRegionStreamName",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "streamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Put Records Latency",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 1368,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.kinesis.putRecordsLatencyByAccountIdRegionStreamName",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "streamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Performance",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 1368,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Provisioned Throughput Exceeded",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1748,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.kinesis.readProvisionedThroughputExceededByAccountIdRegionStreamName",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "streamname"]
+        }, {
+            "id": "B",
+            "metric": "cloud.aws.kinesis.writeProvisionedThroughputExceededByAccountIdRegionStreamName",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "streamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "COLUMN"
+                }
+            }, {
+                "matcher": "B:",
+                "properties": {
+                    "seriesType": "COLUMN"
+                }
+            }]
+        }
+    }, {
+        "name": "Throttled Records",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 1748,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.kinesis.putRecordsThrottledRecordsByAccountIdRegionStreamName",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "streamname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "COLUMN"
+                }
+            }]
+        }
+    }, {
+        "name": "Failures",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 1748,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }]
+}

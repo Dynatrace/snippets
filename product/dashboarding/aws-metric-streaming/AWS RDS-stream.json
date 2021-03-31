@@ -1,0 +1,467 @@
+{
+    "dashboardMetadata": {
+        "name": "AWS RDS - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [{
+        "name": "CPU Utilization",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 608,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.rds.cpuUtilizationByAccountIdDBInstanceIdentifierRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "dbinstanceidentifier"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Active Connections",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 950,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.rds.databaseConnectionsByAccountIdDBInstanceIdentifierRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "dbinstanceidentifier"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Freeable memory",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1216,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.rds.freeableMemoryByAccountIdDBInstanceIdentifierRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "dbinstanceidentifier"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Read Latency",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 608,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.rds.readLatencyByAccountIdDBInstanceIdentifierRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "dbinstanceidentifier"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Write Latency",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 912,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.rds.writeLatencyByAccountIdDBInstanceIdentifierRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "dbinstanceidentifier"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Read Throughput",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.rds.readThroughputByAccountIdDBInstanceIdentifierRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "dbinstanceidentifier"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Write Throughput",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.rds.writeThroughputByAccountIdDBInstanceIdentifierRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "dbinstanceidentifier"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Read IOPS",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.rds.readIOPSByAccountIdDBInstanceIdentifierRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "dbinstanceidentifier"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Write IOPS",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.rds.writeIOPSByAccountIdDBInstanceIdentifierRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "dbinstanceidentifier"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Free Storage Space",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 1216,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.rds.freeStorageSpaceByAccountIdDBInstanceIdentifierRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "dbinstanceidentifier"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Network Receive Throughput",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 646,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.rds.networkReceiveThroughputByAccountIdDBInstanceIdentifierRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "dbinstanceidentifier"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Network Transmit Throughput",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 646,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.rds.networkTransmitThroughputByAccountIdDBInstanceIdentifierRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "dbinstanceidentifier"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Swap Usage",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 912,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.rds.swapUsageByAccountIdDBInstanceIdentifierRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "dbinstanceidentifier"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "AREA"
+                }
+            }]
+        }
+    }, {
+        "name": "Usage",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 0,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Performance",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 608,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Health",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 1216,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }]
+}

@@ -1,0 +1,764 @@
+{
+    "dashboardMetadata": {
+        "name": "Amazon Elastic Kubernetes Service (EKS) - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [
+        {
+            "name": "Usage",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Nodes by cluster",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "Nodes by cluster",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.cluster_node_countByAccountIdClusterNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "clustername"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Running pods by namespace",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 608,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "Running pods by namespace",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.namespace_number_of_running_podsByAccountIdClusterNameNamespaceRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "namespace"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "CPU utilization by node",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 304,
+                "left": 0,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "CPU utilization by node",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.node_cpu_utilizationByAccountIdClusterNameInstanceIdNodeNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "nodename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Memory utilization by node",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 570,
+                "left": 304,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "Memory utilization by node",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.node_memory_utilizationByAccountIdClusterNameInstanceIdNodeNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "nodename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Failures",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 1596,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Failed nodes by cluster",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 1596,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "Failed nodes by cluster",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.cluster_failed_node_countByAccountIdClusterNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "clustername"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Restarts",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 1596,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Container restarts by pod",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 1596,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "Container restarts by pod",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.pod_number_of_container_restartsByAccountIdClusterNameNamespacePodNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "podname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "CPU utilization over pod limit",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 304,
+                "left": 608,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "CPU utilization over pod limit",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.pod_cpu_utilization_over_pod_limitByAccountIdClusterNameNamespacePodNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "podname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Memory utilization over pod limit",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 570,
+                "left": 608,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "Memory utilization over pod limit",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.pod_memory_utilization_over_pod_limitByAccountIdClusterNameNamespacePodNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "podname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "CPU utilization by node",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 304,
+                "left": 304,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "CPU utilization by node",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.node_cpu_utilizationByAccountIdClusterNameInstanceIdNodeNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "nodename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Memory utilization by node",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 570,
+                "left": 0,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "Memory utilization by node",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.node_memory_utilizationByAccountIdClusterNameInstanceIdNodeNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "nodename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Running pods by node",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 304,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "Running pods by node",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.node_number_of_running_podsByAccountIdClusterNameInstanceIdNodeNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "nodename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Filesystem utilization by node",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 836,
+                "left": 0,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "Filesystem utilization by node",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.node_filesystem_utilizationByAccountIdClusterNameInstanceIdNodeNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "nodename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Filesystem utilization by node",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 836,
+                "left": 304,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "Filesystem utilization by node",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.node_filesystem_utilizationByAccountIdClusterNameInstanceIdNodeNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "nodename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Network",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 950,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Received bytes by pod",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 304,
+                "left": 1254,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "Received bytes by pod",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.pod_network_rx_bytesByAccountIdClusterNameNamespacePodNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "podname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Network total bytes by node",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 950,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "Network total bytes by node",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.node_network_total_bytesByAccountIdClusterNameInstanceIdNodeNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "nodename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Transmitted bytes by pod",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 304,
+                "left": 950,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "Transmitted bytes by pod",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.pod_network_tx_bytesByAccountIdClusterNameNamespacePodNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "podname"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Network total bytes by node",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 1254,
+                "width": 304,
+                "height": 266
+            },
+            "tileFilter": {},
+            "customName": "Network total bytes by node",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.containerinsights.node_network_total_bytesByAccountIdClusterNameInstanceIdNodeNameRegion",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "nodename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

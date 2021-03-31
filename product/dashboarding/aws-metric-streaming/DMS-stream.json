@@ -1,0 +1,868 @@
+{
+    "dashboardMetadata": {
+        "name": "AWS DMS - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [
+        {
+            "name": "CPU utilization",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "CPU utilization",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.cpuUtilizationByAccountIdRegionReplicationInstanceIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "CPU utilization per replication task",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 304,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "CPU utilization per replication task",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.cpuUtilizationByAccountIdRegionReplicationInstanceIdentifierReplicationTaskIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationtaskidentifier",
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "WriteIOPS",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 646,
+                "left": 304,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "WriteIOPS",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.writeIOPSByAccountIdRegionReplicationInstanceIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ReadIOPS",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 646,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "ReadIOPS",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.readIOPSByAccountIdRegionReplicationInstanceIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Write latency",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 1292,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Write latency",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.writeLatencyByAccountIdRegionReplicationInstanceIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Read latency",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 1596,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Read latency",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.readLatencyByAccountIdRegionReplicationInstanceIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Memory usage",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 304,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Memory usage",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.memoryUsageByAccountIdRegionReplicationInstanceIdentifierReplicationTaskIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationtaskidentifier",
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Free storage space",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Free storage space",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.freeStorageSpaceByAccountIdRegionReplicationInstanceIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "SINGLE_VALUE",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Usage",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Performance",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 1292,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Validation query latency on source",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 1292,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Validation query latency on source",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.validationBulkQuerySourceLatencyByAccountIdRegionReplicationInstanceIdentifierReplicationTaskIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationtaskidentifier",
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Network transmit throughput",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 950,
+                "left": 304,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Network transmit throughput",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.networkTransmitThroughputByAccountIdRegionReplicationInstanceIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Network receive throughput",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 950,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Network receive throughput",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.networkReceiveThroughputByAccountIdRegionReplicationInstanceIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Validation query latency on target",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 1596,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Validation query latency on target",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.validationBulkQueryTargetLatencyByAccountIdRegionReplicationInstanceIdentifierReplicationTaskIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationtaskidentifier",
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Validation state",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 646,
+                "width": 608,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Validation state",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.validationPendingOverallCountByAccountIdRegionReplicationInstanceIdentifierReplicationTaskIdentifier",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                },
+                {
+                    "id": "B",
+                    "metric": "cloud.aws.dms.validationAttemptedRecordCountByAccountIdRegionReplicationInstanceIdentifierReplicationTaskIdentifier",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                },
+                {
+                    "id": "C",
+                    "metric": "cloud.aws.dms.validationSucceededRecordCountByAccountIdRegionReplicationInstanceIdentifierReplicationTaskIdentifier",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                },
+                {
+                    "id": "D",
+                    "metric": "cloud.aws.dms.validationFailedOverallCountByAccountIdRegionReplicationInstanceIdentifierReplicationTaskIdentifier",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                },
+                {
+                    "id": "E",
+                    "metric": "cloud.aws.dms.validationSuspendedOverallCountByAccountIdRegionReplicationInstanceIdentifierReplicationTaskIdentifier",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "B:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "C:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "D:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    },
+                    {
+                        "matcher": "E:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Validation",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 646,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Change Data Capture",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 646,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "CDC latency source",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 418,
+                "left": 646,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "CDC latency source",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.cdcLatencySourceByAccountIdRegionReplicationInstanceIdentifierReplicationTaskIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationtaskidentifier",
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "CDC latency target",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 418,
+                "left": 950,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "CDC latency target",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.cdcLatencyTargetByAccountIdRegionReplicationInstanceIdentifierReplicationTaskIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationtaskidentifier",
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "CDC throughput rows on source",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 722,
+                "left": 646,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "CDC throughput rows on source",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.cdcThroughputRowsSourceByAccountIdRegionReplicationInstanceIdentifierReplicationTaskIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationtaskidentifier",
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "CDC throughput rows on target",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 722,
+                "left": 950,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "CDC throughput rows on target",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.cdcThroughputRowsTargetByAccountIdRegionReplicationInstanceIdentifierReplicationTaskIdentifier",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationtaskidentifier",
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "CDC incoming changes",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 1026,
+                "left": 646,
+                "width": 304,
+                "height": 228
+            },
+            "tileFilter": {},
+            "customName": "CDC incoming changes",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.dms.cdcIncomingChangesByAccountIdRegionReplicationInstanceIdentifierReplicationTaskIdentifier",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "replicationtaskidentifier",
+                        "replicationinstanceidentifier"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

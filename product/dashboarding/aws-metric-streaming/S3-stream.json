@@ -1,0 +1,367 @@
+{
+    "dashboardMetadata": {
+        "name": "AWS S3 - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [{
+        "name": "Requests",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 38,
+            "width": 760,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Failures",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 1672,
+            "width": 380,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Bytes uploaded by bucket",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 836,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.s3.bytesUploadedByAccountIdBucketNameFilterIdRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "bucketname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Total request latency by bucket",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 1254,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.s3.totalRequestLatencyByAccountIdBucketNameFilterIdRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "bucketname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Latency",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 1254,
+            "width": 380,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "First byte latency by bucket",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1254,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.s3.firstByteLatencyByAccountIdBucketNameFilterIdRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "bucketname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Bytes",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 836,
+            "width": 380,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Bytes downloaded by bucket",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 836,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.s3.bytesDownloadedByAccountIdBucketNameFilterIdRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "bucketname"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "All requests by bucket",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 38,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.s3.allRequestsByAccountIdBucketNameFilterIdRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "bucketname"]
+        }],
+        "visualConfig": {
+            "type": "TOP_LIST",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Get requests by bucket",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 418,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.s3.getRequestsByAccountIdBucketNameFilterIdRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "bucketname"]
+        }],
+        "visualConfig": {
+            "type": "TOP_LIST",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Put requests by bucket",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 38,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.s3.putRequestsByAccountIdBucketNameFilterIdRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "bucketname"]
+        }],
+        "visualConfig": {
+            "type": "TOP_LIST",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Delete requests by bucket",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 418,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.s3.deleteRequestsByAccountIdBucketNameFilterIdRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "bucketname"]
+        }],
+        "visualConfig": {
+            "type": "TOP_LIST",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "4xx",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1672,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.s3.4xxErrorsByAccountIdBucketNameFilterIdRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "bucketname"]
+        }],
+        "visualConfig": {
+            "type": "TOP_LIST",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "5xx",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 1672,
+            "width": 380,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.s3.5xxErrorsByAccountIdBucketNameFilterIdRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.account.id", "bucketname"]
+        }],
+        "visualConfig": {
+            "type": "TOP_LIST",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }]
+}
