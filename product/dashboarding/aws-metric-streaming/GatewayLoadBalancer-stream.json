@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS Gateway Load Balancer",
+        "name": "AWS Gateway Load Balancer - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

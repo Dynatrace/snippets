@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS Application Load Balancer",
+        "name": "AWS Classic Load Balancer - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,
@@ -15,58 +15,45 @@
         ]
     },
     "tiles": [{
-        "name": "Usage",
+        "name": "Estimates",
         "tileType": "HEADER",
         "configured": true,
         "bounds": {
-            "top": 38,
+            "top": 760,
+            "left": 0,
+            "width": 1254,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Health check",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
             "left": 0,
             "width": 608,
             "height": 38
         },
         "tileFilter": {}
     }, {
-        "name": "HTTP Status",
+        "name": "Errors",
         "tileType": "HEADER",
         "configured": true,
         "bounds": {
-            "top": 38,
-            "left": 646,
-            "width": 1862,
+            "top": 0,
+            "left": 1292,
+            "width": 608,
             "height": 38
         },
         "tileFilter": {}
     }, {
-        "name": "Markdown",
-        "tileType": "MARKDOWN",
-        "configured": true,
-        "bounds": {
-            "top": 760,
-            "left": 646,
-            "width": 912,
-            "height": 38
-        },
-        "tileFilter": {},
-        "markdown": "HTTP 5xx"
-    }, {
-        "name": "Markdown",
-        "tileType": "MARKDOWN",
+        "name": "ELB 5xx by AZ",
+        "tileType": "DATA_EXPLORER",
         "configured": true,
         "bounds": {
             "top": 418,
-            "left": 0,
-            "width": 608,
-            "height": 38
-        },
-        "tileFilter": {},
-        "markdown": "Request Count"
-    }, {
-        "name": "Request Count by TargetGroup",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 456,
-            "left": 304,
+            "left": 1292,
             "width": 304,
             "height": 304
         },
@@ -74,220 +61,7 @@
         "customName": "Explorer results",
         "queries": [{
             "id": "A",
-            "metric": "cloud.aws.applicationelb.requestCountByAccountIdAvailabilityZoneLoadBalancerRegionTargetGroup",
-            "spaceAggregation": "SUM",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["targetgroup"]
-        }],
-        "visualConfig": {
-            "type": "GRAPH_CHART",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": [{
-                "matcher": "A:",
-                "properties": {
-                    "seriesType": "LINE"
-                }
-            }]
-        }
-    }, {
-        "name": "Markdown",
-        "tileType": "MARKDOWN",
-        "configured": true,
-        "bounds": {
-            "top": 760,
-            "left": 0,
-            "width": 608,
-            "height": 38
-        },
-        "tileFilter": {},
-        "markdown": "Response Time"
-    }, {
-        "name": "Response Time by TargetGroup",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 798,
-            "left": 304,
-            "width": 304,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.targetResponseTimeByAccountIdLoadBalancerRegionTargetGroup",
-            "spaceAggregation": "AVG",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["targetgroup"]
-        }],
-        "visualConfig": {
-            "type": "GRAPH_CHART",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": []
-        }
-    }, {
-        "name": "Markdown",
-        "tileType": "MARKDOWN",
-        "configured": true,
-        "bounds": {
-            "top": 76,
-            "left": 0,
-            "width": 608,
-            "height": 38
-        },
-        "tileFilter": {},
-        "markdown": "Processed Bytes"
-    }, {
-        "name": "Processed Bytes by Region",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 114,
-            "left": 0,
-            "width": 608,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.processedBytesByAccountIdLoadBalancerRegion",
-            "spaceAggregation": "SUM",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["aws.region", "loadbalancer"]
-        }],
-        "visualConfig": {
-            "type": "TABLE",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": [{
-                "matcher": "A:",
-                "properties": {
-                    "seriesType": "LINE"
-                }
-            }]
-        }
-    }, {
-        "name": "Markdown",
-        "tileType": "MARKDOWN",
-        "configured": true,
-        "bounds": {
-            "top": 1102,
-            "left": 0,
-            "width": 608,
-            "height": 38
-        },
-        "tileFilter": {},
-        "markdown": "Connection Count"
-    }, {
-        "name": "HTTP 5xx by Region",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 798,
-            "left": 646,
-            "width": 304,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.httpCode_ELB_5XX_CountByAccountIdAvailabilityZoneLoadBalancerRegion",
-            "spaceAggregation": "SUM",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["aws.region"]
-        }],
-        "visualConfig": {
-            "type": "GRAPH_CHART",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": []
-        }
-    }, {
-        "name": "HTTP 5xx by AZ",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 798,
-            "left": 950,
-            "width": 304,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.httpCode_ELB_5XX_CountByAccountIdAvailabilityZoneLoadBalancerRegion",
-            "spaceAggregation": "SUM",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["availabilityzone"]
-        }],
-        "visualConfig": {
-            "type": "GRAPH_CHART",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": []
-        }
-    }, {
-        "name": "HTTP 4xx by Region",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 456,
-            "left": 646,
-            "width": 304,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.httpCode_Target_4XX_CountByAccountIdAvailabilityZoneLoadBalancerRegion",
-            "spaceAggregation": "SUM",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["aws.region"]
-        }],
-        "visualConfig": {
-            "type": "GRAPH_CHART",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": [{
-                "matcher": "A:",
-                "properties": {
-                    "seriesType": "LINE"
-                }
-            }]
-        }
-    }, {
-        "name": "HTTP 4xx by AZ",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 456,
-            "left": 950,
-            "width": 304,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.httpCode_Target_4XX_CountByAccountIdAvailabilityZoneLoadBalancerRegion",
+            "metric": "cloud.aws.elb.httpCode_ELB_5XXByAccountIdAvailabilityZoneLoadBalancerNameRegion",
             "spaceAggregation": "SUM",
             "timeAggregation": "DEFAULT",
             "splitBy": ["availabilityzone"]
@@ -301,71 +75,7 @@
             "rules": [{
                 "matcher": "A:",
                 "properties": {
-                    "seriesType": "LINE"
-                }
-            }]
-        }
-    }, {
-        "name": "HTTP 4xx by LB",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 456,
-            "left": 1254,
-            "width": 304,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.httpCode_Target_4XX_CountByAccountIdAvailabilityZoneLoadBalancerRegion",
-            "spaceAggregation": "SUM",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["loadbalancer"]
-        }],
-        "visualConfig": {
-            "type": "GRAPH_CHART",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": [{
-                "matcher": "A:",
-                "properties": {
-                    "seriesType": "LINE"
-                }
-            }]
-        }
-    }, {
-        "name": "HTTP 2xx by Region",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 114,
-            "left": 646,
-            "width": 304,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.httpCode_Target_2XX_CountByAccountIdAvailabilityZoneLoadBalancerRegion",
-            "spaceAggregation": "SUM",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["aws.region"]
-        }],
-        "visualConfig": {
-            "type": "GRAPH_CHART",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": [{
-                "matcher": "A:",
-                "properties": {
-                    "seriesType": "LINE"
+                    "seriesType": "COLUMN"
                 }
             }]
         }
@@ -374,8 +84,8 @@
         "tileType": "DATA_EXPLORER",
         "configured": true,
         "bounds": {
-            "top": 114,
-            "left": 950,
+            "top": 76,
+            "left": 646,
             "width": 304,
             "height": 304
         },
@@ -383,7 +93,7 @@
         "customName": "Explorer results",
         "queries": [{
             "id": "A",
-            "metric": "cloud.aws.applicationelb.httpCode_Target_2XX_CountByAccountIdAvailabilityZoneLoadBalancerRegion",
+            "metric": "cloud.aws.elb.httpCode_Backend_2XXByAccountIdAvailabilityZoneLoadBalancerNameRegion",
             "spaceAggregation": "SUM",
             "timeAggregation": "DEFAULT",
             "splitBy": ["availabilityzone"]
@@ -394,56 +104,15 @@
                 "theme": "DEFAULT",
                 "seriesType": "LINE"
             },
-            "rules": [{
-                "matcher": "A:",
-                "properties": {
-                    "seriesType": "LINE"
-                }
-            }]
+            "rules": []
         }
     }, {
-        "name": "Markdown",
-        "tileType": "MARKDOWN",
-        "configured": true,
-        "bounds": {
-            "top": 418,
-            "left": 646,
-            "width": 912,
-            "height": 38
-        },
-        "tileFilter": {},
-        "markdown": "HTTP 4xx"
-    }, {
-        "name": "Markdown",
-        "tileType": "MARKDOWN",
-        "configured": true,
-        "bounds": {
-            "top": 76,
-            "left": 646,
-            "width": 912,
-            "height": 38
-        },
-        "tileFilter": {},
-        "markdown": "HTTP 2xx"
-    }, {
-        "name": "Markdown",
-        "tileType": "MARKDOWN",
-        "configured": true,
-        "bounds": {
-            "top": 76,
-            "left": 1596,
-            "width": 912,
-            "height": 38
-        },
-        "tileFilter": {},
-        "markdown": "HTTP 502"
-    }, {
-        "name": "HTTP 502 by Region",
+        "name": "New Connection Count by Region",
         "tileType": "DATA_EXPLORER",
         "configured": true,
         "bounds": {
-            "top": 114,
-            "left": 1596,
+            "top": 1178,
+            "left": 0,
             "width": 304,
             "height": 304
         },
@@ -451,115 +120,7 @@
         "customName": "Explorer results",
         "queries": [{
             "id": "A",
-            "metric": "cloud.aws.applicationelb.httpCode_ELB_502_CountByAccountIdAvailabilityZoneLoadBalancerRegion",
-            "spaceAggregation": "SUM",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["aws.region"]
-        }],
-        "visualConfig": {
-            "type": "GRAPH_CHART",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": [{
-                "matcher": "A:",
-                "properties": {
-                    "seriesType": "LINE"
-                }
-            }]
-        }
-    }, {
-        "name": "HTTP 502 by AZ",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 114,
-            "left": 1900,
-            "width": 304,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.httpCode_ELB_502_CountByAccountIdAvailabilityZoneLoadBalancerRegion",
-            "spaceAggregation": "SUM",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["availabilityzone"]
-        }],
-        "visualConfig": {
-            "type": "GRAPH_CHART",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": [{
-                "matcher": "A:",
-                "properties": {
-                    "seriesType": "LINE"
-                }
-            }]
-        }
-    }, {
-        "name": "HTTP 502 by LB",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 114,
-            "left": 2204,
-            "width": 304,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.httpCode_ELB_502_CountByAccountIdAvailabilityZoneLoadBalancerRegion",
-            "spaceAggregation": "SUM",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["loadbalancer"]
-        }],
-        "visualConfig": {
-            "type": "GRAPH_CHART",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": [{
-                "matcher": "A:",
-                "properties": {
-                    "seriesType": "LINE"
-                }
-            }]
-        }
-    }, {
-        "name": "Markdown",
-        "tileType": "MARKDOWN",
-        "configured": true,
-        "bounds": {
-            "top": 418,
-            "left": 1596,
-            "width": 912,
-            "height": 38
-        },
-        "tileFilter": {},
-        "markdown": "HTTP 503"
-    }, {
-        "name": "HTTP 503 by Region",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 456,
-            "left": 1596,
-            "width": 304,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.httpCode_ELB_503_CountByAccountIdAvailabilityZoneLoadBalancerRegion",
+            "metric": "cloud.aws.elb.estimatedALBNewConnectionCountByAccountIdLoadBalancerNameRegion",
             "spaceAggregation": "SUM",
             "timeAggregation": "DEFAULT",
             "splitBy": ["aws.region"]
@@ -573,124 +134,11 @@
             "rules": []
         }
     }, {
-        "name": "HTTP 503 by AZ",
+        "name": "New Connection Count by LB",
         "tileType": "DATA_EXPLORER",
         "configured": true,
         "bounds": {
-            "top": 456,
-            "left": 1900,
-            "width": 304,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.httpCode_ELB_503_CountByAccountIdAvailabilityZoneLoadBalancerRegion",
-            "spaceAggregation": "SUM",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["availabilityzone"]
-        }],
-        "visualConfig": {
-            "type": "GRAPH_CHART",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": []
-        }
-    }, {
-        "name": "HTTP 503 by LB",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 456,
-            "left": 2204,
-            "width": 304,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.httpCode_ELB_503_CountByAccountIdAvailabilityZoneLoadBalancerRegion",
-            "spaceAggregation": "SUM",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["loadbalancer"]
-        }],
-        "visualConfig": {
-            "type": "GRAPH_CHART",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": []
-        }
-    }, {
-        "name": "Response Time by LB",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 798,
-            "left": 0,
-            "width": 304,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.targetResponseTimeByAccountIdAvailabilityZoneLoadBalancerRegion",
-            "spaceAggregation": "AVG",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["loadbalancer"]
-        }],
-        "visualConfig": {
-            "type": "GRAPH_CHART",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": []
-        }
-    }, {
-        "name": "Request Count by LB",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 456,
-            "left": 0,
-            "width": 304,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.requestCountByAccountIdAvailabilityZoneLoadBalancerRegionTargetGroup",
-            "spaceAggregation": "SUM",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["loadbalancer"]
-        }],
-        "visualConfig": {
-            "type": "GRAPH_CHART",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": [{
-                "matcher": "A:",
-                "properties": {
-                    "seriesType": "LINE"
-                }
-            }]
-        }
-    }, {
-        "name": "Active Connection Count",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 1140,
+            "top": 1178,
             "left": 304,
             "width": 304,
             "height": 304
@@ -699,10 +147,10 @@
         "customName": "Explorer results",
         "queries": [{
             "id": "A",
-            "metric": "cloud.aws.applicationelb.activeConnectionCountByAccountIdLoadBalancerRegion",
+            "metric": "cloud.aws.elb.estimatedALBNewConnectionCountByAccountIdLoadBalancerNameRegion",
             "spaceAggregation": "SUM",
             "timeAggregation": "DEFAULT",
-            "splitBy": ["loadbalancer", "aws.region"]
+            "splitBy": ["loadbalancername"]
         }],
         "visualConfig": {
             "type": "GRAPH_CHART",
@@ -713,11 +161,11 @@
             "rules": []
         }
     }, {
-        "name": "New Connection Count",
+        "name": "Active Connection Count by Region",
         "tileType": "DATA_EXPLORER",
         "configured": true,
         "bounds": {
-            "top": 1140,
+            "top": 836,
             "left": 0,
             "width": 304,
             "height": 304
@@ -726,37 +174,10 @@
         "customName": "Explorer results",
         "queries": [{
             "id": "A",
-            "metric": "cloud.aws.applicationelb.newConnectionCountByAccountIdLoadBalancerRegion",
-            "spaceAggregation": "SUM",
+            "metric": "cloud.aws.elb.estimatedALBActiveConnectionCountByAccountIdLoadBalancerNameRegion",
+            "spaceAggregation": "MAX",
             "timeAggregation": "DEFAULT",
-            "splitBy": ["aws.region", "loadbalancer"]
-        }],
-        "visualConfig": {
-            "type": "GRAPH_CHART",
-            "global": {
-                "theme": "DEFAULT",
-                "seriesType": "LINE"
-            },
-            "rules": []
-        }
-    }, {
-        "name": "HTTP 2xx by LB",
-        "tileType": "DATA_EXPLORER",
-        "configured": true,
-        "bounds": {
-            "top": 114,
-            "left": 1254,
-            "width": 304,
-            "height": 304
-        },
-        "tileFilter": {},
-        "customName": "Explorer results",
-        "queries": [{
-            "id": "A",
-            "metric": "cloud.aws.applicationelb.httpCode_Target_2XX_CountByAccountIdAvailabilityZoneLoadBalancerRegion",
-            "spaceAggregation": "SUM",
-            "timeAggregation": "DEFAULT",
-            "splitBy": ["loadbalancer"]
+            "splitBy": ["aws.region"]
         }],
         "visualConfig": {
             "type": "GRAPH_CHART",
@@ -772,12 +193,12 @@
             }]
         }
     }, {
-        "name": "HTTP 5xx by LB",
+        "name": "Consumed LCUs by Region",
         "tileType": "DATA_EXPLORER",
         "configured": true,
         "bounds": {
-            "top": 798,
-            "left": 1254,
+            "top": 836,
+            "left": 646,
             "width": 304,
             "height": 304
         },
@@ -785,10 +206,74 @@
         "customName": "Explorer results",
         "queries": [{
             "id": "A",
-            "metric": "cloud.aws.applicationelb.httpCode_ELB_5XX_CountByAccountIdAvailabilityZoneLoadBalancerRegion",
+            "metric": "cloud.aws.elb.estimatedALBConsumedLCUsByAccountIdLoadBalancerNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.region"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Consumed LCUs by LB",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 836,
+            "left": 950,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.elb.estimatedALBConsumedLCUsByAccountIdLoadBalancerNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["loadbalancername"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Processed Bytes by Region",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1178,
+            "left": 646,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.elb.estimatedProcessedBytesByAccountIdLoadBalancerNameRegion",
             "spaceAggregation": "SUM",
             "timeAggregation": "DEFAULT",
-            "splitBy": ["loadbalancer"]
+            "splitBy": ["aws.region"]
         }],
         "visualConfig": {
             "type": "GRAPH_CHART",
@@ -798,5 +283,502 @@
             },
             "rules": []
         }
+    }, {
+        "name": "Processed Bytes by LB",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 1178,
+            "left": 950,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.elb.estimatedProcessedBytesByAccountIdLoadBalancerNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["loadbalancername"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Requests by AZ",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 418,
+            "left": 646,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.elb.requestCountByAccountIdAvailabilityZoneLoadBalancerNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["availabilityzone"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Average Latency by AZ",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 418,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.elb.latencyByAccountIdAvailabilityZoneLoadBalancerNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["availabilityzone"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 798,
+            "left": 0,
+            "width": 608,
+            "height": 38
+        },
+        "tileFilter": {},
+        "markdown": "Active Connection Count"
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 1140,
+            "left": 0,
+            "width": 608,
+            "height": 38
+        },
+        "tileFilter": {},
+        "markdown": "New Connection Count"
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 798,
+            "left": 646,
+            "width": 608,
+            "height": 38
+        },
+        "tileFilter": {},
+        "markdown": "Consumed LCUs"
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 1140,
+            "left": 646,
+            "width": 608,
+            "height": 38
+        },
+        "tileFilter": {},
+        "markdown": "Processed Bytes"
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1292,
+            "width": 608,
+            "height": 38
+        },
+        "tileFilter": {},
+        "markdown": "Backend Connection Errors"
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 380,
+            "left": 1292,
+            "width": 608,
+            "height": 38
+        },
+        "tileFilter": {},
+        "markdown": "ELB 5xx"
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 646,
+            "width": 608,
+            "height": 38
+        },
+        "tileFilter": {},
+        "markdown": "HTTP 2xx"
+    }, {
+        "name": "Performance",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 646,
+            "width": 608,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 380,
+            "left": 646,
+            "width": 608,
+            "height": 38
+        },
+        "tileFilter": {},
+        "markdown": "Requests"
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 380,
+            "left": 0,
+            "width": 608,
+            "height": 38
+        },
+        "tileFilter": {},
+        "markdown": "Average Latency"
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 0,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {},
+        "markdown": "Healthy Hosts"
+    }, {
+        "name": "HTTP 2xx by LB",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 76,
+            "left": 950,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.elb.httpCode_Backend_2XXByAccountIdAvailabilityZoneLoadBalancerNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["loadbalancername", "availabilityzone"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Backend Connection Errors by LB",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 76,
+            "left": 1596,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.elb.backendConnectionErrorsByAccountIdAvailabilityZoneLoadBalancerNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["loadbalancername", "availabilityzone"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "COLUMN"
+                }
+            }]
+        }
+    }, {
+        "name": "Backend Connection Errors by AZ",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 76,
+            "left": 1292,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.elb.backendConnectionErrorsByAccountIdAvailabilityZoneLoadBalancerNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["availabilityzone"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "COLUMN"
+                }
+            }]
+        }
+    }, {
+        "name": "ELB 5xx by LB",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 418,
+            "left": 1596,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.elb.httpCode_ELB_5XXByAccountIdAvailabilityZoneLoadBalancerNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["loadbalancername", "availabilityzone"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "COLUMN"
+                }
+            }]
+        }
+    }, {
+        "name": "Requests by LB",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 418,
+            "left": 950,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.elb.requestCountByAccountIdAvailabilityZoneLoadBalancerNameRegion",
+            "spaceAggregation": "SUM",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["loadbalancername", "availabilityzone"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Average Latency by LB",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 418,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.elb.latencyByAccountIdAvailabilityZoneLoadBalancerNameRegion",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["loadbalancername", "availabilityzone"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": []
+        }
+    }, {
+        "name": "Active Connection Count by LB",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 836,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.elb.estimatedALBActiveConnectionCountByAccountIdLoadBalancerNameRegion",
+            "spaceAggregation": "MAX",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["loadbalancername"]
+        }],
+        "visualConfig": {
+            "type": "GRAPH_CHART",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Unhealthy Hosts by Region",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 76,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.elb.unHealthyHostCountByAccountIdAvailabilityZoneLoadBalancerNameRegion",
+            "spaceAggregation": "MIN",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.region"]
+        }],
+        "visualConfig": {
+            "type": "TOP_LIST",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Healthy Hosts by Region",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+            "top": 76,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Explorer results",
+        "queries": [{
+            "id": "A",
+            "metric": "cloud.aws.elb.healthyHostCountByAccountIdAvailabilityZoneLoadBalancerNameRegion",
+            "spaceAggregation": "MAX",
+            "timeAggregation": "DEFAULT",
+            "splitBy": ["aws.region"]
+        }],
+        "visualConfig": {
+            "type": "TOP_LIST",
+            "global": {
+                "theme": "DEFAULT",
+                "seriesType": "LINE"
+            },
+            "rules": [{
+                "matcher": "A:",
+                "properties": {
+                    "seriesType": "LINE"
+                }
+            }]
+        }
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 304,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {},
+        "markdown": "Unhealthy Hosts"
     }]
 }
