@@ -1,0 +1,248 @@
+{
+    "dashboardMetadata": {
+        "name": "AWS Site-to-Site VPN - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [
+        {
+            "name": "Total tunnel data in",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 76,
+                "left": 0,
+                "width": 342,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total tunnel data in",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.vpn.tunnelDataInByAccountIdRegionVpnId",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "vpnid"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Usage",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 684,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Tunnel data in per region",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 0,
+                "width": 342,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Tunnel data in per region",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.vpn.tunnelDataInByAccountIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "aws.region"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Total tunnel data out",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 76,
+                "left": 342,
+                "width": 342,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total tunnel data out",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.vpn.tunnelDataOutByAccountIdRegionVpnId",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "vpnid"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Tunnel data out per region",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 342,
+                "width": 342,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Tunnel data out per region",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.vpn.tunnelDataOutByAccountIdRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "aws.region"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Health",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 722,
+                "width": 342,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Tunnel state",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 76,
+                "left": 722,
+                "width": 342,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Tunnel state",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.vpn.tunnelStateByAccountIdRegionVpnId",
+                    "spaceAggregation": "MAX",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "vpnid"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

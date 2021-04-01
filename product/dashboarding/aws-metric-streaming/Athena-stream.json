@@ -1,0 +1,617 @@
+{
+    "dashboardMetadata": {
+        "name": "Amazon Athena - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [
+        {
+            "name": "Total data scanned",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total data scanned",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.athena.processedBytesByAccountIdQueryStateQueryTypeRegionWorkGroup",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "workgroup"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Total execution time",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 988,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total execution time",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.athena.totalExecutionTimeByAccountIdQueryStateQueryTypeRegionWorkGroup",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "workgroup"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Query planning time",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 988,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Query planning time",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.athena.queryPlanningTimeByAccountIdQueryStateQueryTypeRegionWorkGroup",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "workgroup"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Query queue time",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 1292,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Query queue time",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.athena.queryQueueTimeByAccountIdQueryStateQueryTypeRegionWorkGroup",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "workgroup"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Engine execution time",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 1292,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Engine execution time",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.athena.engineExecutionTimeByAccountIdQueryStateQueryTypeRegionWorkGroup",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "workgroup"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Service processing time",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 646,
+                "left": 988,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Service processing time",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.athena.serviceProcessingTimeByAccountIdQueryStateQueryTypeRegionWorkGroup",
+                    "spaceAggregation": "AVG",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "workgroup"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Total data scanned",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total data scanned",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.athena.processedBytesByAccountIdQueryStateQueryTypeRegionWorkGroup",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "workgroup"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Processed bytes",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 646,
+                "left": 0,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Processed bytes",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.athena.processedBytesByAccountIdQueryStateQueryTypeRegionWorkGroup",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "workgroup"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Data usage",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Performance",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 988,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Total succeeded queries",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 342,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total succeeded queries",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.athena.processedBytesByAccountIdQueryStateQueryTypeRegionWorkGroup",
+                    "spaceAggregation": "COUNT",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "querystate"
+                    ],
+                    "filterBy": {
+                        "filterOperator": "AND",
+                        "nestedFilters": [
+                            {
+                                "filter": "querystate",
+                                "filterType": "DIMENSION",
+                                "filterOperator": "OR",
+                                "nestedFilters": [],
+                                "criteria": [
+                                    {
+                                        "evaluator": "EQ",
+                                        "value": "SUCCEEDED"
+                                    }
+                                ]
+                            }
+                        ],
+                        "criteria": []
+                    }
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Requests",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 342,
+                "width": 304,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Total failed queries",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 646,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total failed queries",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.athena.processedBytesByAccountIdQueryStateQueryTypeRegionWorkGroup",
+                    "spaceAggregation": "COUNT",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "querystate"
+                    ],
+                    "filterBy": {
+                        "filterOperator": "AND",
+                        "nestedFilters": [
+                            {
+                                "filter": "querystate",
+                                "filterType": "DIMENSION",
+                                "filterOperator": "OR",
+                                "nestedFilters": [],
+                                "criteria": [
+                                    {
+                                        "evaluator": "EQ",
+                                        "value": "FAILED"
+                                    }
+                                ]
+                            }
+                        ],
+                        "criteria": []
+                    }
+                }
+            ],
+            "visualConfig": {
+                "type": "GRAPH_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Total succeeded queries",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 342,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total succeeded queries",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.athena.processedBytesByAccountIdQueryStateQueryTypeRegionWorkGroup",
+                    "spaceAggregation": "COUNT",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "querystate",
+                        "workgroup"
+                    ],
+                    "filterBy": {
+                        "filterOperator": "AND",
+                        "nestedFilters": [
+                            {
+                                "filter": "querystate",
+                                "filterType": "DIMENSION",
+                                "filterOperator": "OR",
+                                "nestedFilters": [],
+                                "criteria": [
+                                    {
+                                        "evaluator": "EQ",
+                                        "value": "SUCCEEDED"
+                                    }
+                                ]
+                            }
+                        ],
+                        "criteria": []
+                    }
+                }
+            ],
+            "visualConfig": {
+                "type": "PIE_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "AREA"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Total failed queries",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 646,
+                "width": 304,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total failed queries",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.athena.processedBytesByAccountIdQueryStateQueryTypeRegionWorkGroup",
+                    "spaceAggregation": "COUNT",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "querystate",
+                        "workgroup"
+                    ],
+                    "filterBy": {
+                        "filterOperator": "AND",
+                        "nestedFilters": [
+                            {
+                                "filter": "querystate",
+                                "filterType": "DIMENSION",
+                                "filterOperator": "OR",
+                                "nestedFilters": [],
+                                "criteria": [
+                                    {
+                                        "evaluator": "EQ",
+                                        "value": "FAILED"
+                                    }
+                                ]
+                            }
+                        ],
+                        "criteria": []
+                    }
+                }
+            ],
+            "visualConfig": {
+                "type": "PIE_CHART",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

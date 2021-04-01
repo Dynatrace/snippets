@@ -1,0 +1,381 @@
+{
+    "dashboardMetadata": {
+        "name": "Amazon Inspector - Metric Streams",
+        "shared": false,
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "dashboardFilter": {
+            "timeframe": ""
+        },
+        "tags": [
+            "Metric Streams",
+            "AWS"
+        ]
+    },
+    "tiles": [
+        {
+            "name": "Total findings per assessment template",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 0,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total findings per assessment template",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.inspector.totalFindingsByAccountIdAssessmentTemplateArnAssessmentTemplateNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "assessmenttemplatename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Findings",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 380,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Total matching agents per assessment template",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 418,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total matching agents per assessment template",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.inspector.totalMatchingAgentsByAccountIdAssessmentTemplateArnAssessmentTemplateNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "assessmenttemplatename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Total assessment runs per assessment template",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 1216,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total assessment runs per assessment template",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.inspector.totalAssessmentRunsByAccountIdAssessmentTemplateArnAssessmentTemplateNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "assessmenttemplatename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Total healthy agents per assessment template",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 798,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total healthy agents per assessment template",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.inspector.totalHealthyAgentsByAccountIdAssessmentTemplateArnAssessmentTemplateNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "assessmenttemplatename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "TOP_LIST",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Total findings",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 76,
+                "left": 0,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total findings",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.inspector.totalFindingsByAccountIdAssessmentTemplateArnAssessmentTemplateNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "SINGLE_VALUE",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Agents",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 418,
+                "width": 760,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Total matching agents",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 76,
+                "left": 418,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total matching agents",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.inspector.totalMatchingAgentsByAccountIdAssessmentTemplateArnAssessmentTemplateNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "assessmenttemplatename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "SINGLE_VALUE",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Total healthy agents",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 76,
+                "left": 798,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total healthy agents",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.inspector.totalHealthyAgentsByAccountIdAssessmentTemplateArnAssessmentTemplateNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "assessmenttemplatename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "SINGLE_VALUE",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "LINE"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Runs",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 1216,
+                "width": 380,
+                "height": 38
+            },
+            "tileFilter": {}
+        },
+        {
+            "name": "Total assessment runs",
+            "tileType": "DATA_EXPLORER",
+            "configured": true,
+            "bounds": {
+                "top": 76,
+                "left": 1216,
+                "width": 380,
+                "height": 304
+            },
+            "tileFilter": {},
+            "customName": "Total assessment runs",
+            "queries": [
+                {
+                    "id": "A",
+                    "metric": "cloud.aws.inspector.totalAssessmentRunsByAccountIdAssessmentTemplateArnAssessmentTemplateNameRegion",
+                    "spaceAggregation": "SUM",
+                    "timeAggregation": "DEFAULT",
+                    "splitBy": [
+                        "assessmenttemplatename"
+                    ],
+                    "filterBy": null
+                }
+            ],
+            "visualConfig": {
+                "type": "SINGLE_VALUE",
+                "global": {
+                    "theme": "DEFAULT",
+                    "thresholds": [],
+                    "seriesType": "LINE"
+                },
+                "rules": [
+                    {
+                        "matcher": "A:",
+                        "properties": {
+                            "seriesType": "COLUMN"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
