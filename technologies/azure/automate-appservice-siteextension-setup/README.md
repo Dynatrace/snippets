@@ -33,7 +33,7 @@ Before executing the script, make sure you are signed-in with Azure CLI. For mor
 ### Example 
 
 ``` 
-./automate-siteextension.ps1 -subscription "Demo" -resourceGroup "MyAppServiceGroup" -appName "MyApp" -environmentId ="XXXXXX" -apiToken ="XXXX"
+./automate-siteextension.ps1 -subscription "Demo" -resourceGroup "MyAppServiceGroup" -appName "MyApp" -environmentId "XXXXXX" -apiToken "XXXX"
 ``` 
 
 
