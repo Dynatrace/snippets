@@ -1,0 +1,5 @@
+apiVersion: v2
+name: dynatrace-azuremon
+description: A Helm chart for dynatrace-azuremon which provides integration with Azure Monitor.
+type: application
+version: 0.1.0
