@@ -1,6 +1,6 @@
-# Dynatrace Azure Monitoring Helm Chart
+# Dynatrace AWS Monitoring Helm Chart
 
-The Dynatrace Azure Monitoring Helm Chart is a snippet that automates installation of Azure monitoring (based on ActiveGate).
+The Dynatrace AWS Monitoring Helm Chart is a snippet that automates installation of AWS monitoring (based on ActiveGate) and CloudWatch integration.
 
 This Helm Chart requires Helm 3.
 
@@ -32,11 +32,11 @@ git clone https://github.com/Dynatrace/snippets.git
 
 Install Helm chart, replace the `ENVIRONMENTID`, the `PLATFORM_AS_A_SERVICE_TOKEN` and `K8_SERVER_URL` in command and execute it 
 ```sh
-$ helm install dynatrace-azuremon ./snippets/technologies/azure/azuremon-helm-chart -n dynatrace --set dynatrace.host="ENVIRONMENTID.live.dynatrace.com",dynatrace.environment="ENVIRONMENTID",dynatrace.paasToken="PLATFORM_AS_A_SERVICE_TOKEN",k8s.server="K8_SERVER_URL"
+$ helm install dynatrace-awsmon ./snippets/technologies/aws/awsmon-helm-chart -n dynatrace --set dynatrace.host="ENVIRONMENTID.live.dynatrace.com",dynatrace.environment="ENVIRONMENTID",dynatrace.paasToken="PLATFORM_AS_A_SERVICE_TOKEN",k8s.server="K8_SERVER_URL"
 ```
 
 ## Uninstall 
 
 ```sh
-$ helm uninstall dynatrace-azuremon -n dynatrace
+$ helm uninstall dynatrace-awsmon -n dynatrace
 ```
