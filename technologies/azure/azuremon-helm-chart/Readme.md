@@ -6,9 +6,13 @@ This Helm Chart requires Helm 3.
 
 # Usage 
 
+# Prerequisites
+* Helm 3 client
+* kubectl
+
 ## Quick Start
 
-Create dynatrace namespace (if not exists)
+Create Dynatrace namespace (if not exists)
 ```sh
 $ kubectl create namespace dynatrace
 ```
