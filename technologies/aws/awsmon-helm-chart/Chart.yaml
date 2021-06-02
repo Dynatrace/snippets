@@ -1,0 +1,5 @@
+apiVersion: v2
+name: dynatrace-awsmon
+description: A Helm chart for dynatrace-awsmon which provides integration with AWS CloudWatch.
+type: application
+version: 0.1.0
