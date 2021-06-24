@@ -106,9 +106,6 @@ def get_existing_dashboards_names():
 
 
 def update_share_settings_to_make_public(new_dashboard):
-    if CLUSTER_VERSION <= 210 or CLUSTER_VERSION >= 221:
-        return
-
     share_settings_body = {
         "id": new_dashboard["id"],
         "published": "true",
@@ -144,10 +141,14 @@ if __name__ == '__main__':
         created_dashboards.append(new_dashboard)
 
     # there is a delay before you can update dashboard shareSettings
-    print("Waiting for dashboards to become accessible")
-    time.sleep(5)
 
-    for dashboard in created_dashboards:
-        update_share_settings_to_make_public(dashboard)
+    if 211 <= CLUSTER_VERSION <= 220:
+        print("Waiting for dashboards to become accessible")
+        time.sleep(5)
 
-        print("SUCCESS: Uploaded and made public " + dashboard["dashboardMetadata"]["name"])
+        for dashboard in created_dashboards:
+            update_share_settings_to_make_public(dashboard)
+
+            print("SUCCESS: Uploaded and made public " + dashboard["dashboardMetadata"]["name"])
+
+    print("FINISHED SUCCESSFULLY")
