@@ -1,9 +1,12 @@
 import argparse
 import json
 import os
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
+
+OWNER_DEFAULT_VALUE = "Dynatrace"
 
 parser = argparse.ArgumentParser()
 
@@ -12,7 +15,7 @@ parser.add_argument('--dynatrace-api-token', required=True)
 parser.add_argument('--dynatrace-env-url', required=True)
 
 parser.add_argument('--published', choices=["true", "false"], default="true")
-parser.add_argument('--owner', default="Dynatrace")
+parser.add_argument('--owner', default=OWNER_DEFAULT_VALUE)
 
 args = parser.parse_args()
 
@@ -22,9 +25,10 @@ DYNATRACE_API_TOKEN = vars(args)["dynatrace_api_token"]
 PUBLISHED = (vars(args)["published"] == "true")
 
 if CLUSTER_VERSION in [206, 207]:
-    OWNER = None; assert not OWNER, "--owner param is not supported for clusters 206, 207"
+    assert vars(args).get("owner") is OWNER_DEFAULT_VALUE,  "--owner param is not supported for clusters 206, 207"
+    OWNER = None
 if CLUSTER_VERSION >= 208:
-    OWNER = vars(args).get("owner"); assert OWNER, "--owner param is required for cluster 208+"
+    OWNER = vars(args).get("owner")
 
 def remove_trailing_slash(url):
     if url.endswith("/"):
@@ -73,12 +77,17 @@ def perform_http_request(url, body, method):
 
 
 def upload_dashboard(dashboard: dict):
-    if 206 <= CLUSTER_VERSION < 211:
+    if 206 <= CLUSTER_VERSION <= 210:
         # sharingDetails will probably change for 210, possibly additional API call will be required to publish dashboard
         # > done in sprint 211: APM-233247 [Multishare] Remove sharing options from main Dashboard API endpoints & mark as GA
         if "sharingDetails" not in dashboard["dashboardMetadata"]:
             dashboard["dashboardMetadata"]["sharingDetails"] = {}
         dashboard["dashboardMetadata"]["sharingDetails"]["published"] = PUBLISHED
+
+    if CLUSTER_VERSION >= 221:
+        # for 221+, you need preset=True to make dashboard visible to everyone
+        # (and then you don't need second shareSettings call)
+        dashboard["dashboardMetadata"]["preset"] = PUBLISHED
 
     if OWNER:
         dashboard["dashboardMetadata"]["owner"] = OWNER
@@ -96,8 +105,17 @@ def get_existing_dashboards_names():
     return [dashboard["name"] for dashboard in dashboards]
 
 
-def make_public_dashboard(new_dashboard):
-    share_settings_body = { "id": new_dashboard["id"],"published": "true", "enabled" : "true", "publicAccess" : { "managementZoneIds": [], "urls": {}}, "permissions": [ { "type": "ALL", "permission": "VIEW"} ] }
+def update_share_settings_to_make_public(new_dashboard):
+    if CLUSTER_VERSION <= 210 or CLUSTER_VERSION >= 221:
+        return
+
+    share_settings_body = {
+        "id": new_dashboard["id"],
+        "published": "true",
+        "enabled": "true",
+        "publicAccess": {"managementZoneIds": [], "urls": {}},
+        "permissions": [{"type": "ALL", "permission": "VIEW"}]
+    }
 
     perform_http_request(SHARE_SETTINGS_URL.format(id=new_dashboard["id"]), share_settings_body, "PUT")
 
@@ -109,6 +127,8 @@ if __name__ == '__main__':
     dashboard_files = list_all_files_recursive("dashboards", ".json")
     print(f"Found {len(dashboard_files)} definitions in dashboards directory")
 
+    created_dashboards = []
+
     for file_path in dashboard_files:
         print("Processing file: " + file_path)
 
@@ -119,11 +139,15 @@ if __name__ == '__main__':
             print(f"SKIPPING: Dashboard '{dashboard_name}' already exists")
             continue
 
+        print("Uploading: " + dashboard_name)
         upload_dashboard(new_dashboard)
+        created_dashboards.append(new_dashboard)
 
-        if CLUSTER_VERSION >= 211:
-            print("Uploaded " + dashboard_name)
+    # there is a delay before you can update dashboard shareSettings
+    print("Waiting for dashboards to become accessible")
+    time.sleep(5)
 
-            make_public_dashboard(new_dashboard)
+    for dashboard in created_dashboards:
+        update_share_settings_to_make_public(dashboard)
 
-        print("SUCCESS: Uploaded and made public " + dashboard_name)
+        print("SUCCESS: Uploaded and made public " + dashboard["dashboardMetadata"]["name"])
