@@ -140,9 +140,9 @@ if __name__ == '__main__':
         upload_dashboard(new_dashboard)
         created_dashboards.append(new_dashboard)
 
-    # there is a delay before you can update dashboard shareSettings
 
     if 211 <= CLUSTER_VERSION <= 220:
+        # there is a delay before you can update dashboard shareSettings
         print("Waiting for dashboards to become accessible")
         time.sleep(5)
 
