@@ -84,7 +84,7 @@ def upload_dashboard(dashboard: dict):
             dashboard["dashboardMetadata"]["sharingDetails"] = {}
         dashboard["dashboardMetadata"]["sharingDetails"]["published"] = PUBLISHED
 
-    if CLUSTER_VERSION >= 218:
+    if CLUSTER_VERSION >= 221:
         # for 218+, you should use preset=True to make dashboard visible to everyone
         # (and then you don't need second shareSettings call)
         dashboard["dashboardMetadata"]["preset"] = PUBLISHED
@@ -142,7 +142,7 @@ if __name__ == '__main__':
 
     # there is a delay before you can update dashboard shareSettings
 
-    if 211 <= CLUSTER_VERSION <= 217:
+    if 211 <= CLUSTER_VERSION <= 220:
         print("Waiting for dashboards to become accessible")
         time.sleep(5)
 
