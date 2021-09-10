@@ -1,0 +1,339 @@
+{
+  "dashboardMetadata": {
+    "name": "AWS SES - Metric Streams",
+    "shared": false,
+    "sharingDetails": {
+      "linkShared": true,
+      "published": false
+    },
+    "dashboardFilter": {
+      "timeframe": ""
+    },
+    "tags": [
+      "Metric Streams",
+      "AWS"
+    ]
+  },
+  "tiles": [{
+    "name": "Delivery",
+    "tileType": "HEADER",
+    "configured": true,
+    "bounds": {
+      "top": 0,
+      "left": 0,
+      "width": 304,
+      "height": 38
+    },
+    "tileFilter": {}
+  }, {
+    "name": "Reputation",
+    "tileType": "HEADER",
+    "configured": true,
+    "bounds": {
+      "top": 0,
+      "left": 646,
+      "width": 304,
+      "height": 38
+    },
+    "tileFilter": {}
+  }, {
+    "name": "Recipients activity",
+    "tileType": "HEADER",
+    "configured": true,
+    "bounds": {
+      "top": 0,
+      "left": 1292,
+      "width": 304,
+      "height": 38
+    },
+    "tileFilter": {}
+  }, {
+    "name": "Delivered by Account",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 304,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.ses.deliveryByAccountIdRegion",
+      "spaceAggregation": "SUM",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "COLUMN"
+        }
+      }]
+    }
+  }, {
+    "name": "Rejected by Account",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 0,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.ses.rejectByAccountIdRegion",
+      "spaceAggregation": "SUM",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "COLUMN"
+        }
+      }]
+    }
+  }, {
+    "name": "Bounced by Account",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 304,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.ses.bounceByAccountIdRegion",
+      "spaceAggregation": "SUM",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "COLUMN"
+        }
+      }]
+    }
+  }, {
+    "name": "Reputation Bounce Rate by Account",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 646,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.ses.reputationBounceRateByAccountIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "COLUMN"
+        }
+      }]
+    }
+  }, {
+    "name": "Complaints by Account",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 646,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.ses.complaintByAccountIdRegion",
+      "spaceAggregation": "SUM",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "COLUMN"
+        }
+      }]
+    }
+  }, {
+    "name": "Reputation Complaint Rate by Account",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 950,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.ses.reputationComplaintRateByAccountIdRegion",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "COLUMN"
+        }
+      }]
+    }
+  }, {
+    "name": "Opened by Account",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 1292,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.ses.openByAccountIdRegion",
+      "spaceAggregation": "SUM",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "COLUMN"
+        }
+      }]
+    }
+  }, {
+    "name": "Clicks by Account",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 1292,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.ses.clickByAccountIdRegion",
+      "spaceAggregation": "SUM",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "COLUMN"
+        }
+      }]
+    }
+  }, {
+    "name": "Sent by Account",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 0,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.ses.sendByAccountIdRegion",
+      "spaceAggregation": "SUM",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "COLUMN"
+        }
+      }]
+    }
+  }]
+}

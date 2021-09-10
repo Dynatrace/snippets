@@ -1,0 +1,5 @@
+hazelcast-client:
+  network:
+    cluster-members:
+      - hazelcast
+    smart-routing: true

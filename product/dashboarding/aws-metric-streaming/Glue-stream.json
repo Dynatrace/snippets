@@ -1,0 +1,654 @@
+{
+  "dashboardMetadata": {
+    "name": "AWS Glue - Metric Streams",
+    "shared": false,
+    "sharingDetails": {
+      "linkShared": false,
+      "published": false
+    },
+    "dashboardFilter": {
+      "timeframe": ""
+    },
+    "tags": [
+      "Metric Streams",
+      "AWS"
+    ]
+  },
+  "tiles": [{
+    "name": "Usage",
+    "tileType": "HEADER",
+    "configured": true,
+    "bounds": {
+      "top": 0,
+      "left": 950,
+      "width": 304,
+      "height": 38
+    },
+    "tileFilter": {}
+  }, {
+    "name": "Failures",
+    "tileType": "HEADER",
+    "configured": true,
+    "bounds": {
+      "top": 0,
+      "left": 1596,
+      "width": 304,
+      "height": 38
+    },
+    "tileFilter": {}
+  }, {
+    "name": "CPU system load",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 0,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.glue.gluesystemcpuSystemLoadByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.glue.gluedriversystemcpuSystemLoadByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "C",
+      "metric": "cloud.aws.glue.glueALLsystemcpuSystemLoadByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "C:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "JVM heap usage (%)",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 304,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.glue.glueALLjvmheapusageByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.glue.gluedriverjvmheapusageByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "C",
+      "metric": "cloud.aws.glue.gluejvmheapusageByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "JVM heap used",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 304,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.glue.glueALLjvmheapusedByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.glue.gluedriverjvmheapusedByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "C",
+      "metric": "cloud.aws.glue.gluejvmheapusedByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Write bytes",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 646,
+      "left": 1254,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.glue.glueALLs3filesystemwrite_bytesByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.glue.gluedrivers3filesystemwrite_bytesByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Failed tasks - by accountId, jobName and region",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 1596,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "B",
+      "metric": "cloud.aws.glue.gluedriveraggregatenumFailedTasksByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "SUM",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id", "jobname", "aws.region"]
+    }],
+    "visualConfig": {
+      "type": "PIE_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Killed tasks - by accountId, jobName and region",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 1596,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "B",
+      "metric": "cloud.aws.glue.gluedriveraggregatenumKilledTasksByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "SUM",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id", "jobname", "aws.region"]
+    }],
+    "visualConfig": {
+      "type": "PIE_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Elapsed time",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 608,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.glue.gluedriveraggregateelapsedTimeByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["jobname", "jobrunid"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Performance",
+    "tileType": "HEADER",
+    "configured": true,
+    "bounds": {
+      "top": 0,
+      "left": 0,
+      "width": 304,
+      "height": 38
+    },
+    "tileFilter": {}
+  }, {
+    "name": "Read bytes",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 950,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.glue.glueALLs3filesystemread_bytesByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "SUM",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id", "jobname", "jobrunid"]
+    }],
+    "visualConfig": {
+      "type": "TOP_LIST",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Read bytes",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 646,
+      "left": 950,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.glue.glueALLs3filesystemread_bytesByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id", "jobname"],
+      "filterBy": {
+        "filterOperator": "AND",
+        "nestedFilters": [],
+        "criteria": []
+      }
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.glue.gluedriveraggregatebytesReadByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id", "jobname"]
+    }, {
+      "id": "C",
+      "metric": "cloud.aws.glue.glues3filesystemread_bytesByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id", "jobname"]
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "C:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Write bytes",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 1254,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.glue.glueALLs3filesystemwrite_bytesByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id", "jobname", "jobrunid"]
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.glue.gluedrivers3filesystemwrite_bytesByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id", "jobname", "jobrunid"]
+    }],
+    "visualConfig": {
+      "type": "TOP_LIST",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Disk space used (MB)",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 608,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.glue.gluedriverBlockManagerdiskdiskSpaceUsed_MBByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "MAX",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "TOP_LIST",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Driver records read",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 950,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.glue.gluedriveraggregaterecordsReadByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id", "jobname", "jobrunid"]
+    }],
+    "visualConfig": {
+      "type": "TOP_LIST",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Completed tasks",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 38,
+      "left": 1254,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.glue.gluedriveraggregatenumCompletedTasksByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id", "jobname", "jobrunid"]
+    }, {
+      "id": "D",
+      "metric": "cloud.aws.glue.gluedriveraggregatenumCompletedStagesByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": ["aws.account.id", "jobname", "jobrunid"]
+    }],
+    "visualConfig": {
+      "type": "TOP_LIST",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "D:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Shuffle bytes between executors",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 646,
+      "left": 0,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.glue.gluedriveraggregateshuffleLocalBytesReadByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.glue.gluedriveraggregateshuffleBytesWrittenByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }, {
+    "name": "Number of executors",
+    "tileType": "DATA_EXPLORER",
+    "configured": true,
+    "bounds": {
+      "top": 342,
+      "left": 0,
+      "width": 304,
+      "height": 304
+    },
+    "tileFilter": {},
+    "customName": "Explorer results",
+    "queries": [{
+      "id": "A",
+      "metric": "cloud.aws.glue.gluedriverExecutorAllocationManagerexecutorsnumberAllExecutorsByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }, {
+      "id": "B",
+      "metric": "cloud.aws.glue.gluedriverExecutorAllocationManagerexecutorsnumberMaxNeededExecutorsByAccountIdJobNameJobRunIdRegionType",
+      "spaceAggregation": "AVG",
+      "timeAggregation": "DEFAULT",
+      "splitBy": []
+    }],
+    "visualConfig": {
+      "type": "GRAPH_CHART",
+      "global": {
+        "theme": "DEFAULT",
+        "seriesType": "LINE"
+      },
+      "rules": [{
+        "matcher": "A:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }, {
+        "matcher": "B:",
+        "properties": {
+          "seriesType": "LINE"
+        }
+      }]
+    }
+  }]
+}
