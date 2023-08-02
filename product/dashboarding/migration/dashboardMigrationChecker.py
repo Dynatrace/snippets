@@ -87,14 +87,16 @@ if dashboards:
 
         blocking_tiles = []
         for tile in tiles:
+            # data explorer tiles might not be automatically migratable, let's check for that
             if tile["tileType"] == "DATA_EXPLORER":
-                # data explorer tiles might not be automatically migratable, let's check for that
-
                 # expressions start with "resolution=...&" for some reason
                 expressions = map(lambda e: e[e.index("&")+1:], tile["metricExpressions"])
 
-                blocking_expressions = []
+                # a tile can have multiple expressions
+                # some of those might block migration
+                blocking_expressions: MutableSequence[str] = []
                 for expression in expressions:
+                    # attempt to transpile the expression
                     expression_valid = requests.get(
                         "{}v2/metrics/transpile?metricSelector={}&mode={}".format(
                             BASE_URL,
@@ -105,9 +107,12 @@ if dashboards:
                     )
                     expression_valid = json.loads(expression_valid.content)
 
+                    # the status can also be "PARTIAL_SUCCESS" when using the lenient transpiling mode
+                    # in this case, the expressions is still considered valid
                     if expression_valid["status"] == "ERROR":
                         blocking_expressions.append(expression)
 
+                # if any expression of the tile blocks migration, add the tile as a blocker
                 if len(blocking_expressions) > 0:
                     blocking_tiles.append("{} ({})".format(tile["name"], ", ".join(blocking_expressions)))
             else:
