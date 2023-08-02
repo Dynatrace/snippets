@@ -1,6 +1,83 @@
 import json
+from collections.abc import MutableSequence
+
 import requests
 import sys
+
+
+class BlockingTile:
+    def __init__(self, name: str, blocking_expressions: MutableSequence[str]):
+        self.name = name
+        self.blockingExpressions = blocking_expressions
+
+
+class DashboardMigrationStatus:
+    def __init__(self, name: str, id: str, status: str, blocking_tiles: MutableSequence[BlockingTile]):
+        self.name = name
+        self.id = id
+        self.status = status
+        self.blockingTiles = blocking_tiles
+
+
+class OutputFormatter:
+    def get_header(self) -> str:
+        pass
+
+    def format_line(self, migration_status: DashboardMigrationStatus, index: int, length: int) -> str:
+        pass
+
+    def get_footer(self) -> str:
+        pass
+
+
+class CSVOutputFormatter(OutputFormatter):
+    def get_header(self) -> str:
+        return "name;id;migrationPossible;blockingTiles"
+
+    def format_line(self, migration_status: DashboardMigrationStatus, index: int, length: int):
+        return "{};{};{};{}".format(
+            migration_status.name,
+            migration_status.id,
+            migration_status.status,
+            # TODO: find a character that isn't used by the query language
+            "|".join(map(lambda blocking_tile: blocking_tile.name + " " + " ".join(blocking_tile.blockingExpressions),
+                         migration_status.blockingTiles))
+        )
+
+
+class JSONOutputFormatter(OutputFormatter):
+    def format_line(self, migration_status: DashboardMigrationStatus, index: int, length: int):
+        # default is required to recursively serialize the object
+        return json.dumps(migration_status, default=lambda o: o.__dict__)
+
+
+class JSONArrayOutputFormatter(JSONOutputFormatter):
+    def get_header(self) -> str:
+        return "["
+
+    def format_line(self, migration_status: DashboardMigrationStatus, index: int, length: int):
+        return super().format_line(migration_status, index, length) + ("," if index < length - 1 else "")
+
+    def get_footer(self) -> str:
+        return "]"
+
+
+class MarkdownOutputFormatter(OutputFormatter):
+    def get_header(self) -> str:
+        return (
+                "| Dashboard name | Dashboard id | Migration possible | Tiles that prevent migration (selectors) |\n" +
+                "|---|---|---|---|"
+        )
+
+    def format_line(self, migration_status: DashboardMigrationStatus, index: int, length: int) -> str:
+        return "| {} | {} | {} | {} |".format(
+            migration_status.name,
+            migration_status.id,
+            migration_status.status,
+            ";".join(map(lambda blocking_tile: blocking_tile.name + " " + " ".join(blocking_tile.blockingExpressions),
+                         migration_status.blockingTiles))
+        )
+
 
 METRIC_NAME = "(builtin:dashboards.viewCount:fold)"
 sys.tracebacklimit = 5
@@ -19,10 +96,41 @@ for argument in sys.argv:
         TRANSPILE_MODE = "lenient"
         break
 
+
+def get_output_formatter() -> OutputFormatter:
+    for argument in sys.argv:
+        if not argument.startswith("--output"):
+            continue
+
+        if "=" not in argument:
+            print("Please provide the output format like this: --output=csv")
+            exit(1)
+
+        # get string after "--output="
+        raw_name = argument[len("--output="):]
+        match raw_name:
+            case "csv":
+                return CSVOutputFormatter()
+            case "json":
+                return JSONOutputFormatter()
+            case "json_array":
+                return JSONArrayOutputFormatter()
+            case "markdown":
+                return MarkdownOutputFormatter()
+            case _:
+                print("Please provide a valid output formatter!")
+                exit(1)
+
+    # if no output formatter was specified, use Markdown as the default
+    return MarkdownOutputFormatter()
+
+
+OUTPUT_FORMATTER = get_output_formatter()
+
 argument_count = len(positional_arguments) - 1
 if argument_count != 2:
     print(
-        "The script was called with {} arguments but expected 2: \nURL_TO_ENVIRONMENT   API_TOKEN [--lenient]\n"
+        "The script was called with {} arguments but expected 2: \nURL_TO_ENVIRONMENT   API_TOKEN [--lenient] [--output=format]\n"
         "Example: python dashboardMigrationChecker.py https://mySampleEnv.live.dynatrace.com/api/ abcdefghijklmnop\n"
         .format(
             argument_count
@@ -47,8 +155,14 @@ dashboards = json.loads(response.content)["result"][0]["data"]
 
 # If there are any results
 if dashboards:
-    print("|| Dashboard name || Dashboard id || Migration possible || Tiles that prevent migration (selectors) ||")
-    for dashboard in dashboards:
+    header = OUTPUT_FORMATTER.get_header()
+    if header:
+        print(header)
+    del header
+
+    dashboard_count = len(dashboards)
+
+    for index, dashboard in enumerate(dashboards):
         dashboard_id = dashboard["dimensions"][0]
 
         # get list of dashboard IDs
@@ -85,12 +199,12 @@ if dashboards:
         # if other tiles are present, the status is "UNKNOWN" or "NO"
         otherTiles = False
 
-        blocking_tiles = []
+        blocking_tiles: MutableSequence[BlockingTile] = []
         for tile in tiles:
             # data explorer tiles might not be automatically migratable, let's check for that
             if tile["tileType"] == "DATA_EXPLORER":
                 # expressions start with "resolution=...&" for some reason
-                expressions = map(lambda e: e[e.index("&")+1:], tile["metricExpressions"])
+                expressions = map(lambda e: e[e.index("&") + 1:], tile["metricExpressions"])
 
                 # a tile can have multiple expressions
                 # some of those might block migration
@@ -114,7 +228,7 @@ if dashboards:
 
                 # if any expression of the tile blocks migration, add the tile as a blocker
                 if len(blocking_expressions) > 0:
-                    blocking_tiles.append("{} ({})".format(tile["name"], ", ".join(blocking_expressions)))
+                    blocking_tiles.append(BlockingTile(tile["name"], blocking_expressions))
             else:
                 otherTiles = True
 
@@ -125,11 +239,15 @@ if dashboards:
         else:
             status = "Yes"
 
-        print(
-            "| {} | {} | {} | {} |".format(
-                dashboard["dashboardMetadata"]["name"],
-                dashboard["id"],
-                status,
-                ", ".join(blocking_tiles) if len(blocking_tiles) > 0 else " - "
-            )
+        migrationStatus = DashboardMigrationStatus(
+            dashboard["dashboardMetadata"]["name"],
+            dashboard["id"],
+            status,
+            blocking_tiles
         )
+        print(OUTPUT_FORMATTER.format_line(migrationStatus, index, dashboard_count))
+
+    footer = OUTPUT_FORMATTER.get_footer()
+    if footer:
+        print(footer)
+    del footer
