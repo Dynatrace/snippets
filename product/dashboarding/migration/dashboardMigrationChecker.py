@@ -1,3 +1,4 @@
+import argparse
 import json
 from collections.abc import MutableSequence
 
@@ -85,61 +86,47 @@ sys.tracebacklimit = 5
 # python .\dashboardMigrationChecker.py https://mySampleEnv.live.dynatrace.com/api/ abcdefghijklmnop
 # python .\dashboardMigrationChecker.py https://mySampleEnv.live.dynatrace.com/api/ abcdefghijklmnop
 
-positional_arguments = []
-for argument in sys.argv:
-    if not argument.startswith("-"):
-        positional_arguments.append(argument)
+argument_parser = argparse.ArgumentParser(
+    prog='Dashboard Migration Checker',
+    description="Checks if dynatrace dashboards are migratable to V3"
+)
+argument_parser.add_argument("environment_url")
+argument_parser.add_argument("api_token")
+# toggleable flag
+argument_parser.add_argument("-l", "--lenient", action="store_true", help="Set the transpile mode to lenient")
+argument_parser.add_argument("-o", "--output",
+                             help="Change the output format",
+                             choices=["csv", "json", "json_array", "markdown"]
+                             )
 
-TRANSPILE_MODE = "strict"
-for argument in sys.argv:
-    if argument == "--lenient":
-        TRANSPILE_MODE = "lenient"
-        break
+arguments = argument_parser.parse_args()
+
+TRANSPILE_MODE = "lenient" if arguments.lenient else "strict"
 
 
 def get_output_formatter() -> OutputFormatter:
-    for argument in sys.argv:
-        if not argument.startswith("--output"):
-            continue
-
-        if "=" not in argument:
-            print("Please provide the output format like this: --output=csv")
+    match arguments.output:
+        case "csv":
+            return CSVOutputFormatter()
+        case "json":
+            return JSONOutputFormatter()
+        case "json_array":
+            return JSONArrayOutputFormatter()
+        case "markdown":
+            return MarkdownOutputFormatter()
+        case None:
+            # if no output formatter was specified, use Markdown as the default
+            return MarkdownOutputFormatter()
+        case _:
+            # if an unknown formatter was specified, error out
+            print("Please provide a valid output formatter!")
             exit(1)
-
-        # get string after "--output="
-        raw_name = argument[len("--output="):]
-        match raw_name:
-            case "csv":
-                return CSVOutputFormatter()
-            case "json":
-                return JSONOutputFormatter()
-            case "json_array":
-                return JSONArrayOutputFormatter()
-            case "markdown":
-                return MarkdownOutputFormatter()
-            case _:
-                print("Please provide a valid output formatter!")
-                exit(1)
-
-    # if no output formatter was specified, use Markdown as the default
-    return MarkdownOutputFormatter()
 
 
 OUTPUT_FORMATTER = get_output_formatter()
 
-argument_count = len(positional_arguments) - 1
-if argument_count != 2:
-    print(
-        "The script was called with {} arguments but expected 2: \nURL_TO_ENVIRONMENT   API_TOKEN [--lenient] [--output=format]\n"
-        "Example: python dashboardMigrationChecker.py https://mySampleEnv.live.dynatrace.com/api/ abcdefghijklmnop\n"
-        .format(
-            argument_count
-        )
-    )
-    exit()
-
-BASE_URL = str(positional_arguments[1])
-API_TOKEN = str(positional_arguments[2])
+BASE_URL = str(arguments.environment_url)
+API_TOKEN = str(arguments.api_token)
 
 # curl -X GET "https://mySampleEnv.live.dynatrace.com/api/v2/metrics/query?metricSelector=(builtin:dashboards.viewCount:fold):limit(100):names&from=-90d&to=now"  -H "accept: application/json"  -H "Authorization: Api-Token XXXX-XXXX"
 
