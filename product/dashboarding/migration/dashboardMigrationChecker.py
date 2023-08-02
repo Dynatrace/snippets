@@ -13,10 +13,12 @@ class BlockingTile:
 
 
 class DashboardMigrationStatus:
-    def __init__(self, name: str, id: str, status: str, blocking_tiles: MutableSequence[BlockingTile]):
+    def __init__(self, name: str, id: str, status: str, unknown_tile_types: set[str],
+                 blocking_tiles: MutableSequence[BlockingTile]):
         self.name = name
         self.id = id
         self.status = status
+        self.unknownTileTypes = unknown_tile_types
         self.blockingTiles = blocking_tiles
 
 
@@ -33,13 +35,14 @@ class OutputFormatter:
 
 class CSVOutputFormatter(OutputFormatter):
     def get_header(self) -> str:
-        return "name;id;migrationPossible;blockingTiles"
+        return "name;id;migrationPossible;unknownTileTypes;blockingTiles"
 
     def format_line(self, migration_status: DashboardMigrationStatus, index: int, length: int):
-        return "{};{};{};{}".format(
+        return "{};{};{};{};{}".format(
             migration_status.name,
             migration_status.id,
             migration_status.status,
+            ",".join(migration_status.unknownTileTypes),
             # TODO: find a character that isn't used by the query language
             "|".join(map(lambda blocking_tile: blocking_tile.name + " " + " ".join(blocking_tile.blockingExpressions),
                          migration_status.blockingTiles))
@@ -48,6 +51,8 @@ class CSVOutputFormatter(OutputFormatter):
 
 class JSONOutputFormatter(OutputFormatter):
     def format_line(self, migration_status: DashboardMigrationStatus, index: int, length: int):
+        # sets can't be serialized, but lists can
+        migration_status.unknownTileTypes = list(migration_status.unknownTileTypes)
         # default is required to recursively serialize the object
         return json.dumps(migration_status, default=lambda o: o.__dict__)
 
@@ -66,15 +71,16 @@ class JSONArrayOutputFormatter(JSONOutputFormatter):
 class MarkdownOutputFormatter(OutputFormatter):
     def get_header(self) -> str:
         return (
-                "| Dashboard name | Dashboard id | Migration possible | Tiles that prevent migration (selectors) |\n" +
-                "|---|---|---|---|"
+                "| Dashboard name | Dashboard id | Migration possible | Unknown tiles | Tiles that prevent migration (selectors) |\n" +
+                "|---|---|---|---|---|"
         )
 
     def format_line(self, migration_status: DashboardMigrationStatus, index: int, length: int) -> str:
-        return "| {} | {} | {} | {} |".format(
+        return "| {} | {} | {} | {} | {} |".format(
             migration_status.name,
             migration_status.id,
             migration_status.status,
+            ", ".join(migration_status.unknownTileTypes),
             ";".join(map(lambda blocking_tile: blocking_tile.name + " " + " ".join(blocking_tile.blockingExpressions),
                          migration_status.blockingTiles))
         )
@@ -184,7 +190,7 @@ if dashboards:
             continue
 
         # if other tiles are present, the status is "UNKNOWN" or "NO"
-        otherTiles = False
+        unknown_tile_types = set()
 
         blocking_tiles: MutableSequence[BlockingTile] = []
         for tile in tiles:
@@ -217,12 +223,15 @@ if dashboards:
                 if len(blocking_expressions) > 0:
                     blocking_tiles.append(BlockingTile(tile["name"], blocking_expressions))
             else:
-                otherTiles = True
+                unknown_tile_types.add(tile["tileType"])
 
+        is_unknown = False
         if len(blocking_tiles) != 0:
             status = "No"
-        elif otherTiles:
+        # if other tile types exist, the status is unknown
+        elif len(unknown_tile_types) > 0:
             status = "Unknown"
+            is_unknown = True
         else:
             status = "Yes"
 
@@ -230,6 +239,7 @@ if dashboards:
             dashboard["dashboardMetadata"]["name"],
             dashboard["id"],
             status,
+            unknown_tile_types if is_unknown else set(),
             blocking_tiles
         )
         print(OUTPUT_FORMATTER.format_line(migrationStatus, index, dashboard_count))
