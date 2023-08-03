@@ -1,9 +1,16 @@
 import argparse
 import json
-from collections.abc import MutableSequence
-
-import requests
+import queue
 import sys
+from collections.abc import MutableSequence
+from threading import Thread
+
+import _queue
+import requests
+
+
+def eprint(*args, **kwargs):
+    print(*args, file=sys.stderr, **kwargs)
 
 
 class BlockingTile:
@@ -26,7 +33,7 @@ class OutputFormatter:
     def get_header(self) -> str:
         pass
 
-    def format_line(self, migration_status: DashboardMigrationStatus, index: int, length: int) -> str:
+    def format_line(self, migration_status: DashboardMigrationStatus) -> str:
         pass
 
     def get_footer(self) -> str:
@@ -37,7 +44,7 @@ class CSVOutputFormatter(OutputFormatter):
     def get_header(self) -> str:
         return "name;id;migrationPossible;unknownTileTypes;blockingTiles"
 
-    def format_line(self, migration_status: DashboardMigrationStatus, index: int, length: int):
+    def format_line(self, migration_status: DashboardMigrationStatus):
         return "{};{};{};{};{}".format(
             migration_status.name,
             migration_status.id,
@@ -50,7 +57,7 @@ class CSVOutputFormatter(OutputFormatter):
 
 
 class JSONOutputFormatter(OutputFormatter):
-    def format_line(self, migration_status: DashboardMigrationStatus, index: int, length: int):
+    def format_line(self, migration_status: DashboardMigrationStatus):
         # sets can't be serialized, but lists can
         migration_status.unknownTileTypes = list(migration_status.unknownTileTypes)
         # default is required to recursively serialize the object
@@ -58,14 +65,19 @@ class JSONOutputFormatter(OutputFormatter):
 
 
 class JSONArrayOutputFormatter(JSONOutputFormatter):
-    def get_header(self) -> str:
-        return "["
+    """
+    Prints all lines at once at the end.
+    This is required to ensure no trailing commas.
+    """
 
-    def format_line(self, migration_status: DashboardMigrationStatus, index: int, length: int):
-        return super().format_line(migration_status, index, length) + ("," if index < length - 1 else "")
+    def __init__(self):
+        self.lines = []
+
+    def format_line(self, migration_status: DashboardMigrationStatus):
+        self.lines.append(super().format_line(migration_status))
 
     def get_footer(self) -> str:
-        return "]"
+        return "[" + ",".join(self.lines) + "]"
 
 
 class MarkdownOutputFormatter(OutputFormatter):
@@ -75,7 +87,7 @@ class MarkdownOutputFormatter(OutputFormatter):
                 "|---|---|---|---|---|"
         )
 
-    def format_line(self, migration_status: DashboardMigrationStatus, index: int, length: int) -> str:
+    def format_line(self, migration_status: DashboardMigrationStatus) -> str:
         return "| {} | {} | {} | {} | {} |".format(
             migration_status.name,
             migration_status.id,
@@ -98,6 +110,8 @@ argument_parser = argparse.ArgumentParser(
 )
 argument_parser.add_argument("environment_url")
 argument_parser.add_argument("api_token")
+argument_parser.add_argument("-t", "--timeout", type=int, default=60, metavar="<timeout>",
+                             help="The timeout for loading individual dashboards in seconds")
 # toggleable flag
 argument_parser.add_argument("-l", "--lenient", action="store_true", help="Set the transpile mode to lenient")
 argument_parser.add_argument("-o", "--output",
@@ -106,6 +120,12 @@ argument_parser.add_argument("-o", "--output",
                              )
 
 arguments = argument_parser.parse_args()
+
+TIMEOUT = arguments.timeout
+
+if TIMEOUT <= 0:
+    eprint("Timeout must be greater than 0!")
+    exit(1)
 
 TRANSPILE_MODE = "lenient" if arguments.lenient else "strict"
 
@@ -153,9 +173,10 @@ if dashboards:
         print(header)
     del header
 
-    dashboard_count = len(dashboards)
+    output_queue: queue.Queue[str] = queue.Queue()
 
-    for index, dashboard in enumerate(dashboards):
+
+    def process_dashboard(dashboard):
         dashboard_id = dashboard["dimensions"][0]
 
         # get list of dashboard IDs
@@ -167,27 +188,27 @@ if dashboards:
             headers={"Authorization": "Api-Token " + API_TOKEN},
         )
         if dashboard_data.status_code == 404:
-            continue
+            return
         elif dashboard_data.status_code != 200:
-            print(
+            eprint(
                 "Problem getting dashboard data! Response:",
                 dashboard_data.status_code,
                 dashboard_data.content.decode("UTF-8")
             )
-            continue
+            return
 
         dashboard = json.loads(dashboard_data.content)
 
         # filter out all built-in presets
         if (dashboard["dashboardMetadata"].get("preset", False)
                 and dashboard["dashboardMetadata"]["owner"] == "Dynatrace"):
-            continue
+            return
 
         try:
             tiles = dashboard["tiles"]
         except KeyError:
-            print("Error occurred while getting tiles. Raw data:", dashboard)
-            continue
+            eprint("Error occurred while getting tiles. Raw data:", dashboard)
+            return
 
         # if other tiles are present, the status is "UNKNOWN" or "NO"
         unknown_tile_types = set()
@@ -197,7 +218,13 @@ if dashboards:
             # data explorer tiles might not be automatically migratable, let's check for that
             if tile["tileType"] == "DATA_EXPLORER":
                 # expressions start with "resolution=...&" for some reason
-                expressions = map(lambda e: e[e.index("&") + 1:], tile["metricExpressions"])
+                try:
+                    expressions = map(lambda e: e[e.index("&") + 1:], tile["metricExpressions"])
+                except KeyError:
+                    eprint("Error occurred while getting metric expressions from tile. Raw tile:", tile)
+                    # add anyway to force status UNKNOWN
+                    unknown_tile_types.add(tile["tileType"])
+                    continue
 
                 # a tile can have multiple expressions
                 # some of those might block migration
@@ -235,14 +262,71 @@ if dashboards:
         else:
             status = "Yes"
 
-        migrationStatus = DashboardMigrationStatus(
+        migration_status = DashboardMigrationStatus(
             dashboard["dashboardMetadata"]["name"],
             dashboard["id"],
             status,
             unknown_tile_types if is_unknown else set(),
             blocking_tiles
         )
-        print(OUTPUT_FORMATTER.format_line(migrationStatus, index, dashboard_count))
+        line = OUTPUT_FORMATTER.format_line(migration_status)
+        if line and len(line) > 0:
+            output_queue.put(line)
+        del line
+
+
+    threads: queue.Queue[tuple[str, Thread]] = queue.Queue()
+    for dashboard in dashboards:
+        dashboard_uuid = dashboard["dimensions"][0]
+
+        thread = Thread(target=lambda: process_dashboard(dashboard))
+        thread.name = "dashboard-" + dashboard_uuid
+        threads.put((dashboard_uuid, thread))
+        thread.start()
+
+    running = True
+
+
+    def print_queue_items():
+        while True:
+            try:
+                print(output_queue.get(block=False))
+            except _queue.Empty:
+                if not running:
+                    return
+
+
+    # own thread that prints the output line-by-line
+    # this ensures every line is printed individually
+    # and no other threads interfere
+    process_print_thread = Thread(target=print_queue_items)
+    process_print_thread.start()
+
+
+    def get_job() -> tuple[str, Thread] | None:
+        try:
+            return threads.get(block=False)
+        except _queue.Empty:
+            return None
+
+
+    # await all jobs before printing footer
+    for job_tuple in iter(get_job, None):
+        # exit condition
+        if job_tuple is None:
+            break
+
+        job_name = job_tuple[0]
+        job = job_tuple[1]
+
+        job.join(timeout=TIMEOUT)
+        if job.is_alive():
+            eprint("Job for dashboard", job_name, "didn't complete in", TIMEOUT, "second(s)!")
+
+    running = False
+
+    # await printing last line(s)
+    process_print_thread.join()
 
     footer = OUTPUT_FORMATTER.get_footer()
     if footer:
