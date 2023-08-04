@@ -3,6 +3,7 @@ import json
 import queue
 import sys
 from collections.abc import MutableSequence
+from multiprocessing.pool import ThreadPool
 from threading import Thread
 
 import _queue
@@ -175,6 +176,9 @@ if dashboards:
 
     output_queue: queue.Queue[str] = queue.Queue()
 
+    dashboard_thread_pool = ThreadPool(processes=500)
+    tile_thread_pool = ThreadPool(processes=1500)
+
 
     def process_dashboard(dashboard):
         dashboard_id = dashboard["dimensions"][0]
@@ -226,10 +230,7 @@ if dashboards:
                     unknown_tile_types.add(tile["tileType"])
                     continue
 
-                # a tile can have multiple expressions
-                # some of those might block migration
-                blocking_expressions: MutableSequence[str] = []
-                for expression in expressions:
+                def handle_expression(expression) -> str | None:
                     # attempt to transpile the expression
                     expression_valid = requests.get(
                         "{}v2/metrics/transpile?metricSelector={}&mode={}".format(
@@ -240,11 +241,16 @@ if dashboards:
                         headers={"Authorization": "Api-Token " + API_TOKEN},
                     )
                     expression_valid = json.loads(expression_valid.content)
-
                     # the status can also be "PARTIAL_SUCCESS" when using the lenient transpiling mode
                     # in this case, the expressions is still considered valid
                     if expression_valid["status"] == "ERROR":
-                        blocking_expressions.append(expression)
+                        return expression
+
+                # the `handle_expression` method returns "None" if the expression is migratable
+                blocking_expressions = list(filter(lambda item: item is not None,
+                                                   tile_thread_pool.map_async(handle_expression, expressions).get()
+                                                   )
+                                            )
 
                 # if any expression of the tile blocks migration, add the tile as a blocker
                 if len(blocking_expressions) > 0:
@@ -275,14 +281,24 @@ if dashboards:
         del line
 
 
-    threads: queue.Queue[tuple[str, Thread]] = queue.Queue()
-    for dashboard in dashboards:
-        dashboard_uuid = dashboard["dimensions"][0]
-
+    def process_dashboard_timeout(dashboard, dashboard_uuid):
+        # separate thread to do the processing
         thread = Thread(target=lambda: process_dashboard(dashboard))
         thread.name = "dashboard-" + dashboard_uuid
-        threads.put((dashboard_uuid, thread))
         thread.start()
+        # the pool thread is just here to wait
+        thread.join(timeout=TIMEOUT)
+        if thread.is_alive():
+            output_queue.put("[!!] Job for dashboard " + dashboard_uuid + "didn't complete in" + TIMEOUT + "second(s)!")
+
+    for dashboard in dashboards:
+        dashboard_uuid = dashboard["dimensions"][0]
+        if dashboard_uuid is None:
+            eprint("Invalid dashboard:", dashboard)
+            continue
+
+        # concept: job in thread pool starts a new thread that does the processing and awaits that thread with a timeout
+        dashboard_thread_pool.apply_async(process_dashboard_timeout, [dashboard, dashboard_uuid])
 
     running = True
 
@@ -302,26 +318,11 @@ if dashboards:
     process_print_thread = Thread(target=print_queue_items)
     process_print_thread.start()
 
-
-    def get_job() -> tuple[str, Thread] | None:
-        try:
-            return threads.get(block=False)
-        except _queue.Empty:
-            return None
-
-
     # await all jobs before printing footer
-    for job_tuple in iter(get_job, None):
-        # exit condition
-        if job_tuple is None:
-            break
+    dashboard_thread_pool.close()
+    dashboard_thread_pool.join()
 
-        job_name = job_tuple[0]
-        job = job_tuple[1]
-
-        job.join(timeout=TIMEOUT)
-        if job.is_alive():
-            eprint("Job for dashboard", job_name, "didn't complete in", TIMEOUT, "second(s)!")
+    tile_thread_pool.close()
 
     running = False
 
