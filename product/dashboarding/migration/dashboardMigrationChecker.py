@@ -108,8 +108,8 @@ argument_parser = argparse.ArgumentParser(
     prog='Dashboard Migration Checker',
     description="Checks if dynatrace dashboards are migratable to V3"
 )
-argument_parser.add_argument("environment_url")
-argument_parser.add_argument("api_token")
+argument_parser.add_argument("environment_url", help="URL of the environment with the trailing slash (e.g. '/api/').")
+argument_parser.add_argument("api_token", help="Required Scopes: metrics:read, ReadConfig")
 argument_parser.add_argument("-t", "--timeout", type=int, default=60, metavar="<timeout>",
                              help="The timeout for loading individual dashboards in seconds")
 # toggleable flag
