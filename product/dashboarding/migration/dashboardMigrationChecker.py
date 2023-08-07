@@ -208,7 +208,8 @@ arguments = argument_parser.parse_args()
 
 TIMEOUT = arguments.timeout
 
-if TIMEOUT <= 0:
+# TIMEOUT = 0 disables sidecars leading to a decrease in required dashboard threads
+if TIMEOUT < 0:
     eprint("Timeout must be greater than 0!")
     exit(1)
 
@@ -343,6 +344,8 @@ if dashboard_ids:
 
 
     def process_dashboard_timeout(dashboard, dashboard_uuid):
+        # concept: job in thread pool starts a new thread that does the processing and awaits that thread with a timeout
+
         # separate thread to do the processing
         thread = Thread(target=lambda: process_dashboard(dashboard))
         thread.name = "dashboard-" + dashboard_uuid
@@ -359,8 +362,10 @@ if dashboard_ids:
             eprint("Invalid dashboard:", dashboard)
             continue
 
-        # concept: job in thread pool starts a new thread that does the processing and awaits that thread with a timeout
-        dashboard_thread_pool.apply_async(process_dashboard_timeout, [dashboard, dashboard_uuid])
+        if TIMEOUT > 0:
+            dashboard_thread_pool.apply_async(process_dashboard_timeout, [dashboard, dashboard_uuid])
+        else:
+            dashboard_thread_pool.apply_async(process_dashboard, [dashboard])
 
     running = True
 
