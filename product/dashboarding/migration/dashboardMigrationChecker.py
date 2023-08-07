@@ -99,6 +99,44 @@ class MarkdownOutputFormatter(OutputFormatter):
         )
 
 
+def handle_expression(expression) -> str | None:
+    # attempt to transpile the expression
+    expression_valid = requests.get(
+        "{}v2/metrics/transpile?metricSelector={}&mode={}".format(
+            BASE_URL,
+            expression,
+            TRANSPILE_MODE
+        ),
+        headers={"Authorization": "Api-Token " + API_TOKEN},
+    )
+    expression_valid = json.loads(expression_valid.content)
+    # the status can also be "PARTIAL_SUCCESS" when using the lenient transpiling mode
+    # in this case, the expressions is still considered valid
+    if expression_valid["status"] == "ERROR":
+        return expression
+
+
+def handle_tile(tile) -> BlockingTile | KeyError | None:
+    # expressions start with "resolution=...&" for some reason
+    try:
+        expressions = map(lambda e: e[e.index("&") + 1:], tile["metricExpressions"])
+    except KeyError:
+        eprint("Error occurred while getting metric expressions from tile. Raw tile:", tile)
+        return KeyError()
+
+    blocking_expressions = []
+    for expression in expressions:
+        result = handle_expression(expression)
+        if result:
+            blocking_expressions.append(result)
+
+    if len(blocking_expressions) > 0:
+        return BlockingTile(tile["name"], blocking_expressions)
+
+    return None
+
+
+
 METRIC_NAME = "(builtin:dashboards.viewCount:fold)"
 sys.tracebacklimit = 5
 
@@ -113,11 +151,23 @@ argument_parser.add_argument("environment_url", help="URL of the environment wit
 argument_parser.add_argument("api_token", help="Required Scopes: metrics:read, ReadConfig")
 argument_parser.add_argument("-t", "--timeout", type=int, default=60, metavar="<timeout>",
                              help="The timeout for loading individual dashboards in seconds")
-# toggleable flag
+
+# toggles from strict to lenient mode
 argument_parser.add_argument("-l", "--lenient", action="store_true", help="Set the transpile mode to lenient")
 argument_parser.add_argument("-o", "--output",
                              help="Change the output format",
                              choices=["csv", "json", "json_array", "markdown"]
+                             )
+
+argument_parser.add_argument("--dashboard-threads",
+                             help="The amount of max. concurrently processing dashboards",
+                             type=int,
+                             default=500
+                             )
+argument_parser.add_argument("--transpile-threads",
+                             help="The amount of max. concurrently processing transpiles",
+                             type=int,
+                             default=2000
                              )
 
 arguments = argument_parser.parse_args()
@@ -127,6 +177,16 @@ TIMEOUT = arguments.timeout
 if TIMEOUT <= 0:
     eprint("Timeout must be greater than 0!")
     exit(1)
+
+DASHBOARD_THREADS = arguments.dashboard_threads
+if DASHBOARD_THREADS <= 0:
+    eprint("Dashboard threads must be more than 0!")
+    exit()
+
+TRANSPILE_THREADS = arguments.transpile_threads
+if TRANSPILE_THREADS <= 0:
+    eprint("Dashboard threads must be more than 0!")
+    exit()
 
 TRANSPILE_MODE = "lenient" if arguments.lenient else "strict"
 
@@ -158,7 +218,7 @@ API_TOKEN = str(arguments.api_token)
 # curl -X GET "https://mySampleEnv.live.dynatrace.com/api/v2/metrics/query?metricSelector=(builtin:dashboards.viewCount:fold):limit(100):names&from=-90d&to=now"  -H "accept: application/json"  -H "Authorization: Api-Token XXXX-XXXX"
 
 response = requests.get(
-    "{}v2/metrics/query?metricSelector={}:limit(100):names&from=-90d&to=now".format(
+    "{}v2/metrics/query?metricSelector={}:limit(10000):names&from=-90d&to=now".format(
         BASE_URL,
         METRIC_NAME
     ),
@@ -176,8 +236,8 @@ if dashboards:
 
     output_queue: queue.Queue[str] = queue.Queue()
 
-    dashboard_thread_pool = ThreadPool(processes=500)
-    tile_thread_pool = ThreadPool(processes=1500)
+    dashboard_thread_pool = ThreadPool(processes=DASHBOARD_THREADS)
+    transpile_thread_pool = ThreadPool(processes=TRANSPILE_THREADS)
 
 
     def process_dashboard(dashboard):
@@ -217,46 +277,28 @@ if dashboards:
         # if other tiles are present, the status is "UNKNOWN" or "NO"
         unknown_tile_types = set()
 
-        blocking_tiles: MutableSequence[BlockingTile] = []
+        transpile_jobs = []
+
         for tile in tiles:
             # data explorer tiles might not be automatically migratable, let's check for that
             if tile["tileType"] == "DATA_EXPLORER":
-                # expressions start with "resolution=...&" for some reason
-                try:
-                    expressions = map(lambda e: e[e.index("&") + 1:], tile["metricExpressions"])
-                except KeyError:
-                    eprint("Error occurred while getting metric expressions from tile. Raw tile:", tile)
-                    # add anyway to force status UNKNOWN
-                    unknown_tile_types.add(tile["tileType"])
-                    continue
-
-                def handle_expression(expression) -> str | None:
-                    # attempt to transpile the expression
-                    expression_valid = requests.get(
-                        "{}v2/metrics/transpile?metricSelector={}&mode={}".format(
-                            BASE_URL,
-                            expression,
-                            TRANSPILE_MODE
-                        ),
-                        headers={"Authorization": "Api-Token " + API_TOKEN},
-                    )
-                    expression_valid = json.loads(expression_valid.content)
-                    # the status can also be "PARTIAL_SUCCESS" when using the lenient transpiling mode
-                    # in this case, the expressions is still considered valid
-                    if expression_valid["status"] == "ERROR":
-                        return expression
-
-                # the `handle_expression` method returns "None" if the expression is migratable
-                blocking_expressions = list(filter(lambda item: item is not None,
-                                                   tile_thread_pool.map_async(handle_expression, expressions).get()
-                                                   )
-                                            )
-
-                # if any expression of the tile blocks migration, add the tile as a blocker
-                if len(blocking_expressions) > 0:
-                    blocking_tiles.append(BlockingTile(tile["name"], blocking_expressions))
+                transpile_jobs.append(tile)
             else:
                 unknown_tile_types.add(tile["tileType"])
+
+        blocking_tiles = []
+
+        for tile in transpile_thread_pool.map_async(handle_tile, transpile_jobs).get():
+            # no blocking expressions
+            if tile is None:
+                continue
+            # error while processing DATA_EXPLORER tile - don't ask about the second condition, it's python
+            elif tile is KeyError or type(tile) is KeyError:
+                # adding it to force UNKNOWN
+                unknown_tile_types.add("DATA_EXPLORER")
+            # regular blocking tile
+            else:
+                blocking_tiles.append(tile)
 
         is_unknown = False
         if len(blocking_tiles) != 0:
@@ -322,7 +364,7 @@ if dashboards:
     dashboard_thread_pool.close()
     dashboard_thread_pool.join()
 
-    tile_thread_pool.close()
+    transpile_thread_pool.close()
 
     running = False
 
