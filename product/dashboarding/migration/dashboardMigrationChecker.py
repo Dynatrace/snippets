@@ -52,7 +52,7 @@ class CSVOutputFormatter(OutputFormatter):
             migration_status.status,
             ",".join(migration_status.unknownTileTypes),
             # TODO: find a character that isn't used by the query language
-            "|".join(map(lambda blocking_tile: blocking_tile.name + " " + " ".join(blocking_tile.blockingExpressions),
+            "|".join(map(lambda blocking_tile: blocking_tile.name + " (" + " ".join(blocking_tile.blockingExpressions) + ")",
                          migration_status.blockingTiles))
         )
 
@@ -94,7 +94,7 @@ class MarkdownOutputFormatter(OutputFormatter):
             migration_status.id,
             migration_status.status,
             ", ".join(migration_status.unknownTileTypes),
-            ";".join(map(lambda blocking_tile: blocking_tile.name + " " + " ".join(blocking_tile.blockingExpressions),
+            ";".join(map(lambda blocking_tile: blocking_tile.name + " (" + " ".join(blocking_tile.blockingExpressions) + ")",
                          migration_status.blockingTiles))
         )
 
