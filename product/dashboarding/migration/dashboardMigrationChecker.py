@@ -121,7 +121,6 @@ def handle_tile(tile) -> BlockingTile | KeyError | None:
     try:
         expressions = map(lambda e: e[e.index("&") + 1:], tile["metricExpressions"])
     except KeyError:
-        eprint("Error occurred while getting metric expressions from tile. Raw tile:", tile)
         return KeyError()
 
     blocking_expressions = []
@@ -135,6 +134,41 @@ def handle_tile(tile) -> BlockingTile | KeyError | None:
 
     return None
 
+
+def load_dashboard_data(dashboard):
+    dashboard_id = dashboard["dimensions"][0]
+
+    # get list of dashboard IDs
+    dashboard_data = requests.get(
+        "{}config/v1/dashboards/{}".format(
+            BASE_URL,
+            dashboard_id
+        ),
+        headers={"Authorization": "Api-Token " + API_TOKEN},
+    )
+    if dashboard_data.status_code == 404:
+        return
+    elif dashboard_data.status_code != 200:
+        eprint(
+            "Problem getting dashboard data! Response:",
+            dashboard_data.status_code,
+            dashboard_data.content.decode("UTF-8")
+        )
+        return
+
+    return json.loads(dashboard_data.content)
+
+
+def get_expression_count(dashboard):
+    count = 0
+    for tile in dashboard["tiles"]:
+        if tile["tileType"] == "DATA_EXPLORER":
+            try:
+                count += len(tile["metricExpressions"])
+            except KeyError:
+                eprint("Error occurred while getting metric expressions from tile. Raw tile:", tile)
+    # return negative number to flip order
+    return -count
 
 
 METRIC_NAME = "(builtin:dashboards.viewCount:fold)"
@@ -225,10 +259,23 @@ response = requests.get(
     headers={"Authorization": "Api-Token " + API_TOKEN},
 )
 response.raise_for_status()
-dashboards = json.loads(response.content)["result"][0]["data"]
+dashboard_ids = json.loads(response.content)["result"][0]["data"]
 
 # If there are any results
-if dashboards:
+if dashboard_ids:
+    dashboard_thread_pool = ThreadPool(processes=DASHBOARD_THREADS)
+
+    dashboards = list(filter(lambda dashboard: dashboard is not None
+                                               # filter out built-in preset dashboards
+                                               and not dashboard["dashboardMetadata"].get("preset", False)
+                                               and dashboard["dashboardMetadata"]["owner"] != "Dynatrace",
+                             dashboard_thread_pool.map_async(load_dashboard_data, dashboard_ids).get()))
+
+    # sort dashboards based on how many expressions they have
+    # those are processed first to avoid long-running dashboard jobs pushing the execution time
+    # this leads to optimal thread pool utilization throughout the whole runtime
+    dashboards = sorted(dashboards, key=get_expression_count)
+
     header = OUTPUT_FORMATTER.get_header()
     if header:
         print(header)
@@ -236,42 +283,14 @@ if dashboards:
 
     output_queue: queue.Queue[str] = queue.Queue()
 
-    dashboard_thread_pool = ThreadPool(processes=DASHBOARD_THREADS)
     transpile_thread_pool = ThreadPool(processes=TRANSPILE_THREADS)
 
 
     def process_dashboard(dashboard):
-        dashboard_id = dashboard["dimensions"][0]
-
-        # get list of dashboard IDs
-        dashboard_data = requests.get(
-            "{}config/v1/dashboards/{}".format(
-                BASE_URL,
-                dashboard_id
-            ),
-            headers={"Authorization": "Api-Token " + API_TOKEN},
-        )
-        if dashboard_data.status_code == 404:
-            return
-        elif dashboard_data.status_code != 200:
-            eprint(
-                "Problem getting dashboard data! Response:",
-                dashboard_data.status_code,
-                dashboard_data.content.decode("UTF-8")
-            )
-            return
-
-        dashboard = json.loads(dashboard_data.content)
-
-        # filter out all built-in presets
-        if (dashboard["dashboardMetadata"].get("preset", False)
-                and dashboard["dashboardMetadata"]["owner"] == "Dynatrace"):
-            return
-
         try:
             tiles = dashboard["tiles"]
         except KeyError:
-            eprint("Error occurred while getting tiles. Raw data:", dashboard)
+            # silently ignore, errors were printed at the start anyway
             return
 
         # if other tiles are present, the status is "UNKNOWN" or "NO"
@@ -333,8 +352,9 @@ if dashboards:
         if thread.is_alive():
             output_queue.put("[!!] Job for dashboard " + dashboard_uuid + "didn't complete in" + TIMEOUT + "second(s)!")
 
+
     for dashboard in dashboards:
-        dashboard_uuid = dashboard["dimensions"][0]
+        dashboard_uuid = dashboard["id"]
         if dashboard_uuid is None:
             eprint("Invalid dashboard:", dashboard)
             continue
