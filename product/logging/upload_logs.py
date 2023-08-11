@@ -84,24 +84,24 @@ def main():
                     log_level = part
                     break
 
-            if log_level is None or log_level_location is None:
-                eprint("Couldn't parse", line)
-                continue
-
-            tenant_id = parts[log_level_location + 1]
-            tenant_id = tenant_id[1:len(tenant_id) - 1]
+            tenant_id = extract_tenant_id(log_level_location, parts, line)
 
             timestamp: str = parts[0] + "T" + parts[1] + timezone
 
-            result.append({
+            obj = {
                 # relative path, starting from the current working directory
                 # this allows logfiles to be called after their file name rather than the absolute path
                 "log.source": os.path.relpath(file, getcwd()),
                 "content": line,
                 "timestamp": timestamp,
-                "level": log_level,
                 "dt.tenant.id": tenant_id
-            })
+            }
+
+            # some logs can lack the log level, like `feature.entity.count`
+            if log_level is not None:
+                obj["level"] = log_level
+
+            result.append(obj)
             total_lines += 1
 
     # a single request can only hold so much, therefore, we chunk the list into pieces the API can handle
@@ -110,6 +110,9 @@ def main():
     error_count = 0
     success_count = 0
     for sublist in lists:
+        if len(sublist) == 0:
+            continue
+
         response = requests.post(url=environment_url + "/api/v2/logs/ingest",
                                  headers={
                                      "Authorization": "Api-Token " + api_token,
@@ -134,6 +137,15 @@ def main():
                 error_count += len(sublist)
 
     print("Successfully ingested", success_count, "logs, failed to ingest", error_count, "lines.")
+
+
+def extract_tenant_id(log_level_location: int | None, parts: MutableSequence[str], line: str):
+    if log_level_location is not None:
+        extracted = parts[log_level_location + 1]
+    else:
+        match = re.search(r"\[([a-z\d-]+)\]", line)
+        extracted = match.group(1)
+    return extracted[1:len(extracted) - 1] if extracted is not None else None
 
 
 if __name__ == "__main__":
