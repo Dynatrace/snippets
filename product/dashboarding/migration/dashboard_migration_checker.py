@@ -196,12 +196,12 @@ argument_parser.add_argument("-o", "--output",
 argument_parser.add_argument("--dashboard-threads",
                              help="The amount of max. concurrently processing dashboards",
                              type=int,
-                             default=500
+                             default=100
                              )
 argument_parser.add_argument("--transpile-threads",
                              help="The amount of max. concurrently processing transpiles",
                              type=int,
-                             default=2000
+                             default=1000
                              )
 
 arguments = argument_parser.parse_args()
