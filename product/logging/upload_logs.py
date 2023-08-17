@@ -41,7 +41,7 @@ def main():
         description="Uploads managed logs to a SaaS environment"
     )
     argument_parser.add_argument("environment_url", help="URL of the environment")
-    argument_parser.add_argument("api_token", help="Required Scope: logs.ingests")
+    argument_parser.add_argument("api_token", help="Required Scope: logs.ingest")
     argument_parser.add_argument("file_pattern",
                                  help="Specify the file selector. Wildcard (*) is supported.",
                                  default="*.log")
