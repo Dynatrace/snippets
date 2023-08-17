@@ -49,6 +49,10 @@ def main():
     argument_parser.add_argument("--timezone", "--tz",
                                  help="Timezone of the log total_lines as defined by RFC 3339",
                                  required=True)
+    argument_parser.add_argument("--no-traces", "--remove-traces",
+                                 help="Removes trace information from lines before uploading",
+                                 default=False,
+                                 action="store_true")
 
     arguments = argument_parser.parse_args()
 
@@ -57,6 +61,7 @@ def main():
 
     file_pattern = arguments.file_pattern
     timezone: str = arguments.timezone
+    no_traces: bool = arguments.no_traces
 
     total_lines = 0
     result = []
@@ -70,6 +75,9 @@ def main():
             # 2023-08-07 13:46:31 INFO    [0] [MyClass] Hello World!
             # 2023-08-10 10:23:51 UTC SEVERE    [0] [MyClass] Hello World!
             # 2023-08-10 10:23:51 UTC [!dt dt.trace_id=...,dt.trace_sampled=true] INFO    [0] [MyClass] Hello World!
+
+            if no_traces:
+                line = re.sub(r"(\[!dt dt\.trace.*?\]\s)", "", line)
 
             # split by multiple spaces as well because there are 4 after the log level
             parts = re.split(r"\s+", line)
