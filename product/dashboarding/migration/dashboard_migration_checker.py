@@ -158,12 +158,20 @@ def handle_expression(expression) -> PassedExpression | BlockingExpression | Non
         eprint("Encountered issue! Metric selector: '" + expression + "', response: "+ expression_response)
 
 
-def handle_tile(tile) -> Tile | KeyError | None:
-    # expressions start with "resolution=...&" for some reason
-    try:
-        expressions = map(lambda e: e[e.index("&") + 1:], tile["metricExpressions"])
-    except KeyError:
-        return KeyError()
+def handle_tile(tile) -> Tile | KeyError | tuple[Tile, KeyError] | None:
+    if tile["tileType"] == "DATA_EXPLORER":
+        # expressions start with "resolution=...&" for some reason
+        try:
+            expressions = [expression[expression.index("&") + 1:] for expression in tile["metricExpressions"]]
+        except KeyError as error:
+            return tile, error
+    elif tile["tileType"] == "CUSTOM_CHARTING":
+        try:
+            expressions = [series["metric"] for series in tile["filterConfig"]["chartConfig"]["series"]]
+        except (KeyError, TypeError) as error:
+            return tile, KeyError(tile["filterConfig"]["chartConfig"], error)
+    else:
+        return KeyError("Tile type not supported: " + tile["tileType"])
 
     blocking_expressions: MutableSequence[BlockingExpression] = list()
     passed_expressions: MutableSequence[PassedExpression] = list()
@@ -355,8 +363,8 @@ if dashboard_ids:
         transpile_jobs = []
 
         for tile in dashboard_tiles:
-            # data explorer tiles might not be automatically migratable, let's check for that
-            if tile["tileType"] == "DATA_EXPLORER":
+            # data explorer and custom charting tiles might not be automatically migratable, let's check for that
+            if tile["tileType"] == "DATA_EXPLORER" or tile["tileType"] == "CUSTOM_CHARTING":
                 transpile_jobs.append(tile)
             else:
                 unknown_tile_types.add(tile["tileType"])
@@ -366,10 +374,12 @@ if dashboard_ids:
             # no blocking expressions
             if tile is None:
                 continue
-            # error while processing DATA_EXPLORER tile - don't ask about the second condition, it's python
-            elif type(tile) is KeyError:
+            # error while processing tile
+            elif isinstance(tile, KeyError):
+                unknown_tile_types.add("--ERROR--")
+            elif isinstance(tile, tuple) and isinstance(tile[1], KeyError):
                 # adding it to force UNKNOWN
-                unknown_tile_types.add("DATA_EXPLORER")
+                unknown_tile_types.add(tile[0]["tileType"])
             # regular blocking tile
             elif isinstance(tile, Tile):
                 tiles.append(tile)
