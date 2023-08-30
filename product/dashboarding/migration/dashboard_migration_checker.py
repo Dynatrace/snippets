@@ -14,20 +14,45 @@ def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
 
-class BlockingTile:
-    def __init__(self, name: str, blocking_expressions: MutableSequence[str]):
+def flat_map(function, items):
+    result = []
+    for item in items:
+        result.extend(function(item))
+    return result
+
+
+class BlockingExpression:
+    def __init__(self, expression: str, errors: [str]):
+        self.expression = expression
+        self.errors = errors
+
+
+class PassedExpression:
+    def __init__(self, expression: str, dql: str):
+        self.expression = expression
+        self.dql = dql
+
+
+class Tile:
+    def __init__(self,
+                 name: str,
+                 passed_expressions: MutableSequence[PassedExpression],
+                 blocking_expressions: MutableSequence[BlockingExpression]):
         self.name = name
+        self.passedExpressions = passed_expressions
         self.blockingExpressions = blocking_expressions
+        self.isBlocking = len(blocking_expressions) != 0
+
+    # useful for the JSON formatter where json.dumps is used
 
 
 class DashboardMigrationStatus:
-    def __init__(self, name: str, id: str, status: str, unknown_tile_types: set[str],
-                 blocking_tiles: MutableSequence[BlockingTile]):
+    def __init__(self, name: str, id: str, status: str, unknown_tile_types: set[str], tiles: MutableSequence[Tile]):
         self.name = name
         self.id = id
         self.status = status
         self.unknownTileTypes = unknown_tile_types
-        self.blockingTiles = blocking_tiles
+        self.tiles = tiles
 
 
 class OutputFormatter:
@@ -41,26 +66,16 @@ class OutputFormatter:
         pass
 
 
-class CSVOutputFormatter(OutputFormatter):
-    def get_header(self) -> str:
-        return "name;id;migrationPossible;unknownTileTypes;blockingTiles"
-
-    def format_line(self, migration_status: DashboardMigrationStatus):
-        return "{};{};{};{};{}".format(
-            migration_status.name,
-            migration_status.id,
-            migration_status.status,
-            ",".join(migration_status.unknownTileTypes),
-            # TODO: find a character that isn't used by the query language
-            "|".join(map(lambda blocking_tile: blocking_tile.name + " (" + " ".join(blocking_tile.blockingExpressions) + ")",
-                         migration_status.blockingTiles))
-        )
-
-
 class JSONOutputFormatter(OutputFormatter):
     def format_line(self, migration_status: DashboardMigrationStatus):
         # sets can't be serialized, but lists can
         migration_status.unknownTileTypes = list(migration_status.unknownTileTypes)
+
+        # clear passed, unless the user specified to show successes
+        if not SHOW_SUCCESSES:
+            for tile in migration_status.tiles:
+                del tile.passedExpressions
+
         # default is required to recursively serialize the object
         return json.dumps(migration_status, default=lambda o: o.__dict__)
 
@@ -81,6 +96,29 @@ class JSONArrayOutputFormatter(JSONOutputFormatter):
         return "[" + ",".join(self.lines) + "]"
 
 
+def format_blocking_tiles(migration_status: DashboardMigrationStatus):
+    return [
+        f"{tile.name} ({' '.join([expr.expression for expr in tile.blockingExpressions])})"
+        for tile in migration_status.tiles
+        if tile.isBlocking
+    ]
+
+
+class CSVOutputFormatter(OutputFormatter):
+    def get_header(self) -> str:
+        return "name;id;migrationPossible;unknownTileTypes;blockingTiles"
+
+    def format_line(self, migration_status: DashboardMigrationStatus):
+        return "{};{};{};{};{}".format(
+            migration_status.name,
+            migration_status.id,
+            migration_status.status,
+            ",".join(migration_status.unknownTileTypes),
+            # TODO: find a character that isn't used by the query language
+            "|".join(format_blocking_tiles(migration_status))
+        )
+
+
 class MarkdownOutputFormatter(OutputFormatter):
     def get_header(self) -> str:
         return (
@@ -94,14 +132,13 @@ class MarkdownOutputFormatter(OutputFormatter):
             migration_status.id,
             migration_status.status,
             ", ".join(migration_status.unknownTileTypes),
-            ";".join(map(lambda blocking_tile: blocking_tile.name + " (" + " ".join(blocking_tile.blockingExpressions) + ")",
-                         migration_status.blockingTiles))
+            ";".join(format_blocking_tiles(migration_status))
         )
 
 
-def handle_expression(expression) -> str | None:
+def handle_expression(expression) -> PassedExpression | BlockingExpression | None:
     # attempt to transpile the expression
-    expression_valid = requests.get(
+    expression_response = requests.get(
         "{}v2/metrics/transpile?metricSelector={}&mode={}".format(
             BASE_URL,
             expression,
@@ -109,30 +146,42 @@ def handle_expression(expression) -> str | None:
         ),
         headers={"Authorization": "Api-Token " + API_TOKEN},
     )
-    expression_valid = json.loads(expression_valid.content)
+    expression_response = json.loads(expression_response.content)
     # the status can also be "PARTIAL_SUCCESS" when using the lenient transpiling mode
     # in this case, the expressions is still considered valid
-    if expression_valid["status"] == "ERROR":
-        return expression
+    try:
+        if expression_response["status"] == "ERROR":
+            return BlockingExpression(expression, expression_response["errors"])
+        else:
+            return PassedExpression(expression, expression_response["dql"])
+    except KeyError:
+        eprint("Encountered issue! Metric selector: '" + expression + "', response: "+ expression_response)
 
 
-def handle_tile(tile) -> BlockingTile | KeyError | None:
+def handle_tile(tile) -> Tile | KeyError | None:
     # expressions start with "resolution=...&" for some reason
     try:
         expressions = map(lambda e: e[e.index("&") + 1:], tile["metricExpressions"])
     except KeyError:
         return KeyError()
 
-    blocking_expressions = []
+    blocking_expressions: MutableSequence[BlockingExpression] = list()
+    passed_expressions: MutableSequence[PassedExpression] = list()
     for expression in expressions:
         result = handle_expression(expression)
-        if result:
+        if isinstance(result, BlockingExpression):
             blocking_expressions.append(result)
+        elif isinstance(result, PassedExpression):
+            passed_expressions.append(result)
 
-    if len(blocking_expressions) > 0:
-        return BlockingTile(tile["name"], blocking_expressions)
+    return Tile(tile["name"], passed_expressions, blocking_expressions)
 
-    return None
+
+def has_failed_tile(tiles: MutableSequence[Tile]):
+    for tile in tiles:
+        if tile.isBlocking:
+            return True
+    return False
 
 
 def load_dashboard_data(dashboard):
@@ -192,6 +241,9 @@ argument_parser.add_argument("-o", "--output",
                              help="Change the output format",
                              choices=["csv", "json", "json_array", "markdown"]
                              )
+argument_parser.add_argument("--show-successes",
+                             help="[JSON only] show successfully transpiled expressions with their DQL counterpart",
+                             action="store_true")
 
 argument_parser.add_argument("--dashboard-threads",
                              help="The amount of max. concurrently processing dashboards",
@@ -224,6 +276,9 @@ if TRANSPILE_THREADS <= 0:
     exit()
 
 TRANSPILE_MODE = "lenient" if arguments.lenient else "strict"
+
+# whether to show succeeding metric selector transpiles
+SHOW_SUCCESSES = arguments.show_successes
 
 
 def get_output_formatter() -> OutputFormatter:
@@ -289,7 +344,7 @@ if dashboard_ids:
 
     def process_dashboard(dashboard):
         try:
-            tiles = dashboard["tiles"]
+            dashboard_tiles = dashboard["tiles"]
         except KeyError:
             # silently ignore, errors were printed at the start anyway
             return
@@ -299,29 +354,30 @@ if dashboard_ids:
 
         transpile_jobs = []
 
-        for tile in tiles:
+        for tile in dashboard_tiles:
             # data explorer tiles might not be automatically migratable, let's check for that
             if tile["tileType"] == "DATA_EXPLORER":
                 transpile_jobs.append(tile)
             else:
                 unknown_tile_types.add(tile["tileType"])
 
-        blocking_tiles = []
-
+        tiles: MutableSequence[Tile] = []
         for tile in transpile_thread_pool.map_async(handle_tile, transpile_jobs).get():
             # no blocking expressions
             if tile is None:
                 continue
             # error while processing DATA_EXPLORER tile - don't ask about the second condition, it's python
-            elif tile is KeyError or type(tile) is KeyError:
+            elif type(tile) is KeyError:
                 # adding it to force UNKNOWN
                 unknown_tile_types.add("DATA_EXPLORER")
             # regular blocking tile
+            elif isinstance(tile, Tile):
+                tiles.append(tile)
             else:
-                blocking_tiles.append(tile)
+                eprint("Unknown tile received:", tile)
 
         is_unknown = False
-        if len(blocking_tiles) != 0:
+        if has_failed_tile(tiles):
             status = "No"
         # if other tile types exist, the status is unknown
         elif len(unknown_tile_types) > 0:
@@ -335,7 +391,7 @@ if dashboard_ids:
             dashboard["id"],
             status,
             unknown_tile_types if is_unknown else set(),
-            blocking_tiles
+            tiles
         )
         line = OUTPUT_FORMATTER.format_line(migration_status)
         if line and len(line) > 0:
