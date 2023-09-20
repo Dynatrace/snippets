@@ -4,7 +4,7 @@
 
 - Cluster version 206+
 
-- Python 3 interpreter (no additional libraries needed)
+- Python 3 interpreter (no additional libraries needed). Make sure that SSL Certificate is installed.
 
 - Dynatrace API token with following permissions: API v1 "Read configuration" & "Write configuration"
 
@@ -30,3 +30,18 @@
 ```
 python3 upload_dashboards.py --cluster-version 206 --dynatrace-api-token 123456789 --dynatrace-env-url https://my-cluster.com/e/1755ddb2-7938-41a2-b6bd-096e0fdcd3e0
 ```
+### Troubleshooting
+1. Resolving SSL Certificate Verification Issues on macOS
+
+If you encounter an exception [SSL: CERTIFICATE_VERIFY_FAILED], it may be due to the way Python3
+was installed, especially if you used the Homebrew formula.
+
+To resolve this issue, follow these steps:
+-  Upgrade Python3:   
+   Visit the official Python language website at https://www.python.org/downloads/macos/ and
+   download the native Python installer for macOS. Run the installer to upgrade your Python3 installation.
+- Install a New Certificate:   
+  After upgrading Python3, navigate to the Python3 directory, and execute the following command:
+    ```
+    ./Install Certificates.command
+    ```
