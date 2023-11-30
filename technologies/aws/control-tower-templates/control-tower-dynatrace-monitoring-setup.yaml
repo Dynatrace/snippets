@@ -254,7 +254,7 @@ Resources:
       Handler: index.lambda_handler
       MemorySize: 128
       Role: !GetAtt "LambdaRoleToCaptureEvents.Arn"
-      Runtime: python3.7
+      Runtime: python3.11
       Timeout: 60
       Environment:
         Variables:
