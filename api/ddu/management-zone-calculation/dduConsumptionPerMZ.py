@@ -111,6 +111,13 @@ for managementZoneIndex, managementZone in (
             ),
             headers={"Authorization": "Api-Token " + API_TOKEN},
         )
+        if response.status_code == 400 and "not applicable for type" in response.text:
+            continue
+        if response.status_code == 503:
+            print(f"Encountered 503 for "
+                  f"{allManagemementZones[managementZoneIndex]['id']} - {allEntityTypes[entityTypeIndex]['type']} "
+                  f"result will be incomplete.")
+            continue
         response.raise_for_status()
         # print("Waiting for ", 60 / MAX_REQUESTS_PER_MINUTE, " seconds")
         time.sleep(60 / MAX_REQUESTS_PER_MINUTE)
