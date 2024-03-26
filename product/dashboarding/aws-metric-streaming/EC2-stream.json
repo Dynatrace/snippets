@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS EC2, EBS, ASG - Metric Streams",
+        "name": "Amazon EC2, EBS, ASG - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

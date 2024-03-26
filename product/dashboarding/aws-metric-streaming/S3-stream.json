@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS S3 - Metric Streams",
+        "name": "Amazon S3 - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

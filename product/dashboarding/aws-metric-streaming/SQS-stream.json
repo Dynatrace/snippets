@@ -1,6 +1,6 @@
 {
   "dashboardMetadata": {
-    "name": "AWS SQS - Metric Streams",
+    "name": "Amazon SQS - Metric Streams",
     "shared": false,
     "sharingDetails": {
       "linkShared": true,

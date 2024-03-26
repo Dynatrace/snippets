@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "Amazon WAFV2 - Metric Streams",
+        "name": "AWS WAFV2 - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

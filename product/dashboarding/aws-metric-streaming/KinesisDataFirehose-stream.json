@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS Kinesis Firehose - Metric Streams",
+        "name": "Amazon Kinesis Firehose - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS DynamoDB Accelerator (DAX) - Metric Streams",
+        "name": "Amazon DynamoDB Accelerator (DAX) - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

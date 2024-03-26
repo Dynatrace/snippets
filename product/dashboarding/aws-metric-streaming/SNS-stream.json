@@ -1,6 +1,6 @@
 {
   "dashboardMetadata": {
-    "name": "AWS SNS - Metric Streams",
+    "name": "Amazon SNS - Metric Streams",
     "shared": false,
     "sharingDetails": {
       "linkShared": true,

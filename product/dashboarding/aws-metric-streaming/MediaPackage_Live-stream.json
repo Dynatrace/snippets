@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "Amazon MediaPackage Live - Metric Streams",
+        "name": "AWS Elemental MediaPackage Live - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,
