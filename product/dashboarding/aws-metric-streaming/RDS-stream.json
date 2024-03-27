@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS RDS - Metric Streams",
+        "name": "Amazon RDS - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

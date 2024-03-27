@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS ECS ContainerInsights - Metric Streams",
+        "name": "Amazon ECS Container Insights - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

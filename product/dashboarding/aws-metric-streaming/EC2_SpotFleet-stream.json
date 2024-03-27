@@ -1,6 +1,6 @@
 {
   "dashboardMetadata": {
-    "name": "AWS EC2 SpotFleet - Metric Streams",
+    "name": "Amazon EC2 SpotFleet - Metric Streams",
     "shared": false,
     "sharingDetails": {
       "linkShared": true,

@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS MediaConvert - Metric Streams",
+        "name": "AWS Elemental MediaConvert - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

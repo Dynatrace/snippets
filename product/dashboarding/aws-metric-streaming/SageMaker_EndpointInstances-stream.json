@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS SageMaker Endpoint Instances - Metric Streams",
+        "name": "Amazon SageMaker Endpoint Instances - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

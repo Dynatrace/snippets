@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS SageMaker - Metric Streams",
+        "name": "Amazon SageMaker - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

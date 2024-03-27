@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS Redshift - Metric Streams",
+        "name": "Amazon Redshift - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

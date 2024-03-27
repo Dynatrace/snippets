@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS SageMaker Transform Jobs - Metric Streams",
+        "name": "Amazon SageMaker Transform Jobs - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

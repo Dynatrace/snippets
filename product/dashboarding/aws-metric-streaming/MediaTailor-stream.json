@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS MediaTailor - Metric Streams",
+        "name": "AWS Elemental MediaTailor - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

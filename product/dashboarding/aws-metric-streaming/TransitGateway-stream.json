@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "Amazon Transit Gateway - Metric Streams",
+        "name": "AWS Transit Gateway - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

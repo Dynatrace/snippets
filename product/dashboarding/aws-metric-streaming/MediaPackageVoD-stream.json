@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "Amazon MediaPackage Video on Demand - Metric Streams",
+        "name": "AWS Elemental MediaPackage Video on Demand - Metric Streams",
         "tags": [
             "Metric Streams",
             "AWS"

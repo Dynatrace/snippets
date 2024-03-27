@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS SageMaker Ground Truth - Metric Streams",
+        "name": "Amazon SageMaker Ground Truth - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,
