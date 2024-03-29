@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS ElastiCache - Metric Streams",
+        "name": "Amazon ElastiCache - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

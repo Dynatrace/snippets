@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS Route 53 Resolver - Metric Streams",
+        "name": "Amazon Route 53 Resolver - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

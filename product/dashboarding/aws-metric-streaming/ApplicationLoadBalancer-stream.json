@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS Application Load Balancer - Metric Streams",
+        "name": "Amazon Application Load Balancer - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,

@@ -1,6 +1,6 @@
 {
     "dashboardMetadata": {
-        "name": "AWS Kinesis Data Analytics - Metric Streams",
+        "name": "Amazon Kinesis Data Analytics - Metric Streams",
         "shared": false,
         "sharingDetails": {
             "linkShared": true,
