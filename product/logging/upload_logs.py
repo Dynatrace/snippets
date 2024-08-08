@@ -4,10 +4,21 @@ import json
 import os
 import re
 import sys
+import traceback
+import logging as Logger
 from os import getcwd
 from typing import MutableSequence
 
 import requests
+
+class LogSettings:
+    environment_url: str
+    access_token: str
+    file_pattern: str
+    root_dir: str
+    timezone: str
+    no_traces: bool
+
 
 
 def eprint(*args, **kwargs):
@@ -34,49 +45,76 @@ def partition_for_api(input_list: MutableSequence[MutableSequence[any]]) -> Muta
 # making it impossible to hardcode the index)
 LOG_LEVELS = ["TRACE", "DEBUG", "INFO", "WARN", "WARNING", "ERROR", "SEVERE", "FATAL"]
 
-
 def main():
     argument_parser = argparse.ArgumentParser(
-        prog='Log Uploader',
-        description="Uploads managed logs to a SaaS environment"
+        prog='Dynatrace Log Uploader',
+        description="Uploads managed logs to a Dynatrace SaaS environment"
     )
-    argument_parser.add_argument("environment_url", help="URL of the environment")
-    argument_parser.add_argument("api_token", help="Required Scope: logs.ingest")
+    argument_parser.add_argument("environment_url", 
+                                 help="URL of the environment"
+                                 )
+    argument_parser.add_argument("access_token", 
+                                 help="API access token to access the API. Required Scope: 'logs.ingest'"
+                                 )
     argument_parser.add_argument("file_pattern",
-                                 help="Specify the file selector. Wildcard (*) is supported.",
-                                 default="*.log")
-
-    argument_parser.add_argument("--timezone", "--tz",
-                                 help="Timezone of the log total_lines as defined by RFC 3339",
-                                 required=True)
-    argument_parser.add_argument("--no-traces", "--remove-traces",
-                                 help="Removes trace information from lines before uploading",
-                                 default=False,
-                                 action="store_true")
-
+                                 help="Specify selection of log files (Unix path expansion rules)",
+                                 default="*.log"
+                                 )
+    argument_parser.add_argument("root_directory",
+                                 help="Specify the root directory of the log files",
+                                 default="."
+                                 )
+    argument_parser.add_argument("-tz", "--timezone",
+                                 help="Timezone of the log lines as defined by RFC 3339",
+                                 default=""
+                                 )
+    argument_parser.add_argument("-nt", "-rt", "--no-traces", "--remove-traces",
+                                 help="Removes trace information from log lines before uploading",
+                                 action="store_true",
+                                 default=False
+                                 )
+    argument_parser.add_argument("-d", "--debug",
+                                 help="Enable debug logging",
+                                 action="store_const",
+                                 const=Logger.DEBUG,
+                                 default=Logger.INFO
+                                 )
+    
     arguments = argument_parser.parse_args()
 
-    environment_url = arguments.environment_url
-    api_token = arguments.api_token
+    Logger.basicConfig(level=arguments.debug, format="%(asctime)s - %(levelname)-08s - %(message)s")
 
-    file_pattern = arguments.file_pattern
-    timezone: str = arguments.timezone
-    no_traces: bool = arguments.no_traces
+    logging_settings = LogSettings()
+    logging_settings.environment_url = arguments.environment_url
+    logging_settings.access_token = arguments.access_token
+    logging_settings.file_pattern = arguments.file_pattern
+    logging_settings.root_dir = arguments.root_directory
+    logging_settings.timezone = arguments.timezone
+    logging_settings.no_traces = arguments.no_traces
 
-    total_lines = 0
+    try:
+        upload_logs(logging_settings)
+    except Exception as e:
+        Logger.critical(f"An exception was raised while uploading")
+        traceback.print_exception(e)
+    
+def upload_logs(log_settings: LogSettings):
+    total_count = 0
     result = []
-    for file in glob.glob(file_pattern, recursive=True):
-        # if not os.path.isfile(file):
-        # continue
 
-        handle = open(file, "r")
+    for file in glob.glob(pathname=log_settings.file_pattern,
+                          root_dir=log_settings.root_dir,
+                          recursive=True,
+                          ):
+        file_path = log_settings.root_dir + "/" + file
+        handle = open(file_path, "r")
         for line in handle:
             # example log:
             # 2023-08-07 13:46:31 INFO    [0] [MyClass] Hello World!
             # 2023-08-10 10:23:51 UTC SEVERE    [0] [MyClass] Hello World!
             # 2023-08-10 10:23:51 UTC [!dt dt.trace_id=...,dt.trace_sampled=true] INFO    [0] [MyClass] Hello World!
 
-            if no_traces:
+            if log_settings.no_traces:
                 line = re.sub(r"(\[!dt dt\.trace.*?\]\s)", "", line)
 
             # split by multiple spaces as well because there are 4 after the log level
@@ -94,7 +132,7 @@ def main():
 
             tenant_id = extract_tenant_id(log_level_location, parts, line)
 
-            timestamp: str = parts[0] + "T" + parts[1] + timezone
+            timestamp: str = parts[0] + "T" + parts[1]
 
             obj = {
                 # relative path, starting from the current working directory
@@ -110,42 +148,61 @@ def main():
                 obj["level"] = log_level
 
             result.append(obj)
-            total_lines += 1
+            total_count += 1
 
     # a single request can only hold so much, therefore, we chunk the list into pieces the API can handle
+
+    if (len(result) == 0):
+        Logger.info(f"Summary: Ingested 0 logs, Failed 0 logs, Success rate 100%")
+        return
+
     lists = partition_for_api([result])
+ 
+    Logger.debug(f"Splitting logs into {len(lists)} smaller partitions")
 
     error_count = 0
     success_count = 0
-    for sublist in lists:
-        if len(sublist) == 0:
+    for partition in lists:
+        if len(partition) == 0:
             continue
 
-        response = requests.post(url=environment_url + "/api/v2/logs/ingest",
+        partition_id = lists.index(partition) + 1
+        
+        response = requests.post(url=log_settings.environment_url + "/api/v2/logs/ingest",
                                  headers={
-                                     "Authorization": "Api-Token " + api_token,
+                                     "Authorization": "Api-Token " + log_settings.access_token,
                                      "Content-Type": "application/json; charset=utf-8"
                                  },
-                                 json=sublist
+                                 json=partition
                                  )
-        print(response.status_code, response.content.decode("utf-8"))
+
         match response.status_code:
             # complete success, all items ingested
             case 204:
-                success_count += len(sublist)
+                Logger.debug(f"Partition {partition_id}: Ingested {len(partition)} log(s), Failed 0 log(s), Success rate 100%")
+                success_count += len(partition)
+
             # partial suggest => some lines ingested, others not
             case 200:
                 # parse failure count from a response like this:
                 # {"success":{"code":200,"message":"1531 events were not ingested because of timestamp out of correct time range."}}
                 message: str = json.loads(response.content)["success"]["message"]
                 errors = int(message.split(" ")[0])
-                success_count += len(sublist) - errors
+                success = len(partition) - errors
+                error_count += errors
+                success_count += success
+                Logger.debug(f"Partition {partition_id}: Some logs are outside of the time range")
+                Logger.debug(f"Partition {partition_id}: Ingested {success} log(s), Failed {errors} log(s), , Success rate {success / (success + errors):.0%}")
+
             # all logs are outside the time range
             case 400:
-                error_count += len(sublist)
+                error_count += len(partition)
+                Logger.debug(f"Partition {partition_id}: All logs are outside the time range")
+                Logger.debug(f"Partition {partition_id}: Ingested 0 log(s), Failed {len(partition)} log(s), Success rate 0%")
+            case _:
+                Logger.error(f"Partition {partition_id}: Something went wrong")
 
-    print("Successfully ingested", success_count, "logs, failed to ingest", error_count, "lines.")
-
+    Logger.info(f"Summary: Ingested {success_count} log(s), Failed {error_count} log(s), Success rate {success_count / total_count:.0%}")
 
 def extract_tenant_id(log_level_location: int | None, parts: MutableSequence[str], line: str):
     if log_level_location is not None:
