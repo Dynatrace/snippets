@@ -17,7 +17,6 @@ class LogSettings:
     access_token: str
     file_pattern: str
     root_dir: str
-    timezone: str
     no_traces: bool
 
 
@@ -41,7 +40,6 @@ def partition_for_api(input_list: MutableSequence[MutableSequence[any]]) -> Muta
 
 
 # these need to be hardcoded here to find the index of the log level to get that + tenant information & class name
-# (logs can optionally have the timezone and/or trace information before the log level,
 # making it impossible to hardcode the index)
 LOG_LEVELS = ["TRACE", "DEBUG", "INFO", "WARN", "WARNING", "ERROR", "SEVERE", "FATAL"]
 
@@ -63,10 +61,6 @@ def main():
     argument_parser.add_argument("root_directory",
                                  help="Specify the root directory of the log files",
                                  default="."
-                                 )
-    argument_parser.add_argument("-tz", "--timezone",
-                                 help="Timezone of the log lines as defined by RFC 3339",
-                                 default=""
                                  )
     argument_parser.add_argument("-nt", "-rt", "--no-traces", "--remove-traces",
                                  help="Removes trace information from log lines before uploading",
@@ -90,7 +84,6 @@ def main():
     logging_settings.access_token = arguments.access_token
     logging_settings.file_pattern = arguments.file_pattern
     logging_settings.root_dir = arguments.root_directory
-    logging_settings.timezone = arguments.timezone
     logging_settings.no_traces = arguments.no_traces
 
     try:
