@@ -11,6 +11,7 @@ from typing import MutableSequence
 
 import requests
 
+
 class LogSettings:
     environment_url: str
     access_token: str
@@ -18,7 +19,6 @@ class LogSettings:
     root_dir: str
     timezone: str
     no_traces: bool
-
 
 
 def eprint(*args, **kwargs):
@@ -76,13 +76,14 @@ def main():
     argument_parser.add_argument("-d", "--debug",
                                  help="Enable debug logging",
                                  action="store_const",
+                                 dest="logging_level",
                                  const=Logger.DEBUG,
                                  default=Logger.INFO
                                  )
     
     arguments = argument_parser.parse_args()
 
-    Logger.basicConfig(level=arguments.debug, format="%(asctime)s - %(levelname)-08s - %(message)s")
+    Logger.basicConfig(level=arguments.logging_level, format="%(asctime)s - %(levelname)-08s - %(message)s")
 
     logging_settings = LogSettings()
     logging_settings.environment_url = arguments.environment_url
@@ -97,7 +98,8 @@ def main():
     except Exception as e:
         Logger.critical(f"An exception was raised while uploading")
         traceback.print_exception(e)
-    
+
+
 def upload_logs(log_settings: LogSettings):
     total_count = 0
     result = []
@@ -150,15 +152,15 @@ def upload_logs(log_settings: LogSettings):
             result.append(obj)
             total_count += 1
 
-    # a single request can only hold so much, therefore, we chunk the list into pieces the API can handle
-
     if (len(result) == 0):
+        Logger.debug(f"No logs found")
         Logger.info(f"Summary: Ingested 0 logs, Failed 0 logs, Success rate 100%")
         return
 
+    # a single request can only hold so much, therefore, we chunk the list into pieces the API can handle
+    Logger.debug(f"Splitting logs into {len(lists)} smaller partitions")
     lists = partition_for_api([result])
  
-    Logger.debug(f"Splitting logs into {len(lists)} smaller partitions")
 
     error_count = 0
     success_count = 0
