@@ -26,9 +26,10 @@ import time
 def restApiGet(url):
     try:
         response = requests.get(url)
-        if int(response.headers['X-RateLimit-Remaining']) == 0:
-            time.sleep(-(-(int(response.headers['X-RateLimit-Reset']) - int(round(time.time() * 1000000))) // 1000000))
-            response = restApiGet(url)
+        if 'X-RateLimit-Remaining' in response.headers:
+            if int(response.headers['X-RateLimit-Remaining']) == 0:
+                time.sleep(-(-(int(response.headers['X-RateLimit-Reset']) - int(round(time.time() * 1000000))) // 1000000))
+                response = restApiGet(url)
         response.raise_for_status() #Check for bad request
         response = response.json() #Decode JSON
     except requests.exceptions.HTTPError as errh: #HTTP errors
@@ -43,9 +44,10 @@ def restApiGet(url):
 def restApiPut(url, data):
     try:
         response = requests.put(url, json.dumps(data), headers = {"Content-Type":"application/json"})
-        if int(response.headers['X-RateLimit-Remaining']) == 0:
-            time.sleep(-(-(int(response.headers['X-RateLimit-Reset']) - int(round(time.time() * 1000000))) // 1000000))
-            response = restApiPut(url, data)
+        if 'X-RateLimit-Remaining' in response.headers:
+            if int(response.headers['X-RateLimit-Remaining']) == 0:
+                time.sleep(-(-(int(response.headers['X-RateLimit-Reset']) - int(round(time.time() * 1000000))) // 1000000))
+                response = restApiPut(url, data)
         response.raise_for_status()
     except requests.exceptions.HTTPError as errh:
         logging.error(errh)
