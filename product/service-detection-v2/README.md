@@ -1,5 +1,11 @@
 # Reproduce Unified Service Detection behavior using Service Detection v2 rules
 
+In Dynatrace version 1.317, we introduced Service Detection V2 (SDv2), which currently applies only to OpenTelemetry spans.
+Previously, service detection rules were hardcoded and documented on the (classic) Unified Services help page. Now these rules are configurable settings that you can modify. 
+
+You can read more about [SDv2 in Dynatrace Documentation](https://docs.dynatrace.com/docs/observe/applications-and-microservices/services/service-detection-v2), and for further details, please check our [community blog post](https://community.dynatrace.com/t5/OpenTelemetry-discussions/Service-Detection-V2-FAQ-Release-317/m-p/279811/thread-id/4#M4).
+
+Here, you can find rules and snippets for reproducing the Unified Service Detection behavior using SDv2.
 
 For all rules, `If condition matches` option set to `Detect request on endpoint`
 
